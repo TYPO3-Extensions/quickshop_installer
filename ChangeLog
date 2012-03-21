@@ -1,0 +1,46 @@
+2.0.0
+  2011-02-07
+  Improvement
+  - Individual layout for each product
+  
+1.0.6
+  2011-01-14
+  Bugfixes
+  - 12237: Possible conflict with wasted TypoScript code
+  - 12236: Possible conflict with TypoScript constant
+
+1.0.5
+  2011-01-05
+  Bugfixes
+  - 11900: Powermail update +++ template with changed properties
+           TypoScript line is removed:
+           powermail.template.fieldWrap = EXT:quick_shop/res/tmpl_fieldwrap.html
+
+1.0.4
+  2011-01-03
+  New Feature
+  - 11856: Installing Quick Shop with enabled AJAX
+  Bugfixes
+  - 11858: baseURL without an ending slash
+  - 11756: Browser plugin/flexform is updated to Browser version 3.6.0
+  
+1.0.3
+  2010-09-11
+  Bugfixes
+  - 9686: Installer uses base_quickshop in any case
+  - 9632: Installer PHP Error
+
+1.0.2
+  2010-07-23
+  Improvements
+  - Powermail: Shop got a sender name in mails
+  - Powermail: Labels with an empty value will be hidden
+
+1.0.1
+  2010-06-30
+  Publishing
+  
+0.0.1 
+  2010-06-24
+  Initial release
+  Dirk Wildt  http://wildt.at.die-netzmacher.de
