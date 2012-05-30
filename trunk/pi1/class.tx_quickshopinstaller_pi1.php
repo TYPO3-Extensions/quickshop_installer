@@ -987,11 +987,12 @@ TCEMAIN {
 
 
 
-   /**
+  /**
    * Shop will be installed - with or without template
    *
    * @return    The content that is displayed on the website
-   * @version 1.0.6
+   * @version 2.1.0
+   * @since   0.0.1 
    */
   private function createTyposcript()
   {
@@ -1055,6 +1056,9 @@ TCEMAIN {
   page < plugin.tx_browser_pi1.javascript.ajax.page
 [global]
   // ajax page object
+  
+  // TYPO3-Browser: ajax page object II. In case of localisation: Configure the id of sys_languagein the Constant Editor. Move in this line ...jQuery.default to ...jQuery.de (i.e.)
+browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 
 ';
       $str_libraries                               = '
