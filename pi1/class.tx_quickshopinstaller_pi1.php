@@ -1250,11 +1250,12 @@ plugin {
 
 
 
-   /**
+  /**
    * Shop will be installed - with or without template
    *
    * @return    The content that is displayed on the website
-   * @version 1.0.4
+   * @version 2.1.0
+   * @since   0.0.1
    */
   private function createPlugins()
   {
@@ -1353,6 +1354,12 @@ plugin {
                 <field index="template">
                     <value index="vDEF">EXT:quick_shop/res/v1.4/default.tmpl</value>
                 </field>
+                <field index="css.browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="css.jqui">
+                    <value index="vDEF">smoothness</value>
+                </field>
             </language>
         </sheet>
         <sheet index="javascript">
@@ -1371,6 +1378,13 @@ plugin {
                 </field>
                 <field index="list_on_single">
                     <value index="vDEF">single</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="development">
+            <language index="lDEF">
+                <field index="handle_marker">
+                    <value index="vDEF">remove_empty_markers</value>
                 </field>
             </language>
         </sheet>

@@ -1,7 +1,11 @@
 2.1.0
   2012-05-30
   Improvement
-  * Individual layout for each product
+  * 00000: Update for Browser version 3.7.9 (record browser)
+           Effected file:
+           class.tx_quickshopinstaller_pi1.php
+           * createPlugins
+           * createTyposcript
   
 2.0.0
   2011-02-07
