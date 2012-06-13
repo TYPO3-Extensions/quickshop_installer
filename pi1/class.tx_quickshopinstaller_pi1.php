@@ -3354,7 +3354,15 @@ TCEMAIN {
    */
   private function zz_getFlexValues()
   {
-    // Init methods for pi_flexform
+      // Set defaults
+      // 120613, dwildt+
+    $this->markerArray['###WEBSITE_TITLE###']           = 'TYPO3 Quick Shop';
+    $this->markerArray['###MAIL_SUBJECT###']            = 'TYPO3 Quick Shop - Confirmation';
+    $this->markerArray['###MAIL_DEFAULT_RECIPIENT###']  = 'mail@my-domain.com';
+      // 120613, dwildt+
+      // Set defaults
+    
+      // Init methods for pi_flexform
     $this->pi_initPIflexForm();
 
     // Get values from the flexform
@@ -3362,29 +3370,8 @@ TCEMAIN {
     foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
     {
       $this->markerArray['###'.strtoupper( $key ).'###'] = $arr_value['vDEF'];
-      
-        // 120613, dwildt+
-var_dump( __METHOD__, __LINE__, $key, $this->markerArray['###'.strtoupper( $key ).'###'] );
-      if( empty( $this->markerArray['###'.strtoupper( $key ).'###'] ) )
-      {
-        switch( $key )
-        {
-          case( 'website_title' ):
-            $this->markerArray['###'.strtoupper($key).'###'] = 'TYPO3 Quick Shop';
-            break;
-          case( 'mail_subject' ):
-            $this->markerArray['###'.strtoupper($key).'###'] = 'TYPO3 Quick Shop - Confirmation';
-            break;
-          case( 'mail_default_recipient' ):
-            $this->markerArray['###'.strtoupper($key).'###'] = 'mail@my-domain.com';
-            break;
-        }
-      }
-var_dump( __METHOD__, __LINE__, $this->markerArray['###'.strtoupper( $key ).'###'] );
-        // 120613, dwildt+
     }
 
-    $this->markerArray['###INSTALL_CASE###'] = $this->markerArray['###INSTALL_CASE###'];
     
     // Set the URL
     if(!isset($this->markerArray['###URL###']))
