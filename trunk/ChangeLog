@@ -5,6 +5,8 @@
            Effected file:
            class.tx_quickshopinstaller_pi1.php
            * Powermail static template default and css basic will included
+  * 00000: Missing recipient in powermail form
+           ###MAIL_DEFAULT_SENDER### -> ###MAIL_DEFAULT_RECIPIENT###
   
 2.1.0
   2012-05-30
