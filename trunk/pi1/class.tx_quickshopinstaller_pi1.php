@@ -1185,7 +1185,10 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     $arr_ts[$int_uid]['sorting']             = 256;
     $arr_ts[$int_uid]['crdate']              = $timestamp;
     $arr_ts[$int_uid]['cruser_id']           = $this->markerArray['###BE_USER###'];
-    $arr_ts[$int_uid]['include_static_file'] = 'EXT:wt_cart/files/static/';
+    $arr_ts[$int_uid]['include_static_file'] = ''.
+      'EXT:wt_cart/files/static/' .
+      'EXT:powermail/static/pi1/,' .
+      'EXT:powermail/static/css_basic/';
     // See $this->consolidateTsWtCart()
     //$arr_ts[$int_uid]['constants']           = '';
     $arr_ts[$int_uid]['config']           = ''.

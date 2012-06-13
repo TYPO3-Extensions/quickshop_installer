@@ -1,3 +1,11 @@
+2.1.1
+  2012-06-13
+  Improvement
+  * 00000: Update for Powermail
+           Effected file:
+           class.tx_quickshopinstaller_pi1.php
+           * Powermail static template default and css basic will included
+  
 2.1.0
   2012-05-30
   Improvement
