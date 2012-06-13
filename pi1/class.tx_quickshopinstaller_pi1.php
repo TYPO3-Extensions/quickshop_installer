@@ -1252,6 +1252,14 @@ plugin {
         }
       }
     }
+    _LOCAL_LANG {
+      default {
+        locallangmarker_confirmation_submit = Order without costs and without delivering!
+      }
+      de {
+        locallangmarker_confirmation_submit = Kostenlos bestellen, nichts bekommen!
+      }
+    }
   }
 }
 ';
