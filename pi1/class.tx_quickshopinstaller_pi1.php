@@ -1208,7 +1208,7 @@ plugin {
             value = Quick Shop
           }
           email {
-            value = ' . $this->markerArray['###MAIL_DEFAULT_SENDER###'] . '
+            value = ' . $this->markerArray['###MAIL_DEFAULT_RECIPIENT###'] . '
           }
         }
       }
@@ -1441,7 +1441,7 @@ plugin {
     $arr_plugin[$int_uid]['list_type']                  = '';
     $arr_plugin[$int_uid]['sectionIndex']               = 1;
     $arr_plugin[$int_uid]['tx_powermail_title']         = 'order';
-    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $this->markerArray['###MAIL_DEFAULT_SENDER###'];
+    $arr_plugin[$int_uid]['tx_powermail_recipient']     = $this->markerArray['###MAIL_DEFAULT_RECIPIENT###'];
     $arr_plugin[$int_uid]['tx_powermail_subject_r']     = $this->markerArray['###MAIL_SUBJECT###'];
     $arr_plugin[$int_uid]['tx_powermail_subject_s']     = $this->markerArray['###MAIL_SUBJECT###'];
 // Will updated by $this->consolidatePluginPowermail()
@@ -3000,7 +3000,7 @@ TCEMAIN {
     $where           = 'uid = '.$int_uid;
     $no_quote_fields = false;
 
-    list($str_emailName) = explode('@', $this->markerArray['###MAIL_DEFAULT_SENDER###']);
+    list($str_emailName) = explode('@', $this->markerArray['###MAIL_DEFAULT_RECIPIENT###']);
     $str_emailName       = $str_emailName.'@###DOMAIN###';
     // General Values
 
