@@ -113,11 +113,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     
     switch($this->markerArray['###INSTALL_CASE###'])
     {
-      case('disabled'):
+      case( null ):
+      case( 'disabled' ):
         $this->install_nothing();
         break;
-      case('install_shop'):
-      case('install_all'):
+      case( 'install_shop' ):
+      case( 'install_all' ):
         $this->install();
         break;
       default:
