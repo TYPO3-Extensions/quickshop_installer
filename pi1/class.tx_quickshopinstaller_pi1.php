@@ -3112,56 +3112,77 @@ TCEMAIN {
       // UPDATE constants
   
     $arr_ts[$int_uid]['tstamp']    = $timestamp;
-    $arr_ts[$int_uid]['constants'] = ''.
-'plugin {
+    $arr_ts[$int_uid]['constants'] = '
+  ////////////////////////////////
+  //
+  // INDEX
+  //
+  // plugin.wtcart
+  // plugin.powermail
 
-  wtcart {
-    gpvar {
-      qty  = tx_quick_shop_qty
-      puid = tx_browser_pi1|showUid
-    }
-    db {
-      table = tx_quickshop_products
-    }
-    powermailContent {
-      uid = '.$this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')].'
-    }
-    debug = 0
+
+
+  ////////////////////////////////
+  //
+  // plugin.wtcart
+
+plugin.wtcart {
+  gpvar {
+    qty  = tx_quick_shop_qty
+    puid = tx_browser_pi1|showUid
   }
+  db {
+    table = tx_quickshop_products
+    min   = quantity_min
+    max   = quantity_max
+    sku   = sku
+  }
+  powermailContent {
+    uid = '.$this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')].'
+  }
+  debug = 0
+}
+  // plugin.wtcart
 
-  powermail {
-    allow {
-      email2receiver = 1
-      email2sender   = 1
-    }
-    email {
-      noreply  = '.$str_emailName.'
-    }
+
+
+  ////////////////////////////////
+  //
+  // plugin.powermail
+
+plugin.powermail {
+  allow {
+    email2receiver = 1
+    email2sender   = 1
+  }
+  email {
+    noreply  = '.$str_emailName.'
+  }
+  format {
+    datetime = %H:%M %d.%m.%Y
     format {
-      datetime = %H:%M %d.%m.%Y
-      format {
-        .date  = %d.%m.%Y
-      }
+      .date  = %d.%m.%Y
     }
-    label {
-      allowTags =
-    }
-    clear {
-      session = 1
-    }
-    hiddenfields {
-      show = 1,1,1,1,1
-    }
-    field {
-      checkboxJS = 1
-    }
-    _LOCAL_LANG {
-      de {
-        locallangmarker_confirmation_submit = Bestellung abschicken
-      }
+  }
+  label {
+    allowTags =
+  }
+  clear {
+    session = 1
+  }
+  hiddenfields {
+    show = 1,1,1,1,1
+  }
+  field {
+    checkboxJS = 1
+  }
+  _LOCAL_LANG {
+    de {
+      locallangmarker_confirmation_submit = Bestellung abschicken
     }
   }
 }
+  // plugin.powermail
 ';
     foreach($arr_ts as $fields_values)
     {
