@@ -1230,38 +1230,76 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
       'EXT:powermail/static/css_basic/';
     // See $this->consolidateTsWtCart()
     //$arr_ts[$int_uid]['constants']           = '';
-    $arr_ts[$int_uid]['config']           = ''.
-'page {
+    $arr_ts[$int_uid]['config']           = '
+  //////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // page
+  // plugin.tx_powermail_pi1
+  // plugin.tx_wtcart_pi1
+
+
+
+  //////////////////////////////////////////
+  //
+  // page
+
+page {
   includeCSS {
     // remove the cart default css
     file3456     >
   }
 }
+  // page
 
-plugin {
-  tx_powermail_pi1 {
-    email {
-      sender_mail {
-        sender {
-          name {
-            value = Quick Shop
-          }
-          email {
-            value = ' . $this->markerArray['###MAIL_DEFAULT_RECIPIENT###'] . '
-          }
+
+
+  //////////////////////////////////////////
+  //
+  // plugin.tx_powermail_pi1
+
+plugin.tx_powermail_pi1 {
+  email {
+    sender_mail {
+      sender {
+        name {
+          value = Quick Shop
+        }
+        email {
+          value = ' . $this->markerArray['###MAIL_DEFAULT_RECIPIENT###'] . '
         }
       }
     }
-    _LOCAL_LANG {
-      default {
-        locallangmarker_confirmation_submit = Order without costs and without delivering!
-      }
-      de {
-        locallangmarker_confirmation_submit = Kostenlos bestellen, nichts bekommen!
-      }
+  }
+  _LOCAL_LANG {
+    default {
+      locallangmarker_confirmation_submit = Order without costs and without delivering!
+    }
+    de {
+      locallangmarker_confirmation_submit = Kostenlos bestellen, nichts bekommen!
     }
   }
 }
+  // plugin.tx_powermail_pi1
+
+
+
+  //////////////////////////////////////////
+  //
+  // plugin.tx_wtcart_pi1
+
+plugin.tx_wtcart_pi1 {
+  _LOCAL_LANG {
+    default {
+      wtcart_ll_sku = Produkt-ID
+    }
+    de {
+      wtcart_ll_sku = Bestellnummer
+    }
+  }
+}
+  // plugin.tx_wtcart_pi1
 ';
     // Cart page
 
@@ -2252,6 +2290,7 @@ plugin {
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
     $arr_records[$int_uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
+    $arr_records[$int_uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_book');
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_book');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_book');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_book');
@@ -2281,6 +2320,7 @@ plugin {
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
     $arr_records[$int_uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
+    $arr_records[$int_uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_capBlue');
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_capBlue');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_capBlue');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_capBlue');
@@ -2310,6 +2350,7 @@ plugin {
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
     $arr_records[$int_uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
+    $arr_records[$int_uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_capGreen');
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_capGreen');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_capGreen');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_capGreen');
@@ -2339,6 +2380,7 @@ plugin {
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
     $arr_records[$int_uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
+    $arr_records[$int_uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_capRed');
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_capRed');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_capRed');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_capRed');
@@ -2368,6 +2410,7 @@ plugin {
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
     $arr_records[$int_uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
+    $arr_records[$int_uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_cup');
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_cup');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_cup');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_cup');
@@ -2397,6 +2440,7 @@ plugin {
     $arr_records[$int_uid]['tstamp']         = $timestamp;
     $arr_records[$int_uid]['crdate']         = $timestamp;
     $arr_records[$int_uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
+    $arr_records[$int_uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_pullover');
     $arr_records[$int_uid]['title']          = $this->pi_getLL('record_qs_prod_title_pullover');
     $arr_records[$int_uid]['short']          = $this->pi_getLL('record_qs_prod_short_pullover');
     $arr_records[$int_uid]['description']    = $this->pi_getLL('record_qs_prod_description_pullover');
