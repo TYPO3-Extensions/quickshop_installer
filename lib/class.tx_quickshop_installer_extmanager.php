@@ -251,7 +251,7 @@ class tx_quickshop_installer_extmanager
     $this->int_pageUid        = $int_maxUid + 1;
     $fields_values['uid']     = $this->int_pageUid;
     $fields_values['title']   = 'Quick Shop Installer';
-    $fields_values['module']  = 'quickshop_inst';
+    $fields_values['module']  = 'qs_inst';
     $fields_values['sorting'] = '1000000000';
     //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
     //exit;
@@ -346,7 +346,7 @@ page {
 
 
   /**
- * get_installerPages(): Get all pages with module = quickshop_inst AND not deleted
+ * get_installerPages(): Get all pages with module = qs_inst AND not deleted
  *
  * @return  array   rows with installer pages
  * @since 1.0.0
@@ -357,7 +357,7 @@ page {
     $rows           = null;
     $select_fields  = 'uid, title';
     $from_table     = 'pages';
-    $where_clause   = 'deleted = 0 AND module = "quickshop_inst"';
+    $where_clause   = 'deleted = 0 AND module = "qs_inst"';
     $groupBy        ='';
     $orderBy        ='';
     $limit          ='';
