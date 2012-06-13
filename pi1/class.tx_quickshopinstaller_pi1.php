@@ -831,6 +831,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       $arr_pages[$int_uid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
       $arr_pages[$int_uid]['perms_user']    = 31; // 31: Full access
       $arr_pages[$int_uid]['perms_group']   = 31; // 31: Full access
+      $arr_pages[$int_uid]['module']        = 'library';
       $arr_pages[$int_uid]['urlType']       = 1;
       $arr_pages[$int_uid]['sorting']       = 256 * 4;
       $arr_pages[$int_uid]['TSconfig']      = '
