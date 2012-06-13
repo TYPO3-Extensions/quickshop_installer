@@ -15,7 +15,7 @@
         <br />
         Enable the "Installer page" below, after saving the language changes.
         <br />
-        The Organiser Installer will install a page on the top level with
+        The Quick Shop Installer will install a page on the top level with
         <br />
         <br />
         <ol style="list-style:outside;">
@@ -33,7 +33,7 @@
         Sorry, there is an undefined error. 
       ]]></label>
       <label index="promptInstallPageAdded"><![CDATA[
-        The page "Organiser Installer" is added. It is placed on the top level of your page tree. See
+        The page "Quick Shop Installer" is added. It is placed on the top level of your page tree. See
         <br />
         <br />
         <ol style="list-style:outside;">
@@ -42,7 +42,7 @@
         <br />
       ]]></label>
       <label index="promptInstallPageExist"><![CDATA[
-        There is one existing page "Organiser Installer" at least. See
+        There is one existing page "Quick Shop Installer" at least. See
         <br />
         <br />
         <ol style="list-style:outside;">
@@ -59,11 +59,11 @@
             Reload your page tree.
           </li>
           <li>
-            Please choose the installation mode in plugin "Organiser Installer". The plugin is part of
-            the arranged page "Organiser Installer".
+            Please choose the installation mode in plugin "Quick Shop Installer". The plugin is part of
+            the arranged page "Quick Shop Installer".
           </li>
           <li>
-            Please start the installation by visiting the "Organiser Installer" page in the TYPO3 frontend.
+            Please start the installation by visiting the "Quick Shop Installer" page in the TYPO3 frontend.
           </li>
         </ol>
         <br />
@@ -71,7 +71,7 @@
         <br />
         <br />
         You don't need to change anything of the configuration in the TypoScript template of 
-        the page "Organiser Installer". But if you want, change it before starting the installation:
+        the page "Quick Shop Installer". But if you want, change it before starting the installation:
         <br />
         language and baseUrl are configurable among others.
         <br />
@@ -84,11 +84,11 @@
     </languageKey>
     <languageKey index="de" type="array">
       <label index="promptDeleteInstallPage"><![CDATA[
-        Wenn Du eine neue Seite "Organiser Installer" m&ouml;chtest, l&ouml;sche bitte zuerst die vorhandene Seite.
+        Wenn Du eine neue Seite "Quick Shop Installer" m&ouml;chtest, l&ouml;sche bitte zuerst die vorhandene Seite.
       ]]></label>
       <label index="promptEnableInstallPage"><![CDATA[
         Bitte aktiviere die "Installer page" unten. 
-        Der Organiser Installer f&uuml;gt eine neue Seite auf oberster Ebene ein mit
+        Der Quick Shop Installer f&uuml;gt eine neue Seite auf oberster Ebene ein mit
         <br />
         <br />
         <ol style="list-style:outside;">
@@ -106,7 +106,7 @@
         Tschuldigung, es gibt einen nicht definierten Fehler.
       ]]></label>
       <label index="promptInstallPageAdded"><![CDATA[
-        Die Seite "Organiser Installer" ist auf oberster Ebene im Seitenbaum eingef&uuml;gt. Siehe
+        Die Seite "Quick Shop Installer" ist auf oberster Ebene im Seitenbaum eingef&uuml;gt. Siehe
         <br />
         <br />
         <ol style="list-style:outside;">
@@ -115,7 +115,7 @@
         <br />
       ]]></label>
       <label index="promptInstallPageExist"><![CDATA[
-        Es gibt bereits eine Seite "Organiser Installer". Siehe
+        Es gibt bereits eine Seite "Quick Shop Installer". Siehe
         <br />
         <br />
         <ol style="list-style:outside;">
@@ -132,13 +132,13 @@
             Lade den Seitenbaum neu.
           </li>
           <li>
-            Gehe zur Seite "Organiser Installer".
+            Gehe zur Seite "Quick Shop Installer".
           </li>
           <li>
-            Konfiguriere im Plugin die Installation des Organisers.
+            Konfiguriere im Plugin die Installation des Quick Shops.
           </li>
           <li>
-            Starte die Installation, in dem Du die Seite "Organiser Installer" im TYPO3 Frontend aufrufst.
+            Starte die Installation, in dem Du die Seite "Quick Shop Installer" im TYPO3 Frontend aufrufst.
           </li>
         </ol>
         <br />
