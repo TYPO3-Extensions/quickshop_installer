@@ -97,7 +97,7 @@
             <type>input</type>
             <size>40</size>
             <eval>trim,required</eval>
-            <default>TYPO3 Quick Shop - confirmation</default>
+            <default>TYPO3 Quick Shop - Confirmation</default>
           </config>
         </TCEforms>
       </mail_subject>

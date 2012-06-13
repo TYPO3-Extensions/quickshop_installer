@@ -3361,10 +3361,11 @@ TCEMAIN {
     $this->arr_piFlexform                = $this->cObj->data['pi_flexform'];
     foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
     {
-      $this->markerArray['###'.strtoupper($key).'###'] = $arr_value['vDEF'];
+      $this->markerArray['###'.strtoupper( $key ).'###'] = $arr_value['vDEF'];
       
         // 120613, dwildt+
-      if( empty( $this->markerArray['###'.strtoupper($key).'###'] ) )
+var_dump( $key, $this->markerArray['###'.strtoupper( $key ).'###'] );
+      if( empty( $this->markerArray['###'.strtoupper( $key ).'###'] ) )
       {
         switch( $key )
         {
@@ -3379,6 +3380,7 @@ TCEMAIN {
             break;
         }
       }
+var_dump( $this->markerArray['###'.strtoupper( $key ).'###'] );
         // 120613, dwildt+
     }
 
