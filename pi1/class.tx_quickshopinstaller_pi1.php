@@ -3364,7 +3364,7 @@ TCEMAIN {
       $this->markerArray['###'.strtoupper( $key ).'###'] = $arr_value['vDEF'];
       
         // 120613, dwildt+
-var_dump( $key, $this->markerArray['###'.strtoupper( $key ).'###'] );
+var_dump( __METHOD__, __LINE__, $key, $this->markerArray['###'.strtoupper( $key ).'###'] );
       if( empty( $this->markerArray['###'.strtoupper( $key ).'###'] ) )
       {
         switch( $key )
@@ -3380,7 +3380,7 @@ var_dump( $key, $this->markerArray['###'.strtoupper( $key ).'###'] );
             break;
         }
       }
-var_dump( $this->markerArray['###'.strtoupper( $key ).'###'] );
+var_dump( __METHOD__, __LINE__, $this->markerArray['###'.strtoupper( $key ).'###'] );
         // 120613, dwildt+
     }
 
