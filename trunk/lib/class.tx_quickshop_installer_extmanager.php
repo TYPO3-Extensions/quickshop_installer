@@ -250,7 +250,7 @@ class tx_quickshop_installer_extmanager
     $int_maxUid               = $this->get_maxUid($table);
     $this->int_pageUid        = $int_maxUid + 1;
     $fields_values['uid']     = $this->int_pageUid;
-    $fields_values['title']   = 'Quick Shop Installer';
+    $fields_values['title']   = $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:installPageTitle');
     $fields_values['module']  = 'qs_inst';
     $fields_values['sorting'] = '1000000000';
     //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
