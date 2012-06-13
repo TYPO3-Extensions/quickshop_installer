@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 - 2011 Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2010-2012 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -241,6 +241,43 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
 
+  /**
+ * init_boolTopLevel(): If current page is on the top level, $this->bool_topLevel will become true.
+ *                      If not, false.
+ *
+ * @since 2.1.1
+ * @version 2.1.1
+ */
+  private function init_boolTopLevel()
+  {
+    $select_fields  = 'pid';
+    $from_table     = 'pages';
+    $where_clause   = 'uid = ' . $GLOBALS['TSFE']->id;
+    $groupBy        = null;
+    $orderBy        = null;
+    $limit          = null;
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
+    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit);
+    $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
+    
+    if($row['pid'] < 1)
+    {
+      $this->bool_topLevel = true;
+    }
+    if($row['pid'] >= 1)
+    {
+      $this->bool_topLevel = false;
+    }
+  }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -273,6 +310,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       return;
     }
 
+      // 120613, dwildt, 1+
+    $this->init_boolTopLevel();
     $this->createBeGroup();
     $this->createPages();
     $this->createTyposcript();
@@ -2721,8 +2760,19 @@ plugin {
     // UPDATE TSconfig and media
 
     $int_uid = $GLOBALS['TSFE']->id;
+
+    $arr_pages[$int_uid]['title']    = $this->pi_getLL('page_title_root');
     $arr_pages[$int_uid]['tstamp']   = $timestamp;
-    //$arr_pages[$int_uid]['title']    = $this->pi_getLL('page_title_root');
+    $arr_pages[$int_uid]['module']   = null;
+    $arr_pages[$int_uid]['nav_hide']      = 1;
+    if($this->bool_topLevel)
+    {
+      $arr_pages[$int_uid]['is_siteroot'] = 1;
+    }
+    if(!$this->bool_topLevel)
+    {
+      $arr_pages[$int_uid]['is_siteroot'] = 0;
+    }
     $arr_pages[$int_uid]['media']    = 'typo3_quickshop_'.$timestamp.'.jpg';
     $arr_pages[$int_uid]['TSconfig'] = '
 
