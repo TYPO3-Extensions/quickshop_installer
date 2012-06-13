@@ -59,6 +59,12 @@
       <label index="record_qs_cat_title_books">books</label>
       <label index="record_qs_cat_title_clothes">clothes</label>
       <label index="record_qs_cat_title_cups">cups</label>
+      <label index="record_qs_prod_sku_book">1001</label>
+      <label index="record_qs_prod_sku_capGreen">2001</label>
+      <label index="record_qs_prod_sku_capRed">2002</label>
+      <label index="record_qs_prod_sku_capBlue">2003</label>
+      <label index="record_qs_prod_sku_cup">3001</label>
+      <label index="record_qs_prod_sku_pullover">4001</label>
       <label index="record_qs_prod_title_book">Secret Images</label>
       <label index="record_qs_prod_title_capGreen">Base cap (green)</label>
       <label index="record_qs_prod_title_capRed">Base cap (red)</label>
@@ -219,6 +225,12 @@
       <label index="record_qs_cat_title_books">Buecher</label>
       <label index="record_qs_cat_title_clothes">Kleidung</label>
       <label index="record_qs_cat_title_cups">Tassen</label>
+      <label index="record_qs_prod_sku_book">1001</label>
+      <label index="record_qs_prod_sku_capGreen">2001</label>
+      <label index="record_qs_prod_sku_capRed">2002</label>
+      <label index="record_qs_prod_sku_capBlue">2003</label>
+      <label index="record_qs_prod_sku_cup">3001</label>
+      <label index="record_qs_prod_sku_pullover">4001</label>
       <label index="record_qs_prod_title_book">Geheime Bilder</label>
       <label index="record_qs_prod_title_capGreen">Basecap (gruen)</label>
       <label index="record_qs_prod_title_capRed">Basecap (rot)</label>
