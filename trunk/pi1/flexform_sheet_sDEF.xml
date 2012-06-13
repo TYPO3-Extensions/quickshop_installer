@@ -84,6 +84,7 @@
             <type>input</type>
             <size>40</size>
             <eval>trim,nospace</eval>
+            <default>TYPO3 Quick Shop</default>
           </config>
         </TCEforms>
       </website_title>
@@ -96,6 +97,7 @@
             <type>input</type>
             <size>40</size>
             <eval>trim,required</eval>
+            <default>TYPO3 Quick Shop - confirmation</default>
           </config>
         </TCEforms>
       </mail_subject>
@@ -108,6 +110,7 @@
             <type>input</type>
             <size>40</size>
             <eval>trim,nospace,required</eval>
+            <default>mail@my-domain.com</default>
           </config>
         </TCEforms>
       </mail_default_recipient>
