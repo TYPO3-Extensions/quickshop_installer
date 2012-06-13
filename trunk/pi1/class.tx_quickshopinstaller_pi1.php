@@ -3362,6 +3362,24 @@ TCEMAIN {
     foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
     {
       $this->markerArray['###'.strtoupper($key).'###'] = $arr_value['vDEF'];
+      
+        // 120613, dwildt+
+      if( empty( $this->markerArray['###'.strtoupper($key).'###'] ) )
+      {
+        switch( $key )
+        {
+          case( 'website_title' ):
+            $this->markerArray['###'.strtoupper($key).'###'] = 'TYPO3 Quick Shop';
+            break;
+          case( 'mail_subject' ):
+            $this->markerArray['###'.strtoupper($key).'###'] = 'TYPO3 Quick Shop - Confirmation';
+            break;
+          case( 'mail_default_recipient' ):
+            $this->markerArray['###'.strtoupper($key).'###'] = 'mail@my-domain.com';
+            break;
+        }
+      }
+        // 120613, dwildt+
     }
 
     $this->markerArray['###INSTALL_CASE###'] = $this->markerArray['###INSTALL_CASE###'];
