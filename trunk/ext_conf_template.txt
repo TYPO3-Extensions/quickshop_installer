@@ -1,0 +1,8 @@
+  # cat=basic/enable/10; type=user[EXT:quickshop_installer/lib/class.tx_quickshop_installer_extmanager.php:tx_quickshop_installer_extmanager->initialPage]; label=Quick Install
+quick_install=0
+
+  # cat=basic/enable/100; type=options[English,German]; label= Language:My preferred language
+LLstatic = English
+
+  # cat=basic/enable/200; type=options[No,Yes (recommended)]; label= Installer page:Install an initial page for installing on the root level
+installPage = No
