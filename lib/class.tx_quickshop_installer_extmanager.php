@@ -282,7 +282,7 @@ class tx_quickshop_installer_extmanager
     $fields_values['uid']                 = $int_maxUid;
     $fields_values['pid']                 = $this->int_pageUid;
     $fields_values['CType']               = 'list';
-    $fields_values['header']              = '[Quick Shop Installer]';
+    $fields_values['header']              = $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:installPluginTitle');
     $fields_values['header_layout']       = '100';
     $fields_values['list_type']           = 'quickshop_installer_pi1';
     //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
