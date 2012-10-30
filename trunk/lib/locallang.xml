@@ -6,7 +6,7 @@
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
-      <label index="installPageTitle"><![CDATA[Quick Shop: 1 click]]></label>
+      <label index="installPageTitle"><![CDATA[Quick Shop]]></label>
       <label index="installPluginTitle"><![CDATA[[Quick Shop: 1-click-installation]]]></label>
       <label index="promptDeleteInstallPage"><![CDATA[
         If you like to install a new installer page, please delete the current installer page first.
@@ -85,7 +85,7 @@
       ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
-      <label index="installPageTitle"><![CDATA[Quick Shop: 1 Klick]]></label>
+      <label index="installPageTitle"><![CDATA[Quick Shop]]></label>
       <label index="installPluginTitle"><![CDATA[[Quick Shop: 1-Klick-Installation]]]></label>
       <label index="promptDeleteInstallPage"><![CDATA[
         Wenn Du eine neue Seite "Quick Shop Installer" m&ouml;chtest, l&ouml;sche bitte zuerst die vorhandene Seite.
