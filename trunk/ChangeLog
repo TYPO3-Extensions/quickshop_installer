@@ -1,3 +1,10 @@
+2.1.2
+  2012-10-30
+  Bugfix
+  * #42526: Empty page, if installer plugin was never saved
+            Effected file:
+            pi1/class.tx_quickshopinstaller_pi1.php
+
 2.1.1
   2012-06-13
   Improvement

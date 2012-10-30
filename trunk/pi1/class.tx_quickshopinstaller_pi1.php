@@ -3442,9 +3442,18 @@ plugin.powermail {
 
     // Get values from the flexform
     $this->arr_piFlexform                = $this->cObj->data['pi_flexform'];
-    foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
+      // #42526, 121030, dwildt, 4-
+//    foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
+//    {
+//      $this->markerArray['###'.strtoupper( $key ).'###'] = $arr_value['vDEF'];
+//    }
+      // #42526, 121030, dwildt, 7+
+    if( is_array( $this->arr_piFlexform ) )
     {
-      $this->markerArray['###'.strtoupper( $key ).'###'] = $arr_value['vDEF'];
+      foreach( ( array ) $this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value )
+      {
+        $this->markerArray['###'.strtoupper( $key ).'###'] = $arr_value['vDEF'];
+      }
     }
 
     
