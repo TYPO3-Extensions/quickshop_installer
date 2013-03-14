@@ -1079,7 +1079,7 @@ TCEMAIN {
       // Pages within page library
     $pageUid = $this->createPagesLibrary( $pageUid );
 
-var_dump(__METHOD__, __LINE__, $pageUid, $this->arrReport[ ] );
+var_dump(__METHOD__, __LINE__, $pageUid, $this->arrReport );
 die( );
 
     return;
