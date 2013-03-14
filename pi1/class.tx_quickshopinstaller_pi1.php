@@ -176,12 +176,10 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       case( null ):
       case( 'disabled' ):
         $this->bool_error = $this->installNothing( );
-var_dump(__METHOD__, __LINE__, $this->bool_error );
         break;
       case( 'install_shop' ):
       case( 'install_all' ):
         $this->bool_error = $this->install( );
-var_dump(__METHOD__, __LINE__, $this->bool_error );
         break;
       default:
         $this->arrReport[ ] = '
@@ -3161,6 +3159,7 @@ plugin.powermail {
     // RETURN if there is any problem with dependencies
     if( ! $this->extensionCheck( ) )
     {
+var_dump(__METHOD__, __LINE__, $this->bool_error );
       $boolError = true;
       return $boolError;
     }
@@ -3169,6 +3168,7 @@ plugin.powermail {
     $bool_confirm = $this->confirmation();
     if( ! $bool_confirm )
     {
+var_dump(__METHOD__, __LINE__, $this->bool_error );
       $boolError = false;
       return $boolError;
     }
@@ -3182,6 +3182,7 @@ plugin.powermail {
 
     $this->promptCleanUp();
 
+var_dump(__METHOD__, __LINE__, $this->bool_error );
     return $boolError;
   }
 
