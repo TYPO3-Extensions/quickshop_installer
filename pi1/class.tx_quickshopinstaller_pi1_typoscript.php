@@ -85,9 +85,9 @@ class tx_quickshopinstaller_pi1_typoscript extends tslib_pibase
   {
     $records = array( );
 
-    $this->arrReport[ ] = '
+    $this->pObj->arrReport[ ] = '
       <h2>
-       '.$this->pi_getLL('ts_create_header').'
+       ' . $this->pObj->pi_getLL( 'ts_create_header' ) . '
       </h2>';
 
     $records = $this->records( );
@@ -117,20 +117,20 @@ class tx_quickshopinstaller_pi1_typoscript extends tslib_pibase
 
     $strUid = sprintf( '%03d', $uid );
 
-    $title = strtolower( $this->pi_getLL( 'page_title_caddy' ) );
+    $title = strtolower( $this->pObj->pi_getLL( 'page_title_caddy' ) );
     $title = str_replace( ' ', null, $title );
     $title = '+page_' . $title . '_' . $strUid;
 
-    $this->str_tsWtCart = $title;
-    $this->arr_tsUids[$this->str_tsWtCart]   = $uid;
+    $this->pObj->str_tsWtCart = $title;
+    $this->pObj->arr_tsUids[$this->pObj->str_tsWtCart]   = $uid;
 
     $record['title']               = $title;
     $record['uid']                 = $uid;
-    $record['pid']                 = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
+    $record['pid']                 = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
     $record['tstamp']              = time( );
     $record['sorting']             = 256;
     $record['crdate']              = time( );
-    $record['cruser_id']           = $this->markerArray['###BE_USER###'];
+    $record['cruser_id']           = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file'] = ''.
       'EXT:wt_cart/files/static/,' .
       'EXT:powermail/static/pi1/,' .
@@ -174,7 +174,7 @@ plugin.tx_powermail_pi1 {
           value = Quick Shop
         }
         email {
-          value = ' . $this->markerArray['###MAIL_DEFAULT_RECIPIENT###'] . '
+          value = ' . $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] . '
         }
       }
     }
@@ -225,16 +225,16 @@ plugin.tx_wtcart_pi1 {
   private function recordRoot( $uid )
   {
     $strUid = sprintf( '%03d', $uid );
-    $this->str_tsRoot = 'page_quickshop_' . $strUid;
-    $this->arr_tsUids[$this->str_tsRoot] = $uid;
+    $this->pObj->str_tsRoot = 'page_quickshop_' . $strUid;
+    $this->pObj->arr_tsUids[$this->pObj->str_tsRoot] = $uid;
 
       // SWITCH : install case
     switch( true )
     {
-      case( $this->markerArray['###INSTALL_CASE###'] == 'install_all' ):
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
         $record = $this->recordRootCaseAll( $uid );
         break;
-      case( $this->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
         $record = $this->recordRootCaseShop( $uid );
         break;
     }
@@ -262,8 +262,8 @@ plugin.tx_wtcart_pi1 {
     $title  = str_replace( ' ', null, $title );
     $title  = 'page_' . $title . '_' . $strUid;
 
-    $this->str_tsRoot = $title;
-    $this->arr_tsUids[$this->str_tsRoot] = $uid;
+    $this->pObj->str_tsRoot = $title;
+    $this->pObj->arr_tsUids[$this->pObj->str_tsRoot] = $uid;
 
     $record['title']                = $title;
     $record['uid']                  = $uid;
@@ -271,8 +271,8 @@ plugin.tx_wtcart_pi1 {
     $record['tstamp']               = time( );
     $record['sorting']              = 256;
     $record['crdate']               = time( );
-    $record['cruser_id']            = $this->markerArray['###BE_USER###'];
-    $record['sitetitle']            = $this->markerArray['###WEBSITE_TITLE###'];
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['sitetitle']            = $this->pObj->markerArray['###WEBSITE_TITLE###'];
     $record['root']                 = 1;
     $record['clear']                = 3;  // Clear all
     $record['include_static_file']  = '' .
@@ -281,7 +281,7 @@ plugin.tx_wtcart_pi1 {
     $record['includeStaticAfterBasedOn'] = 1;
     $record['config']                    = ''.
 'config {
-  baseURL            = ' . $this->markerArray['###HOST###'] . '/
+  baseURL            = ' . $this->pObj->markerArray['###HOST###'] . '/
   metaCharset        = UTF-8
   tx_realurl_enable  = 0
   no_cache           = 1
@@ -312,17 +312,17 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 
     $record['constants'] = ''.
 'myConst {
-  //host = '.$this->markerArray['###HOST###'].'/
+  //host = '.$this->pObj->markerArray['###HOST###'].'/
   pages {
-    quick_shop = ' . $this->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
+    quick_shop = ' . $this->pObj->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
     quick_shop {
-      cart      = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_caddy' )] . '
-      shipping  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_shipping' )] . '
-      terms     = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_terms' )] . '
-      libraries = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_library' )].'
+      cart      = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )] . '
+      shipping  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_shipping' )] . '
+      terms     = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_terms' )] . '
+      libraries = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_library' )].'
       libraries {
-        header  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_library_header' )].'
-        footer  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_library_footer' )].'
+        header  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_library_header' )].'
+        footer  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_library_footer' )].'
       }
     }
   }
@@ -346,7 +346,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
   }
   words {
     // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = ' . $this->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
+    title_tag_quick_shop_page = ' . $this->pObj->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
   }
 }';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
@@ -377,8 +377,8 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     $title = str_replace( ' ', null, $title );
     $title = '+page_' . $title . '_' . $strUid;
 
-    $this->str_tsRoot = $title;
-    $this->arr_tsUids[$this->str_tsRoot] = $uid;
+    $this->pObj->str_tsRoot = $title;
+    $this->pObj->arr_tsUids[$this->pObj->str_tsRoot] = $uid;
 
     $record['title']                      = $title;
     $record['uid']                        = $uid;
@@ -386,7 +386,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     $record['tstamp']                     = time( );
     $record['sorting']                    = 256;
     $record['crdate']                     = time( );
-    $record['cruser_id']                  = $this->markerArray['###BE_USER###'];
+    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
     $record['root']                       = 0;
     $record['clear']                      = 0;  // Clear nothing
     $record['includeStaticAfterBasedOn']  = 0;
@@ -397,13 +397,13 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 ';
     $record['constants']           = ''.
 'myConst {
-  //host = '.$this->markerArray['###HOST###'].'/
+  //host = '.$this->pObj->markerArray['###HOST###'].'/
   pages {
-    quick_shop = ' . $this->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
+    quick_shop = ' . $this->pObj->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
     quick_shop {
-      cart      = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_caddy' )] . '
-      shipping  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_shipping' )] . '
-      terms     = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_terms' )] . '
+      cart      = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )] . '
+      shipping  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_shipping' )] . '
+      terms     = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_terms' )] . '
     }
   }
   dims {
@@ -414,7 +414,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
   }
   words {
     // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = ' . $this->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
+    title_tag_quick_shop_page = ' . $this->pObj->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
   }
 }';
 
@@ -475,14 +475,14 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'sys_template', $record );
       $marker['###TITLE###']     = $record['title'];
       $marker['###UID###']       = $record['uid'];
-      $marker['###TITLE_PID###'] = '"' . $this->arr_pageTitles[$record['pid']] .
+      $marker['###TITLE_PID###'] = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
                                    '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
-          '.$this->arr_icons['ok'] . ' ' . $this->pi_getLL( 'ts_create_prompt' ).'
+          '.$this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'ts_create_prompt' ).'
         </p>';
-      $prompt = $this->cObj->substituteMarkerArray( $prompt, $marker );
-      $this->arrReport[ ] = $prompt;
+      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
+      $this->pObj->arrReport[ ] = $prompt;
     }
   }
 }

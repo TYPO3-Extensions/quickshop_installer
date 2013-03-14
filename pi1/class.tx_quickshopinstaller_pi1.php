@@ -655,7 +655,7 @@ return;
     $this->pages            = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_pages' );
     $this->pages->pObj      = $this;
 
-    $this->pages->pages( );
+    $this->pages->main( );
   }
 
 
@@ -1895,6 +1895,13 @@ return;
  */
   private function createTyposcript( )
   {
+      // Class with methods for get clean values
+    require_once( 'class.tx_quickshopinstaller_pi1_typoscript.php' );
+    $this->typoscript       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_typoscript' );
+    $this->typoscript->pObj = $this;
+
+    $this->typoscript->main( );
+return;
     $records = array( );
 
     $this->arrReport[ ] = '
