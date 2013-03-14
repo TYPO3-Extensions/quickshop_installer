@@ -26,72 +26,74 @@
  *
  *
  *
- *  110: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *  112: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  168:     public function main( $content, $conf)
+ *  170:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  251:     private function confirmation()
+ *  253:     private function confirmation()
  *
  *              SECTION: Counter
- *  327:     private function countPages( $pageUid )
+ *  329:     private function countPages( $pageUid )
  *
  *              SECTION: Create
- *  356:     private function create( )
- *  374:     private function createBeGroup()
- *  480:     private function createContent()
- *  622:     private function createFilesShop()
+ *  358:     private function create( )
+ *  376:     private function createBeGroup()
+ *  482:     private function createContent()
+ *  624:     private function createFilesShop()
  *
  *              SECTION: Create pages
- *  691:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  725:     private function createPageDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  759:     private function createPageLegalinfo( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  793:     private function createPageLibrary( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  837:     private function createPageProducts( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  927:     private function createPageTerms( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  957:     private function createPages( )
- * 1082:     private function createPagesLevel01( $pageUid )
+ *  691:     private function createPageCaddy( $pageUid, $sorting )
+ *  723:     private function createPageDelivery( $pageUid, $sorting )
+ *  754:     private function createPageLegalinfo( $pageUid, $sorting )
+ *  786:     private function createPageLibrary( $pageUid, $sorting )
+ *  830:     private function createPageProducts( $pageUid, $sorting )
+ *  921:     private function createPageTerms( $pageUid, $sorting )
+ *  950:     private function createPages( )
+ * 1061:     private function createPagesLevel01( $pageUid )
+ * 1084:     private function createPagesLevel01Records( $pageUid )
+ * 1127:     private function createPagesLevel01SqlInsert( $pages )
  *
  *              SECTION: Create plugins
- * 1125:     private function createPlugins()
+ * 1160:     private function createPlugins()
  *
  *              SECTION: Create records
- * 1367:     private function createRecordsPowermail()
- * 1976:     private function createRecordsShop()
+ * 1402:     private function createRecordsPowermail()
+ * 2011:     private function createRecordsShop()
  *
  *              SECTION: Create TypoScript
- * 2344:     private function createTyposcript()
+ * 2379:     private function createTyposcript()
  *
  *              SECTION: Consolidate
- * 2651:     private function consolidatePageCurrent()
- * 2874:     private function consolidatePluginPowermail()
- * 2951:     private function consolidateTsWtCart()
+ * 2686:     private function consolidatePageCurrent()
+ * 2909:     private function consolidatePluginPowermail()
+ * 2986:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 3093:     private function extensionCheck( )
- * 3158:     private function extensionCheckCaseBaseTemplate( )
- * 3197:     private function extensionCheckExtension( $key, $title )
+ * 3128:     private function extensionCheck( )
+ * 3193:     private function extensionCheckCaseBaseTemplate( )
+ * 3232:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 3238:     private function htmlReport( )
+ * 3273:     private function htmlReport( )
  *
  *              SECTION: Init
- * 3295:     private function initBoolTopLevel( )
- * 3336:     private function install( )
- * 3375:     private function installNothing( )
+ * 3330:     private function initBoolTopLevel( )
+ * 3371:     private function install( )
+ * 3410:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3401:     private function promptCleanUp()
+ * 3436:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3450:     private function zz_getCHash($str_params)
- * 3464:     private function zz_getMaxDbUid($table)
- * 3504:     private function zz_getPageUids($timestamp)
- * 3583:     private function zz_getPathToIcons()
- * 3610:     private function zz_getFlexValues()
+ * 3485:     private function zz_getCHash($str_params)
+ * 3499:     private function zz_getMaxDbUid($table)
+ * 3539:     private function zz_getPageUids($timestamp)
+ * 3618:     private function zz_getPathToIcons()
+ * 3645:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 35
+ * TOTAL FUNCTIONS: 37
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -1064,7 +1066,7 @@ die( );
     unset( $arrResult );
 var_dump(__METHOD__, __LINE__, $arrResult );
 die( );
-    
+
     $this->createPagesLevel01SqlInsert( $pages );
 
     return $pageUid;
@@ -1109,7 +1111,7 @@ die( );
                     'pages'   => $pages,
                     'pageUid' => $pageUid
                   );
-    
+
     return $arrReturn;
   }
 
