@@ -2911,12 +2911,12 @@ plugin.powermail {
  */
   private function extensionCheck( )
   {
-    $boolError = false;
+    $success = true;
 
       // RETURN  if form is confirmed
     if( $this->piVars['confirm'] )
     {
-      return;
+      return $success;
     }
       // RETURN  if form is confirmed
 
@@ -2930,38 +2930,38 @@ plugin.powermail {
 
     if( ! $this->extensionCheckCaseBaseTemplate( ) )
     {
-      $boolError = true;
+      $success = false;
     }
 
     $key    = 'browser';
     $title  = 'Browser - TYPO3 without PHP';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true;
+      $success = false;
     }
 
     $key    = 'caddy';
     $title  = 'Caddy - your shopping cart';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true;
+      $success = false;
     }
 
     $key    = 'powermail';
     $title  = 'Powermail';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true;
+      $success = false;
     }
 
     $key    = 'quick_shop';
     $title  = 'Quick Shop';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true;
+      $success = false;
     }
 
-    return $boolError;
+    return $success;
 
   }
 
@@ -3159,7 +3159,6 @@ plugin.powermail {
     // RETURN if there is any problem with dependencies
     if( ! $this->extensionCheck( ) )
     {
-var_dump(__METHOD__, __LINE__, $this->bool_error );
       $boolError = true;
       return $boolError;
     }
@@ -3168,7 +3167,6 @@ var_dump(__METHOD__, __LINE__, $this->bool_error );
     $bool_confirm = $this->confirmation();
     if( ! $bool_confirm )
     {
-var_dump(__METHOD__, __LINE__, $this->bool_error );
       $boolError = false;
       return $boolError;
     }
@@ -3182,7 +3180,6 @@ var_dump(__METHOD__, __LINE__, $this->bool_error );
 
     $this->promptCleanUp();
 
-var_dump(__METHOD__, __LINE__, $this->bool_error );
     return $boolError;
   }
 
