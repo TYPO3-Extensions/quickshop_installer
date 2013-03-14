@@ -26,53 +26,54 @@
  *
  *
  *
- *   91: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *   92: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  149:     public function main( $content, $conf)
+ *  150:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  226:     private function confirmation()
+ *  227:     private function confirmation()
  *
  *              SECTION: Create
- *  299:     private function createBeGroup()
- *  419:     private function createPages()
- *  728:     private function createTyposcript()
- * 1042:     private function createPlugins()
- * 1289:     private function createRecordsPowermail()
- * 1898:     private function createRecordsShop()
- * 2268:     private function createFilesShop()
- * 2335:     private function createContent()
+ *  300:     private function createBeGroup()
+ *  406:     private function createContent()
+ *  548:     private function createFilesShop()
+ *  605:     private function createPages( )
+ *  898:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  927:     private function createPlugins()
+ * 1174:     private function createRecordsPowermail()
+ * 1783:     private function createRecordsShop()
+ * 2143:     private function createTyposcript()
  *
  *              SECTION: Consolidate
- * 2485:     private function consolidatePageCurrent()
- * 2708:     private function consolidatePluginPowermail()
- * 2785:     private function consolidateTsWtCart()
+ * 2450:     private function consolidatePageCurrent()
+ * 2673:     private function consolidatePluginPowermail()
+ * 2750:     private function consolidateTsWtCart()
  *
- *              SECTION: extensions
- * 2927:     private function extensionCheck( )
- * 2992:     private function extensionCheckCaseBaseTemplate( )
- * 3031:     private function extensionCheckExtension( $key, $title )
+ *              SECTION: Extensions
+ * 2892:     private function extensionCheck( )
+ * 2957:     private function extensionCheckCaseBaseTemplate( )
+ * 2996:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 3072:     private function htmlReport()
+ * 3037:     private function htmlReport()
  *
  *              SECTION: Init
- * 3127:     private function initBoolTopLevel( )
- * 3168:     private function install()
- * 3214:     private function installNothing( )
+ * 3092:     private function initBoolTopLevel( )
+ * 3133:     private function install()
+ * 3179:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3240:     private function promptCleanUp()
+ * 3205:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3289:     private function zz_getCHash($str_params)
- * 3303:     private function zz_getMaxDbUid($table)
- * 3343:     private function zz_getPageUids($timestamp)
- * 3422:     private function zz_getPathToIcons()
- * 3449:     private function zz_getFlexValues()
+ * 3254:     private function zz_getCHash($str_params)
+ * 3268:     private function zz_getMaxDbUid($table)
+ * 3308:     private function zz_getPageUids($timestamp)
+ * 3387:     private function zz_getPathToIcons()
+ * 3414:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 26
+ * TOTAL FUNCTIONS: 27
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -594,10 +595,10 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   }
 
 /**
- * createPages( ) : 
+ * createPages( ) :
  *
- * @return  void
- * @access  private
+ * @return	void
+ * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
@@ -633,7 +634,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $counter  = $counter + 1 ;
     $pageUid  = $pageUid + 1 ;
     $sorting  = 256 * $counter;
-    
+
     $arr_pages[$pageUid] = $this->createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable );
 var_dump(__METHOD__, __LINE__, $arr_pages );
 die( );
@@ -883,21 +884,21 @@ TCEMAIN {
   }
 
 /**
- * createPageCaddy( ) : 
+ * createPageCaddy( ) :
  *
- * @param   integer     $pageUid            : uid of the current page
- * @param   integer     $timestamp          : current time
- * @param   integer     $sorting            : sorting value
- * @param   string      $dateHumanReadable  : human readabel date
- * @return  array       $page               : current page record
- * @access  private
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
+ * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
   private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
   {
     $page = array
-            ( 
+            (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_cart'),
@@ -911,11 +912,11 @@ TCEMAIN {
               'urlType'       => 1,
               'sorting'       => $sorting
             );
-    
+
     unset( $dateHumanReadable );
     return $page;
   }
-  
+
   /**
  * Shop will be installed - with or without template
  *
