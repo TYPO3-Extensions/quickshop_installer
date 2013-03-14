@@ -2976,11 +2976,11 @@ plugin.powermail {
  */
   private function extensionCheckCaseBaseTemplate( )
   {
-    $boolError = false;
+    $success = true;
       // RETURN : base template should not installed
     if( $this->markerArray['###INSTALL_CASE###'] != 'install_all' )
     {
-      return $boolError;
+      return $success;
     }
       // RETURN : base template should not installed
 
@@ -2988,17 +2988,17 @@ plugin.powermail {
     $title  = 'Template Auto-parser';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true;
+      $success = false;
     }
 
     $key    = 'base_quickshop';
     $title  = 'Quick Shop - Template';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true;
+      $success = false;
     }
 
-    return $boolError;
+    return $success;
   }
 
 /**
@@ -3144,7 +3144,7 @@ plugin.powermail {
  /**
   * install( ) :
   *
-  * @return	boolean     $boolError  : true
+  * @return	boolean     $success  : true
   * @access     private
   * @version    3.0.0
   * @since      1.0.0
@@ -3154,21 +3154,21 @@ plugin.powermail {
   //private function install($str_installCase)
   private function install( )
   {
-    $boolError = false;
+    $success = true;
 
     // RETURN if there is any problem with dependencies
     if( ! $this->extensionCheck( ) )
     {
-      $boolError = true;
-      return $boolError;
+      $success = false;
+      return $success;
     }
     // RETURN if there is any problem with dependencies
 
     $bool_confirm = $this->confirmation();
     if( ! $bool_confirm )
     {
-      $boolError = false;
-      return $boolError;
+      $success = true;
+      return $success;
     }
 
       // 120613, dwildt, 1+
@@ -3180,20 +3180,20 @@ plugin.powermail {
 
     $this->promptCleanUp();
 
-    return $boolError;
+    return $success;
   }
 
  /**
   * installNothing( ) : Write a prompt to the global $arrReport
   *
-  * @return	boolean		$boolError  : true
+  * @return	boolean		$success  : true
   * @access private
   * @version    3.0.0
   * @since      1.0.0
   */
   private function installNothing( )
   {
-    $boolError = true;
+    $success = false;
 
     $this->arrReport[] = '
       <p>
@@ -3201,7 +3201,7 @@ plugin.powermail {
         '.$this->arr_icons['info'].$this->pi_getLL('plugin_help').'
       </p>';
 
-    return $boolError;
+    return $success;
   }
 
 
