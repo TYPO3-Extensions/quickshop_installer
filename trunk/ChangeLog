@@ -1,3 +1,10 @@
+3.0.0
+  2013-03-14
+  New Feature
+  * #46253: Move from wt_cart to caddy
+  Improvements
+  * #46270: Consolidate code
+
 2.1.2
   2012-10-30
   Bugfix

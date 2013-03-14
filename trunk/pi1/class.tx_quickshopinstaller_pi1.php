@@ -46,41 +46,48 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   public $pi_checkCHash = true;
 
   
+    // [array] The TypoScript configuration array
   public $conf           = false;
-  // [array] The TypoScript configuration array
 
+    // [boolean] true, if ther is any installation error.
   private $bool_error      = false;
-  // [boolean] true, if ther is any installation error.
+    // [boolean]
+  private $bool_topLevel    = null;
+    // [array] The flexform array
   private $arr_piFlexform  = false;
-  // [array] The flexform array
+    // [array] Array with the report items
   private $arrReport       = false;
-  // [array] Array with the report items
+    // [array] Array with images, wrapped as HTML <img ...>
   private $arr_icons       = false;
-  // [array] Array with images, wrapped as HTML <img ...>
   
+    // [array] Array with variables like group id, page ids ...
   private $markerArray       = false;
-  // [array] Array with variables like group id, page ids ...
+    // [array] Uids of the current and the generated pages records. Titles are the keys.
   private $arr_pageUids      = false;
-  // [array] Uids of the current and the generated pages records. Titles are the keys.
+    // [array] Titles of the current and the generated pages records. Uids are the keys.
   private $arr_pageTitles    = false;
-  // [array] Titles of the current and the generated pages records. Uids are the keys.
+    // [array] Uids of the generated sys_templates records
   private $arr_tsUids      = false;
-  // [array] Uids of the generated sys_templates records
+    // [string] Title of the root TypoScript
   private $str_tsRoot      = false;
-  // [string] Title of the root TypoScript
+    // [array] Uids of the generated tt_content records - here: plugins only
   private $arr_pluginUids      = false;
-  // [array] Uids of the generated tt_content records - here: plugins only
+    // [array] Uids of the generated records for different tables.
   private $arr_recordUids      = false;
-  // [array] Uids of the generated records for different tables.
+    // [array] Uids of the generated files with an timestamp
   private $arr_fileUids      = false;
-  // [array] Uids of the generated files with an timestamp
+    // [array] Uids of the generated tt_content records - here: page content only
   private $arr_contentUids      = false;
-  // [array] Uids of the generated tt_content records - here: page content only
+  
+  private $str_tsWtCart = null;
 
 
 
-
-
+ /***********************************************
+  *
+  * Main
+  *
+  **********************************************/
 
   /**
    * The main method of the PlugIn
@@ -89,8 +96,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * @param    array        $conf: The TypoScript configuration array
    * @return    The content that is displayed on the website
    */
-  public function main($content, $conf)
+  public function main( $content, $conf)
   {
+    unset( $content );
 
     $this->conf = $conf;
 
@@ -152,196 +160,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  /**
-   * Shop will be installed without template
-   *
-   * @return    The content that is displayed on the website
-   */
-  private function install_nothing()
-  {
-     $this->arrReport[] = '
-       <p>
-         '.$this->arr_icons['warn'].$this->pi_getLL('plugin_warn').'<br />
-         '.$this->arr_icons['info'].$this->pi_getLL('plugin_help').'
-       </p>';
-    $this->bool_error = true;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /**
-   * Shop will be installed without template
-   *
-   * @return    The content that is displayed on the website
-   */
-  private function htmlReport()
-  {
-    if(!is_array($this->arrReport))
-    {
-      $str_errorPrompt = '
-        <h1>
-          No Report
-        </h1>
-        <p>
-          This is a mistake!
-        </p>';
-      return $str_errorPrompt;
-    }
-
-    $arrReport = array();
-    if(!$this->bool_error)
-    {
-      if(!$this->piVars['confirm'])
-      {
-        $arrReport[] = '
-          <h1>
-            '.$this->pi_getLL('begin_h1').'
-          </h1>';
-      }
-      if($this->piVars['confirm'])
-      {
-        $arrReport[] = '
-          <h1>
-            '.$this->pi_getLL('end_h1').'
-          </h1>';
-      }
-    }
-    $arrReport = array_merge($arrReport, $this->arrReport);
-    $str_result = implode('', $arrReport);
-
-    return $str_result;
-  }
-
-
-
-
-
-
-
-
-
-  /**
- * init_boolTopLevel(): If current page is on the top level, $this->bool_topLevel will become true.
- *                      If not, false.
- *
- * @since 2.1.1
- * @version 2.1.1
- */
-  private function init_boolTopLevel()
-  {
-    $select_fields  = 'pid';
-    $from_table     = 'pages';
-    $where_clause   = 'uid = ' . $GLOBALS['TSFE']->id;
-    $groupBy        = null;
-    $orderBy        = null;
-    $limit          = null;
-    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit);
-    $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
-    
-    if($row['pid'] < 1)
-    {
-      $this->bool_topLevel = true;
-    }
-    if($row['pid'] >= 1)
-    {
-      $this->bool_topLevel = false;
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /**
-   * Shop will be installed - with or without template
-   *
-   * @param    string       $str_installCase: install_all or install_shop
-   * @return    The content that is displayed on the website
-   */
-   
-  //http://forge.typo3.org/issues/9632
-  //private function install($str_installCase)
-  private function install()
-  {
-    
-    // RETURN if there is any problem with dependencies
-    $this->checkExtensions();
-    if($this->bool_error)
-    {
-      return;
-    }
-    // RETURN if there is any problem with dependencies
-
-    // RETURN if there is any problem with creation of BE-group
-    $bool_confirm = $this->confirmation();
-    if(!$bool_confirm)
-    {
-      return;
-    }
-
-      // 120613, dwildt, 1+
-    $this->init_boolTopLevel();
-    $this->createBeGroup();
-    $this->createPages();
-    $this->createTyposcript();
-    $this->createPlugins();
-    $this->createRecordsPowermail();
-    $this->createRecordsShop();
-    $this->createFilesShop();
-    $this->createContent();
-    $this->consolidatePageCurrent();
-    $this->consolidatePluginPowermail();
-    $this->consolidateTsWtCart();
-    
-    $this->promptCleanUp();
-
-    return false;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
+ /***********************************************
+  *
+  * Confirmation
+  *
+  **********************************************/
 
   /**
    * Shop will be installed - with or without template
@@ -361,7 +184,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->get_cHash('&tx_quickshopinstaller_pi1[confirm]=1');
+    $cHash_calc = $this->zz_getCHash('&tx_quickshopinstaller_pi1[confirm]=1');
 
     // Confirmation form
     $this->arrReport[] = '
@@ -406,44 +229,42 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
 
-
-
-
-
-
-
-
-
-
+ /***********************************************
+  *
+  * check extensions
+  *
+  **********************************************/
 
   /**
-   * Shop will be installed - with or without template
+   * checkExtensions( ) : 
    *
-   * @param    string       $str_installCase: install_all or install_shop
    * @return    The content that is displayed on the website
+   * @access    private
+   * @version   3.0.0
+   * @since     1.0.0
    */
-  private function checkExtensions()
+  private function checkExtensions( )
   {
-    // RETURN  if form is confirmed
-    if($this->piVars['confirm'])
+      // RETURN  if form is confirmed
+    if( $this->piVars['confirm'] )
     {
       return false;
     }
-    // RETURN  if form is confirmed
+      // RETURN  if form is confirmed
 
-    $this->arrReport[] = '
+    $this->arrReport[ ] = '
       <h2>
        '.$this->pi_getLL('ext_header').'
       </h2>
       ';
 
-    // Shop and Template 
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
+      // Shop and Template 
+    if( $this->markerArray['###INSTALL_CASE###'] == 'install_all' )
     {
-      $str_extKey = 'automaketemplate';
-      $str_extTitle = 'Template Auto-parser ('.$str_extKey.')';
+      $str_extKey   = 'automaketemplate';
+      $str_extTitle = 'Template Auto-parser (' . $str_extKey . ')';
       // RETURN without automaketemplate
-      if(!t3lib_extMgm::isLoaded($str_extKey))
+      if( ! t3lib_extMgm::isLoaded( $str_extKey ) )
       {
         $this->arrReport[] = '
           <p>
@@ -592,16 +413,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
 
-
-
-
-
-
-
-
-
-
-
+ /***********************************************
+  *
+  * Create
+  *
+  **********************************************/
 
   /**
    * Shop will be installed - with or without template
@@ -659,13 +475,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $timestamp = time();
     
-    $table                   = '`be_groups`';
-    $fields_values['uid']    = null;
-    $fields_values['pid']    = 0;
-    $fields_values['tstamp'] = $timestamp;
-    $fields_values['title']  = 'quick_shop';
-    $fields_values['crdate'] = $timestamp;
-    $no_quote_fields         = false;
+    $table                    = '`be_groups`';
+    $fields_values            = array( );
+    $fields_values['uid']     = null;
+    $fields_values['pid']     = 0;
+    $fields_values['tstamp']  = $timestamp;
+    $fields_values['title']   = 'quick_shop';
+    $fields_values['crdate']  = $timestamp;
+    $no_quote_fields          = false;
     $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
     // There isn't any group available
 
@@ -730,6 +547,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    */
   private function createPages()
   {
+    $arr_pages = array( );
+    
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('page_create_header').'
@@ -923,7 +742,7 @@ TCEMAIN {
 ';
     // Products
 
-    foreach($arr_pages as $fields_values)
+    foreach( $arr_pages as $fields_values )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
       $this->markerArray['###TITLE###'] = $fields_values['title'];
@@ -1037,6 +856,8 @@ TCEMAIN {
    */
   private function createTyposcript()
   {
+    $arr_ts = array( );
+    
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('ts_create_header').'
@@ -1306,7 +1127,7 @@ plugin.tx_wtcart_pi1 {
     // Cart page
 
     // INSERT
-    foreach($arr_ts as $fields_values)
+    foreach( $arr_ts as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
@@ -1349,6 +1170,8 @@ plugin.tx_wtcart_pi1 {
    */
   private function createPlugins()
   {
+    $arr_plugin = array( );
+    
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('plugin_create_header').'
@@ -1363,7 +1186,6 @@ plugin.tx_wtcart_pi1 {
     $timestamp       = time();
     $table           = 'tt_content';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
       // General values
 
@@ -1555,7 +1377,7 @@ plugin.tx_wtcart_pi1 {
       //
       // INSERT all plugins
 
-    foreach($arr_plugin as $fields_values)
+    foreach( $arr_plugin as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
@@ -1595,6 +1417,8 @@ plugin.tx_wtcart_pi1 {
    */
   private function createRecordsPowermail()
   {
+    $arr_records = array( );
+    
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('record_create_header').'
@@ -1682,7 +1506,7 @@ plugin.tx_wtcart_pi1 {
     //
     // INSERT fieldset records
 
-    foreach($arr_records as $fields_values)
+    foreach( $arr_records as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
@@ -2202,6 +2026,8 @@ plugin.tx_wtcart_pi1 {
    */
   private function createRecordsShop()
   {
+    $arr_records = array( );
+    
     //////////////////////////////////////////////////////////////////////
     //
     // Categorie records in sysfolder products
@@ -2248,7 +2074,7 @@ plugin.tx_wtcart_pi1 {
     // Cups
 
     // Add records to database
-    foreach($arr_records as $fields_values)
+    foreach( $arr_records as $fields_values ) 
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
@@ -2637,6 +2463,8 @@ plugin.tx_wtcart_pi1 {
    */
   private function createContent()
   {
+    $arr_content = array( );
+    
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('content_create_header').'
@@ -2651,7 +2479,6 @@ plugin.tx_wtcart_pi1 {
     $timestamp       = time();
     $table           = 'tt_content';
     $no_quote_fields = false;
-    $str_date        = date('Y-m-d G:i:s');
     $int_uid         = $this->zz_getMaxDbUid($table);
     // General values
 
@@ -2773,14 +2600,11 @@ plugin.tx_wtcart_pi1 {
 
 
 
-
-
-
-
-
-
-
-
+ /***********************************************
+  *
+  * Consolidate
+  *
+  **********************************************/
 
    /**
    * Shop will be installed - with or without template
@@ -2789,6 +2613,9 @@ plugin.tx_wtcart_pi1 {
    */
   private function consolidatePageCurrent()
   {
+    $arr_pages    = array( );
+    $arr_content  = array( );
+    
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('consolidate_header').'
@@ -2845,7 +2672,7 @@ TCEMAIN {
 ';
 
     // UPDATE
-    foreach($arr_pages as $fields_values)
+    foreach( $arr_pages as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
@@ -2927,7 +2754,7 @@ TCEMAIN {
     $arr_content[$int_uid]['tstamp'] = $timestamp;
     $arr_content[$int_uid]['hidden'] = 1;
 
-    foreach($arr_content as $fields_values)
+    foreach( $arr_content as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
@@ -3009,6 +2836,7 @@ TCEMAIN {
    */
   private function consolidatePluginPowermail()
   {
+    $arr_plugin = array( );
 //    $this->arrReport[] = '
 //      <h2>
 //       '.$this->pi_getLL('consolidate_header').'
@@ -3020,7 +2848,6 @@ TCEMAIN {
     //
     // General Values
 
-    $str_date        = date('Y-m-d G:i:s');
     $timestamp       = time();
     $table           = 'tt_content';
     $int_uid         = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
@@ -3044,7 +2871,7 @@ TCEMAIN {
     $arr_plugin[$int_uid]['tx_powermail_sender']     = $str_sender;
     $arr_plugin[$int_uid]['tx_powermail_sendername'] = $str_sendername;
 
-    foreach($arr_plugin as $fields_values)
+    foreach( $arr_plugin as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
@@ -3086,6 +2913,7 @@ TCEMAIN {
    */
   private function consolidateTsWtCart()
   {
+    $arr_ts = array( );
 //    $this->arrReport[] = '
 //      <h2>
 //       '.$this->pi_getLL('consolidate_header').'
@@ -3097,7 +2925,6 @@ TCEMAIN {
     //
     // General Values
 
-    $str_date        = date('Y-m-d G:i:s');
     $timestamp       = time();
     $table           = 'sys_template';
     $int_uid         = $this->arr_tsUids[$this->str_tsWtCart];
@@ -3186,7 +3013,7 @@ plugin.powermail {
 }
   // plugin.powermail
 ';
-    foreach($arr_ts as $fields_values)
+    foreach( $arr_ts as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery($table, $where, $fields_values, $no_quote_fields);
@@ -3211,14 +3038,168 @@ plugin.powermail {
 
 
 
+ /***********************************************
+  *
+  * Html
+  *
+  **********************************************/
+
+  /**
+   * Shop will be installed without template
+   *
+   * @return    The content that is displayed on the website
+   */
+  private function htmlReport()
+  {
+    if(!is_array($this->arrReport))
+    {
+      $str_errorPrompt = '
+        <h1>
+          No Report
+        </h1>
+        <p>
+          This is a mistake!
+        </p>';
+      return $str_errorPrompt;
+    }
+
+    $arrReport = array();
+    if(!$this->bool_error)
+    {
+      if(!$this->piVars['confirm'])
+      {
+        $arrReport[] = '
+          <h1>
+            '.$this->pi_getLL('begin_h1').'
+          </h1>';
+      }
+      if($this->piVars['confirm'])
+      {
+        $arrReport[] = '
+          <h1>
+            '.$this->pi_getLL('end_h1').'
+          </h1>';
+      }
+    }
+    $arrReport = array_merge($arrReport, $this->arrReport);
+    $str_result = implode('', $arrReport);
+
+    return $str_result;
+  }
+  
+  
+
+ /***********************************************
+  *
+  * Init
+  *
+  **********************************************/
+
+/**
+ * init_boolTopLevel(): If current page is on the top level, $this->bool_topLevel will become true.
+ *                      If not, false.
+ *
+ * @since 2.1.1
+ * @version 2.1.1
+ */
+  private function init_boolTopLevel()
+  {
+    $select_fields  = 'pid';
+    $from_table     = 'pages';
+    $where_clause   = 'uid = ' . $GLOBALS['TSFE']->id;
+    $groupBy        = null;
+    $orderBy        = null;
+    $limit          = null;
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
+    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit);
+    $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
+    
+    if($row['pid'] < 1)
+    {
+      $this->bool_topLevel = true;
+    }
+    if($row['pid'] >= 1)
+    {
+      $this->bool_topLevel = false;
+    }
+  }
 
 
 
+ /***********************************************
+  *
+  * Install
+  *
+  **********************************************/
+
+  /**
+   * Shop will be installed - with or without template
+   *
+   * @param    string       $str_installCase: install_all or install_shop
+   * @return    The content that is displayed on the website
+   */
+   
+  //http://forge.typo3.org/issues/9632
+  //private function install($str_installCase)
+  private function install()
+  {
+    
+    // RETURN if there is any problem with dependencies
+    $this->checkExtensions();
+    if($this->bool_error)
+    {
+      return;
+    }
+    // RETURN if there is any problem with dependencies
+
+    // RETURN if there is any problem with creation of BE-group
+    $bool_confirm = $this->confirmation();
+    if(!$bool_confirm)
+    {
+      return;
+    }
+
+      // 120613, dwildt, 1+
+    $this->init_boolTopLevel();
+    $this->createBeGroup();
+    $this->createPages();
+    $this->createTyposcript();
+    $this->createPlugins();
+    $this->createRecordsPowermail();
+    $this->createRecordsShop();
+    $this->createFilesShop();
+    $this->createContent();
+    $this->consolidatePageCurrent();
+    $this->consolidatePluginPowermail();
+    $this->consolidateTsWtCart();
+    
+    $this->promptCleanUp();
+
+    return false;
+  }
+
+ /**
+   * Shop will be installed without template
+   *
+   * @return    The content that is displayed on the website
+   */
+  private function install_nothing()
+  {
+     $this->arrReport[] = '
+       <p>
+         '.$this->arr_icons['warn'].$this->pi_getLL('plugin_warn').'<br />
+         '.$this->arr_icons['info'].$this->pi_getLL('plugin_help').'
+       </p>';
+    $this->bool_error = true;
+  }
 
 
 
-
-
+ /***********************************************
+  *
+  * Prompt
+  *
+  **********************************************/
 
    /**
    * Shop will be installed - with or without template
@@ -3228,7 +3209,7 @@ plugin.powermail {
   private function promptCleanUp()
   {
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->get_cHash(false);
+    $cHash_calc = $this->zz_getCHash(false);
 
     $lConfCObj['typolink.']['parameter']         = $GLOBALS['TSFE']->id;
     $lConfCObj['typolink.']['additionalParams']  = '&cHash='.$cHash_calc;
@@ -3236,10 +3217,6 @@ plugin.powermail {
     // Set the TypoScript configuration array
 
     // Set the URL (wrap the Link)
-    $this->local_cObj = t3lib_div::makeInstance('tslib_cObj');
-    $action               = $this->local_cObj->stdWrap('#', $lConfCObj);
-//var_dump($action, $lConfCObj);
-//        <form name="form_confirm" action="'.$action.'" method="POST">
 
 
     $this->arrReport[] = '
@@ -3266,16 +3243,25 @@ plugin.powermail {
 
 
 
+ /***********************************************
+  *
+  * ZZ
+  *
+  **********************************************/
 
+/**
+ * Calculate the cHash md5 value
+ *
+ * @param  string    $str_params: URL parameter string like &tx_browser_pi1[showUid]=12&&tx_browser_pi1[cat]=1
+ * @return  string    $cHash_md5: md5 value like d218cfedf9
+ */
+  private function zz_getCHash($str_params)
+  {
+    $cHash_array  = t3lib_div::cHashParams($str_params);
+    $cHash_md5    = t3lib_div::shortMD5(serialize($cHash_array));
 
-
-
-
-
-
-
-
-
+    return $cHash_md5;
+  }
 
    /**
    * Shop will be installed - with or without template
@@ -3479,19 +3465,6 @@ plugin.powermail {
 
 
 
-  /**
- * Calculate the cHash md5 value
- *
- * @param  string    $str_params: URL parameter string like &tx_browser_pi1[showUid]=12&&tx_browser_pi1[cat]=1
- * @return  string    $cHash_md5: md5 value like d218cfedf9
- */
-  function get_cHash($str_params)
-  {
-    $cHash_array  = t3lib_div::cHashParams($str_params);
-    $cHash_md5    = t3lib_div::shortMD5(serialize($cHash_array));
-
-    return $cHash_md5;
-  }
 }
 
 
