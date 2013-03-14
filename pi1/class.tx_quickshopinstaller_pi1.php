@@ -3616,13 +3616,13 @@ plugin.powermail {
     return $cHash_md5;
   }
 
-   /**
- * Shop will be installed - with or without template
+/**
+ * zz_getMaxDbUid( )
  *
- * @param	[type]		$table: ...
- * @return	The		content that is displayed on the website
+ * @param	string		$table      : the table
+ * @return	integer		$int_maxUid : max uid in given table
  */
-  private function zz_getMaxDbUid($table)
+  public function zz_getMaxDbUid( $table )
   {
     $int_maxUid = false;
 
