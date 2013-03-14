@@ -52,39 +52,39 @@
  *
  *              SECTION: Create TypoScript
  * 1896:     private function createTyposcript( )
- * 1918:     private function createTyposcriptRecordCaddy( $uid )
- * 2029:     private function createTyposcriptRecordRoot( $uid )
- * 2059:     private function createTyposcriptRecordRootCaseAll( $uid )
- * 2174:     private function createTyposcriptRecordRootCaseShopOnly( $uid )
- * 2241:     private function createTyposcriptRecords( )
- * 2266:     private function createTyposcriptSqlInsert( $records )
+ * 1925:     private function createTyposcriptRecordCaddy( $uid )
+ * 2036:     private function createTyposcriptRecordRoot( $uid )
+ * 2066:     private function createTyposcriptRecordRootCaseAll( $uid )
+ * 2181:     private function createTyposcriptRecordRootCaseShopOnly( $uid )
+ * 2248:     private function createTyposcriptRecords( )
+ * 2273:     private function createTyposcriptSqlInsert( $records )
  *
  *              SECTION: Consolidate
- * 2298:     private function consolidatePageCurrent()
- * 2521:     private function consolidatePluginPowermail()
- * 2598:     private function consolidateTsWtCart()
+ * 2305:     private function consolidatePageCurrent()
+ * 2528:     private function consolidatePluginPowermail()
+ * 2605:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 2740:     private function extensionCheck( )
- * 2805:     private function extensionCheckCaseBaseTemplate( )
- * 2844:     private function extensionCheckExtension( $key, $title )
+ * 2747:     private function extensionCheck( )
+ * 2812:     private function extensionCheckCaseBaseTemplate( )
+ * 2851:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 2885:     private function htmlReport( )
+ * 2892:     private function htmlReport( )
  *
  *              SECTION: Init
- * 2942:     private function initBoolTopLevel( )
- * 2983:     private function install( )
- * 3024:     private function installNothing( )
+ * 2949:     private function initBoolTopLevel( )
+ * 2990:     private function install( )
+ * 3031:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3050:     private function promptCleanUp()
+ * 3057:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3099:     private function zz_getCHash($str_params)
- * 3113:     public function zz_getMaxDbUid( $table )
- * 3140:     private function zz_getPathToIcons()
- * 3154:     private function zz_getFlexValues()
+ * 3106:     private function zz_getCHash($str_params)
+ * 3120:     public function zz_getMaxDbUid( $table )
+ * 3147:     private function zz_getPathToIcons()
+ * 3161:     private function zz_getFlexValues()
  *
  * TOTAL FUNCTIONS: 32
  * (This index is automatically created/updated by the extension "extdeveval")
