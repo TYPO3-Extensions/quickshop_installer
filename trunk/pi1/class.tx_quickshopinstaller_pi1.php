@@ -310,9 +310,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->createPages();
     $this->createTyposcript();
     $this->createPlugins();
+    $this->createRecordsPowermail();
 var_dump(__METHOD__, __LINE__ );
 return;
-    $this->createRecordsPowermail();
     $this->createRecordsShop();
     $this->createFilesShop();
     $this->createContent();
