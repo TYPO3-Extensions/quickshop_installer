@@ -172,7 +172,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   private function createPageCaddy( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_cart';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
             (
@@ -209,7 +209,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   private function createPageDelivery( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_shipping';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
             (
@@ -246,7 +246,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   private function createPageLegalinfo( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_legalinfo';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
             (
@@ -283,7 +283,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   private function createPageLibrary( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_library';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $dateHumanReadable  = date('Y-m-d G:i:s');
 
@@ -334,9 +334,9 @@ TCEMAIN {
   private function createPageLibraryFooter( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_library_footer';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
     $pidTitle     = 'page_title_library';
-    $llPidTitle   = $this->pi_getLL( $pidTitle );
+    $llPidTitle   = $this->pObj->pi_getLL( $pidTitle );
     $pid          = $this->pObj->arr_pageUids[ $llPidTitle ];
 
     $page = array
@@ -374,9 +374,9 @@ TCEMAIN {
   private function createPageLibraryHeader( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_library_header';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
     $pidTitle     = 'page_title_library';
-    $llPidTitle   = $this->pi_getLL( $pidTitle );
+    $llPidTitle   = $this->pObj->pi_getLL( $pidTitle );
     $pid          = $this->pObj->arr_pageUids[ $llPidTitle ];
 
     $page = array
@@ -414,7 +414,7 @@ TCEMAIN {
   private function createPageProducts( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_products';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $dateHumanReadable  = date('Y-m-d G:i:s');
 
@@ -511,7 +511,7 @@ TCEMAIN {
   private function createPageTerms( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_terms';
-    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
             (
@@ -548,7 +548,7 @@ TCEMAIN {
       // Prompt header
     $this->pObj->arrReport[ ] = '
       <h2>
-       '.$this->pi_getLL('page_create_header').'
+       '.$this->pObj->pi_getLL('page_create_header').'
       </h2>';
       // Prompt header
 
@@ -634,11 +634,11 @@ die( );
     foreach( $pages as $page )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
-      $this->pObj->markerArray['###TITLE###'] = $this->pi_getLL( 'page_title_library' ) . ' > ' . $page['title'];
+      $this->pObj->markerArray['###TITLE###'] = $this->pObj->pi_getLL( 'page_title_library' ) . ' > ' . $page['title'];
       $this->pObj->markerArray['###UID###']   = $page['uid'];
       $prompt = '
         <p>
-          '.$this->pObj->arr_icons['ok'] . ' ' . $this->pi_getLL( 'page_create_prompt' ) . '
+          '.$this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'page_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
       $this->pObj->arrReport[ ] = $prompt;
@@ -729,7 +729,7 @@ die( );
       $this->pObj->markerArray['###UID###']   = $page['uid'];
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pi_getLL( 'page_create_prompt' ) . '
+          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'page_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
       $this->pObj->arrReport[] = $prompt;
