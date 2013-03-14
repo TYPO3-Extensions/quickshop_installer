@@ -26,21 +26,56 @@
  *
  *
  *
- *   59: class tx_quickshopinstaller_pi1_powermail extends tslib_pibase
+ *   92: class tx_quickshopinstaller_pi1_powermail
  *
  *              SECTION: Main
- *   83:     public function main( )
+ *  116:     public function main( )
  *
- *              SECTION: Records
- *  113:     private function fieldsetContactdata( $uid )
- *  235:     private function recordCaddy( $uid )
- *  265:     private function recordPowermail( $uid )
- *  315:     private function records( )
+ *              SECTION: Fields: billing address
+ *  150:     private function fieldBillingaddressAddress( $uid, $sorting )
+ *  180:     private function fieldBillingaddressCity( $uid, $sorting )
+ *  210:     private function fieldBillingaddressCompany( $uid, $sorting )
+ *  240:     private function fieldBillingaddressCountry( $uid, $sorting )
+ *  270:     private function fieldBillingaddressFirstname( $uid, $sorting )
+ *  314:     private function fieldBillingaddressSurname( $uid, $sorting )
+ *  358:     private function fieldBillingaddressZip( $uid, $sorting )
+ *
+ *              SECTION: Fields: contact data
+ *  396:     private function fieldContactdataEmail( $uid, $sorting )
+ *  443:     private function fieldContactdataFax( $uid, $sorting )
+ *  473:     private function fieldContactdataPhone( $uid, $sorting )
+ *
+ *              SECTION: Fields: delivery address
+ *  511:     private function fieldDeliveryaddressAddress( $uid, $sorting )
+ *  541:     private function fieldDeliveryaddressCity( $uid, $sorting )
+ *  571:     private function fieldDeliveryaddressCompany( $uid, $sorting )
+ *  601:     private function fieldDeliveryaddressCountry( $uid, $sorting )
+ *  631:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
+ *  675:     private function fieldDeliveryaddressSurname( $uid, $sorting )
+ *  719:     private function fieldDeliveryaddressZip( $uid, $sorting )
+ *
+ *              SECTION: Fields: order
+ *  757:     private function fieldOrderDelivery( $uid, $sorting )
+ *  802:     private function fieldOrderNote( $uid, $sorting )
+ *  850:     private function fieldOrderPayment( $uid, $sorting )
+ *  894:     private function fieldOrderSubmit( $uid, $sorting )
+ *  924:     private function fieldOrderTerms( $uid, $sorting )
+ *  973:     private function fields( )
+ *
+ *              SECTION: Fieldsets
+ * 1079:     private function fieldsetBillingaddress( $uid, $sorting )
+ * 1109:     private function fieldsetContactdata( $uid, $sorting )
+ * 1139:     private function fieldsetDeliveryaddress( $uid, $sorting )
+ * 1169:     private function fieldsetOrder( $uid, $sorting )
+ * 1197:     private function fieldsets( )
  *
  *              SECTION: Sql
- *  352:     private function sqlInsert( $records )
+ * 1239:     private function sqlInsert( $records, $table )
  *
- * TOTAL FUNCTIONS: 6
+ *              SECTION: ZZ
+ * 1275:     private function zz_counter( $uid )
+ *
+ * TOTAL FUNCTIONS: 31
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -1195,6 +1230,7 @@ class tx_quickshopinstaller_pi1_powermail
  * sqlInsert( )
  *
  * @param	array		$records : TypoScript records for pages
+ * @param	[type]		$table: ...
  * @return	void
  * @access private
  * @version 3.0.0

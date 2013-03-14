@@ -26,19 +26,19 @@
  *
  *
  *
- *   59: class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
+ *   57: class tx_quickshopinstaller_pi1_plugins
  *
  *              SECTION: Main
- *   83:     public function main( )
+ *   81:     public function main( )
  *
  *              SECTION: Records
- *  113:     private function recordBrowser( $uid )
- *  235:     private function recordCaddy( $uid )
- *  265:     private function recordPowermail( $uid )
- *  315:     private function records( )
+ *  111:     private function recordBrowser( $uid )
+ *  233:     private function recordCaddy( $uid )
+ *  263:     private function recordPowermail( $uid )
+ *  313:     private function records( )
  *
  *              SECTION: Sql
- *  352:     private function sqlInsert( $records )
+ *  350:     private function sqlInsert( $records )
  *
  * TOTAL FUNCTIONS: 6
  * (This index is automatically created/updated by the extension "extdeveval")
