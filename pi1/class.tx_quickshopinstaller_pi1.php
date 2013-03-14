@@ -26,78 +26,64 @@
  *
  *
  *
- *  116: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *  102: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  174:     public function main( $content, $conf)
+ *  160:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  257:     private function confirmation()
+ *  243:     private function confirmation()
  *
  *              SECTION: Counter
- *  333:     private function countPages( $pageUid )
+ *  319:     private function countPages( $pageUid )
  *
  *              SECTION: Create
- *  362:     private function create( )
- *  380:     private function createBeGroup()
- *  486:     private function createContent()
- *  628:     private function createFilesShop()
+ *  348:     private function create( )
+ *  366:     private function createBeGroup()
+ *  472:     private function createContent()
+ *  614:     private function createFilesShop()
  *
  *              SECTION: Create pages
- *  695:     private function createPageCaddy( $pageUid, $sorting )
- *  732:     private function createPageDelivery( $pageUid, $sorting )
- *  769:     private function createPageLegalinfo( $pageUid, $sorting )
- *  806:     private function createPageLibrary( $pageUid, $sorting )
- *  857:     private function createPageLibraryFooter( $pageUid, $sorting )
- *  895:     private function createPageLibraryHeader( $pageUid, $sorting )
- *  933:     private function createPageProducts( $pageUid, $sorting )
- * 1030:     private function createPageTerms( $pageUid, $sorting )
- * 1065:     private function createPages( )
- * 1097:     private function createPagesLibrary( $pageUid )
- * 1123:     private function createPagesLibraryRecords( $pageUid )
- * 1151:     private function createPagesLibrarySqlInsert( $pages )
- * 1178:     private function createPagesRoot( $pageUid )
- * 1199:     private function createPagesRootRecords( $pageUid )
- * 1242:     private function createPagesRootSqlInsert( $pages )
+ *  679:     private function createPages( )
  *
  *              SECTION: Create plugins
- * 1275:     private function createPlugins()
+ *  707:     private function createPlugins()
  *
  *              SECTION: Create records
- * 1517:     private function createRecordsPowermail()
- * 2126:     private function createRecordsShop()
+ *  949:     private function createRecordsPowermail()
+ * 1558:     private function createRecordsShop()
  *
  *              SECTION: Create TypoScript
- * 2494:     private function createTyposcript()
+ * 1926:     private function createTyposcript()
  *
  *              SECTION: Consolidate
- * 2801:     private function consolidatePageCurrent()
- * 3024:     private function consolidatePluginPowermail()
- * 3101:     private function consolidateTsWtCart()
+ * 2233:     private function consolidatePageCurrent()
+ * 2456:     private function consolidatePluginPowermail()
+ * 2533:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 3243:     private function extensionCheck( )
- * 3308:     private function extensionCheckCaseBaseTemplate( )
- * 3347:     private function extensionCheckExtension( $key, $title )
+ * 2675:     private function extensionCheck( )
+ * 2740:     private function extensionCheckCaseBaseTemplate( )
+ * 2779:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 3388:     private function htmlReport( )
+ * 2820:     private function htmlReport( )
  *
  *              SECTION: Init
- * 3445:     private function initBoolTopLevel( )
- * 3486:     private function install( )
- * 3525:     private function installNothing( )
+ * 2877:     private function initBoolTopLevel( )
+ * 2918:     private function install( )
+ * 2957:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3551:     private function promptCleanUp()
+ * 2983:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3600:     private function zz_getCHash($str_params)
- * 3614:     private function zz_getMaxDbUid($table)
- * 3641:     private function zz_getPathToIcons()
- * 3655:     private function zz_getFlexValues()
+ * 3032:     private function zz_getCHash($str_params)
+ * 3046:     public function zz_getMaxDbUid( $table )
+ * 3073:     private function zz_getPathToIcons()
+ * 3087:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 41
+ * TOTAL FUNCTIONS: 27
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */

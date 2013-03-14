@@ -26,78 +26,29 @@
  *
  *
  *
- *  116: class tx_quickshopinstaller_pi1_pages extends tslib_pibase
- *
- *              SECTION: Main
- *  174:     public function main( $content, $conf)
- *
- *              SECTION: Confirmation
- *  257:     private function confirmation()
- *
- *              SECTION: Counter
- *  333:     private function zz_countPages( $pageUid )
- *
- *              SECTION: Create
- *  362:     private function create( )
- *  380:     private function createBeGroup()
- *  486:     private function createContent()
- *  628:     private function createFilesShop()
+ *   67: class tx_quickshopinstaller_pi1_pages extends tslib_pibase
  *
  *              SECTION: Create pages
- *  695:     private function pageCaddy( $pageUid, $sorting )
- *  732:     private function pageDelivery( $pageUid, $sorting )
- *  769:     private function pageLegalinfo( $pageUid, $sorting )
- *  806:     private function pageLibrary( $pageUid, $sorting )
- *  857:     private function pageLibraryFooter( $pageUid, $sorting )
- *  895:     private function pageLibraryHeader( $pageUid, $sorting )
- *  933:     private function pageProducts( $pageUid, $sorting )
- * 1030:     private function pageTerms( $pageUid, $sorting )
- * 1065:     private function pages( )
- * 1097:     private function pagesLibrary( $pageUid )
- * 1123:     private function pagesLibraryRecords( $pageUid )
- * 1151:     private function pagesLibrarySqlInsert( $pages )
- * 1178:     private function pagesRoot( $pageUid )
- * 1199:     private function pagesRootRecords( $pageUid )
- * 1242:     private function pagesRootSqlInsert( $pages )
- *
- *              SECTION: Create plugins
- * 1275:     private function createPlugins()
- *
- *              SECTION: Create records
- * 1517:     private function createRecordsPowermail()
- * 2126:     private function createRecordsShop()
- *
- *              SECTION: Create TypoScript
- * 2494:     private function createTyposcript()
- *
- *              SECTION: Consolidate
- * 2801:     private function consolidatePageCurrent()
- * 3024:     private function consolidatePluginPowermail()
- * 3101:     private function consolidateTsWtCart()
- *
- *              SECTION: Extensions
- * 3243:     private function extensionCheck( )
- * 3308:     private function extensionCheckCaseBaseTemplate( )
- * 3347:     private function extensionCheckExtension( $key, $title )
- *
- *              SECTION: Html
- * 3388:     private function htmlReport( )
- *
- *              SECTION: Init
- * 3445:     private function initBoolTopLevel( )
- * 3486:     private function install( )
- * 3525:     private function installNothing( )
- *
- *              SECTION: Prompt
- * 3551:     private function promptCleanUp()
+ *   93:     private function pageCaddy( $pageUid, $sorting )
+ *  130:     private function pageDelivery( $pageUid, $sorting )
+ *  167:     private function pageLegalinfo( $pageUid, $sorting )
+ *  204:     private function pageLibrary( $pageUid, $sorting )
+ *  255:     private function pageLibraryFooter( $pageUid, $sorting )
+ *  295:     private function pageLibraryHeader( $pageUid, $sorting )
+ *  335:     private function pageProducts( $pageUid, $sorting )
+ *  432:     private function pageTerms( $pageUid, $sorting )
+ *  467:     public function pages( )
+ *  496:     private function pagesLibrary( $pageUid )
+ *  522:     private function pagesLibraryRecords( $pageUid )
+ *  550:     private function pagesLibrarySqlInsert( $pages )
+ *  577:     private function pagesRoot( $pageUid )
+ *  598:     private function pagesRootRecords( $pageUid )
+ *  641:     private function pagesRootSqlInsert( $pages )
  *
  *              SECTION: ZZ
- * 3600:     private function zz_getCHash($str_params)
- * 3614:     private function zz_getMaxDbUid($table)
- * 3641:     private function zz_getPathToIcons()
- * 3655:     private function zz_getFlexValues()
+ *  676:     private function zz_countPages( $pageUid )
  *
- * TOTAL FUNCTIONS: 41
+ * TOTAL FUNCTIONS: 16
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -121,8 +72,8 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
 
   public $pObj = null;
 
-  
-  
+
+
  /***********************************************
   *
   * Create pages
@@ -705,8 +656,8 @@ TCEMAIN {
     unset($pages);
   }
 
-  
-  
+
+
  /***********************************************
   *
   * ZZ
@@ -717,7 +668,7 @@ TCEMAIN {
  * zz_countPages( ) :
  *
  * @param	integer		$pageUid    : current page uid
- * @return	string          $csvResult  : pageUid, sorting
+ * @return	string		$csvResult  : pageUid, sorting
  * @access private
  * @version 3.0.0
  * @since 1.0.0
