@@ -51,9 +51,9 @@
  *  830:     private function createPageProducts( $pageUid, $sorting )
  *  921:     private function createPageTerms( $pageUid, $sorting )
  *  950:     private function createPages( )
- * 1061:     private function createPagesLevel01( $pageUid )
- * 1084:     private function createPagesLevel01Records( $pageUid )
- * 1127:     private function createPagesLevel01SqlInsert( $pages )
+ * 1061:     private function createPagesRoot( $pageUid )
+ * 1084:     private function createPagesRootRecords( $pageUid )
+ * 1127:     private function createPagesRootSqlInsert( $pages )
  *
  *              SECTION: Create plugins
  * 1160:     private function createPlugins()
@@ -690,11 +690,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPageCaddy( $pageUid, $sorting )
   {
+    $pageTitle    = 'page_title_cart';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_cart'),
+              'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
               'tstamp'        => time( ),
@@ -705,6 +708,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'urlType'       => 1,
               'sorting'       => $sorting
             );
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
 
     return $page;
   }
@@ -721,11 +727,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPageDelivery( $pageUid, $sorting )
   {
+    $pageTitle    = 'page_title_shipping';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_shipping'),
+              'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
               'tstamp'        => time( ),
@@ -736,6 +745,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'urlType'       => 1,
               'sorting'       => $sorting
             );
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
 
     return $page;
   }
@@ -752,11 +764,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPageLegalinfo( $pageUid, $sorting )
   {
+    $pageTitle    = 'page_title_legalinfo';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_legalinfo'),
+              'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
               'tstamp'        => time( ),
@@ -767,6 +782,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'urlType'       => 1,
               'sorting'       => $sorting
             );
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
 
     return $page;
   }
@@ -783,13 +801,16 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPageLibrary( $pageUid, $sorting )
   {
+    $pageTitle    = 'page_title_library';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    
     $dateHumanReadable  = date('Y-m-d G:i:s');
 
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_library'),
+              'title'         => $llPageTitle,
               'dokType'       => 254,  // 254: sysfolder
               'crdate'        => time( ),
               'tstamp'        => time( ),
@@ -812,6 +833,86 @@ TCEMAIN {
 
 '
             );
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+
+    return $page;
+  }
+
+/**
+ * createPageLibraryFooter( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$sorting            : sorting value
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPageLibraryFooter( $pageUid, $sorting )
+  {
+    $pageTitle    = 'page_title_library_footer';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $pid          = $this->arr_pageUids[ 'page_title_library' ];
+    
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $pid,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+
+    return $page;
+  }
+
+/**
+ * createPageLibraryHeader( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$sorting            : sorting value
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPageLibraryHeader( $pageUid, $sorting )
+  {
+    $pageTitle    = 'page_title_library_header';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    $pid          = $this->arr_pageUids[ 'page_title_library' ];
+    
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $pid,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+
     return $page;
   }
 
@@ -827,13 +928,16 @@ TCEMAIN {
  */
   private function createPageProducts( $pageUid, $sorting )
   {
+    $pageTitle    = 'page_title_products';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    
     $dateHumanReadable  = date('Y-m-d G:i:s');
 
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_products'),
+              'title'         => $llPageTitle,
               'dokType'       => 254,  // 254: sysfolder
               'crdate'        => time( ),
               'tstamp'        => time( ),
@@ -901,7 +1005,10 @@ TCEMAIN {
 
 '
             );
-    // Products
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+
     return $page;
   }
 
@@ -918,11 +1025,14 @@ TCEMAIN {
  */
   private function createPageTerms( $pageUid, $sorting )
   {
+    $pageTitle    = 'page_title_terms';
+    $llPageTitle  = $this->pi_getLL( $pageTitle );
+    
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_terms'),
+              'title'         => $llPageTitle,
               'dokType'       => 1,  // 1: page
               'crdate'        => time( ),
               'tstamp'        => time( ),
@@ -933,6 +1043,9 @@ TCEMAIN {
               'urlType'       => 1,
               'sorting'       => $sorting
             );
+
+    $this->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->arr_pageTitles[ $pageUid ]   = $llPageTitle;
 
     return $page;
   }
@@ -947,15 +1060,6 @@ TCEMAIN {
  */
   private function createPages( )
   {
-    $arr_pages  = array( );
-
-      // General Values
-    $timestamp          = time();
-    $table              = 'pages';
-    $no_quote_fields    = false;
-    $pageUid            = $this->zz_getMaxDbUid($table);
-      // General Values
-
       // Prompt header
     $this->arrReport[] = '
       <h2>
@@ -963,92 +1067,22 @@ TCEMAIN {
       </h2>';
       // Prompt header
 
-      // Pages on the first level
-    $pageUid = $this->createPagesLevel01( $pageUid );
+    $pageUid = $this->zz_getMaxDbUid( 'pages' );
+
+      // Pages on the root level
+    $pageUid = $this->createPagesRoot( $pageUid );
+
+      // Pages within page library
+    $pageUid = $this->createPagesLibrary( $pageUid );
 
 var_dump(__METHOD__, __LINE__, $pageUid );
 die( );
-
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Pages second level
-
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-      $select_fields = '`uid`';
-      $from_table    = '`'.$table.'`';
-      $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "'.$this->pi_getLL('page_title_library').'" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
-      $groupBy       = '';
-      $orderBy       = '';
-      $limit         = '0,1';
-      $uidIndexField = '';
-
-      $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
-      if(is_array($rows) && count($rows) > 0)
-      {
-        $this->markerArray['###PAGE_LIB_UID###'] = $rows[0]['uid'];
-      }
-//var_dump($rows);
-//return;
-      // Page header
-      $pageUid = $pageUid + 1;
-      $arr_pages[$pageUid]['uid']           = $pageUid;
-      $arr_pages[$pageUid]['pid']           = $this->markerArray['###PAGE_LIB_UID###'];
-      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_library_header');
-      $arr_pages[$pageUid]['dokType']       = 1;  // 1: page
-      $arr_pages[$pageUid]['crdate']        = $timestamp;
-      $arr_pages[$pageUid]['tstamp']        = $timestamp;
-      $arr_pages[$pageUid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$pageUid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$pageUid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$pageUid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$pageUid]['urlType']       = 1;
-      $arr_pages[$pageUid]['sorting']       = 256 * ($pageUid + 1);
-      // Page header
-
-      // Page footer
-      $pageUid = $pageUid + 1;
-      $arr_pages[$pageUid]['uid']           = $pageUid;
-      $arr_pages[$pageUid]['pid']           = $this->markerArray['###PAGE_LIB_UID###'];
-      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_library_footer');
-      $arr_pages[$pageUid]['crdate']        = $timestamp;
-      $arr_pages[$pageUid]['tstamp']        = $timestamp;
-      $arr_pages[$pageUid]['dokType']       = 1;  // 1: page
-      $arr_pages[$pageUid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$pageUid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$pageUid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$pageUid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$pageUid]['urlType']       = 1;
-      $arr_pages[$pageUid]['sorting']       = 256 * ($pageUid + 1);
-      // Page footer
-
-      foreach($arr_pages as $fields_values)
-      {
-        $GLOBALS['TYPO3_DB']->exec_INSERTquery($from_table, $fields_values, $no_quote_fields);
-        $this->markerArray['###TITLE###'] = $this->pi_getLL('page_title_library').' > '.$fields_values['title'];
-        $this->markerArray['###UID###']   = $fields_values['uid'];
-        $str_page_prompt = '
-          <p>
-            '.$this->arr_icons['ok'].' '.$this->pi_getLL('page_create_prompt').'
-          </p>';
-        $str_page_prompt = $this->cObj->substituteMarkerArray($str_page_prompt, $this->markerArray);
-        $this->arrReport[] = $str_page_prompt;
-      }
-      unset($arr_pages);
-    }
-
-    // Pages second level
-
-    $this->zz_getPageUids( $timestamp );
 
     return;
   }
 
 /**
- * createPagesLevel01( ) :
+ * createPagesLibrary( ) :
  *
  * @param	integer		$pageUid: current page uid
  * @return	integer		$pageUid: latest page uid
@@ -1056,22 +1090,25 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesLevel01( $pageUid )
+  private function createPagesLibrary( $pageUid )
   {
-    $arrResult  = $this->createPagesLevel01Records( $pageUid );
+    if( $this->markerArray['###INSTALL_CASE###'] != 'install_all' )
+    {
+      return $pageUid;
+    }
+    
+    $arrResult  = $this->createPagesLibraryRecords( $pageUid );
     $pages      = $arrResult['pages'];
     $pageUid    = $arrResult['pageUid'];
     unset( $arrResult );
-var_dump(__METHOD__, __LINE__, $pages, $pageUid );
-die( );
 
-    $this->createPagesLevel01SqlInsert( $pages );
+    $this->createPagesLibrarySqlInsert( $pages );
 
     return $pageUid;
   }
 
 /**
- * createPagesLevel01Records( ) :
+ * createPagesLibraryRecords( ) :
  *
  * @param	integer		$pageUid    : current page uid
  * @return	array		$arrReturn  : array with elements pages and pageUid
@@ -1079,30 +1116,15 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesLevel01Records( $pageUid )
+  private function createPagesLibraryRecords( $pageUid )
   {
     $pages = array( );
 
     list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+    $pages[$pageUid] = $this->createPageLibraryHeader( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable );
-
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageTerms( $pageUid, $timestamp, $sorting, $dateHumanReadable );
-
-    if( $this->markerArray['###INSTALL_CASE###'] == 'install_all' )
-    {
-      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-      $pages[$pageUid] = $this->createPageLegalinfo( $pageUid, $timestamp, $sorting, $dateHumanReadable );
-
-      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-      $pages[$pageUid] = $this->createPageLibrary( $pageUid, $timestamp, $sorting, $dateHumanReadable );
-    }
-
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageProducts( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+    $pages[$pageUid] = $this->createPageLibraryFooter( $pageUid, $sorting );
 
     $arrReturn  = array
                   (
@@ -1114,7 +1136,7 @@ die( );
   }
 
 /**
- * createPagesLevel01( ) :
+ * createPagesLibrary( ) :
  *
  * @param	array		$pages: page records
  * @return	void
@@ -1122,7 +1144,98 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesLevel01SqlInsert( $pages )
+  private function createPagesLibrarySqlInsert( $pages )
+  {
+    foreach( $pages as $page )
+    {
+      $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
+      $this->markerArray['###TITLE###'] = $this->pi_getLL( 'page_title_library' ) . ' > ' . $page['title'];
+      $this->markerArray['###UID###']   = $page['uid'];
+      $prompt = '
+        <p>
+          '.$this->arr_icons['ok'] . ' ' . $this->pi_getLL( 'page_create_prompt' ) . '
+        </p>';
+      $prompt = $this->cObj->substituteMarkerArray( $prompt, $this->markerArray );
+      $this->arrReport[ ] = $prompt;
+    }
+
+    unset($pages);
+  }
+
+/**
+ * createPagesRoot( ) :
+ *
+ * @param	integer		$pageUid: current page uid
+ * @return	integer		$pageUid: latest page uid
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPagesRoot( $pageUid )
+  {
+    $arrResult  = $this->createPagesRootRecords( $pageUid );
+    $pages      = $arrResult['pages'];
+    $pageUid    = $arrResult['pageUid'];
+    unset( $arrResult );
+
+    $this->createPagesRootSqlInsert( $pages );
+
+    return $pageUid;
+  }
+
+/**
+ * createPagesRootRecords( ) :
+ *
+ * @param	integer		$pageUid    : current page uid
+ * @return	array		$arrReturn  : array with elements pages and pageUid
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPagesRootRecords( $pageUid )
+  {
+    $pages = array( );
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageCaddy( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageDelivery( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageTerms( $pageUid, $sorting );
+
+    if( $this->markerArray['###INSTALL_CASE###'] == 'install_all' )
+    {
+      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+      $pages[$pageUid] = $this->createPageLegalinfo( $pageUid, $sorting );
+
+      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+      $pages[$pageUid] = $this->createPageLibrary( $pageUid, $sorting );
+    }
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageProducts( $pageUid, $sorting );
+
+    $arrReturn  = array
+                  (
+                    'pages'   => $pages,
+                    'pageUid' => $pageUid
+                  );
+
+    return $arrReturn;
+  }
+
+/**
+ * createPagesRoot( ) :
+ *
+ * @param	array		$pages: page records
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPagesRootSqlInsert( $pages )
   {
     foreach( $pages as $page )
     {
@@ -1131,9 +1244,9 @@ die( );
       $this->markerArray['###UID###']   = $page['uid'];
       $prompt = '
         <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('page_create_prompt').'
+          ' . $this->arr_icons['ok'] . ' ' . $this->pi_getLL( 'page_create_prompt' ) . '
         </p>';
-      $prompt = $this->cObj->substituteMarkerArray($prompt, $this->markerArray);
+      $prompt = $this->cObj->substituteMarkerArray( $prompt, $this->markerArray );
       $this->arrReport[] = $prompt;
     }
 
@@ -3516,98 +3629,6 @@ plugin.powermail {
     return $int_maxUid;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-   /**
- * Shop will be installed - with or without template
- *
- * @param	[type]		$timestamp: ...
- * @return	The		content that is displayed on the website
- */
-  private function zz_getPageUids($timestamp)
-  {
-    $this->arr_pageUids[$GLOBALS['TSFE']->page['title']] = $GLOBALS['TSFE']->id;
-    $this->arr_pageTitles[$GLOBALS['TSFE']->id] = $GLOBALS['TSFE']->page['title'];
-
-
-    $select_fields = '`uid`, `title`';
-    $from_table    = '`pages`';
-    $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
-    $groupBy       = '';
-    $orderBy       = '';
-    $limit         = '';
-    $uidIndexField = '';
-
-    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
-    foreach($rows as $row)
-    {
-      if($row['title'] == $this->pi_getLL('page_title_cart'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_cart')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_cart');
-      }
-      if($row['title'] == $this->pi_getLL('page_title_products'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_products')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_products');
-      }
-      if($row['title'] == $this->pi_getLL('page_title_shipping'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_shipping')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_shipping');
-      }
-      if($row['title'] == $this->pi_getLL('page_title_terms'))
-      {
-        $this->arr_pageUids[$this->pi_getLL('page_title_terms')] = $row['uid'];
-        $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_terms');
-      }
-
-      // Install ALL
-      if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-      {
-        if($row['title'] == $this->pi_getLL('page_title_legalinfo'))
-        {
-          $this->arr_pageUids[$this->pi_getLL('page_title_legalinfo')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_legalinfo');
-        }
-        if($row['title'] == $this->pi_getLL('page_title_library_header'))
-        {
-          $this->arr_pageUids[$this->pi_getLL('page_title_library_header')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_library_header');
-        }
-        if($row['title'] == $this->pi_getLL('page_title_library_footer'))
-        {
-          $this->arr_pageUids[$this->pi_getLL('page_title_library_footer')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_library_footer');
-        }
-      }
-      // Install ALL
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    /**
  * Shop will be installed - with or without template
  *
@@ -3621,19 +3642,6 @@ plugin.powermail {
     $this->arr_icons['ok']    = '<img width="22" height="22" src="'.$pathToIcons.'dialog-ok-apply.png"> ';
     $this->arr_icons['info']  = '<img width="22" height="22" src="'.$pathToIcons.'dialog-information.png"> ';
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    /**
  * Shop will be installed - with or without template
