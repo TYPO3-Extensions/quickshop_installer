@@ -706,7 +706,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'sorting'       => $sorting
             );
 
-    unset( $dateHumanReadable );
     return $page;
   }
 
@@ -769,7 +768,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'sorting'       => $sorting
             );
 
-    unset( $dateHumanReadable );
     return $page;
   }
 
@@ -1064,7 +1062,7 @@ die( );
     $pages      = $arrResult['pages'];
     $pageUid    = $arrResult['pageUid'];
     unset( $arrResult );
-var_dump(__METHOD__, __LINE__, $arrResult );
+var_dump(__METHOD__, __LINE__, $pages, $pageUid );
 die( );
 
     $this->createPagesLevel01SqlInsert( $pages );
