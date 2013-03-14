@@ -962,6 +962,15 @@ class tx_quickshopinstaller_pi1_powermail
     return $record;
   }
 
+
+
+ /***********************************************
+  *
+  * Controller
+  *
+  **********************************************/
+
+
 /**
  * fields( )
  *
