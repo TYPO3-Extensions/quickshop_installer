@@ -26,51 +26,53 @@
  *
  *
  *
- *   89: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *   91: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  147:     public function main( $content, $conf)
+ *  149:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  223:     private function confirmation()
- *
- *              SECTION: check extensions
- *  294:     private function extensionCheck( )
+ *  226:     private function confirmation()
  *
  *              SECTION: Create
- *  476:     private function createBeGroup()
- *  596:     private function createPages()
- *  905:     private function createTyposcript()
- * 1219:     private function createPlugins()
- * 1466:     private function createRecordsPowermail()
- * 2075:     private function createRecordsShop()
- * 2445:     private function createFilesShop()
- * 2512:     private function createContent()
+ *  299:     private function createBeGroup()
+ *  419:     private function createPages()
+ *  728:     private function createTyposcript()
+ * 1042:     private function createPlugins()
+ * 1289:     private function createRecordsPowermail()
+ * 1898:     private function createRecordsShop()
+ * 2268:     private function createFilesShop()
+ * 2335:     private function createContent()
  *
  *              SECTION: Consolidate
- * 2662:     private function consolidatePageCurrent()
- * 2885:     private function consolidatePluginPowermail()
- * 2962:     private function consolidateTsWtCart()
+ * 2485:     private function consolidatePageCurrent()
+ * 2708:     private function consolidatePluginPowermail()
+ * 2785:     private function consolidateTsWtCart()
+ *
+ *              SECTION: extensions
+ * 2927:     private function extensionCheck( )
+ * 2992:     private function extensionCheckCaseBaseTemplate( )
+ * 3031:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 3100:     private function htmlReport()
+ * 3072:     private function htmlReport()
  *
  *              SECTION: Init
- * 3154:     private function initBoolTopLevel()
- * 3193:     private function install()
- * 3235:     private function installNothing()
+ * 3127:     private function initBoolTopLevel( )
+ * 3168:     private function install()
+ * 3214:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3258:     private function promptCleanUp()
+ * 3240:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3307:     private function zz_getCHash($str_params)
- * 3321:     private function zz_getMaxDbUid($table)
- * 3361:     private function zz_getPageUids($timestamp)
- * 3440:     private function zz_getPathToIcons()
- * 3467:     private function zz_getFlexValues()
+ * 3289:     private function zz_getCHash($str_params)
+ * 3303:     private function zz_getMaxDbUid($table)
+ * 3343:     private function zz_getPageUids($timestamp)
+ * 3422:     private function zz_getPathToIcons()
+ * 3449:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 24
+ * TOTAL FUNCTIONS: 26
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -207,7 +209,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
   }
 
-  
+
 
  /***********************************************
   *
@@ -223,8 +225,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function confirmation()
   {
-    $boolConfirmation = false; 
-    
+    $boolConfirmation = false;
+
     // RETURN  if form is confirmed
     if($this->piVars['confirm'])
     {
@@ -2925,7 +2927,7 @@ plugin.powermail {
   private function extensionCheck( )
   {
     $boolError = false;
-    
+
       // RETURN  if form is confirmed
     if( $this->piVars['confirm'] )
     {
@@ -2973,7 +2975,7 @@ plugin.powermail {
     {
       $boolError = true;
     }
-    
+
     return $boolError;
 
   }
@@ -3001,27 +3003,27 @@ plugin.powermail {
     $title  = 'Template Auto-parser';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true; 
+      $boolError = true;
     }
 
     $key    = 'base_quickshop';
     $title  = 'Quick Shop - Template';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
-      $boolError = true; 
+      $boolError = true;
     }
 
     return $boolError;
   }
-  
+
 /**
  * extensionCheckExtension( )  : Checks wether an extension ist installed or not.
  *                                Returns true in case of installtion.
  *                                Writes result in the global $arrReport.
  *
- * @param       string    $key    : extension key
- * @param       string    $title  : extension title
- * @return	boolean		
+ * @param	string		$key    : extension key
+ * @param	string		$title  : extension title
+ * @return	boolean
  * @access private
  * @version   3.0.0
  * @since     1.0.0
@@ -3042,7 +3044,7 @@ plugin.powermail {
       return $boolInstalled;
     }
       // RETURN : extension is installed
-    
+
       // RETURN : extension isn't installed
     $this->arrReport[ ] = '
       <p>
@@ -3204,15 +3206,15 @@ plugin.powermail {
  /**
   * installNothing( ) : Write a prompt to the global $arrReport
   *
-  * @return	boolean     $boolError  : true
-  * @access     private
+  * @return	boolean		$boolError  : true
+  * @access private
   * @version    3.0.0
   * @since      1.0.0
   */
   private function installNothing( )
   {
     $boolError = true;
-    
+
     $this->arrReport[] = '
       <p>
         '.$this->arr_icons['warn'].$this->pi_getLL('plugin_warn').'<br />
