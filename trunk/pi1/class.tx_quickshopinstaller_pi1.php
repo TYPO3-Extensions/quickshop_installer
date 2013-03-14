@@ -319,7 +319,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->createTyposcript();
 var_dump(__METHOD__, __LINE__ );
 return;
-die( );
     $this->createPlugins();
     $this->createRecordsPowermail();
     $this->createRecordsShop();
@@ -1905,30 +1904,6 @@ die( );
   }
 
 /**
- * createTyposcriptRecords( )
- *
- * @return	array		$records : the TypoScript records
- * @access  private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function createTyposcriptRecords( )
-  {
-    $records  = array( );
-    $uid      = $this->zz_getMaxDbUid( 'sys_template' );
-    
-      // TypoScript for the root page
-    $uid = $uid + 1;
-    $records[$uid] = $this->createTyposcriptRecordRoot( $uid );
-    
-      // TypoScript for the caddy page
-    $uid = $uid + 1;
-    $records[$uid] = $this->createTyposcriptRecordCaddy( $uid );
-
-    return $records;
-  }
-
-/**
  * createTyposcriptRecordCaddy( )
  *
  * @return	array		$record : the TypoScript record
@@ -2088,11 +2063,17 @@ plugin.tx_wtcart_pi1 {
     $this->str_tsRoot = $title;
     $this->arr_tsUids[$this->str_tsRoot] = $uid;
 
-    $record['title']                     = $title;
-    $record['sitetitle']                 = $this->markerArray['###WEBSITE_TITLE###'];
-    $record['root']                      = 1;
-    $record['clear']                     = 3;  // Clear all
-    $record['include_static_file']       = '' .
+    $record['title']                = $title;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->arr_pageUids[$this->pi_getLL( 'page_title_root' )];
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->markerArray['###BE_USER###'];
+    $record['sitetitle']            = $this->markerArray['###WEBSITE_TITLE###'];
+    $record['root']                 = 1;
+    $record['clear']                = 3;  // Clear all
+    $record['include_static_file']  = '' .
       'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
       'EXT:browser/static/,EXT:quick_shop/static/';
     $record['includeStaticAfterBasedOn'] = 1;
@@ -2196,7 +2177,13 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     $this->str_tsRoot = $title;
     $this->arr_tsUids[$this->str_tsRoot] = $uid;
 
-    $record['title']                     = $title;
+    $record['title']                      = $title;
+    $record['uid']                        = $uid;
+    $record['pid']                        = $this->arr_pageUids[$this->pi_getLL( 'page_title_root' )];
+    $record['tstamp']                     = time( );
+    $record['sorting']                    = 256;
+    $record['crdate']                     = time( );
+    $record['cruser_id']                  = $this->markerArray['###BE_USER###'];
     $record['root']                       = 0;
     $record['clear']                      = 0;  // Clear nothing
     $record['includeStaticAfterBasedOn']  = 0;
@@ -2234,6 +2221,30 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
       'EXT:css_styled_content/static/,EXT:browser/static/,EXT:quick_shop/static/';
 
     return $record;
+  }
+
+/**
+ * createTyposcriptRecords( )
+ *
+ * @return	array		$records : the TypoScript records
+ * @access  private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function createTyposcriptRecords( )
+  {
+    $records  = array( );
+    $uid      = $this->zz_getMaxDbUid( 'sys_template' );
+    
+      // TypoScript for the root page
+    $uid = $uid + 1;
+    $records[$uid] = $this->createTyposcriptRecordRoot( $uid );
+    
+      // TypoScript for the caddy page
+    $uid = $uid + 1;
+    $records[$uid] = $this->createTyposcriptRecordCaddy( $uid );
+
+    return $records;
   }
 
 /**
@@ -2984,6 +2995,8 @@ plugin.powermail {
       // 120613, dwildt, 1+
     $this->initBoolTopLevel();
     $this->create( );
+var_dump(__METHOD__, __LINE__ );
+return $success;    
     $this->consolidatePageCurrent();
     $this->consolidatePluginPowermail();
     $this->consolidateTsWtCart();
