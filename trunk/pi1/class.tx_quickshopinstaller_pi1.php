@@ -1073,27 +1073,10 @@ TCEMAIN {
     $this->pages            = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_pages' );
     $this->pages->pObj      = $this;
 
-    $this->pages->createPages( );
+    $this->pages->pages( );
 
-var_dump(__METHOD__, __LINE__, $pageUid, $this->arrReport );
+var_dump(__METHOD__, __LINE__, $this->arrReport );
 die( );
-    // Prompt header
-    $this->arrReport[ ] = '
-      <h2>
-       '.$this->pi_getLL('page_create_header').'
-      </h2>';
-      // Prompt header
-
-    $pageUid = $this->zz_getMaxDbUid( 'pages' );
-
-      // Pages on the root level
-    $pageUid = $this->createPagesRoot( $pageUid );
-
-      // Pages within page library
-    $pageUid = $this->createPagesLibrary( $pageUid );
-
-
-    return;
   }
 
 /**

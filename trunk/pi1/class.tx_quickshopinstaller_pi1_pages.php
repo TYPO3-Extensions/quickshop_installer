@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010-2012 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2010-2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -35,7 +35,7 @@
  *  257:     private function confirmation()
  *
  *              SECTION: Counter
- *  333:     private function countPages( $pageUid )
+ *  333:     private function zz_countPages( $pageUid )
  *
  *              SECTION: Create
  *  362:     private function create( )
@@ -44,21 +44,21 @@
  *  628:     private function createFilesShop()
  *
  *              SECTION: Create pages
- *  695:     private function createPageCaddy( $pageUid, $sorting )
- *  732:     private function createPageDelivery( $pageUid, $sorting )
- *  769:     private function createPageLegalinfo( $pageUid, $sorting )
- *  806:     private function createPageLibrary( $pageUid, $sorting )
- *  857:     private function createPageLibraryFooter( $pageUid, $sorting )
- *  895:     private function createPageLibraryHeader( $pageUid, $sorting )
- *  933:     private function createPageProducts( $pageUid, $sorting )
- * 1030:     private function createPageTerms( $pageUid, $sorting )
- * 1065:     private function createPages( )
- * 1097:     private function createPagesLibrary( $pageUid )
- * 1123:     private function createPagesLibraryRecords( $pageUid )
- * 1151:     private function createPagesLibrarySqlInsert( $pages )
- * 1178:     private function createPagesRoot( $pageUid )
- * 1199:     private function createPagesRootRecords( $pageUid )
- * 1242:     private function createPagesRootSqlInsert( $pages )
+ *  695:     private function pageCaddy( $pageUid, $sorting )
+ *  732:     private function pageDelivery( $pageUid, $sorting )
+ *  769:     private function pageLegalinfo( $pageUid, $sorting )
+ *  806:     private function pageLibrary( $pageUid, $sorting )
+ *  857:     private function pageLibraryFooter( $pageUid, $sorting )
+ *  895:     private function pageLibraryHeader( $pageUid, $sorting )
+ *  933:     private function pageProducts( $pageUid, $sorting )
+ * 1030:     private function pageTerms( $pageUid, $sorting )
+ * 1065:     private function pages( )
+ * 1097:     private function pagesLibrary( $pageUid )
+ * 1123:     private function pagesLibraryRecords( $pageUid )
+ * 1151:     private function pagesLibrarySqlInsert( $pages )
+ * 1178:     private function pagesRoot( $pageUid )
+ * 1199:     private function pagesRootRecords( $pageUid )
+ * 1242:     private function pagesRootSqlInsert( $pages )
  *
  *              SECTION: Create plugins
  * 1275:     private function createPlugins()
@@ -125,42 +125,12 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   
  /***********************************************
   *
-  * Counter
-  *
-  **********************************************/
-
-/**
- * countPages( ) :
- *
- * @param	[type]		$$pageUid: ...
- * @return	string
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
-  private function countPages( $pageUid )
-  {
-    static $counter = 0;
-
-    $counter  = $counter + 1 ;
-    $pageUid  = $pageUid + 1 ;
-    $sorting  = 256 * $counter;
-
-    $csvResult = $pageUid . ',' . $sorting;
-
-    return $csvResult;
-  }
-
-  
-  
- /***********************************************
-  *
   * Create pages
   *
   **********************************************/
 
 /**
- * createPageCaddy( ) :
+ * pageCaddy( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -169,7 +139,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageCaddy( $pageUid, $sorting )
+  private function pageCaddy( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_cart';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -197,7 +167,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   }
 
 /**
- * createPageDelivery( ) :
+ * pageDelivery( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -206,7 +176,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageDelivery( $pageUid, $sorting )
+  private function pageDelivery( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_shipping';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -234,7 +204,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   }
 
 /**
- * createPageLegalinfo( ) :
+ * pageLegalinfo( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -243,7 +213,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageLegalinfo( $pageUid, $sorting )
+  private function pageLegalinfo( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_legalinfo';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -271,7 +241,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   }
 
 /**
- * createPageLibrary( ) :
+ * pageLibrary( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -280,7 +250,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageLibrary( $pageUid, $sorting )
+  private function pageLibrary( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_library';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -322,7 +292,7 @@ TCEMAIN {
   }
 
 /**
- * createPageLibraryFooter( ) :
+ * pageLibraryFooter( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -331,7 +301,7 @@ TCEMAIN {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageLibraryFooter( $pageUid, $sorting )
+  private function pageLibraryFooter( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_library_footer';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -362,7 +332,7 @@ TCEMAIN {
   }
 
 /**
- * createPageLibraryHeader( ) :
+ * pageLibraryHeader( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -371,7 +341,7 @@ TCEMAIN {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageLibraryHeader( $pageUid, $sorting )
+  private function pageLibraryHeader( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_library_header';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -402,7 +372,7 @@ TCEMAIN {
   }
 
 /**
- * createPageProducts( ) :
+ * pageProducts( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -411,7 +381,7 @@ TCEMAIN {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageProducts( $pageUid, $sorting )
+  private function pageProducts( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_products';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -498,7 +468,7 @@ TCEMAIN {
   }
 
 /**
- * createPageTerms( ) :
+ * pageTerms( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$sorting            : sorting value
@@ -508,7 +478,7 @@ TCEMAIN {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageTerms( $pageUid, $sorting )
+  private function pageTerms( $pageUid, $sorting )
   {
     $pageTitle    = 'page_title_terms';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
@@ -536,14 +506,14 @@ TCEMAIN {
   }
 
 /**
- * createPages( ) :
+ * pages( ) :
  *
  * @return	void
  * @access public
  * @version 3.0.0
  * @since 1.0.0
  */
-  public function createPages( )
+  public function pages( )
   {
       // Prompt header
     $this->pObj->arrReport[ ] = '
@@ -555,19 +525,16 @@ TCEMAIN {
     $pageUid = $this->pObj->zz_getMaxDbUid( 'pages' );
 
       // Pages on the root level
-    $pageUid = $this->createPagesRoot( $pageUid );
+    $pageUid = $this->pagesRoot( $pageUid );
 
       // Pages within page library
-    $pageUid = $this->createPagesLibrary( $pageUid );
-
-var_dump(__METHOD__, __LINE__, $pageUid, $this->pObj->arrReport );
-die( );
+    $pageUid = $this->pagesLibrary( $pageUid );
 
     return;
   }
 
 /**
- * createPagesLibrary( ) :
+ * pagesLibrary( ) :
  *
  * @param	integer		$pageUid: current page uid
  * @return	integer		$pageUid: latest page uid
@@ -575,25 +542,25 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesLibrary( $pageUid )
+  private function pagesLibrary( $pageUid )
   {
     if( $this->pObj->markerArray['###INSTALL_CASE###'] != 'install_all' )
     {
       return $pageUid;
     }
 
-    $arrResult  = $this->createPagesLibraryRecords( $pageUid );
+    $arrResult  = $this->pagesLibraryRecords( $pageUid );
     $pages      = $arrResult['pages'];
     $pageUid    = $arrResult['pageUid'];
     unset( $arrResult );
 
-    $this->createPagesLibrarySqlInsert( $pages );
+    $this->pagesLibrarySqlInsert( $pages );
 
     return $pageUid;
   }
 
 /**
- * createPagesLibraryRecords( ) :
+ * pagesLibraryRecords( ) :
  *
  * @param	integer		$pageUid    : current page uid
  * @return	array		$arrReturn  : array with elements pages and pageUid
@@ -601,15 +568,15 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesLibraryRecords( $pageUid )
+  private function pagesLibraryRecords( $pageUid )
   {
     $pages = array( );
 
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageLibraryHeader( $pageUid, $sorting );
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageLibraryHeader( $pageUid, $sorting );
 
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageLibraryFooter( $pageUid, $sorting );
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageLibraryFooter( $pageUid, $sorting );
 
     $arrReturn  = array
                   (
@@ -621,7 +588,7 @@ die( );
   }
 
 /**
- * createPagesLibrary( ) :
+ * pagesLibrary( ) :
  *
  * @param	array		$pages: page records
  * @return	void
@@ -629,7 +596,7 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesLibrarySqlInsert( $pages )
+  private function pagesLibrarySqlInsert( $pages )
   {
     foreach( $pages as $page )
     {
@@ -648,7 +615,7 @@ die( );
   }
 
 /**
- * createPagesRoot( ) :
+ * pagesRoot( ) :
  *
  * @param	integer		$pageUid: current page uid
  * @return	integer		$pageUid: latest page uid
@@ -656,20 +623,20 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesRoot( $pageUid )
+  private function pagesRoot( $pageUid )
   {
-    $arrResult  = $this->createPagesRootRecords( $pageUid );
+    $arrResult  = $this->pagesRootRecords( $pageUid );
     $pages      = $arrResult['pages'];
     $pageUid    = $arrResult['pageUid'];
     unset( $arrResult );
 
-    $this->createPagesRootSqlInsert( $pages );
+    $this->pagesRootSqlInsert( $pages );
 
     return $pageUid;
   }
 
 /**
- * createPagesRootRecords( ) :
+ * pagesRootRecords( ) :
  *
  * @param	integer		$pageUid    : current page uid
  * @return	array		$arrReturn  : array with elements pages and pageUid
@@ -677,30 +644,30 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesRootRecords( $pageUid )
+  private function pagesRootRecords( $pageUid )
   {
     $pages = array( );
 
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageCaddy( $pageUid, $sorting );
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageCaddy( $pageUid, $sorting );
 
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageDelivery( $pageUid, $sorting );
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageDelivery( $pageUid, $sorting );
 
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageTerms( $pageUid, $sorting );
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageTerms( $pageUid, $sorting );
 
     if( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' )
     {
-      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-      $pages[$pageUid] = $this->createPageLegalinfo( $pageUid, $sorting );
+      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+      $pages[$pageUid] = $this->pageLegalinfo( $pageUid, $sorting );
 
-      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-      $pages[$pageUid] = $this->createPageLibrary( $pageUid, $sorting );
+      list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+      $pages[$pageUid] = $this->pageLibrary( $pageUid, $sorting );
     }
 
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $pages[$pageUid] = $this->createPageProducts( $pageUid, $sorting );
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageProducts( $pageUid, $sorting );
 
     $arrReturn  = array
                   (
@@ -712,7 +679,7 @@ die( );
   }
 
 /**
- * createPagesRoot( ) :
+ * pagesRoot( ) :
  *
  * @param	array		$pages: page records
  * @return	void
@@ -720,7 +687,7 @@ die( );
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesRootSqlInsert( $pages )
+  private function pagesRootSqlInsert( $pages )
   {
     foreach( $pages as $page )
     {
@@ -736,6 +703,36 @@ die( );
     }
 
     unset($pages);
+  }
+
+  
+  
+ /***********************************************
+  *
+  * ZZ
+  *
+  **********************************************/
+
+/**
+ * zz_countPages( ) :
+ *
+ * @param	integer		$pageUid    : current page uid
+ * @return	string          $csvResult  : pageUid, sorting
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function zz_countPages( $pageUid )
+  {
+    static $counter = 0;
+
+    $counter  = $counter + 1 ;
+    $pageUid  = $pageUid + 1 ;
+    $sorting  = 256 * $counter;
+
+    $csvResult = $pageUid . ',' . $sorting;
+
+    return $csvResult;
   }
 
 }
