@@ -340,7 +340,7 @@
       <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="tt_content.list_type_pi1">Quick Shop - 1-Klick-Installer</label>
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
-      <label index="tx_powermail_fields">Powermail Fielder</label>
+      <label index="tx_powermail_fields">Powermail Felder</label>
       <label index="tx_quickshop_categories">Quick Shop Kategorien</label>
       <label index="tx_quickshop_products">Quick Shop Produkte</label>
       <label index="tx_quickshop_products_category_mm">Quick Shop MM Relationen</label>
