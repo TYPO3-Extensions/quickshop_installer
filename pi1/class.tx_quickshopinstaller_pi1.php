@@ -858,7 +858,9 @@ TCEMAIN {
   {
     $pageTitle    = 'page_title_library_footer';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    $pid          = $this->arr_pageUids[ 'page_title_library' ];
+    $pidTitle     = 'page_title_library';
+    $llPidTitle   = $this->pi_getLL( $pidTitle );
+    $pid          = $this->arr_pageUids[ $llPidTitle ];
 
     $page = array
             (
@@ -896,7 +898,9 @@ TCEMAIN {
   {
     $pageTitle    = 'page_title_library_header';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    $pid          = $this->arr_pageUids[ 'page_title_library' ];
+    $pidTitle     = 'page_title_library';
+    $llPidTitle   = $this->pi_getLL( $pidTitle );
+    $pid          = $this->arr_pageUids[ $llPidTitle ];
 
     $page = array
             (
