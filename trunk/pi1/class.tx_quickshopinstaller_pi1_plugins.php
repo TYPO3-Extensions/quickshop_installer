@@ -85,9 +85,9 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
   {
     $records = array( );
 
-    $this->arrReport[ ] = '
+    $this->pObj->arrReport[ ] = '
       <h2>
-       ' . $this->pi_getLL( 'plugin_create_header' ) . '
+       ' . $this->pObj->pi_getLL( 'plugin_create_header' ) . '
       </h2>';
 
     $records = $this->records( );
@@ -115,7 +115,7 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
   {
     $record = null;
 
-    $llHeader = $this->pi_getLL( 'plugin_browser_header' );
+    $llHeader = $this->pObj->pi_getLL( 'plugin_browser_header' );
     $this->pObj->arr_pluginUids[$llHeader] = $uid;
 
     $record['uid']           = $uid;
@@ -126,7 +126,7 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
     $record['sorting']       = 128;
     $record['CType']         = 'list';
     $record['header']        = $llHeader;
-    $record['pages']         = $this->pObj->arr_pageUids[$this->pi_getLL( 'page_title_products' )];
+    $record['pages']         = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
     $record['header_layout'] = 100;  // hidden
     $record['list_type']     = 'browser_pi1';
     $record['sectionIndex']  = 1;
@@ -237,11 +237,11 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
   {
     $record = null;
 
-    $llHeader = $this->pi_getLL( 'plugin_wtcart_header' );
+    $llHeader = $this->pObj->pi_getLL( 'plugin_wtcart_header' );
     $this->pObj->arr_pluginUids[$llHeader] = $uid;
 
     $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[$this->pi_getLL( 'page_title_caddy ')];
+    $record['pid']           = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy ')];
     $record['tstamp']        = $timestamp;
     $record['crdate']        = $timestamp;
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
@@ -267,11 +267,11 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
   {
     $record = null;
 
-    $llHeader = $this->pi_getLL( 'plugin_powermail_header' );
+    $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
     $this->pObj->arr_pluginUids[$llHeader] = $uid;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[$this->pi_getLL( 'page_title_caddy' )];
+    $record['pid']                        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $record['tstamp']                     = $timestamp;
     $record['crdate']                     = $timestamp;
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
@@ -294,7 +294,7 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
     $record['tx_powermail_recip_table']   = 0;
     $record['tx_powermail_recip_id']      = false;
     $record['tx_powermail_recip_field']   = false;
-    $record['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_thanks');
+    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL('plugin_powermail_thanks');
     $record['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CART###' . "\n" . '###POWERMAIL_ALL###';
     $record['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CART###' . "\n" . '###POWERMAIL_ALL###';
     $record['tx_powermail_redirect']      = false;
