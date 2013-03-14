@@ -1010,7 +1010,7 @@ class tx_quickshopinstaller_pi1_powermail
 
       // field billing address country
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryaddressCountry( $uid, $sorting );
+    $records[$uid] = $this->fieldBillingaddressCountry( $uid, $sorting );
 
       // field delivery address company
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
@@ -1043,6 +1043,14 @@ class tx_quickshopinstaller_pi1_powermail
       // field contact data e-mail
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
     $records[$uid] = $this->fieldContactdataEmail( $uid, $sorting );
+
+      // field contact data phone
+    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
+    $records[$uid] = $this->fieldContactdataPhone( $uid, $sorting );
+
+      // field contact data fax
+    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
+    $records[$uid] = $this->fieldContactdataFax( $uid, $sorting );
 
       // field order note
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
@@ -1249,7 +1257,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     foreach( $records as $record )
     {
-      var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
+      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
       $marker['###TITLE###']      = $record['title'];
       $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
