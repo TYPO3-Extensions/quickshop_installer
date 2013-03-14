@@ -473,12 +473,21 @@ TCEMAIN {
       </h2>';
       // Prompt header
 
+      // Set the global vars for the root page
+    $pageUid      = $GLOBALS['TSFE']->id;
+    $pageTitle    = 'page_title_root';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+      // Set the global vars for the root page
+
+      // Get the latest uid from the püages table
     $pageUid = $this->pObj->zz_getMaxDbUid( 'pages' );
 
-      // Pages on the root level
+      // Create pages on the root level
     $pageUid = $this->pagesRoot( $pageUid );
 
-      // Pages within page library
+      // Create pages within page library
     $pageUid = $this->pagesLibrary( $pageUid );
 
     return;

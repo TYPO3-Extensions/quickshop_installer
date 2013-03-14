@@ -2265,7 +2265,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
       $marker['###TITLE###']     = $record['title'];
       $marker['###UID###']       = $record['uid'];
       $marker['###TITLE_PID###'] = '"' . $this->arr_pageTitles[$record['pid']] .
-                                              '" (uid ' . $record['pid'] . ')';
+                                   '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
           '.$this->arr_icons['ok'] . ' ' . $this->pi_getLL( 'ts_create_prompt' ).'
