@@ -26,74 +26,78 @@
  *
  *
  *
- *  112: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *  116: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  170:     public function main( $content, $conf)
+ *  174:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  253:     private function confirmation()
+ *  257:     private function confirmation()
  *
  *              SECTION: Counter
- *  329:     private function countPages( $pageUid )
+ *  333:     private function countPages( $pageUid )
  *
  *              SECTION: Create
- *  358:     private function create( )
- *  376:     private function createBeGroup()
- *  482:     private function createContent()
- *  624:     private function createFilesShop()
+ *  362:     private function create( )
+ *  380:     private function createBeGroup()
+ *  486:     private function createContent()
+ *  628:     private function createFilesShop()
  *
  *              SECTION: Create pages
- *  691:     private function createPageCaddy( $pageUid, $sorting )
- *  723:     private function createPageDelivery( $pageUid, $sorting )
- *  754:     private function createPageLegalinfo( $pageUid, $sorting )
- *  786:     private function createPageLibrary( $pageUid, $sorting )
- *  830:     private function createPageProducts( $pageUid, $sorting )
- *  921:     private function createPageTerms( $pageUid, $sorting )
- *  950:     private function createPages( )
- * 1061:     private function createPagesRoot( $pageUid )
- * 1084:     private function createPagesRootRecords( $pageUid )
- * 1127:     private function createPagesRootSqlInsert( $pages )
+ *  695:     private function createPageCaddy( $pageUid, $sorting )
+ *  732:     private function createPageDelivery( $pageUid, $sorting )
+ *  769:     private function createPageLegalinfo( $pageUid, $sorting )
+ *  806:     private function createPageLibrary( $pageUid, $sorting )
+ *  857:     private function createPageLibraryFooter( $pageUid, $sorting )
+ *  895:     private function createPageLibraryHeader( $pageUid, $sorting )
+ *  933:     private function createPageProducts( $pageUid, $sorting )
+ * 1030:     private function createPageTerms( $pageUid, $sorting )
+ * 1065:     private function createPages( )
+ * 1097:     private function createPagesLibrary( $pageUid )
+ * 1123:     private function createPagesLibraryRecords( $pageUid )
+ * 1151:     private function createPagesLibrarySqlInsert( $pages )
+ * 1178:     private function createPagesRoot( $pageUid )
+ * 1199:     private function createPagesRootRecords( $pageUid )
+ * 1242:     private function createPagesRootSqlInsert( $pages )
  *
  *              SECTION: Create plugins
- * 1160:     private function createPlugins()
+ * 1275:     private function createPlugins()
  *
  *              SECTION: Create records
- * 1402:     private function createRecordsPowermail()
- * 2011:     private function createRecordsShop()
+ * 1517:     private function createRecordsPowermail()
+ * 2126:     private function createRecordsShop()
  *
  *              SECTION: Create TypoScript
- * 2379:     private function createTyposcript()
+ * 2494:     private function createTyposcript()
  *
  *              SECTION: Consolidate
- * 2686:     private function consolidatePageCurrent()
- * 2909:     private function consolidatePluginPowermail()
- * 2986:     private function consolidateTsWtCart()
+ * 2801:     private function consolidatePageCurrent()
+ * 3024:     private function consolidatePluginPowermail()
+ * 3101:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 3128:     private function extensionCheck( )
- * 3193:     private function extensionCheckCaseBaseTemplate( )
- * 3232:     private function extensionCheckExtension( $key, $title )
+ * 3243:     private function extensionCheck( )
+ * 3308:     private function extensionCheckCaseBaseTemplate( )
+ * 3347:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 3273:     private function htmlReport( )
+ * 3388:     private function htmlReport( )
  *
  *              SECTION: Init
- * 3330:     private function initBoolTopLevel( )
- * 3371:     private function install( )
- * 3410:     private function installNothing( )
+ * 3445:     private function initBoolTopLevel( )
+ * 3486:     private function install( )
+ * 3525:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3436:     private function promptCleanUp()
+ * 3551:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3485:     private function zz_getCHash($str_params)
- * 3499:     private function zz_getMaxDbUid($table)
- * 3539:     private function zz_getPageUids($timestamp)
- * 3618:     private function zz_getPathToIcons()
- * 3645:     private function zz_getFlexValues()
+ * 3600:     private function zz_getCHash($str_params)
+ * 3614:     private function zz_getMaxDbUid($table)
+ * 3641:     private function zz_getPathToIcons()
+ * 3655:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 37
+ * TOTAL FUNCTIONS: 41
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -692,7 +696,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $pageTitle    = 'page_title_cart';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    
+
     $page = array
             (
               'uid'           => $pageUid,
@@ -729,7 +733,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $pageTitle    = 'page_title_shipping';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    
+
     $page = array
             (
               'uid'           => $pageUid,
@@ -766,7 +770,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $pageTitle    = 'page_title_legalinfo';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    
+
     $page = array
             (
               'uid'           => $pageUid,
@@ -803,7 +807,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $pageTitle    = 'page_title_library';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    
+
     $dateHumanReadable  = date('Y-m-d G:i:s');
 
     $page = array
@@ -855,7 +859,7 @@ TCEMAIN {
     $pageTitle    = 'page_title_library_footer';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
     $pid          = $this->arr_pageUids[ 'page_title_library' ];
-    
+
     $page = array
             (
               'uid'           => $pageUid,
@@ -893,7 +897,7 @@ TCEMAIN {
     $pageTitle    = 'page_title_library_header';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
     $pid          = $this->arr_pageUids[ 'page_title_library' ];
-    
+
     $page = array
             (
               'uid'           => $pageUid,
@@ -930,7 +934,7 @@ TCEMAIN {
   {
     $pageTitle    = 'page_title_products';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    
+
     $dateHumanReadable  = date('Y-m-d G:i:s');
 
     $page = array
@@ -1027,7 +1031,7 @@ TCEMAIN {
   {
     $pageTitle    = 'page_title_terms';
     $llPageTitle  = $this->pi_getLL( $pageTitle );
-    
+
     $page = array
             (
               'uid'           => $pageUid,
@@ -1096,7 +1100,7 @@ die( );
     {
       return $pageUid;
     }
-    
+
     $arrResult  = $this->createPagesLibraryRecords( $pageUid );
     $pages      = $arrResult['pages'];
     $pageUid    = $arrResult['pageUid'];
