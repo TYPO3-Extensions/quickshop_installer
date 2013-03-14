@@ -26,55 +26,72 @@
  *
  *
  *
- *   93: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *  110: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  151:     public function main( $content, $conf)
+ *  168:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  228:     private function confirmation()
+ *  251:     private function confirmation()
+ *
+ *              SECTION: Counter
+ *  327:     private function countPages( $pageUid )
  *
  *              SECTION: Create
- *  302:     private function create( )
- *  320:     private function createBeGroup()
- *  426:     private function createContent()
- *  568:     private function createFilesShop()
- *  625:     private function createPages( )
- *  918:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  947:     private function createPlugins()
- * 1194:     private function createRecordsPowermail()
- * 1803:     private function createRecordsShop()
- * 2163:     private function createTyposcript()
+ *  356:     private function create( )
+ *  374:     private function createBeGroup()
+ *  480:     private function createContent()
+ *  622:     private function createFilesShop()
+ *
+ *              SECTION: Create pages
+ *  691:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  725:     private function createPageDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  759:     private function createPageLegalinfo( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  793:     private function createPageLibrary( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  837:     private function createPageProducts( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  927:     private function createPageTerms( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  957:     private function createPages( )
+ * 1082:     private function createPagesLevel01( $pageUid )
+ *
+ *              SECTION: Create plugins
+ * 1125:     private function createPlugins()
+ *
+ *              SECTION: Create records
+ * 1367:     private function createRecordsPowermail()
+ * 1976:     private function createRecordsShop()
+ *
+ *              SECTION: Create TypoScript
+ * 2344:     private function createTyposcript()
  *
  *              SECTION: Consolidate
- * 2470:     private function consolidatePageCurrent()
- * 2693:     private function consolidatePluginPowermail()
- * 2770:     private function consolidateTsWtCart()
+ * 2651:     private function consolidatePageCurrent()
+ * 2874:     private function consolidatePluginPowermail()
+ * 2951:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 2912:     private function extensionCheck( )
- * 2977:     private function extensionCheckCaseBaseTemplate( )
- * 3016:     private function extensionCheckExtension( $key, $title )
+ * 3093:     private function extensionCheck( )
+ * 3158:     private function extensionCheckCaseBaseTemplate( )
+ * 3197:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 3057:     private function htmlReport()
+ * 3238:     private function htmlReport( )
  *
  *              SECTION: Init
- * 3112:     private function initBoolTopLevel( )
- * 3153:     private function install( )
- * 3200:     private function installNothing( )
+ * 3295:     private function initBoolTopLevel( )
+ * 3336:     private function install( )
+ * 3375:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3226:     private function promptCleanUp()
+ * 3401:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3275:     private function zz_getCHash($str_params)
- * 3289:     private function zz_getMaxDbUid($table)
- * 3329:     private function zz_getPageUids($timestamp)
- * 3408:     private function zz_getPathToIcons()
- * 3435:     private function zz_getFlexValues()
+ * 3450:     private function zz_getCHash($str_params)
+ * 3464:     private function zz_getMaxDbUid($table)
+ * 3504:     private function zz_getPageUids($timestamp)
+ * 3583:     private function zz_getPathToIcons()
+ * 3610:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 28
+ * TOTAL FUNCTIONS: 35
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -301,6 +318,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 /**
  * countPages( ) :
  *
+ * @param	[type]		$$pageUid: ...
  * @return	string
  * @access private
  * @version 3.0.0
@@ -309,11 +327,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function countPages( $pageUid )
   {
     static $counter = 0;
-    
+
     $counter  = $counter + 1 ;
     $pageUid  = $pageUid + 1 ;
     $sorting  = 256 * $counter;
-    
+
     $csvResult = $pageUid . ',' . $sorting;
 
     return $csvResult;
@@ -326,7 +344,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   * Create
   *
   **********************************************/
-  
+
  /**
   * create( ) :
   *
@@ -651,7 +669,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   }
 
 
-  
+
  /***********************************************
   *
   * Create pages
@@ -759,7 +777,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     unset( $dateHumanReadable );
     return $page;
   }
-  
+
 /**
  * createPageLibrary( ) :
  *
@@ -1055,6 +1073,7 @@ die( );
 /**
  * createPagesLevel01( ) :
  *
+ * @param	[type]		$$pageUid: ...
  * @return	void
  * @access private
  * @version 3.0.0
@@ -1095,7 +1114,7 @@ die( );
   * Create plugins
   *
   **********************************************/
-  
+
   /**
  * Shop will be installed - with or without template
  *
@@ -1339,7 +1358,7 @@ die( );
   * Create records
   *
   **********************************************/
-  
+
    /**
  * Shop will be installed - with or without template
  *
@@ -2314,7 +2333,7 @@ die( );
   * Create TypoScript
   *
   **********************************************/
-  
+
   /**
  * Shop will be installed - with or without template
  *
@@ -3214,7 +3233,7 @@ plugin.powermail {
 /**
  * htmlReport( )
  *
- * @return	string 
+ * @return	string
  */
   private function htmlReport( )
   {
