@@ -437,7 +437,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
   private function records( )
   {
     $records  = array( );
-    $uid      = $this->zz_getMaxDbUid( 'sys_template' );
+    $uid      = $this->pObj->zz_getMaxDbUid( 'sys_template' );
 
       // TypoScript for the root page
     $uid = $uid + 1;
