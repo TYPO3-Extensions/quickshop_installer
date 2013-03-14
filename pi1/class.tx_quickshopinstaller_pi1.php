@@ -133,14 +133,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [array] Array with the report items
   public  $arrReport       = false;
     // [array] Array with images, wrapped as HTML <img ...>
-  private $arr_icons       = false;
+  public  $arr_icons       = false;
 
     // [array] Array with variables like group id, page ids ...
   public  $markerArray       = false;
     // [array] Uids of the current and the generated pages records. Titles are the keys.
-  private $arr_pageUids      = false;
+  public  $arr_pageUids      = false;
     // [array] Titles of the current and the generated pages records. Uids are the keys.
-  private $arr_pageTitles    = false;
+  public  $arr_pageTitles    = false;
     // [array] Uids of the generated sys_templates records
   private $arr_tsUids      = false;
     // [string] Title of the root TypoScript
