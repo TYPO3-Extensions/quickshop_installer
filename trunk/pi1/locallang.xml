@@ -6,12 +6,8 @@
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
-      <label index="tt_content.list_type_pi1">Quick Shop - 1-Click-Installer</label>
       <label index="back">Back</label>
-      <label index="plugin_warn">Do you don't want, that Quick Shop Installer installs the Quick Shop?</label>
-      <label index="plugin_help">If you want, please select the option "Installation: Quick Shop ..." in the TYPO3 backend plugin.</label>
       <label index="begin_h1">Quick Shop Installation</label>
-      <label index="error_all_h1">Quick Shop Installation is failing</label>
       <label index="confirm_header">Start the Installation</label>
       <label index="confirm_prompt_createBeGroup">Create a backend group</label>
       <label index="confirm_prompt_createPages">Create a page tree</label>
@@ -24,10 +20,33 @@
       <label index="confirm_prompt_createContent">Create page content</label>
       <label index="confirm_prompt_consolidate">Consolidating</label>
       <label index="confirm_button">Install it!</label>
-      <label index="ext_header">Check extension dependencies</label>
+      <label index="consolidate_header">Consolidating</label>
+      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is updated.</label>
+      <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
+      <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
+      <label index="content_create_header">Page content</label>
+      <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
+      <label index="content_footer_header">[Footer]</label>
+      <label index="content_footer_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
+      <label index="content_header_header">[Header]</label>
+      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Home"&gt;Quick Shop&lt;/link&gt;</label>
+      <label index="content_shipping_header">Shipping</label>
+      <label index="content_shipping_bodytext">Our shipping conditions
+      <label index="content_terms_header">Terms and conditions</label>
+      <label index="content_terms_bodytext">Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
+      <label index="end_button">Reload this page</label>
+      <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Quick Shop Installer, if you don't need it any longer.</label>
+      <label index="end_header">Finish the installation</label>
+      <label index="end_h1">Quick Shop Installation was successful.</label>
+      <label index="end_reloadBe_prompt">TYPO3 backend: Please close the edit area and reload the page tree.</label>
+      <label index="error_all_h1">Quick Shop Installation is failing</label>
       <label index="ext_error">The Quick Shop Installer is missing an extension.</label>
+      <label index="ext_header">Check extension dependencies</label>
       <label index="ext_help">Please install: </label>
       <label index="ext_ok">is loaded.</label>
+      <label index="files_create_header">Files</label>
+      <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
+      <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
       <label index="grp_create_header">Backend Group "###GROUP_TITLE###"</label>
       <label index="grp_create_prompt">Group "###GROUP_TITLE###" (uid ###GROUP_UID###) is created. If you doesn't need it, please delete it.</label>
       <label index="grp_ok_header">Backend Group "###GROUP_TITLE###"</label>
@@ -45,13 +64,17 @@
       <label index="page_title_library_header">header</label>
       <label index="page_title_library_footer">footer</label>
       <label index="page_title_products">Quick Shop - Products</label>
-      <label index="ts_create_header">TypoScript</label>
-      <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
+      <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
+      <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
+      <label index="phrases_powermail_termsAccepted">I'm according with the &lt;link ###PID### _blank&gt;Terms and Conditions&lt;/link&gt;.|Terms and Conditions accepted</label>
+      <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
+      <label index="plugin_browser_header">[Browser for Quickshop]</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="plugin_browser_header">[Browser for Quickshop]</label>
+      <label index="plugin_help">If you want, please select the option "Installation: Quick Shop ..." in the TYPO3 backend plugin.</label>
       <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
       <label index="plugin_powermail_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo shop. Bad news: You won't receive any product. Good news: You won't receive any invoice.</label>
+      <label index="plugin_warn">Do you don't want, that Quick Shop Installer installs the Quick Shop?</label>
       <label index="plugin_wtcart_header">Caddy</label>
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the folder ###TITLE_PID###.</label>
@@ -117,11 +140,15 @@
       <label index="record_pm_fSets_title_order">order</label>
       <label index="record_pm_fSets_title_contactData">contact data</label>
       <label index="record_pm_fSets_title_deliveryAddress">delivery address</label>
+      <label index="record_pm_field_title_companyBilling">Company</label>
+      <label index="record_pm_field_title_countryBilling">Country</label>
       <label index="record_pm_field_title_surnameBilling">surname</label>
       <label index="record_pm_field_title_firstnameBilling">first name</label>
       <label index="record_pm_field_title_streetBilling">street and number</label>
       <label index="record_pm_field_title_zipBilling">zip</label>
       <label index="record_pm_field_title_locationBilling">location</label>
+      <label index="record_pm_field_title_companyDelivery">Company</label>
+      <label index="record_pm_field_title_countryDelivery">Country</label>
       <label index="record_pm_field_title_surnameDelivery">surname</label>
       <label index="record_pm_field_title_firstnameDelivery">first name</label>
       <label index="record_pm_field_title_streetDelivery">street and number</label>
@@ -135,36 +162,13 @@
       <label index="record_pm_field_title_methodOfShipping">shipping</label>
       <label index="record_pm_field_title_terms">terms and conditions</label>
       <label index="record_pm_field_title_submit">Confirm</label>
-      <label index="files_create_header">Files</label>
-      <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
-      <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
-      <label index="content_create_header">Page content</label>
-      <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="content_shipping_header">Shipping</label>
-      <label index="content_shipping_bodytext">Our shipping conditions
+      <label index="ts_create_header">TypoScript</label>
+      <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
 * germany 
 * german islands
 * europe
 * rest of the world</label>
-      <label index="content_terms_header">Terms and conditions</label>
-      <label index="content_terms_bodytext">Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
-      <label index="content_header_header">[Header]</label>
-      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Home"&gt;Quick Shop&lt;/link&gt;</label>
-      <label index="content_footer_header">[Footer]</label>
-      <label index="content_footer_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
-      <label index="consolidate_header">Consolidating</label>
-      <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
-      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is updated.</label>
-      <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
-      <label index="end_header">Finish the installation</label>
-      <label index="end_reloadBe_prompt">TYPO3 backend: Please close the edit area and reload the page tree.</label>
-      <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Quick Shop Installer, if you don't need it any longer.</label>
-      <label index="end_h1">Quick Shop Installation was successful.</label>
-      <label index="end_button">Reload this page</label>
-      <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
-      <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
-      <label index="phrases_powermail_termsAccepted">I'm according with the &lt;link ###PID### _blank&gt;Terms and Conditions&lt;/link&gt;.|Terms and Conditions accepted</label>
-      <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
+      <label index="tt_content.list_type_pi1">Quick Shop - 1-Click-Installer</label>
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
       <label index="tx_quickshop_categories">Quick Shop Categories</label>
@@ -172,12 +176,8 @@
       <label index="tx_quickshop_products_category_mm">Quick Shop MM Relations</label>
     </languageKey>
     <languageKey index="de" type="array">
-      <label index="tt_content.list_type_pi1">Quick Shop - 1-Klick-Installer</label>
       <label index="back">Zurück</label>
-      <label index="plugin_warn">Willst Du den Quick Shop Installer wirklich nicht benutzen?</label>
-      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Quick Shop ..." im TYPO3-Backend-Pllugin.</label>
       <label index="begin_h1">Quick Shop Installation</label>
-      <label index="error_all_h1">Quick Shop Installation nicht durchgeführt!</label>
       <label index="confirm_header">Installation durchführen</label>
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
@@ -190,8 +190,35 @@
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>
-      <label index="ext_header">Abhängigkeiten von Erweiterungen</label>
+      <label index="content_create_header">Seiteninhalt</label>
+      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
+      <label index="content_footer_header">[Fußzeile]</label>
+      <label index="content_footer_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
+      <label index="content_header_header">[Kopfzeile]</label>
+      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Startseite"&gt;Quick Shop&lt;/link&gt;</label>
+      <label index="content_shipping_header">Versand</label>
+      <label index="content_shipping_bodytext">Hier finden Sie Angaben zum Versand
+* innerhalb Deutschlands
+* auf Deutsche Inseln
+* innerhalb Europas
+* Rest der Welt</label>
+      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_terms_bodytext">Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
+      <label index="consolidate_header">Konsolidierung</label>
+      <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
+      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
+      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgblendet.</label>
+      <label index="end_button">Seite neu laden</label>
+      <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Quick Shop Installer, wenn Du ihn nicht mehr brauchst!</label>
+      <label index="end_header">Installation beenden!</label>
+      <label index="end_h1">Die Installation war erfolgreich!</label>
+      <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schließe das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
+      <label index="error_all_h1">Quick Shop Installation nicht durchgeführt!</label>
+      <label index="files_create_header">Dateien</label>
+      <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
+      <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
       <label index="ext_error">Der Quick Shop Installer meldet eine fehlende Erweiterung.</label>
+      <label index="ext_header">Abhängigkeiten von Erweiterungen</label>
       <label index="ext_help">Bitte installiere: </label>
       <label index="ext_ok">ist installiert.</label>
       <label index="grp_create_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
@@ -211,13 +238,17 @@
       <label index="page_title_library_header">Kopf</label>
       <label index="page_title_library_footer">Fuß</label>
       <label index="page_title_products">Quick Shop - Produkte</label>
-      <label index="ts_create_header">TypoScript</label>
-      <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
+      <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
+      <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
+      <label index="phrases_powermail_termsAccepted">Ich akzeptiere die &lt;link ###PID### _blank&gt;AGB&lt;/link&gt;.|AGB akzeptiert</label>
+      <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
+      <label index="plugin_browser_header">[Browser für Quickshop]</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
-      <label index="plugin_browser_header">[Browser für Quickshop]</label>
+      <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Quick Shop ..." im TYPO3-Backend-Pllugin.</label>
       <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
       <label index="plugin_powermail_thanks">Herzlichen Dank für Ihre Bestellung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Shop. Die schlechte Nachricht: Sie erhalten die bestellten Produkte nicht. Die gute Nachricht: Sie erhalten auch keine Rechnung.</label>
+      <label index="plugin_warn">Willst Du den Quick Shop Installer wirklich nicht benutzen?</label>
       <label index="plugin_wtcart_header">Warenkorb</label>
       <label index="record_create_header">Datensätze</label>
       <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.</label>
@@ -283,11 +314,15 @@
       <label index="record_pm_fSets_title_order">Bestellung</label>
       <label index="record_pm_fSets_title_contactData">Kontaktdaten</label>
       <label index="record_pm_fSets_title_deliveryAddress">Lieferadresse</label>
+      <label index="record_pm_field_title_companyBilling">Firma</label>
+      <label index="record_pm_field_title_countryBilling">Land</label>
       <label index="record_pm_field_title_surnameBilling">Nachname</label>
       <label index="record_pm_field_title_firstnameBilling">Vorname</label>
       <label index="record_pm_field_title_streetBilling">Straße und Hausnummer</label>
       <label index="record_pm_field_title_zipBilling">Postleitzahl</label>
       <label index="record_pm_field_title_locationBilling">Ort</label>
+      <label index="record_pm_field_title_companyDelivery">Firma</label>
+      <label index="record_pm_field_title_countryDelivery">Land</label>
       <label index="record_pm_field_title_surnameDelivery">Nachname</label>
       <label index="record_pm_field_title_firstnameDelivery">Vorname</label>
       <label index="record_pm_field_title_streetDelivery">Straße und Hausnummer</label>
@@ -301,36 +336,9 @@
       <label index="record_pm_field_title_methodOfShipping">Versandart</label>
       <label index="record_pm_field_title_terms">AGB</label>
       <label index="record_pm_field_title_submit">Bestellen</label>
-      <label index="files_create_header">Dateien</label>
-      <label index="files_create_prompt">Datei "###DEST###" wurde in "###PATH###" erstellt.</label>
-      <label index="files_create_prompt_error">Datei "###SRCE###" konnte nicht nach "###DEST###" kopiert werden.</label>
-      <label index="content_create_header">Seiteninhalt</label>
-      <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
-      <label index="content_shipping_header">Versand</label>
-      <label index="content_shipping_bodytext">Hier finden Sie Angaben zum Versand
-* innerhalb Deutschlands
-* auf Deutsche Inseln
-* innerhalb Europas
-* Rest der Welt</label>
-      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_terms_bodytext">Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
-      <label index="content_header_header">[Kopfzeile]</label>
-      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Startseite"&gt;Quick Shop&lt;/link&gt;</label>
-      <label index="content_footer_header">[Fußzeile]</label>
-      <label index="content_footer_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
-      <label index="consolidate_header">Konsolidierung</label>
-      <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
-      <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
-      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgblendet.</label>
-      <label index="end_header">Installation beenden!</label>
-      <label index="end_reloadBe_prompt">TYPO3 Backend: Bitte schließe das Bearbeitungsfenster, ohne es zu speichern. Lade den Seitenbaum neu.</label>
-      <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Quick Shop Installer, wenn Du ihn nicht mehr brauchst!</label>
-      <label index="end_h1">Die Installation war erfolgreich!</label>
-      <label index="end_button">Seite neu laden</label>
-      <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
-      <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
-      <label index="phrases_powermail_termsAccepted">Ich akzeptiere die &lt;link ###PID### _blank&gt;AGB&lt;/link&gt;.|AGB akzeptiert</label>
-      <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
+      <label index="ts_create_header">TypoScript</label>
+      <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
+      <label index="tt_content.list_type_pi1">Quick Shop - 1-Klick-Installer</label>
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
       <label index="tx_powermail_fields">Powermail Fielder</label>
       <label index="tx_quickshop_categories">Quick Shop Kategorien</label>

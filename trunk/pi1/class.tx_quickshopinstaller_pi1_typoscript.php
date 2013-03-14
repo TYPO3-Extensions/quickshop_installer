@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010-2012 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -46,18 +46,16 @@
  *
  */
 
-require_once(PATH_tslib.'class.tslib_pibase.php');
-
-
 /**
  * Plugin 'Quick Shop Inmstaller' for the 'quickshop_installer' extension.
  *
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 1.0.6
+ * @version 3.0.0
+ * @since 3.0.0
  */
-class tx_quickshopinstaller_pi1_typoscript extends tslib_pibase
+class tx_quickshopinstaller_pi1_typoscript
 {
   public $prefixId      = 'tx_quickshopinstaller_pi1_typoscript';                // Same as class name
   public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_typoscript.php';  // Path to this script relative to the extension dir.
