@@ -35,7 +35,7 @@
  *  223:     private function confirmation()
  *
  *              SECTION: check extensions
- *  294:     private function checkExtensions( )
+ *  294:     private function extensionCheck( )
  *
  *              SECTION: Create
  *  476:     private function createBeGroup()
@@ -56,9 +56,9 @@
  * 3100:     private function htmlReport()
  *
  *              SECTION: Init
- * 3154:     private function init_boolTopLevel()
+ * 3154:     private function initBoolTopLevel()
  * 3193:     private function install()
- * 3235:     private function install_nothing()
+ * 3235:     private function installNothing()
  *
  *              SECTION: Prompt
  * 3258:     private function promptCleanUp()
@@ -167,21 +167,22 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     //
     // What should be installed?
 
-    switch($this->markerArray['###INSTALL_CASE###'])
+    switch( $this->markerArray['###INSTALL_CASE###'] )
     {
       case( null ):
       case( 'disabled' ):
-        $this->install_nothing();
+        $this->bool_error = $this->installNothing( );
         break;
       case( 'install_shop' ):
       case( 'install_all' ):
-        $this->install();
+        $this->bool_error = $this->install( );
         break;
       default:
         $this->arrReport[] = '
           <p>
             switch in tx_quickshopinstaller_pi1::main has an undefined value: '.$this->markerArray['###INSTALL_CASE###'].'
           </p>';
+        $this->bool_error = true;
     }
     // What should be installed?
 
@@ -206,7 +207,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
   }
 
-
+  
 
  /***********************************************
   *
@@ -222,10 +223,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function confirmation()
   {
+    $boolConfirmation = false; 
+    
     // RETURN  if form is confirmed
     if($this->piVars['confirm'])
     {
-      return true;
+      $boolConfirmation = true;
+      return $boolConfirmation;
     }
     // RETURN  if form is confirmed
 
@@ -272,191 +276,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       </div>';
     // Confirmation form
 
-    return false;
-  }
-
-
-
- /***********************************************
-  *
-  * check extensions
-  *
-  **********************************************/
-
-  /**
- * checkExtensions( ) :
- *
- * @return	The		content that is displayed on the website
- * @access private
- * @version   3.0.0
- * @since     1.0.0
- */
-  private function checkExtensions( )
-  {
-      // RETURN  if form is confirmed
-    if( $this->piVars['confirm'] )
-    {
-      return false;
-    }
-      // RETURN  if form is confirmed
-
-    $this->arrReport[ ] = '
-      <h2>
-       '.$this->pi_getLL('ext_header').'
-      </h2>
-      ';
-
-      // Shop and Template
-    if( $this->markerArray['###INSTALL_CASE###'] == 'install_all' )
-    {
-      $str_extKey   = 'automaketemplate';
-      $str_extTitle = 'Template Auto-parser (' . $str_extKey . ')';
-      // RETURN without automaketemplate
-      if( ! t3lib_extMgm::isLoaded( $str_extKey ) )
-      {
-        $this->arrReport[] = '
-          <p>
-            '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-            '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-          </p>';
-        $this->bool_error = true;
-      }
-      // RETURN without automaketemplate
-
-      // automaketemplate is loaded
-      if(t3lib_extMgm::isLoaded($str_extKey))
-      {
-        $this->arrReport[] = '
-          <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-          </p>';
-      }
-      // automaketemplate is loaded
-
-      $str_extKey = 'base_quickshop';
-      $str_extTitle = 'Quick Shop - Template ('.$str_extKey.')';
-      // RETURN without base_quickshop
-      if(!t3lib_extMgm::isLoaded($str_extKey))
-      {
-        $this->arrReport[] = '
-          <p>
-            '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-            '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-          </p>';
-        $this->bool_error = true;
-      }
-      // RETURN without base_quickshop
-
-      // base_quickshop is loaded
-      if(t3lib_extMgm::isLoaded($str_extKey))
-      {
-        $this->arrReport[] = '
-          <p>
-            '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-          </p>';
-      }
-      // base_quickshop is loaded
-    }
-    // Shop and Template
-
-
-    $str_extKey = 'browser';
-    $str_extTitle = 'Browser - the TYPO3-Frontend-Engine ('.$str_extKey.')';
-    // RETURN without browser
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without browser
-
-    // browser is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // browser is loaded
-
-    $str_extKey = 'powermail';
-    $str_extTitle = 'Powermail ('.$str_extKey.')';
-    // RETURN without browser
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without browser
-
-    // browser is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // browser is loaded
-
-    $str_extKey = 'quick_shop';
-    $str_extTitle = 'Quick Shop ('.$str_extKey.')';
-    // RETURN without quick_shop
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without quick_shop
-
-    // quick_shop is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // quick_shop is loaded
-
-
-    $str_extKey = 'wt_cart';
-    $str_extTitle = 'Shopping Cart for TYPO3 ('.$str_extKey.')';
-    // RETURN without browser
-    if(!t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['error'].$this->pi_getLL('ext_error').'<br />
-          '.$this->arr_icons['info'].$this->pi_getLL('ext_help').' '.$str_extTitle.'
-        </p>';
-      $this->bool_error = true;
-    }
-    // RETURN without browser
-
-    // browser is loaded
-    if(t3lib_extMgm::isLoaded($str_extKey))
-    {
-      $this->arrReport[] = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$str_extTitle.' '.$this->pi_getLL('ext_ok').'
-        </p>';
-    }
-    // browser is loaded
-
+    $boolConfirmation = false;
+    return $boolConfirmation;
   }
 
 
@@ -3088,6 +2909,155 @@ plugin.powermail {
 
  /***********************************************
   *
+  * extensions
+  *
+  **********************************************/
+
+/**
+ * extensionCheck( ) :  Checks whether needed extensions are installed.
+ *                      Result will stored in the global $arrReport.
+ *
+ * @return	void
+ * @access private
+ * @version   3.0.0
+ * @since     1.0.0
+ */
+  private function extensionCheck( )
+  {
+    $boolError = false;
+    
+      // RETURN  if form is confirmed
+    if( $this->piVars['confirm'] )
+    {
+      return;
+    }
+      // RETURN  if form is confirmed
+
+      // Header
+    $this->arrReport[ ] = '
+      <h2>
+       '.$this->pi_getLL('ext_header').'
+      </h2>
+      ';
+      // Header
+
+    if( ! $this->extensionCheckCaseBaseTemplate( ) )
+    {
+      $boolError = true;
+    }
+
+    $key    = 'browser';
+    $title  = 'Browser - TYPO3 without PHP';
+    if( ! $this->extensionCheckExtension( $key, $title ) )
+    {
+      $boolError = true;
+    }
+
+    $key    = 'caddy';
+    $title  = 'Caddy - your shopping cart';
+    if( ! $this->extensionCheckExtension( $key, $title ) )
+    {
+      $boolError = true;
+    }
+
+    $key    = 'powermail';
+    $title  = 'Powermail';
+    if( ! $this->extensionCheckExtension( $key, $title ) )
+    {
+      $boolError = true;
+    }
+
+    $key    = 'quick_shop';
+    $title  = 'Quick Shop';
+    if( ! $this->extensionCheckExtension( $key, $title ) )
+    {
+      $boolError = true;
+    }
+    
+    return $boolError;
+
+  }
+
+/**
+ * extensionCheckCaseBaseTemplate( ) :  Checks whether needed extensions are installed.
+ *                      Result will stored in the global $arrReport.
+ *
+ * @return	void
+ * @access private
+ * @version   3.0.0
+ * @since     1.0.0
+ */
+  private function extensionCheckCaseBaseTemplate( )
+  {
+    $boolError = false;
+      // RETURN : base template should not installed
+    if( $this->markerArray['###INSTALL_CASE###'] != 'install_all' )
+    {
+      return $boolError;
+    }
+      // RETURN : base template should not installed
+
+    $key    = 'automaketemplate';
+    $title  = 'Template Auto-parser';
+    if( ! $this->extensionCheckExtension( $key, $title ) )
+    {
+      $boolError = true; 
+    }
+
+    $key    = 'base_quickshop';
+    $title  = 'Quick Shop - Template';
+    if( ! $this->extensionCheckExtension( $key, $title ) )
+    {
+      $boolError = true; 
+    }
+
+    return $boolError;
+  }
+  
+/**
+ * extensionCheckExtension( )  : Checks wether an extension ist installed or not.
+ *                                Returns true in case of installtion.
+ *                                Writes result in the global $arrReport.
+ *
+ * @param       string    $key    : extension key
+ * @param       string    $title  : extension title
+ * @return	boolean		
+ * @access private
+ * @version   3.0.0
+ * @since     1.0.0
+ */
+  private function extensionCheckExtension( $key, $title )
+  {
+    $boolInstalled  = null;
+    $titleWiKey     = $title . ' (' . $key . ')';
+
+      // RETURN : extension is installed
+    if( t3lib_extMgm::isLoaded( $key ) )
+    {
+      $this->arrReport[ ] = '
+        <p>
+        ' . $this->arr_icons['ok'] . ' ' . $titleWiKey . ' ' . $this->pi_getLL( 'ext_ok' ) .'
+        </p>';
+      $boolInstalled = true;
+      return $boolInstalled;
+    }
+      // RETURN : extension is installed
+    
+      // RETURN : extension isn't installed
+    $this->arrReport[ ] = '
+      <p>
+        ' . $this->arr_icons['error'] . $this->pi_getLL( 'ext_error' ) . '<br />
+        ' . $this->arr_icons['info']  . $this->pi_getLL( 'ext_help' )  . ' ' . $titleWiKey . '
+      </p>';
+    $boolInstalled = false;
+    return $boolInstalled;
+      // RETURN : extension isn't installed
+  }
+
+
+
+ /***********************************************
+  *
   * Html
   *
   **********************************************/
@@ -3144,14 +3114,15 @@ plugin.powermail {
   **********************************************/
 
 /**
- * init_boolTopLevel(): If current page is on the top level, $this->bool_topLevel will become true.
+ * initBoolTopLevel(): If current page is on the top level, $this->bool_topLevel will become true.
  *                      If not, false.
  *
- * @return	[type]		...
+ * @return	void
+ * @access private
+ * @version 3.0.0
  * @since 2.1.1
- * @version 2.1.1
  */
-  private function init_boolTopLevel()
+  private function initBoolTopLevel( )
   {
     $select_fields  = 'pid';
     $from_table     = 'pages';
@@ -3181,23 +3152,26 @@ plugin.powermail {
   *
   **********************************************/
 
-  /**
-   * Shop will be installed - with or without template
-   *
-   * @param    string       $str_installCase: install_all or install_shop
-   * @return    The content that is displayed on the website
-   */
+ /**
+  * installNothing( ) : Write a prompt to the global $arrReport
+  *
+  * @return	boolean     $boolError  : true
+  * @access     private
+  * @version    3.0.0
+  * @since      1.0.0
+  */
 
   //http://forge.typo3.org/issues/9632
   //private function install($str_installCase)
   private function install()
   {
+    $boolError = false;
 
     // RETURN if there is any problem with dependencies
-    $this->checkExtensions();
-    if($this->bool_error)
+    if( ! $this->extensionCheck( ) )
     {
-      return;
+      $boolError = true;
+      return $boolError;
     }
     // RETURN if there is any problem with dependencies
 
@@ -3209,7 +3183,7 @@ plugin.powermail {
     }
 
       // 120613, dwildt, 1+
-    $this->init_boolTopLevel();
+    $this->initBoolTopLevel();
     $this->createBeGroup();
     $this->createPages();
     $this->createTyposcript();
@@ -3224,22 +3198,28 @@ plugin.powermail {
 
     $this->promptCleanUp();
 
-    return false;
+    return $boolError;
   }
 
  /**
-  * Shop will be installed without template
+  * installNothing( ) : Write a prompt to the global $arrReport
   *
-  * @return	The		content that is displayed on the website
+  * @return	boolean     $boolError  : true
+  * @access     private
+  * @version    3.0.0
+  * @since      1.0.0
   */
-  private function install_nothing()
+  private function installNothing( )
   {
-     $this->arrReport[] = '
-       <p>
-         '.$this->arr_icons['warn'].$this->pi_getLL('plugin_warn').'<br />
-         '.$this->arr_icons['info'].$this->pi_getLL('plugin_help').'
-       </p>';
-    $this->bool_error = true;
+    $boolError = true;
+    
+    $this->arrReport[] = '
+      <p>
+        '.$this->arr_icons['warn'].$this->pi_getLL('plugin_warn').'<br />
+        '.$this->arr_icons['info'].$this->pi_getLL('plugin_help').'
+      </p>';
+
+    return $boolError;
   }
 
 
