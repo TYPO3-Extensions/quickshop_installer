@@ -640,7 +640,7 @@ die( );
         <p>
           '.$this->pObj->arr_icons['ok'] . ' ' . $this->pi_getLL( 'page_create_prompt' ) . '
         </p>';
-      $prompt = $this->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
       $this->pObj->arrReport[ ] = $prompt;
     }
 
@@ -731,7 +731,7 @@ die( );
         <p>
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pi_getLL( 'page_create_prompt' ) . '
         </p>';
-      $prompt = $this->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
       $this->pObj->arrReport[] = $prompt;
     }
 
