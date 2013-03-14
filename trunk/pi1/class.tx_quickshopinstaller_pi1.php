@@ -126,7 +126,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [array] Uids of the generated tt_content records - here: plugins only
   public  $arr_pluginUids      = false;
     // [array] Uids of the generated records for different tables.
-  private $arr_recordUids      = false;
+  public  $arr_recordUids      = false;
     // [array] Uids of the generated files with an timestamp
   private $arr_fileUids      = false;
     // [array] Uids of the generated tt_content records - here: page content only
