@@ -191,14 +191,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // What should be installed?
 
 
-    if($this->bool_error)
+    if( $this->bool_error )
     {
       $str_result = '
         <div style="border:4px solid red;padding:2em;">
           <h1>
-           '.$this->pi_getLL('error_all_h1').'
+           ' . $this->pi_getLL('error_all_h1') . '
           </h1>
-          '.$this->htmlReport().'
+          ' . $this->htmlReport( ) . '
         </div>';
     }
 
@@ -3049,47 +3049,49 @@ plugin.powermail {
   *
   **********************************************/
 
-  /**
- * Shop will be installed without template
+/**
+ * htmlReport( )
  *
- * @return	The		content that is displayed on the website
+ * @return	string 
  */
-  private function htmlReport()
+  private function htmlReport( )
   {
-    if(!is_array($this->arrReport))
+      // RETURN : error, there isn't any report
+    if( ! is_array( $this->arrReport ) )
     {
-      $str_errorPrompt = '
+      $prompt = '
         <h1>
           No Report
         </h1>
         <p>
           This is a mistake!
         </p>';
-      return $str_errorPrompt;
+      return $prompt;
     }
+      // RETURN : error, there isn't any report
 
-    $arrReport = array();
-    if(!$this->bool_error)
+    $arrPrompt = array( );
+    if( ! $this->bool_error )
     {
-      if(!$this->piVars['confirm'])
+      if( ! $this->piVars['confirm'] )
       {
-        $arrReport[] = '
+        $arrPrompt[ ] = '
           <h1>
-            '.$this->pi_getLL('begin_h1').'
+            ' . $this->pi_getLL('begin_h1') . '
           </h1>';
       }
-      if($this->piVars['confirm'])
+      if( $this->piVars['confirm'] )
       {
-        $arrReport[] = '
+        $arrPrompt[ ] = '
           <h1>
-            '.$this->pi_getLL('end_h1').'
+            ' . $this->pi_getLL( 'end_h1' ) . '
           </h1>';
       }
     }
-    $arrReport = array_merge($arrReport, $this->arrReport);
-    $str_result = implode('', $arrReport);
+    $arrPrompt  = array_merge( $arrPrompt, $this->arrReport );
+    $prompt = implode( null, $arrPrompt );
 
-    return $str_result;
+    return $prompt;
   }
 
 
@@ -3162,24 +3164,16 @@ plugin.powermail {
     }
     // RETURN if there is any problem with dependencies
 
-    // RETURN if there is any problem with creation of BE-group
     $bool_confirm = $this->confirmation();
-    if(!$bool_confirm)
+    if( ! $bool_confirm )
     {
-      return;
+      $boolError = false;
+      return $boolError;
     }
 
       // 120613, dwildt, 1+
     $this->initBoolTopLevel();
     $this->create( );
-    $this->createBeGroup();
-    $this->createPages();
-    $this->createTyposcript();
-    $this->createPlugins();
-    $this->createRecordsPowermail();
-    $this->createRecordsShop();
-    $this->createFilesShop();
-    $this->createContent();
     $this->consolidatePageCurrent();
     $this->consolidatePluginPowermail();
     $this->consolidateTsWtCart();
