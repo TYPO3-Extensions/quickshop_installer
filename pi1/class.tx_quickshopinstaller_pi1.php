@@ -131,12 +131,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [array] The flexform array
   private $arr_piFlexform  = false;
     // [array] Array with the report items
-  public $arrReport       = false;
+  public  $arrReport       = false;
     // [array] Array with images, wrapped as HTML <img ...>
   private $arr_icons       = false;
 
     // [array] Array with variables like group id, page ids ...
-  private $markerArray       = false;
+  public  $markerArray       = false;
     // [array] Uids of the current and the generated pages records. Titles are the keys.
   private $arr_pageUids      = false;
     // [array] Titles of the current and the generated pages records. Uids are the keys.
