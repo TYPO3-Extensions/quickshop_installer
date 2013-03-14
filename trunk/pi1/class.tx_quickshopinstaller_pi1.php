@@ -163,23 +163,17 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->conf = $conf;
 
-
-    //$this->pi_setPiVarDefaults();
     $this->pi_loadLL();
 
+      // Get values from the flexform
     $this->zz_getFlexValues();
-    // Get values from the flexform
 
-
-    // Set the path to icons
+      // Set the path to icons
     $this->zz_getPathToIcons();
 
 
 
-    //////////////////////////////////////////////////////////////////////
-    //
-    // What should be installed?
-
+      // SWITCH : What should installed?
     switch( $this->markerArray['###INSTALL_CASE###'] )
     {
       case( null ):
@@ -199,31 +193,34 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       default:
         $this->arrReport[ ] = '
           <p>
-            switch in tx_quickshopinstaller_pi1::main has an undefined value: '.$this->markerArray['###INSTALL_CASE###'].'
+            switch in tx_quickshopinstaller_pi1::main has an undefined value: ' .
+            $this->markerArray['###INSTALL_CASE###'].'
           </p>';
         $this->bool_error = true;
     }
-    // What should be installed?
+      // SWITCH : What should installed?
 
 
-    if( $this->bool_error )
+      // SWITCH : error case
+    switch( $this->bool_error )
     {
-      $str_result = '
-        <div style="border:4px solid red;padding:2em;">
-          <h1>
-           ' . $this->pi_getLL('error_all_h1') . '
-          </h1>
-          ' . $this->htmlReport( ) . '
-        </div>';
+      case( true ):
+        $str_result = '
+          <div style="border:4px solid red;padding:2em;">
+            <h1>
+            ' . $this->pi_getLL( 'error_all_h1' ) . '
+            </h1>
+            ' . $this->htmlReport( ) . '
+          </div>';
+        break;
+      case( false ):
+      default:
+        $str_result = $this->htmlReport( );
+        break;
     }
+      // SWITCH : error case
 
-    if(!$this->bool_error)
-    {
-      $str_result = $this->htmlReport();
-    }
-
-    return $this->pi_wrapInBaseClass($str_result);
-
+    return $this->pi_wrapInBaseClass( $str_result );
   }
 
 
@@ -298,38 +295,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $boolConfirmation = false;
     return $boolConfirmation;
   }
-
-
-
- /***********************************************
-  *
-  * Counter
-  *
-  **********************************************/
-
-/**
- * countPages( ) :
- *
- * @param	[type]		$$pageUid: ...
- * @return	string
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
-  private function countPages( $pageUid )
-  {
-    static $counter = 0;
-
-    $counter  = $counter + 1 ;
-    $pageUid  = $pageUid + 1 ;
-    $sorting  = 256 * $counter;
-
-    $csvResult = $pageUid . ',' . $sorting;
-
-    return $csvResult;
-  }
-
-
+  
+  
 
  /***********************************************
   *
@@ -350,6 +317,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->createBeGroup();
     $this->createPages();
     $this->createTyposcript();
+var_dump(__METHOD__, __LINE__ );
+return;
+die( );
     $this->createPlugins();
     $this->createRecordsPowermail();
     $this->createRecordsShop();
@@ -684,9 +654,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->pages->pObj      = $this;
 
     $this->pages->pages( );
-
-var_dump(__METHOD__, __LINE__, $this->arrReport );
-die( );
   }
 
 
@@ -732,7 +699,7 @@ die( );
       // Plugin browser on root page
 
     $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
+    $strUid = sprintf ('%03d', $int_uid);
 
     $this->arr_pluginUids[$this->pi_getLL('plugin_browser_header')]  = $int_uid;
 
@@ -847,12 +814,12 @@ die( );
       // Plugin wtcart on cart page
 
     $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
+    $strUid = sprintf ('%03d', $int_uid);
 
     $this->arr_pluginUids[$this->pi_getLL('plugin_wtcart_header')]  = $int_uid;
 
     $arr_plugin[$int_uid]['uid']           = $int_uid;
-    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_plugin[$int_uid]['tstamp']        = $timestamp;
     $arr_plugin[$int_uid]['crdate']        = $timestamp;
     $arr_plugin[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -870,12 +837,12 @@ die( );
       // Plugin powermail on cart page
 
     $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
+    $strUid = sprintf ('%03d', $int_uid);
 
     $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')]  = $int_uid;
 
     $arr_plugin[$int_uid]['uid']                        = $int_uid;
-    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_plugin[$int_uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_plugin[$int_uid]['tstamp']                     = $timestamp;
     $arr_plugin[$int_uid]['crdate']                     = $timestamp;
     $arr_plugin[$int_uid]['cruser_id']                  = $this->markerArray['###BE_USER###'];
@@ -978,7 +945,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -992,7 +959,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1006,7 +973,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1020,7 +987,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1077,7 +1044,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameBilling')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1105,7 +1072,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameBilling')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1134,7 +1101,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_streetBilling')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1162,7 +1129,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_zipBilling')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1190,7 +1157,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_locationBilling')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1225,7 +1192,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameDelivery')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1240,7 +1207,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameDelivery')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1255,7 +1222,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_streetDelivery')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1270,7 +1237,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_zipDelivery')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1285,7 +1252,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_locationDelivery')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1307,7 +1274,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_email')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1338,7 +1305,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_phone')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1353,7 +1320,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_fax')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1375,7 +1342,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_note')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1407,7 +1374,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_methodOfPayment')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1435,7 +1402,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_methodOfShipping')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1468,7 +1435,7 @@ die( );
 
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_terms')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1499,7 +1466,7 @@ die( );
     $int_uid = $int_uid +1;
     $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_submit')]  = $int_uid;
     $arr_records[$int_uid]['uid']           = $int_uid;
-    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
+    $arr_records[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
     $arr_records[$int_uid]['tstamp']        = $timestamp;
     $arr_records[$int_uid]['crdate']        = $timestamp;
     $arr_records[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -1916,213 +1883,86 @@ die( );
   *
   **********************************************/
 
-  /**
- * Shop will be installed - with or without template
+/**
+ * createTyposcript( )
  *
- * @return	The		content that is displayed on the website
- * @version 2.1.0
+ * @return  void
+ * @access  private
+ * @version 3.0.0
  * @since   0.0.1
  */
-  private function createTyposcript()
+  private function createTyposcript( )
   {
-    $arr_ts = array( );
+    $records = array( );
 
-    $this->arrReport[] = '
+    $this->arrReport[ ] = '
       <h2>
        '.$this->pi_getLL('ts_create_header').'
       </h2>';
 
-
-
-
-    $timestamp       = time();
-    $table           = 'sys_template';
-    $no_quote_fields = false;
-    $dateHumanReadable        = date('Y-m-d G:i:s');
-
-    $int_uid = $this->zz_getMaxDbUid($table);
-
-    // Root page
-    $int_uid          = $int_uid +1;
-    $str_uid          = sprintf ('%03d', $int_uid);
-    $this->str_tsRoot = 'page_quickshop_'.$str_uid;
-    $str_pageTitle    = strtolower($GLOBALS['TSFE']->page['title']);
-    $str_pageTitle    = str_replace(' ', '', $str_pageTitle);
-    $this->arr_tsUids[$this->str_tsRoot]           = $int_uid;
-
-    // Root page: install_all
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-
-      $arr_ts[$int_uid]['title']                     = 'page_'.$str_pageTitle.'_'.$str_uid;
-      $arr_ts[$int_uid]['sitetitle']                 = $this->markerArray['###WEBSITE_TITLE###'];
-      $arr_ts[$int_uid]['root']                      = 1;
-      $arr_ts[$int_uid]['clear']                     = 3;  // Clear all
-      $arr_ts[$int_uid]['include_static_file']       = ''.
-        'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
-        'EXT:browser/static/,EXT:quick_shop/static/';
-      $arr_ts[$int_uid]['includeStaticAfterBasedOn'] = 1;
-      $arr_ts[$int_uid]['config']                    = ''.
-'config {
-  baseURL            = '.$this->markerArray['###HOST###'].'/
-  metaCharset        = UTF-8
-  tx_realurl_enable  = 0
-  no_cache           = 1
-  language           = '.$GLOBALS['TSFE']->lang.'
-  htmlTag_langKey    = '.$GLOBALS['TSFE']->lang.'
-}
-
-
-  ////////////////////////////////////////////////////////
-  //
-  // ajax page object
-
-  // Add this snippet into the setup of the TypoScript
-  // template of your page.
-  // Use \'page\', if the name of your page object is \'page\'
-  // (this is a default but there isn\'t any rule)
-
-[globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
-  page >
-  page < plugin.tx_browser_pi1.javascript.ajax.page
-[global]
-  // ajax page object
-
-  // TYPO3-Browser: ajax page object II. In case of localisation: Configure the id of sys_languagein the Constant Editor. Move in this line ...jQuery.default to ...jQuery.de (i.e.)
-browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
-
-';
-      $str_libraries                               = '
-      libraries = '.$this->arr_pageUids[$this->pi_getLL('page_title_library')].'
-      libraries {
-        header       = '.$this->arr_pageUids[$this->pi_getLL('page_title_library_header')].'
-        footer       = '.$this->arr_pageUids[$this->pi_getLL('page_title_library_footer')].'
-      }
-';
-    }
-    // Root page: install_all
-    // Root page: install_shop
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_shop')
-    {
-      $arr_ts[$int_uid]['title']                      = '+page_'.$str_pageTitle.'_'.$str_uid;
-      $arr_ts[$int_uid]['root']                       = 0;
-      $arr_ts[$int_uid]['clear']                      = 0;  // Clear nothing
-      $arr_ts[$int_uid]['includeStaticAfterBasedOn']  = 0;
-      $arr_ts[$int_uid]['config']                     = ''.
-'config {
-  no_cache = 1
-}
-';
-      $str_libraries                                  = '';
-    }
-    // Root page: install_shop
-
-    $arr_ts[$int_uid]['uid']                 = $int_uid;
-    $arr_ts[$int_uid]['pid']                 = $GLOBALS['TSFE']->id;
-    $arr_ts[$int_uid]['tstamp']              = $timestamp;
-    $arr_ts[$int_uid]['sorting']             = 256;
-    $arr_ts[$int_uid]['crdate']              = $timestamp;
-    $arr_ts[$int_uid]['cruser_id']           = $this->markerArray['###BE_USER###'];
-
-      // Root page: constants
-      // 110114, dwildt, #12236 and #12237
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-      $arr_ts[$int_uid]['constants']           = ''.
-'myConst {
-  //host = '.$this->markerArray['###HOST###'].'/
-  pages {
-    quick_shop = '.$this->arr_pageUids[$GLOBALS['TSFE']->page['title']].'
-    quick_shop {
-      cart     = '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].'
-      shipping = '.$this->arr_pageUids[$this->pi_getLL('page_title_shipping')].'
-      terms    = '.$this->arr_pageUids[$this->pi_getLL('page_title_terms')].$str_libraries.'
-    }
+    $records = $this->createTyposcriptRecords( );
+    $this->createTyposcriptSqlInsert( $records );
   }
-  paths {
-    res  = EXT:base_quickshop/res/
-    html = EXT:base_quickshop/res/html/
-    css  = EXT:base_quickshop/res/html/css/
-  }
-  files {
-    html {
-      template = index.html
-      css      = basic.css
-      favicon  = images/favicon.ico
-    }
-  }
-  dims {
-    header_image {
-      maxW = 210
-      maxH = 420
-    }
-  }
-  words {
-    // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = '.$this->pi_getLL('phrases_ts_titleTag_quickshop_page').'
-  }
-}';
-    }
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_shop')
-    {
-      $arr_ts[$int_uid]['constants']           = ''.
-'myConst {
-  //host = '.$this->markerArray['###HOST###'].'/
-  pages {
-    quick_shop = '.$this->arr_pageUids[$GLOBALS['TSFE']->page['title']].'
-    quick_shop {
-      cart     = '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].'
-      shipping = '.$this->arr_pageUids[$this->pi_getLL('page_title_shipping')].'
-      terms    = '.$this->arr_pageUids[$this->pi_getLL('page_title_terms')].$str_libraries.'
-    }
-  }
-  dims {
-    header_image {
-      maxW = 210
-      maxH = 420
-    }
-  }
-  words {
-    // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = '.$this->pi_getLL('phrases_ts_titleTag_quickshop_page').'
-  }
-}';
-    }
-      // 110114, dwildt, #12236 and #12237
-      // Root page: constants
 
-    $arr_ts[$int_uid]['description']               = ''.
-      '// Created by QUICK SHOP INSTALLER at '.$dateHumanReadable;
+/**
+ * createTyposcriptRecords( )
+ *
+ * @return	array		$records : the TypoScript records
+ * @access  private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function createTyposcriptRecords( )
+  {
+    $records  = array( );
+    $uid      = $this->zz_getMaxDbUid( 'sys_template' );
+    
+      // TypoScript for the root page
+    $uid = $uid + 1;
+    $records[$uid] = $this->createTyposcriptRecordRoot( $uid );
+    
+      // TypoScript for the caddy page
+    $uid = $uid + 1;
+    $records[$uid] = $this->createTyposcriptRecordCaddy( $uid );
 
-    $arr_ts[$int_uid]['include_static_file']       = ''.
-      'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
-      'EXT:browser/static/,EXT:quick_shop/static/';
+    return $records;
+  }
 
-    // Root page
+/**
+ * createTyposcriptRecordCaddy( )
+ *
+ * @return	array		$record : the TypoScript record
+ * @access  private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function createTyposcriptRecordCaddy( $uid )
+  {
+    $record = null;
+    
+    $strUid = sprintf( '%03d', $uid );
 
-    // Cart page
-    $int_uid = $int_uid +1;
-    $str_uid = sprintf ('%03d', $int_uid);
+    $title = strtolower( $this->pi_getLL( 'page_title_caddy' ) );
+    $title = str_replace( ' ', null, $title );
+    $title = '+page_' . $title . '_' . $strUid;
 
-    $str_pageTitle      = strtolower($this->pi_getLL('page_title_cart'));
-    $str_pageTitle      = str_replace(' ', '', $str_pageTitle);
-    $this->str_tsWtCart = '+page_'.$str_pageTitle.'_'.$str_uid;
-
-    $this->arr_tsUids[$this->str_tsWtCart]   = $int_uid;
-    $arr_ts[$int_uid]['title']               = '+page_'.$str_pageTitle.'_'.$str_uid;
-    $arr_ts[$int_uid]['uid']                 = $int_uid;
-    $arr_ts[$int_uid]['pid']                 = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
-    $arr_ts[$int_uid]['tstamp']              = $timestamp;
-    $arr_ts[$int_uid]['sorting']             = 256;
-    $arr_ts[$int_uid]['crdate']              = $timestamp;
-    $arr_ts[$int_uid]['cruser_id']           = $this->markerArray['###BE_USER###'];
-    $arr_ts[$int_uid]['include_static_file'] = ''.
+    $this->str_tsWtCart = $title;
+    $this->arr_tsUids[$this->str_tsWtCart]   = $uid;
+    
+    $record['title']               = $title;
+    $record['uid']                 = $uid;
+    $record['pid']                 = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
+    $record['tstamp']              = time( );
+    $record['sorting']             = 256;
+    $record['crdate']              = time( );
+    $record['cruser_id']           = $this->markerArray['###BE_USER###'];
+    $record['include_static_file'] = ''.
       'EXT:wt_cart/files/static/,' .
       'EXT:powermail/static/pi1/,' .
       'EXT:powermail/static/css_basic/';
     // See $this->consolidateTsWtCart()
-    //$arr_ts[$int_uid]['constants']           = '';
-    $arr_ts[$int_uid]['config']           = '
+    //$record['constants']           = '';
+    $record['config']           = '
   //////////////////////////////////////////
   //
   // INDEX
@@ -2195,29 +2035,236 @@ plugin.tx_wtcart_pi1 {
 ';
     // Cart page
 
-    // INSERT
-    foreach( $arr_ts as $fields_values )
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###UID###']       = $fields_values['uid'];
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
-      $str_ts_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('ts_create_prompt').'
-        </p>';
-      $str_ts_prompt = $this->cObj->substituteMarkerArray($str_ts_prompt, $this->markerArray);
-      $this->arrReport[] = $str_ts_prompt;
-    }
-    unset($arr_ts);
-
-    // INSERT
-
-    return false;
+    return $record;
   }
 
+/**
+ * createTyposcriptRecordRoot( )
+ *
+ * @return	array
+ * @access  private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function createTyposcriptRecordRoot( $uid )
+  {
+    $strUid = sprintf( '%03d', $uid );
+    $this->str_tsRoot = 'page_quickshop_' . $strUid;
+    $this->arr_tsUids[$this->str_tsRoot] = $uid;
 
+      // SWITCH : install case
+    switch( true )
+    {
+      case( $this->markerArray['###INSTALL_CASE###'] == 'install_all' ):
+        $record = $this->createTyposcriptRecordRootCaseAll( $uid );
+        break;
+      case( $this->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
+        $record = $this->createTyposcriptRecordRootCaseShop( $uid );
+        break;
+    }
+      // SWITCH : install case
+    
+    return $record;
+  }
+
+/**
+ * createTyposcriptRecordRootCaseAll( )
+ *
+ * @return	array		$record : the TypoScript record
+ * @access  private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function createTyposcriptRecordRootCaseAll( $uid )
+  {
+    $record = null;
+
+    $strUid = sprintf ('%03d', $uid);
+
+    $title  = strtolower( $GLOBALS['TSFE']->page['title'] );
+    $title  = str_replace( ' ', null, $title );
+    $title  = 'page_' . $title . '_' . $strUid;
+
+    $this->str_tsRoot = $title;
+    $this->arr_tsUids[$this->str_tsRoot] = $uid;
+
+    $record['title']                     = $title;
+    $record['sitetitle']                 = $this->markerArray['###WEBSITE_TITLE###'];
+    $record['root']                      = 1;
+    $record['clear']                     = 3;  // Clear all
+    $record['include_static_file']       = '' .
+      'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
+      'EXT:browser/static/,EXT:quick_shop/static/';
+    $record['includeStaticAfterBasedOn'] = 1;
+    $record['config']                    = ''.
+'config {
+  baseURL            = ' . $this->markerArray['###HOST###'] . '/
+  metaCharset        = UTF-8
+  tx_realurl_enable  = 0
+  no_cache           = 1
+  language           = ' . $GLOBALS['TSFE']->lang . '
+  htmlTag_langKey    = ' . $GLOBALS['TSFE']->lang . '
+}
+
+
+  ////////////////////////////////////////////////////////
+  //
+  // ajax page object
+
+  // Add this snippet into the setup of the TypoScript
+  // template of your page.
+  // Use \'page\', if the name of your page object is \'page\'
+  // (this is a default but there isn\'t any rule)
+
+[globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
+  page >
+  page < plugin.tx_browser_pi1.javascript.ajax.page
+[global]
+  // ajax page object
+
+  // TYPO3-Browser: ajax page object II. In case of localisation: Configure the id of sys_languagein the Constant Editor. Move in this line ...jQuery.default to ...jQuery.de (i.e.)
+browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
+
+';
+
+    $record['constants'] = ''.
+'myConst {
+  //host = '.$this->markerArray['###HOST###'].'/
+  pages {
+    quick_shop = ' . $this->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
+    quick_shop {
+      cart      = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_caddy' )] . '
+      shipping  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_shipping' )] . '
+      terms     = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_terms' )] . '
+      libraries = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_library' )].'
+      libraries {
+        header  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_library_header' )].'
+        footer  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_library_footer' )].'
+      }
+    }
+  }
+  paths {
+    res  = EXT:base_quickshop/res/
+    html = EXT:base_quickshop/res/html/
+    css  = EXT:base_quickshop/res/html/css/
+  }
+  files {
+    html {
+      template = index.html
+      css      = basic.css
+      favicon  = images/favicon.ico
+    }
+  }
+  dims {
+    header_image {
+      maxW = 210
+      maxH = 420
+    }
+  }
+  words {
+    // HTML a href title tag for menu item rootpage
+    title_tag_quick_shop_page = ' . $this->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
+  }
+}';
+    $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    $record['include_static_file'] = null .
+      'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,' .
+      'EXT:browser/static/,EXT:quick_shop/static/';
+
+    return $record;
+  }
+
+/**
+ * createTyposcriptRecordRootCaseShopOnly( )
+ *
+ * @return	array		$record : the TypoScript record
+ * @access  private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function createTyposcriptRecordRootCaseShopOnly( $uid )
+  {
+    $record = null;
+    
+    $strUid = sprintf( '%03d', $uid );
+
+    $title = strtolower( $GLOBALS['TSFE']->page['title'] );
+    $title = str_replace( ' ', null, $title );
+    $title = '+page_' . $title . '_' . $strUid;
+
+    $this->str_tsRoot = $title;
+    $this->arr_tsUids[$this->str_tsRoot] = $uid;
+
+    $record['title']                     = $title;
+    $record['root']                       = 0;
+    $record['clear']                      = 0;  // Clear nothing
+    $record['includeStaticAfterBasedOn']  = 0;
+    $record['config']                     = ''.
+'config {
+  no_cache = 1
+}
+';
+    $record['constants']           = ''.
+'myConst {
+  //host = '.$this->markerArray['###HOST###'].'/
+  pages {
+    quick_shop = ' . $this->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
+    quick_shop {
+      cart      = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_caddy' )] . '
+      shipping  = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_shipping' )] . '
+      terms     = ' . $this->arr_pageUids[$this->pi_getLL( 'page_title_terms' )] . '
+    }
+  }
+  dims {
+    header_image {
+      maxW = 210
+      maxH = 420
+    }
+  }
+  words {
+    // HTML a href title tag for menu item rootpage
+    title_tag_quick_shop_page = ' . $this->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
+  }
+}';
+
+    $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
+
+    $record['include_static_file'] = null .
+      'EXT:css_styled_content/static/,EXT:browser/static/,EXT:quick_shop/static/';
+
+    return $record;
+  }
+
+/**
+ * createTyposcriptSqlInsert( )
+ *
+ * @param   array   $records : TypoScript records for pages
+ * @return  void
+ * @access  private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function createTyposcriptSqlInsert( $records )
+  {
+    foreach( $records as $record )
+    {
+      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $record, $no_quote_fields));
+      $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'sys_template', $record );
+      $marker['###TITLE###']     = $record['title'];
+      $marker['###UID###']       = $record['uid'];
+      $marker['###TITLE_PID###'] = '"' . $this->arr_pageTitles[$record['pid']] .
+                                              '" (uid ' . $record['pid'] . ')';
+      $prompt = '
+        <p>
+          '.$this->arr_icons['ok'] . ' ' . $this->pi_getLL( 'ts_create_prompt' ).'
+        </p>';
+      $prompt = $this->cObj->substituteMarkerArray( $prompt, $marker );
+      $this->arrReport[ ] = $prompt;
+    }
+  }
+
+  
 
  /***********************************************
   *
@@ -2497,7 +2544,7 @@ TCEMAIN {
       // Message
       $this->markerArray['###FIELD###']     = '"tx_powermail_sender, tx_powermail_sendername"';
       $this->markerArray['###TITLE###']     = '"'.$this->pi_getLL('plugin_powermail_header').'"';
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_cart').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].')';
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_caddy').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_caddy')].')';
       $str_consolidate_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content').'
@@ -2639,7 +2686,7 @@ plugin.powermail {
       // Message
       $this->markerArray['###FIELD###']     = '"constants"';
       $this->markerArray['###TITLE###']     = '"'.$this->str_tsWtCart.'"';
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_cart').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_cart')].')';
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_caddy').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_caddy')].')';
       $str_consolidate_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content').'
@@ -3097,14 +3144,9 @@ plugin.powermail {
       // Init methods for pi_flexform
     $this->pi_initPIflexForm();
 
-    // Get values from the flexform
-    $this->arr_piFlexform                = $this->cObj->data['pi_flexform'];
-      // #42526, 121030, dwildt, 4-
-//    foreach($this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
-//    {
-//      $this->markerArray['###'.strtoupper( $key ).'###'] = $arr_value['vDEF'];
-//    }
-      // #42526, 121030, dwildt, 7+
+      // Get values from the flexform
+    $this->arr_piFlexform = $this->cObj->data['pi_flexform'];
+
     if( is_array( $this->arr_piFlexform ) )
     {
       foreach( ( array ) $this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value )

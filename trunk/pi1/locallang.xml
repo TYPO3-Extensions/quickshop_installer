@@ -35,9 +35,9 @@
       <label index="grp_warn_header">Backend Group "###GROUP_TITLE###"</label>
       <label index="grp_warn_prompt">Quick Shop Installer couldn't create the group "###GROUP_TITLE###". It doesn't matter.</label>
       <label index="page_create_header">Pages and Directories</label>
-      <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###)is created.</label>
+      <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
       <label index="page_title_root">quick shop</label>
-      <label index="page_title_cart">caddy</label>
+      <label index="page_title_caddy">caddy</label>
       <label index="page_title_shipping">shipping</label>
       <label index="page_title_terms">terms and conditions</label>
       <label index="page_title_legalinfo">legal info</label>
@@ -203,7 +203,7 @@
       <label index="page_create_header">Seiten und Verzeichnisse</label>
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="page_title_root">Quick Shop</label>
-      <label index="page_title_cart">Warenkorb</label>
+      <label index="page_title_caddy">Warenkorb</label>
       <label index="page_title_shipping">Versand</label>
       <label index="page_title_terms">AGB</label>
       <label index="page_title_legalinfo">Impressum</label>
