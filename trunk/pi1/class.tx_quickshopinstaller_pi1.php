@@ -176,13 +176,15 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       case( null ):
       case( 'disabled' ):
         $this->bool_error = $this->installNothing( );
+var_dump(__METHOD__, __LINE__, $this->bool_error );
         break;
       case( 'install_shop' ):
       case( 'install_all' ):
         $this->bool_error = $this->install( );
+var_dump(__METHOD__, __LINE__, $this->bool_error );
         break;
       default:
-        $this->arrReport[] = '
+        $this->arrReport[ ] = '
           <p>
             switch in tx_quickshopinstaller_pi1::main has an undefined value: '.$this->markerArray['###INSTALL_CASE###'].'
           </p>';
