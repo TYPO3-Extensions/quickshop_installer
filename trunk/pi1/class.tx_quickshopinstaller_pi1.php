@@ -26,64 +26,67 @@
  *
  *
  *
- *  102: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *  105: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  160:     public function main( $content, $conf)
+ *  163:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
  *  243:     private function confirmation()
  *
- *              SECTION: Counter
- *  319:     private function countPages( $pageUid )
- *
  *              SECTION: Create
- *  348:     private function create( )
- *  366:     private function createBeGroup()
- *  472:     private function createContent()
- *  614:     private function createFilesShop()
+ *  318:     private function create( )
+ *  338:     private function createBeGroup()
+ *  444:     private function createContent()
+ *  586:     private function createFilesShop()
  *
  *              SECTION: Create pages
- *  679:     private function createPages( )
+ *  651:     private function createPages( )
  *
  *              SECTION: Create plugins
- *  707:     private function createPlugins()
+ *  676:     private function createPlugins()
  *
  *              SECTION: Create records
- *  949:     private function createRecordsPowermail()
- * 1558:     private function createRecordsShop()
+ *  918:     private function createRecordsPowermail()
+ * 1527:     private function createRecordsShop()
  *
  *              SECTION: Create TypoScript
- * 1926:     private function createTyposcript()
+ * 1896:     private function createTyposcript( )
+ * 1918:     private function createTyposcriptRecordCaddy( $uid )
+ * 2029:     private function createTyposcriptRecordRoot( $uid )
+ * 2059:     private function createTyposcriptRecordRootCaseAll( $uid )
+ * 2174:     private function createTyposcriptRecordRootCaseShopOnly( $uid )
+ * 2241:     private function createTyposcriptRecords( )
+ * 2266:     private function createTyposcriptSqlInsert( $records )
  *
  *              SECTION: Consolidate
- * 2233:     private function consolidatePageCurrent()
- * 2456:     private function consolidatePluginPowermail()
- * 2533:     private function consolidateTsWtCart()
+ * 2298:     private function consolidatePageCurrent()
+ * 2521:     private function consolidatePluginPowermail()
+ * 2598:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 2675:     private function extensionCheck( )
- * 2740:     private function extensionCheckCaseBaseTemplate( )
- * 2779:     private function extensionCheckExtension( $key, $title )
+ * 2740:     private function extensionCheck( )
+ * 2805:     private function extensionCheckCaseBaseTemplate( )
+ * 2844:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 2820:     private function htmlReport( )
+ * 2885:     private function htmlReport( )
  *
  *              SECTION: Init
- * 2877:     private function initBoolTopLevel( )
- * 2918:     private function install( )
- * 2957:     private function installNothing( )
+ * 2942:     private function initBoolTopLevel( )
+ * 2983:     private function install( )
+ * 3024:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 2983:     private function promptCleanUp()
+ * 3050:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3032:     private function zz_getCHash($str_params)
- * 3046:     public function zz_getMaxDbUid( $table )
- * 3073:     private function zz_getPathToIcons()
- * 3087:     private function zz_getFlexValues()
+ * 3099:     private function zz_getCHash($str_params)
+ * 3113:     public function zz_getMaxDbUid( $table )
+ * 3140:     private function zz_getPathToIcons()
+ * 3154:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 27
+ * TOTAL FUNCTIONS: 32
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -295,8 +298,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $boolConfirmation = false;
     return $boolConfirmation;
   }
-  
-  
+
+
 
  /***********************************************
   *
@@ -1885,8 +1888,8 @@ return;
 /**
  * createTyposcript( )
  *
- * @return  void
- * @access  private
+ * @return	void
+ * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
@@ -1906,15 +1909,16 @@ return;
 /**
  * createTyposcriptRecordCaddy( )
  *
+ * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
- * @access  private
+ * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
   private function createTyposcriptRecordCaddy( $uid )
   {
     $record = null;
-    
+
     $strUid = sprintf( '%03d', $uid );
 
     $title = strtolower( $this->pi_getLL( 'page_title_caddy' ) );
@@ -1923,7 +1927,7 @@ return;
 
     $this->str_tsWtCart = $title;
     $this->arr_tsUids[$this->str_tsWtCart]   = $uid;
-    
+
     $record['title']               = $title;
     $record['uid']                 = $uid;
     $record['pid']                 = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
@@ -2016,8 +2020,9 @@ plugin.tx_wtcart_pi1 {
 /**
  * createTyposcriptRecordRoot( )
  *
+ * @param	[type]		$$uid: ...
  * @return	array
- * @access  private
+ * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
@@ -2038,15 +2043,16 @@ plugin.tx_wtcart_pi1 {
         break;
     }
       // SWITCH : install case
-    
+
     return $record;
   }
 
 /**
  * createTyposcriptRecordRootCaseAll( )
  *
+ * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
- * @access  private
+ * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
@@ -2159,15 +2165,16 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 /**
  * createTyposcriptRecordRootCaseShopOnly( )
  *
+ * @param	[type]		$$uid: ...
  * @return	array		$record : the TypoScript record
- * @access  private
+ * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
   private function createTyposcriptRecordRootCaseShopOnly( $uid )
   {
     $record = null;
-    
+
     $strUid = sprintf( '%03d', $uid );
 
     $title = strtolower( $GLOBALS['TSFE']->page['title'] );
@@ -2227,7 +2234,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
  * createTyposcriptRecords( )
  *
  * @return	array		$records : the TypoScript records
- * @access  private
+ * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
@@ -2235,11 +2242,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
   {
     $records  = array( );
     $uid      = $this->zz_getMaxDbUid( 'sys_template' );
-    
+
       // TypoScript for the root page
     $uid = $uid + 1;
     $records[$uid] = $this->createTyposcriptRecordRoot( $uid );
-    
+
       // TypoScript for the caddy page
     $uid = $uid + 1;
     $records[$uid] = $this->createTyposcriptRecordCaddy( $uid );
@@ -2250,9 +2257,9 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 /**
  * createTyposcriptSqlInsert( )
  *
- * @param   array   $records : TypoScript records for pages
- * @return  void
- * @access  private
+ * @param	array		$records : TypoScript records for pages
+ * @return	void
+ * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
@@ -2275,7 +2282,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     }
   }
 
-  
+
 
  /***********************************************
   *
@@ -2996,7 +3003,7 @@ plugin.powermail {
     $this->initBoolTopLevel();
     $this->create( );
 var_dump(__METHOD__, __LINE__ );
-return $success;    
+return $success;
     $this->consolidatePageCurrent();
     $this->consolidatePluginPowermail();
     $this->consolidateTsWtCart();
