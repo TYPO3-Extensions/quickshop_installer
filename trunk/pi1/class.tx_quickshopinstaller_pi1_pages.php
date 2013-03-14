@@ -26,27 +26,31 @@
  *
  *
  *
- *   67: class tx_quickshopinstaller_pi1_pages extends tslib_pibase
+ *   71: class tx_quickshopinstaller_pi1_pages extends tslib_pibase
+ *
+ *              SECTION: Main
+ *   95:     public function main( )
  *
  *              SECTION: Create pages
- *   93:     private function pageCaddy( $pageUid, $sorting )
- *  130:     private function pageDelivery( $pageUid, $sorting )
- *  167:     private function pageLegalinfo( $pageUid, $sorting )
- *  204:     private function pageLibrary( $pageUid, $sorting )
- *  255:     private function pageLibraryFooter( $pageUid, $sorting )
- *  295:     private function pageLibraryHeader( $pageUid, $sorting )
- *  335:     private function pageProducts( $pageUid, $sorting )
- *  432:     private function pageTerms( $pageUid, $sorting )
- *  467:     public function pages( )
- *  505:     private function pagesLibrary( $pageUid )
- *  531:     private function pagesLibraryRecords( $pageUid )
- *  559:     private function pagesLibrarySqlInsert( $pages )
- *  586:     private function pagesRoot( $pageUid )
- *  607:     private function pagesRootRecords( $pageUid )
- *  650:     private function sqlInsert( $pages )
+ *  142:     private function pageCaddy( $pageUid, $sorting )
+ *  179:     private function pageDelivery( $pageUid, $sorting )
+ *  216:     private function pageLegalinfo( $pageUid, $sorting )
+ *  253:     private function pageLibrary( $pageUid, $sorting )
+ *  304:     private function pageLibraryFooter( $pageUid, $sorting )
+ *  344:     private function pageLibraryHeader( $pageUid, $sorting )
+ *  384:     private function pageProducts( $pageUid, $sorting )
+ *  481:     private function pageTerms( $pageUid, $sorting )
+ *  517:     private function pagesLibrary( $pageUid )
+ *  543:     private function pagesLibraryRecords( $pageUid )
+ *  571:     private function pagesLibrarySqlInsert( $pages )
+ *  598:     private function pagesRoot( $pageUid )
+ *  619:     private function pagesRootRecords( $pageUid )
+ *
+ *              SECTION: Sql
+ *  670:     private function sqlInsert( $pages )
  *
  *              SECTION: ZZ
- *  685:     private function zz_countPages( $pageUid )
+ *  705:     private function zz_countPages( $pageUid )
  *
  * TOTAL FUNCTIONS: 16
  * (This index is automatically created/updated by the extension "extdeveval")
