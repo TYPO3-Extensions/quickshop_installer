@@ -43,7 +43,7 @@
  *  559:     private function pagesLibrarySqlInsert( $pages )
  *  586:     private function pagesRoot( $pageUid )
  *  607:     private function pagesRootRecords( $pageUid )
- *  650:     private function pagesRootSqlInsert( $pages )
+ *  650:     private function sqlInsert( $pages )
  *
  *              SECTION: ZZ
  *  685:     private function zz_countPages( $pageUid )
@@ -71,6 +71,51 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
+
+
+
+ /***********************************************
+  *
+  * Main
+  *
+  **********************************************/
+
+/**
+ * main( ) :
+ *
+ * @return	void
+ * @access public
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  public function main( )
+  {
+      // Prompt header
+    $this->pObj->arrReport[ ] = '
+      <h2>
+       '.$this->pObj->pi_getLL('page_create_header').'
+      </h2>';
+      // Prompt header
+
+      // Set the global vars for the root page
+    $pageUid      = $GLOBALS['TSFE']->id;
+    $pageTitle    = 'page_title_root';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+      // Set the global vars for the root page
+
+      // Get the latest uid from the püages table
+    $pageUid = $this->pObj->zz_getMaxDbUid( 'pages' );
+
+      // Create pages on the root level
+    $pageUid = $this->pagesRoot( $pageUid );
+
+      // Create pages within page library
+    $pageUid = $this->pagesLibrary( $pageUid );
+
+    return;
+  }
 
 
 
@@ -457,43 +502,6 @@ TCEMAIN {
   }
 
 /**
- * pages( ) :
- *
- * @return	void
- * @access public
- * @version 3.0.0
- * @since 1.0.0
- */
-  public function pages( )
-  {
-      // Prompt header
-    $this->pObj->arrReport[ ] = '
-      <h2>
-       '.$this->pObj->pi_getLL('page_create_header').'
-      </h2>';
-      // Prompt header
-
-      // Set the global vars for the root page
-    $pageUid      = $GLOBALS['TSFE']->id;
-    $pageTitle    = 'page_title_root';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
-      // Set the global vars for the root page
-
-      // Get the latest uid from the püages table
-    $pageUid = $this->pObj->zz_getMaxDbUid( 'pages' );
-
-      // Create pages on the root level
-    $pageUid = $this->pagesRoot( $pageUid );
-
-      // Create pages within page library
-    $pageUid = $this->pagesLibrary( $pageUid );
-
-    return;
-  }
-
-/**
  * pagesLibrary( ) :
  *
  * @param	integer		$pageUid: current page uid
@@ -590,7 +598,7 @@ TCEMAIN {
     $pageUid    = $arrResult['pageUid'];
     unset( $arrResult );
 
-    $this->pagesRootSqlInsert( $pages );
+    $this->sqlInsert( $pages );
 
     return $pageUid;
   }
@@ -638,6 +646,14 @@ TCEMAIN {
     return $arrReturn;
   }
 
+
+
+ /***********************************************
+  *
+  * Sql
+  *
+  **********************************************/
+
 /**
  * pagesRoot( ) :
  *
@@ -647,7 +663,7 @@ TCEMAIN {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pagesRootSqlInsert( $pages )
+  private function sqlInsert( $pages )
   {
     foreach( $pages as $page )
     {
