@@ -175,11 +175,17 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     {
       case( null ):
       case( 'disabled' ):
-        $this->bool_error = $this->installNothing( );
+        if( ! $this->installNothing( ) )
+        {
+          $this->bool_error = true;
+        }
         break;
       case( 'install_shop' ):
       case( 'install_all' ):
-        $this->bool_error = $this->install( );
+        if( ! $this->install( ) )
+        {
+          $this->bool_error = true;
+        }
         break;
       default:
         $this->arrReport[ ] = '
