@@ -92,7 +92,7 @@ class tx_quickshopinstaller_pi1_pages extends tslib_pibase
  */
   private function pageCaddy( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_cart';
+    $pageTitle    = 'page_title_caddy';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -552,13 +552,13 @@ TCEMAIN {
     foreach( $pages as $page )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
-      $this->pObj->markerArray['###TITLE###'] = $this->pObj->pi_getLL( 'page_title_library' ) . ' > ' . $page['title'];
-      $this->pObj->markerArray['###UID###']   = $page['uid'];
+      $marker['###TITLE###'] = $this->pObj->pi_getLL( 'page_title_library' ) . ' > ' . $page['title'];
+      $marker['###UID###']   = $page['uid'];
       $prompt = '
         <p>
           '.$this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'page_create_prompt' ) . '
         </p>';
-      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[ ] = $prompt;
     }
 
@@ -643,13 +643,13 @@ TCEMAIN {
     foreach( $pages as $page )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
-      $this->pObj->markerArray['###TITLE###'] = $page['title'];
-      $this->pObj->markerArray['###UID###']   = $page['uid'];
+      $marker['###TITLE###'] = $page['title'];
+      $marker['###UID###']   = $page['uid'];
       $prompt = '
         <p>
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'page_create_prompt' ) . '
         </p>';
-      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[] = $prompt;
     }
 
