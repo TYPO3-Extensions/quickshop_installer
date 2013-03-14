@@ -680,15 +680,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  * createPageCaddy( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
  * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
  * @return	array		$page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPageCaddy( $pageUid, $sorting )
   {
     $page = array
             (
@@ -696,8 +694,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_cart'),
               'dokType'       => 1,  // 1: page
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
               'perms_userid'  => $this->markerArray['###BE_USER###'],
               'perms_groupid' => $this->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
@@ -714,15 +712,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  * createPageDelivery( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
  * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
  * @return	array		$page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPageDelivery( $pageUid, $sorting )
   {
     $page = array
             (
@@ -730,8 +726,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_shipping'),
               'dokType'       => 1,  // 1: page
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
               'perms_userid'  => $this->markerArray['###BE_USER###'],
               'perms_groupid' => $this->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
@@ -740,7 +736,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'sorting'       => $sorting
             );
 
-    unset( $dateHumanReadable );
     return $page;
   }
 
@@ -748,15 +743,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  * createPageLegalinfo( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
  * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
  * @return	array		$page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageLegalinfo( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPageLegalinfo( $pageUid, $sorting )
   {
     $page = array
             (
@@ -764,8 +757,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_legalinfo'),
               'dokType'       => 1,  // 1: page
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
               'perms_userid'  => $this->markerArray['###BE_USER###'],
               'perms_groupid' => $this->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
@@ -782,24 +775,24 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  * createPageLibrary( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
  * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
  * @return	array		$page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageLibrary( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPageLibrary( $pageUid, $sorting )
   {
+    $dateHumanReadable  = date('Y-m-d G:i:s');
+
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_library'),
               'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
               'perms_userid'  => $this->markerArray['###BE_USER###'],
               'perms_groupid' => $this->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
@@ -826,24 +819,24 @@ TCEMAIN {
  * createPageProducts( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
  * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
  * @return	array		$page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageProducts( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPageProducts( $pageUid, $sorting )
   {
+    $dateHumanReadable  = date('Y-m-d G:i:s');
+
     $page = array
             (
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_products'),
               'dokType'       => 254,  // 254: sysfolder
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
               'perms_userid'  => $this->markerArray['###BE_USER###'],
               'perms_groupid' => $this->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
@@ -916,7 +909,6 @@ TCEMAIN {
  * createPageTerms( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
  * @param	integer		$sorting            : sorting value
  * @param	string		$dateHumanReadable  : human readabel date
  * @return	array		$page               : current page record
@@ -924,7 +916,7 @@ TCEMAIN {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageTerms( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPageTerms( $pageUid, $sorting )
   {
     $page = array
             (
@@ -932,8 +924,8 @@ TCEMAIN {
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_terms'),
               'dokType'       => 1,  // 1: page
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
               'perms_userid'  => $this->markerArray['###BE_USER###'],
               'perms_groupid' => $this->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
@@ -942,7 +934,6 @@ TCEMAIN {
               'sorting'       => $sorting
             );
 
-    unset( $dateHumanReadable );
     return $page;
   }
 
@@ -959,7 +950,6 @@ TCEMAIN {
     $arr_pages  = array( );
 
       // General Values
-    $dateHumanReadable  = date('Y-m-d G:i:s');
     $timestamp          = time();
     $table              = 'pages';
     $no_quote_fields    = false;
@@ -973,25 +963,12 @@ TCEMAIN {
       </h2>';
       // Prompt header
 
-    $arr_pages = $this->createPagesLevel01( $pageUid );
+      // Pages on the first level
+    $pageUid = $this->createPagesLevel01( $pageUid );
 
-var_dump(__METHOD__, __LINE__, $arr_pages );
+var_dump(__METHOD__, __LINE__, $pageUid );
 die( );
 
-    foreach( $arr_pages as $fields_values )
-    {
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###TITLE###'] = $fields_values['title'];
-      $this->markerArray['###UID###']   = $fields_values['uid'];
-      $str_page_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('page_create_prompt').'
-        </p>';
-      $str_page_prompt = $this->cObj->substituteMarkerArray($str_page_prompt, $this->markerArray);
-      $this->arrReport[] = $str_page_prompt;
-    }
-    unset($arr_pages);
-    // Pages first level
 
 
 
@@ -1073,13 +1050,36 @@ die( );
 /**
  * createPagesLevel01( ) :
  *
- * @param	[type]		$$pageUid: ...
- * @return	void
+ * @param	integer		$pageUid: current page uid
+ * @return	integer		$pageUid: latest page uid
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
   private function createPagesLevel01( $pageUid )
+  {
+    $arrResult  = $this->createPagesLevel01Records( $pageUid );
+    $pages      = $arrResult['pages'];
+    $pageUid    = $arrResult['pageUid'];
+    unset( $arrResult );
+var_dump(__METHOD__, __LINE__, $arrResult );
+die( );
+    
+    $this->createPagesLevel01SqlInsert( $pages );
+
+    return $pageUid;
+  }
+
+/**
+ * createPagesLevel01Records( ) :
+ *
+ * @param	integer		$pageUid    : current page uid
+ * @return	array		$arrReturn  : array with elements pages and pageUid
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPagesLevel01Records( $pageUid )
   {
     $pages = array( );
 
@@ -1104,7 +1104,40 @@ die( );
     list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
     $pages[$pageUid] = $this->createPageProducts( $pageUid, $timestamp, $sorting, $dateHumanReadable );
 
-    return $pages;
+    $arrReturn  = array
+                  (
+                    'pages'   => $pages,
+                    'pageUid' => $pageUid
+                  );
+    
+    return $arrReturn;
+  }
+
+/**
+ * createPagesLevel01( ) :
+ *
+ * @param	array		$pages: page records
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPagesLevel01SqlInsert( $pages )
+  {
+    foreach( $pages as $page )
+    {
+      $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
+      $this->markerArray['###TITLE###'] = $page['title'];
+      $this->markerArray['###UID###']   = $page['uid'];
+      $prompt = '
+        <p>
+          '.$this->arr_icons['ok'].' '.$this->pi_getLL('page_create_prompt').'
+        </p>';
+      $prompt = $this->cObj->substituteMarkerArray($prompt, $this->markerArray);
+      $this->arrReport[] = $prompt;
+    }
+
+    unset($pages);
   }
 
 

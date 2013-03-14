@@ -37,7 +37,7 @@
       <label index="page_create_header">Pages and Directories</label>
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###)is created.</label>
       <label index="page_title_root">quick shop</label>
-      <label index="page_title_cart">shopping cart</label>
+      <label index="page_title_cart">caddy</label>
       <label index="page_title_shipping">shipping</label>
       <label index="page_title_terms">terms and conditions</label>
       <label index="page_title_legalinfo">legal info</label>
@@ -52,7 +52,7 @@
       <label index="plugin_browser_header">[Browser for Quickshop]</label>
       <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
       <label index="plugin_powermail_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo shop. Bad news: You won't receive any product. Good news: You won't receive any invoice.</label>
-      <label index="plugin_wtcart_header">Shopping Cart</label>
+      <label index="plugin_wtcart_header">Caddy</label>
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the folder ###TITLE_PID###.</label>
       <label index="record_create_mm_prompt">###COUNT### records are added to the table "###TABLE###".</label>
