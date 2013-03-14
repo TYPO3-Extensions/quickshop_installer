@@ -40,7 +40,7 @@
  *  426:     private function createContent()
  *  568:     private function createFilesShop()
  *  625:     private function createPages( )
- *  918:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  918:     private function createPagesCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
  *  947:     private function createPlugins()
  * 1194:     private function createRecordsPowermail()
  * 1803:     private function createRecordsShop()
@@ -294,9 +294,39 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
  /***********************************************
   *
+  * Counter
+  *
+  **********************************************/
+
+/**
+ * countPages( ) :
+ *
+ * @return	string
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function countPages( $pageUid )
+  {
+    static $counter = 0;
+    
+    $counter  = $counter + 1 ;
+    $pageUid  = $pageUid + 1 ;
+    $sorting  = 256 * $counter;
+    
+    $csvResult = $pageUid . ',' . $sorting;
+
+    return $csvResult;
+  }
+
+
+
+ /***********************************************
+  *
   * Create
   *
   **********************************************/
+  
  /**
   * create( ) :
   *
@@ -657,11 +687,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // Pages first level
 
     // Shopping Cart
-    $counter  = $counter + 1 ;
-    $pageUid  = $pageUid + 1 ;
-    $sorting  = 256 * $counter;
+//    $counter  = $counter + 1 ;
+//    $pageUid  = $pageUid + 1 ;
+//    $sorting  = 256 * $counter;
 
-    $arr_pages[$pageUid] = $this->createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $arr_pages[$pageUid] = $this->createPagesCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable );
 var_dump(__METHOD__, __LINE__, $arr_pages );
 die( );
     // Shipping
@@ -910,7 +941,7 @@ TCEMAIN {
   }
 
 /**
- * createPageCaddy( ) :
+ * createPagesCaddy( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
  * @param	integer		$timestamp          : current time
@@ -921,7 +952,7 @@ TCEMAIN {
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPagesCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
   {
     $page = array
             (
