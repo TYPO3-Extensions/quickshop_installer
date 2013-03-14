@@ -361,7 +361,7 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
                                     '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pi_getLL( 'plugin_create_prompt' ) . '
+          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'plugin_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[ ] = $prompt;
