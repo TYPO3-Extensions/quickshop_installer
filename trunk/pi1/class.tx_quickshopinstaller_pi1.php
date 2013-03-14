@@ -1065,7 +1065,7 @@ TCEMAIN {
   private function createPages( )
   {
       // Prompt header
-    $this->arrReport[] = '
+    $this->arrReport[ ] = '
       <h2>
        '.$this->pi_getLL('page_create_header').'
       </h2>';
@@ -1079,7 +1079,7 @@ TCEMAIN {
       // Pages within page library
     $pageUid = $this->createPagesLibrary( $pageUid );
 
-var_dump(__METHOD__, __LINE__, $pageUid );
+var_dump(__METHOD__, __LINE__, $pageUid, $this->arrReport[ ] );
 die( );
 
     return;
