@@ -38,15 +38,15 @@
  *  335:     private function pageProducts( $pageUid, $sorting )
  *  432:     private function pageTerms( $pageUid, $sorting )
  *  467:     public function pages( )
- *  496:     private function pagesLibrary( $pageUid )
- *  522:     private function pagesLibraryRecords( $pageUid )
- *  550:     private function pagesLibrarySqlInsert( $pages )
- *  577:     private function pagesRoot( $pageUid )
- *  598:     private function pagesRootRecords( $pageUid )
- *  641:     private function pagesRootSqlInsert( $pages )
+ *  505:     private function pagesLibrary( $pageUid )
+ *  531:     private function pagesLibraryRecords( $pageUid )
+ *  559:     private function pagesLibrarySqlInsert( $pages )
+ *  586:     private function pagesRoot( $pageUid )
+ *  607:     private function pagesRootRecords( $pageUid )
+ *  650:     private function pagesRootSqlInsert( $pages )
  *
  *              SECTION: ZZ
- *  676:     private function zz_countPages( $pageUid )
+ *  685:     private function zz_countPages( $pageUid )
  *
  * TOTAL FUNCTIONS: 16
  * (This index is automatically created/updated by the extension "extdeveval")
