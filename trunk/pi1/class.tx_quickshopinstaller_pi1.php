@@ -290,8 +290,28 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   * Create
   *
   **********************************************/
+ /**
+  * create( ) : 
+  *
+  * @return	void
+  * @access     private
+  * @version    3.0.0
+  * @since      3.0.0
+  */
 
-  /**
+  private function create( )
+  {
+    $this->createBeGroup();
+    $this->createPages();
+    $this->createTyposcript();
+    $this->createPlugins();
+    $this->createRecordsPowermail();
+    $this->createRecordsShop();
+    $this->createFilesShop();
+    $this->createContent();
+  }
+
+/**
  * Shop will be installed - with or without template
  *
  * @param	string		$str_installCase: install_all or install_shop
@@ -3120,7 +3140,7 @@ plugin.powermail {
   **********************************************/
 
  /**
-  * installNothing( ) : Write a prompt to the global $arrReport
+  * install( ) : 
   *
   * @return	boolean     $boolError  : true
   * @access     private
@@ -3130,7 +3150,7 @@ plugin.powermail {
 
   //http://forge.typo3.org/issues/9632
   //private function install($str_installCase)
-  private function install()
+  private function install( )
   {
     $boolError = false;
 
@@ -3151,6 +3171,7 @@ plugin.powermail {
 
       // 120613, dwildt, 1+
     $this->initBoolTopLevel();
+    $this->create( );
     $this->createBeGroup();
     $this->createPages();
     $this->createTyposcript();
