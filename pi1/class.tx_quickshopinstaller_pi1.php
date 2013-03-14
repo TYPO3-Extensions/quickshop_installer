@@ -131,9 +131,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [array] Titles of the current and the generated pages records. Uids are the keys.
   public  $arr_pageTitles    = false;
     // [array] Uids of the generated sys_templates records
-  private $arr_tsUids      = false;
+  public $arr_tsUids      = false;
     // [string] Title of the root TypoScript
-  private $str_tsRoot      = false;
+  public $str_tsRoot      = false;
     // [array] Uids of the generated tt_content records - here: plugins only
   private $arr_pluginUids      = false;
     // [array] Uids of the generated records for different tables.
@@ -143,7 +143,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [array] Uids of the generated tt_content records - here: page content only
   private $arr_contentUids      = false;
 
-  private $str_tsWtCart = null;
+  public $str_tsWtCart = null;
 
 
 
