@@ -155,7 +155,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -185,7 +185,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -215,7 +215,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -245,7 +245,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -275,7 +275,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -319,7 +319,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -363,7 +363,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -401,7 +401,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -448,7 +448,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -478,7 +478,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -516,7 +516,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -546,7 +546,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -576,7 +576,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -606,7 +606,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -636,7 +636,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -680,7 +680,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -724,7 +724,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -762,7 +762,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -807,7 +807,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -855,7 +855,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -899,7 +899,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -933,7 +933,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $arr_records[$uid]['uid']       = $uid;
-    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $arr_records[$uid]['pid']       = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $arr_records[$uid]['tstamp']    = time( );
     $arr_records[$uid]['crdate']    = time( );
     $arr_records[$uid]['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -1089,15 +1089,15 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'record_pm_fSets_title_billingAddress' );
-    $this->pObj->arr_recordUids[$llHeader]  = $uid;
+    $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_billingAddress' );
+    $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $record['tstamp']     = $timestamp;
     $record['crdate']     = $timestamp;
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llHeader;
+    $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record['tt_content'] = $this->arr_pluginUids[$this->pObj->pi_getLL( 'plugin_powermail_header' )];
     $record['felder']     = '5';
@@ -1119,15 +1119,15 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'record_pm_fSets_title_contactData' );
-    $this->pObj->arr_recordUids[$llHeader]  = $uid;
+    $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_contactData' );
+    $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $record['tstamp']     = $timestamp;
     $record['crdate']     = $timestamp;
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llHeader;
+    $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record['tt_content'] = $this->arr_pluginUids[$this->pObj->pi_getLL( 'plugin_powermail_header' )];
     $record['felder']     = '3';
@@ -1149,15 +1149,15 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'record_pm_fSets_title_deliveryAddress' );
-    $this->pObj->arr_recordUids[$llHeader]  = $uid;
+    $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_deliveryAddress' );
+    $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $record['tstamp']     = $timestamp;
     $record['crdate']     = $timestamp;
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llHeader;
+    $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record['tt_content'] = $this->arr_pluginUids[$this->pObj->pi_getLL( 'plugin_powermail_header' )];
     $record['felder']     = '5';
@@ -1179,15 +1179,15 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'record_pm_fSets_title_order' );
-    $this->pObj->arr_recordUids[$llHeader]  = $uid;
+    $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_order' );
+    $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
     $record['tstamp']     = $timestamp;
     $record['crdate']     = $timestamp;
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llHeader;
+    $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record['tt_content'] = $this->arr_pluginUids[$this->pObj->pi_getLL( 'plugin_powermail_header' )];
     $record['felder']     = '5';
@@ -1257,7 +1257,7 @@ class tx_quickshopinstaller_pi1_powermail
                                     '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'plugin_create_prompt' ) . '
+          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'record_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[ ] = $prompt;
