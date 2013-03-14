@@ -26,20 +26,20 @@
  *
  *
  *
- *   60: class tx_quickshopinstaller_pi1_typoscript extends tslib_pibase
+ *   58: class tx_quickshopinstaller_pi1_typoscript
  *
  *              SECTION: Main
- *   84:     public function main( )
+ *   82:     public function main( )
  *
  *              SECTION: Records
- *  114:     private function recordCaddy( $uid )
- *  225:     private function recordRoot( $uid )
- *  255:     private function recordRootCaseAll( $uid )
- *  370:     private function recordRootCaseShopOnly( $uid )
- *  437:     private function records( )
+ *  112:     private function recordCaddy( $uid )
+ *  223:     private function recordRoot( $uid )
+ *  253:     private function recordRootCaseAll( $uid )
+ *  368:     private function recordRootCaseShopOnly( $uid )
+ *  435:     private function records( )
  *
  *              SECTION: Sql
- *  470:     private function sqlInsert( $records )
+ *  468:     private function sqlInsert( $records )
  *
  * TOTAL FUNCTIONS: 7
  * (This index is automatically created/updated by the extension "extdeveval")
