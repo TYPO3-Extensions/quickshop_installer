@@ -26,54 +26,55 @@
  *
  *
  *
- *   92: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *   93: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  150:     public function main( $content, $conf)
+ *  151:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  227:     private function confirmation()
+ *  228:     private function confirmation()
  *
  *              SECTION: Create
- *  300:     private function createBeGroup()
- *  406:     private function createContent()
- *  548:     private function createFilesShop()
- *  605:     private function createPages( )
- *  898:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
- *  927:     private function createPlugins()
- * 1174:     private function createRecordsPowermail()
- * 1783:     private function createRecordsShop()
- * 2143:     private function createTyposcript()
+ *  302:     private function create( )
+ *  320:     private function createBeGroup()
+ *  426:     private function createContent()
+ *  568:     private function createFilesShop()
+ *  625:     private function createPages( )
+ *  918:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  947:     private function createPlugins()
+ * 1194:     private function createRecordsPowermail()
+ * 1803:     private function createRecordsShop()
+ * 2163:     private function createTyposcript()
  *
  *              SECTION: Consolidate
- * 2450:     private function consolidatePageCurrent()
- * 2673:     private function consolidatePluginPowermail()
- * 2750:     private function consolidateTsWtCart()
+ * 2470:     private function consolidatePageCurrent()
+ * 2693:     private function consolidatePluginPowermail()
+ * 2770:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 2892:     private function extensionCheck( )
- * 2957:     private function extensionCheckCaseBaseTemplate( )
- * 2996:     private function extensionCheckExtension( $key, $title )
+ * 2912:     private function extensionCheck( )
+ * 2977:     private function extensionCheckCaseBaseTemplate( )
+ * 3016:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 3037:     private function htmlReport()
+ * 3057:     private function htmlReport()
  *
  *              SECTION: Init
- * 3092:     private function initBoolTopLevel( )
- * 3133:     private function install()
- * 3179:     private function installNothing( )
+ * 3112:     private function initBoolTopLevel( )
+ * 3153:     private function install( )
+ * 3200:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3205:     private function promptCleanUp()
+ * 3226:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3254:     private function zz_getCHash($str_params)
- * 3268:     private function zz_getMaxDbUid($table)
- * 3308:     private function zz_getPageUids($timestamp)
- * 3387:     private function zz_getPathToIcons()
- * 3414:     private function zz_getFlexValues()
+ * 3275:     private function zz_getCHash($str_params)
+ * 3289:     private function zz_getMaxDbUid($table)
+ * 3329:     private function zz_getPageUids($timestamp)
+ * 3408:     private function zz_getPathToIcons()
+ * 3435:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 27
+ * TOTAL FUNCTIONS: 28
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -291,14 +292,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   *
   **********************************************/
  /**
-  * create( ) : 
+  * create( ) :
   *
   * @return	void
-  * @access     private
+  * @access private
   * @version    3.0.0
   * @since      3.0.0
   */
-
   private function create( )
   {
     $this->createBeGroup();
@@ -3140,7 +3140,7 @@ plugin.powermail {
   **********************************************/
 
  /**
-  * install( ) : 
+  * install( ) :
   *
   * @return	boolean     $boolError  : true
   * @access     private
