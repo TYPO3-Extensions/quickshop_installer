@@ -2065,7 +2065,7 @@ plugin.tx_wtcart_pi1 {
 
     $record['title']                = $title;
     $record['uid']                  = $uid;
-    $record['pid']                  = $this->arr_pageUids[$this->pi_getLL( 'page_title_root' )];
+    $record['pid']                  = $GLOBALS['TSFE']->id;
     $record['tstamp']               = time( );
     $record['sorting']              = 256;
     $record['crdate']               = time( );
@@ -2179,7 +2179,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 
     $record['title']                      = $title;
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->arr_pageUids[$this->pi_getLL( 'page_title_root' )];
+    $record['pid']                        = $GLOBALS['TSFE']->id;
     $record['tstamp']                     = time( );
     $record['sorting']                    = 256;
     $record['crdate']                     = time( );
