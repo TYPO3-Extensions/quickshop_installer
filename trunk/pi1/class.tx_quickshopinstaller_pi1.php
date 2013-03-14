@@ -693,6 +693,10 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
     $arr_pages[$pageUid] = $this->createPagesCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $arr_pages[$pageUid] = $this->createPagesDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+
 var_dump(__METHOD__, __LINE__, $arr_pages );
 die( );
     // Shipping
@@ -959,6 +963,40 @@ TCEMAIN {
               'uid'           => $pageUid,
               'pid'           => $GLOBALS['TSFE']->id,
               'title'         => $this->pi_getLL('page_title_cart'),
+              'dokType'       => 1,  // 1: page
+              'crdate'        => $timestamp,
+              'tstamp'        => $timestamp,
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    unset( $dateHumanReadable );
+    return $page;
+  }
+
+/**
+ * createPagesDelivery( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPagesDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  {
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $this->pi_getLL('page_title_shipping'),
               'dokType'       => 1,  // 1: page
               'crdate'        => $timestamp,
               'tstamp'        => $timestamp,
