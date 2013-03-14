@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010-2012 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2010-2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -88,7 +88,8 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 1.0.6
+ * @version 3.0.0
+ * @since 1.0.0
  */
 class tx_quickshopinstaller_pi1 extends tslib_pibase
 {
@@ -668,6 +669,12 @@ return;
  */
   private function createRecordsPowermail()
   {
+    require_once( 'class.tx_quickshopinstaller_pi1_powermail.php' );
+    $this->powermail       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_powermail' );
+    $this->powermail->pObj = $this;
+
+    $this->powermail->main( );
+return;
     $arr_records = array( );
 
     $this->arrReport[] = '
