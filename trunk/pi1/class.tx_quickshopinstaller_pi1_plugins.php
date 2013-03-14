@@ -26,22 +26,21 @@
  *
  *
  *
- *   60: class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
+ *   59: class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
  *
  *              SECTION: Main
- *   84:     public function main( )
+ *   83:     public function main( )
  *
  *              SECTION: Records
- *  114:     private function recordBrowser( $uid )
- *  225:     private function recordRoot( $uid )
- *  255:     private function recordRootCaseAll( $uid )
- *  370:     private function recordRootCaseShopOnly( $uid )
- *  437:     private function records( )
+ *  113:     private function recordBrowser( $uid )
+ *  235:     private function recordCaddy( $uid )
+ *  265:     private function recordPowermail( $uid )
+ *  315:     private function records( )
  *
  *              SECTION: Sql
- *  470:     private function sqlInsert( $records )
+ *  352:     private function sqlInsert( $records )
  *
- * TOTAL FUNCTIONS: 7
+ * TOTAL FUNCTIONS: 6
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -357,7 +356,7 @@ class tx_quickshopinstaller_pi1_plugins extends tslib_pibase
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tt_content', $record );
       $marker['###HEADER###']     = $record['header'];
-      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] . 
+      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
                                     '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
