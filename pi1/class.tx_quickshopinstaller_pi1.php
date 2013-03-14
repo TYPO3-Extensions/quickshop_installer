@@ -953,7 +953,7 @@ TCEMAIN {
               'perms_groupid' => $this->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
-              'module'        => 'quick_shop',
+              'module'        => 'quickshop',
               'urlType'       => 1,
               'sorting'       => $sorting,
               'TSconfig'      => '
@@ -1068,7 +1068,16 @@ TCEMAIN {
  */
   private function createPages( )
   {
-      // Prompt header
+      // Class with methods for get clean values
+    require_once( 'class.tx_quickshopinstaller_pi1_pages.php' );
+    $this->pages            = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_pages' );
+    $this->pages->pObj      = $this;
+
+    $this->pages->createPages( );
+
+var_dump(__METHOD__, __LINE__, $pageUid, $this->arrReport );
+die( );
+    // Prompt header
     $this->arrReport[ ] = '
       <h2>
        '.$this->pi_getLL('page_create_header').'
@@ -1083,8 +1092,6 @@ TCEMAIN {
       // Pages within page library
     $pageUid = $this->createPagesLibrary( $pageUid );
 
-var_dump(__METHOD__, __LINE__, $pageUid, $this->arrReport );
-die( );
 
     return;
   }
