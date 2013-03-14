@@ -131,7 +131,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [array] The flexform array
   private $arr_piFlexform  = false;
     // [array] Array with the report items
-  private $arrReport       = false;
+  public $arrReport       = false;
     // [array] Array with images, wrapped as HTML <img ...>
   private $arr_icons       = false;
 
