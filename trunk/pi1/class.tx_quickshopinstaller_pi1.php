@@ -632,14 +632,6 @@ return;
     return false;
   }
 
-
-
- /***********************************************
-  *
-  * Create pages
-  *
-  **********************************************/
-
 /**
  * createPages( ) :
  *
@@ -657,14 +649,6 @@ return;
     $this->pages->main( );
   }
 
-
-
- /***********************************************
-  *
-  * Create plugins
-  *
-  **********************************************/
-
   /**
  * Shop will be installed - with or without template
  *
@@ -679,232 +663,6 @@ return;
     $this->plugins->pObj = $this;
 
     $this->plugins->main( );
-return;
-    $arr_plugin = array( );
-
-    $this->arrReport[] = '
-      <h2>
-       '.$this->pi_getLL('plugin_create_header').'
-      </h2>';
-
-
-
-      //////////////////////////////////////////////////////////////////////
-      //
-      // General values
-
-    $timestamp       = time();
-    $table           = 'tt_content';
-    $no_quote_fields = false;
-    $uid         = $this->zz_getMaxDbUid($table);
-      // General values
-
-
-
-      //////////////////////////////////////////////////////////////////////
-      //
-      // Plugin browser on root page
-
-    $uid = $uid +1;
-    $strUid = sprintf ('%03d', $uid);
-
-    $this->arr_pluginUids[$this->pi_getLL('plugin_browser_header')]  = $uid;
-
-    $arr_plugin[$uid]['uid']           = $uid;
-    $arr_plugin[$uid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_plugin[$uid]['tstamp']        = $timestamp;
-    $arr_plugin[$uid]['crdate']        = $timestamp;
-    $arr_plugin[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_plugin[$uid]['sorting']       = 128;
-    $arr_plugin[$uid]['CType']         = 'list';
-    $arr_plugin[$uid]['header']        = $this->pi_getLL('plugin_browser_header');
-    $arr_plugin[$uid]['pages']         = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_plugin[$uid]['header_layout'] = 100;  // hidden
-    $arr_plugin[$uid]['list_type']     = 'browser_pi1';
-    $arr_plugin[$uid]['sectionIndex']  = 1;
-    $arr_plugin[$uid]['pi_flexform']   = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="viewList">
-            <language index="lDEF">
-                <field index="title">
-                    <value index="vDEF">Quick Shop</value>
-                </field>
-                <field index="limit">
-                    <value index="vDEF">3</value>
-                </field>
-                <field index="navigation">
-                    <value index="vDEF">3</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="socialmedia">
-            <language index="lDEF">
-                <field index="enabled">
-                    <value index="vDEF">enabled_wi_individual_template</value>
-                </field>
-                <field index="tablefieldTitle_list">
-                    <value index="vDEF">tx_quickshop_products.title</value>
-                </field>
-                <field index="bookmarks_list">
-                    <value index="vDEF">facebook,hype,twitter</value>
-                </field>
-                <field index="tablefieldTitle_single">
-                    <value index="vDEF">tx_quickshop_products.title</value>
-                </field>
-                <field index="bookmarks_single">
-                    <value index="vDEF">facebook,google,hype,live,misterwong,technorati,twitter,yahoomyweb</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="views">
-                    <value index="vDEF">selected</value>
-                </field>
-                <field index="viewsHandleFromTemplateOnly">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="viewsList">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="templating">
-            <language index="lDEF">
-                <field index="template">
-                    <value index="vDEF">EXT:quick_shop/res/v1.4/default.tmpl</value>
-                </field>
-                <field index="css.browser">
-                    <value index="vDEF">ts</value>
-                </field>
-                <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="javascript">
-            <language index="lDEF">
-                <field index="mode">
-                    <value index="vDEF">list_and_single</value>
-                </field>
-                <field index="ajaxChecklist">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="list_transition">
-                    <value index="vDEF">collapse</value>
-                </field>
-                <field index="single_transition">
-                    <value index="vDEF">collapse</value>
-                </field>
-                <field index="list_on_single">
-                    <value index="vDEF">single</value>
-                </field>
-            </language>
-        </sheet>
-        <sheet index="development">
-            <language index="lDEF">
-                <field index="handle_marker">
-                    <value index="vDEF">remove_empty_markers</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>';
-      // Plugin browser on root page
-
-
-
-      //////////////////////////////////////////////////////////////////////
-      //
-      // Plugin wtcart on cart page
-
-    $uid = $uid +1;
-    $strUid = sprintf ('%03d', $uid);
-
-    $this->arr_pluginUids[$this->pi_getLL('plugin_wtcart_header')]  = $uid;
-
-    $arr_plugin[$uid]['uid']           = $uid;
-    $arr_plugin[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_plugin[$uid]['tstamp']        = $timestamp;
-    $arr_plugin[$uid]['crdate']        = $timestamp;
-    $arr_plugin[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_plugin[$uid]['sorting']       = 256;
-    $arr_plugin[$uid]['CType']         = 'list';
-    $arr_plugin[$uid]['header']        = $this->pi_getLL('plugin_wtcart_header');
-    $arr_plugin[$uid]['list_type']     = 'wt_cart_pi1';
-    $arr_plugin[$uid]['sectionIndex']  = 1;
-      // Plugin wtcart on cart page
-
-
-
-      //////////////////////////////////////////////////////////////////////
-      //
-      // Plugin powermail on cart page
-
-    $uid = $uid +1;
-    $strUid = sprintf ('%03d', $uid);
-
-    $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')]  = $uid;
-
-    $arr_plugin[$uid]['uid']                        = $uid;
-    $arr_plugin[$uid]['pid']                        = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_plugin[$uid]['tstamp']                     = $timestamp;
-    $arr_plugin[$uid]['crdate']                     = $timestamp;
-    $arr_plugin[$uid]['cruser_id']                  = $this->markerArray['###BE_USER###'];
-    $arr_plugin[$uid]['sorting']                    = 512;
-    $arr_plugin[$uid]['CType']                      = 'powermail_pi1';
-    $arr_plugin[$uid]['header']                     = $this->pi_getLL('plugin_powermail_header');
-    $arr_plugin[$uid]['header_layout']              = 100;  // hidden
-    $arr_plugin[$uid]['list_type']                  = '';
-    $arr_plugin[$uid]['sectionIndex']               = 1;
-    $arr_plugin[$uid]['tx_powermail_title']         = 'order';
-    $arr_plugin[$uid]['tx_powermail_recipient']     = $this->markerArray['###MAIL_DEFAULT_RECIPIENT###'];
-    $arr_plugin[$uid]['tx_powermail_subject_r']     = $this->markerArray['###MAIL_SUBJECT###'];
-    $arr_plugin[$uid]['tx_powermail_subject_s']     = $this->markerArray['###MAIL_SUBJECT###'];
-// Will updated by $this->consolidatePluginPowermail()
-//    $arr_plugin[$uid]['tx_powermail_sender']        = $str_sender;
-//    $arr_plugin[$uid]['tx_powermail_sendername']    = $str_sendername;
-    $arr_plugin[$uid]['tx_powermail_confirm']       = 1;
-    $arr_plugin[$uid]['tx_powermail_pages']         = false;
-    $arr_plugin[$uid]['tx_powermail_multiple']      = 0;
-    $arr_plugin[$uid]['tx_powermail_recip_table']   = 0;
-    $arr_plugin[$uid]['tx_powermail_recip_id']      = false;
-    $arr_plugin[$uid]['tx_powermail_recip_field']   = false;
-    $arr_plugin[$uid]['tx_powermail_thanks']        = $this->pi_getLL('plugin_powermail_thanks');
-    $arr_plugin[$uid]['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
-    $arr_plugin[$uid]['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CART###'."\n".'###POWERMAIL_ALL###';
-    $arr_plugin[$uid]['tx_powermail_redirect']      = false;
-    $arr_plugin[$uid]['tx_powermail_fieldsets']     = 4;
-    $arr_plugin[$uid]['tx_powermail_users']         = 0;
-    $arr_plugin[$uid]['tx_powermail_preview']       = 0;
-      // Plugin powermail on cart page
-
-
-
-      //////////////////////////////////////////////////////////////////////
-      //
-      // INSERT all plugins
-
-    foreach( $arr_plugin as $fields_values )
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###HEADER###']    = $fields_values['header'];
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
-      $str_plugin_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('plugin_create_prompt').'
-        </p>';
-      $str_plugin_prompt = $this->cObj->substituteMarkerArray($str_plugin_prompt, $this->markerArray);
-      $this->arrReport[] = $str_plugin_prompt;
-    }
-    unset($arr_plugin);
-
-      // INSERT all plugins
-
-    return false;
   }
 
 
@@ -1881,14 +1639,6 @@ return;
 
     return false;
   }
-
-
-
- /***********************************************
-  *
-  * Create TypoScript
-  *
-  **********************************************/
 
 /**
  * createTyposcript( )
