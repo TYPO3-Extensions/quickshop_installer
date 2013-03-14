@@ -1010,35 +1010,35 @@ class tx_quickshopinstaller_pi1_powermail
 
       // field billing address country
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryCountry( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressCountry( $uid, $sorting );
 
       // field delivery address company
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryCompany( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressCompany( $uid, $sorting );
 
       // field delivery address first name
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryFirstname( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressFirstname( $uid, $sorting );
 
       // field delivery address surname
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliverySurname( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressSurname( $uid, $sorting );
 
       // field delivery address address
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryAddress( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressAddress( $uid, $sorting );
 
       // field delivery address zip
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryZip( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressZip( $uid, $sorting );
 
       // field delivery address city
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryCity( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressCity( $uid, $sorting );
 
       // field delivery address country
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldDeliveryCountry( $uid, $sorting );
+    $records[$uid] = $this->fieldDeliveryaddressCountry( $uid, $sorting );
 
       // field contact data e-mail
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
