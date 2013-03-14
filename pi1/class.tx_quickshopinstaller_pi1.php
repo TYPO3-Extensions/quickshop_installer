@@ -26,67 +26,55 @@
  *
  *
  *
- *  105: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *   93: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  163:     public function main( $content, $conf)
+ *  151:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  243:     private function confirmation()
+ *  231:     private function confirmation()
  *
  *              SECTION: Create
- *  318:     private function create( )
- *  338:     private function createBeGroup()
- *  444:     private function createContent()
- *  586:     private function createFilesShop()
- *
- *              SECTION: Create pages
- *  651:     private function createPages( )
- *
- *              SECTION: Create plugins
- *  676:     private function createPlugins()
+ *  306:     private function create( )
+ *  326:     private function createBeGroup()
+ *  432:     private function createContent()
+ *  574:     private function createFilesShop()
+ *  631:     private function createPages( )
+ *  647:     private function createPlugins()
  *
  *              SECTION: Create records
- *  918:     private function createRecordsPowermail()
- * 1527:     private function createRecordsShop()
- *
- *              SECTION: Create TypoScript
- * 1896:     private function createTyposcript( )
- * 1925:     private function createTyposcriptRecordCaddy( $uid )
- * 2036:     private function createTyposcriptRecordRoot( $uid )
- * 2066:     private function createTyposcriptRecordRootCaseAll( $uid )
- * 2181:     private function createTyposcriptRecordRootCaseShopOnly( $uid )
- * 2248:     private function createTyposcriptRecords( )
- * 2273:     private function createTyposcriptSqlInsert( $records )
+ *  669:     private function createRecordsPowermail()
+ * 1278:     private function createRecordsShop()
+ * 1639:     private function createTyposcript( )
  *
  *              SECTION: Consolidate
- * 2305:     private function consolidatePageCurrent()
- * 2528:     private function consolidatePluginPowermail()
- * 2605:     private function consolidateTsWtCart()
+ * 1661:     private function consolidatePageCurrent()
+ * 1884:     private function consolidatePluginPowermail()
+ * 1961:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 2747:     private function extensionCheck( )
- * 2812:     private function extensionCheckCaseBaseTemplate( )
- * 2851:     private function extensionCheckExtension( $key, $title )
+ * 2103:     private function extensionCheck( )
+ * 2168:     private function extensionCheckCaseBaseTemplate( )
+ * 2207:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 2892:     private function htmlReport( )
+ * 2248:     private function htmlReport( )
  *
  *              SECTION: Init
- * 2949:     private function initBoolTopLevel( )
- * 2990:     private function install( )
- * 3031:     private function installNothing( )
+ * 2305:     private function initBoolTopLevel( )
+ * 2346:     private function install( )
+ * 2387:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 3057:     private function promptCleanUp()
+ * 2413:     private function promptCleanUp()
  *
  *              SECTION: ZZ
- * 3106:     private function zz_getCHash($str_params)
- * 3120:     public function zz_getMaxDbUid( $table )
- * 3147:     private function zz_getPathToIcons()
- * 3161:     private function zz_getFlexValues()
+ * 2462:     private function zz_getCHash($str_params)
+ * 2476:     public function zz_getMaxDbUid( $table )
+ * 2503:     private function zz_getPathToIcons()
+ * 2517:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 32
+ * TOTAL FUNCTIONS: 26
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
