@@ -1249,7 +1249,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     foreach( $records as $record )
     {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
+      var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
       $marker['###TITLE###']      = $record['title'];
       $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
