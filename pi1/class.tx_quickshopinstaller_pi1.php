@@ -40,7 +40,7 @@
  *  426:     private function createContent()
  *  568:     private function createFilesShop()
  *  625:     private function createPages( )
- *  918:     private function createPagesCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+ *  918:     private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
  *  947:     private function createPlugins()
  * 1194:     private function createRecordsPowermail()
  * 1803:     private function createRecordsShop()
@@ -540,7 +540,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       $this->arr_contentUids[$this->pi_getLL('content_header_header')]  = $int_uid;
 
       $arr_content[$int_uid]['uid']           = $int_uid;
-      $arr_content[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_lib_header')];
+      $arr_content[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_library_header')];
       $arr_content[$int_uid]['tstamp']        = $timestamp;
       $arr_content[$int_uid]['crdate']        = $timestamp;
       $arr_content[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -557,7 +557,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       $this->arr_contentUids[$this->pi_getLL('content_footer_header')]  = $int_uid;
 
       $arr_content[$int_uid]['uid']           = $int_uid;
-      $arr_content[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_lib_footer')];
+      $arr_content[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_library_footer')];
       $arr_content[$int_uid]['tstamp']        = $timestamp;
       $arr_content[$int_uid]['crdate']        = $timestamp;
       $arr_content[$int_uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
@@ -650,153 +650,192 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     return false;
   }
 
+
+  
+ /***********************************************
+  *
+  * Create pages
+  *
+  **********************************************/
+
 /**
- * createPages( ) :
+ * createPageCaddy( ) :
  *
- * @return	void
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPages( )
+  private function createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
   {
-    $arr_pages  = array( );
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $this->pi_getLL('page_title_cart'),
+              'dokType'       => 1,  // 1: page
+              'crdate'        => $timestamp,
+              'tstamp'        => $timestamp,
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
 
-      // General Values
-    $counter = 0;
-    $dateHumanReadable  = date('Y-m-d G:i:s');
-    $timestamp          = time();
-    $table              = 'pages';
-    $no_quote_fields    = false;
-    $pageUid            = $this->zz_getMaxDbUid($table);
-      // General Values
+    unset( $dateHumanReadable );
+    return $page;
+  }
 
-      // Prompt header
-    $this->arrReport[] = '
-      <h2>
-       '.$this->pi_getLL('page_create_header').'
-      </h2>';
-      // Prompt header
+/**
+ * createPageDelivery( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPageDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  {
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $this->pi_getLL('page_title_shipping'),
+              'dokType'       => 1,  // 1: page
+              'crdate'        => $timestamp,
+              'tstamp'        => $timestamp,
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
 
+    unset( $dateHumanReadable );
+    return $page;
+  }
 
+/**
+ * createPageLegalinfo( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPageLegalinfo( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  {
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $this->pi_getLL('page_title_legalinfo'),
+              'dokType'       => 1,  // 1: page
+              'crdate'        => $timestamp,
+              'tstamp'        => $timestamp,
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
 
+    unset( $dateHumanReadable );
+    return $page;
+  }
+  
+/**
+ * createPageLibrary( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPageLibrary( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  {
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $this->pi_getLL('page_title_library'),
+              'dokType'       => 254,  // 254: sysfolder
+              'crdate'        => $timestamp,
+              'tstamp'        => $timestamp,
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'module'        => 'library',
+              'urlType'       => 1,
+              'sorting'       => $sorting,
+              'TSconfig'      => '
 
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Pages first level
-
-    // Shopping Cart
-//    $counter  = $counter + 1 ;
-//    $pageUid  = $pageUid + 1 ;
-//    $sorting  = 256 * $counter;
-
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $arr_pages[$pageUid] = $this->createPagesCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable );
-
-    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
-    $arr_pages[$pageUid] = $this->createPagesDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable );
-
-var_dump(__METHOD__, __LINE__, $arr_pages );
-die( );
-    // Shipping
-    $pageUid = $pageUid + 1;
-    $arr_pages[$pageUid]['uid']           = $pageUid;
-    $arr_pages[$pageUid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_shipping');
-    $arr_pages[$pageUid]['dokType']       = 1;  // 1: page
-    $arr_pages[$pageUid]['crdate']        = $timestamp;
-    $arr_pages[$pageUid]['tstamp']        = $timestamp;
-    $arr_pages[$pageUid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-    $arr_pages[$pageUid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-    $arr_pages[$pageUid]['perms_user']    = 31; // 31: Full access
-    $arr_pages[$pageUid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$pageUid]['urlType']       = 1;
-    $arr_pages[$pageUid]['sorting']       = 256 * 2;
-    // Shipping
-
-    // Terms and Conditions
-    $pageUid = $pageUid + 1;
-    $arr_pages[$pageUid]['uid']           = $pageUid;
-    $arr_pages[$pageUid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_terms');
-    $arr_pages[$pageUid]['dokType']       = 1;  // 1: page
-    $arr_pages[$pageUid]['crdate']        = $timestamp;
-    $arr_pages[$pageUid]['tstamp']        = $timestamp;
-    $arr_pages[$pageUid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-    $arr_pages[$pageUid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-    $arr_pages[$pageUid]['perms_user']    = 31; // 31: Full access
-    $arr_pages[$pageUid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$pageUid]['urlType']       = 1;
-    $arr_pages[$pageUid]['sorting']       = 256 * 2;
-    // Terms and Conditions
-
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-      // Legal info
-      $pageUid = $pageUid + 1;
-      $arr_pages[$pageUid]['uid']           = $pageUid;
-      $arr_pages[$pageUid]['pid']           = $GLOBALS['TSFE']->id;
-      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_info');
-      $arr_pages[$pageUid]['dokType']       = 1;  // 1: page
-      $arr_pages[$pageUid]['crdate']        = $timestamp;
-      $arr_pages[$pageUid]['tstamp']        = $timestamp;
-      $arr_pages[$pageUid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$pageUid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$pageUid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$pageUid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$pageUid]['urlType']       = 1;
-      $arr_pages[$pageUid]['sorting']       = 256 * 3;
-      // Legal info
-
-      // Libraries
-      $pageUid = $pageUid + 1;
-      $arr_pages[$pageUid]['uid']           = $pageUid;
-      $arr_pages[$pageUid]['pid']           = $GLOBALS['TSFE']->id;
-      $arr_pages[$pageUid]['crdate']        = $timestamp;
-      $arr_pages[$pageUid]['tstamp']        = $timestamp;
-      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_lib');
-      $arr_pages[$pageUid]['dokType']       = 254;  // 254: sysfolder
-      $arr_pages[$pageUid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-      $arr_pages[$pageUid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-      $arr_pages[$pageUid]['perms_user']    = 31; // 31: Full access
-      $arr_pages[$pageUid]['perms_group']   = 31; // 31: Full access
-      $arr_pages[$pageUid]['module']        = 'library';
-      $arr_pages[$pageUid]['urlType']       = 1;
-      $arr_pages[$pageUid]['sorting']       = 256 * 4;
-      $arr_pages[$pageUid]['TSconfig']      = '
-
-// QUICK SHOP INSTALLER at '.$dateHumanReadable.' -- BEGIN
+// QUICK SHOP INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
 TCEMAIN {
   clearCacheCmd = pages
 }
 
-// QUICK SHOP INSTALLER at '.$dateHumanReadable.' -- END
+// QUICK SHOP INSTALLER at ' . $dateHumanReadable . ' -- END
 
-';
-      // Libraries
+'
+            );
+    return $page;
+  }
 
-    }
+/**
+ * createPageProducts( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPageProducts( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  {
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $this->pi_getLL('page_title_products'),
+              'dokType'       => 254,  // 254: sysfolder
+              'crdate'        => $timestamp,
+              'tstamp'        => $timestamp,
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'module'        => 'quick_shop',
+              'urlType'       => 1,
+              'sorting'       => $sorting,
+              'TSconfig'      => '
 
-    // Products
-    $pageUid = $pageUid + 1;
-    $arr_pages[$pageUid]['uid']           = $pageUid;
-    $arr_pages[$pageUid]['pid']           = $GLOBALS['TSFE']->id;
-    $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_products');
-    $arr_pages[$pageUid]['dokType']       = 254;  // 254: sysfolder
-    $arr_pages[$pageUid]['crdate']        = $timestamp;
-    $arr_pages[$pageUid]['tstamp']        = $timestamp;
-    $arr_pages[$pageUid]['perms_userid']  = $this->markerArray['###BE_USER###'];
-    $arr_pages[$pageUid]['perms_groupid'] = $this->markerArray['###GROUP_UID###'];
-    $arr_pages[$pageUid]['perms_user']    = 31; // 31: Full access
-    $arr_pages[$pageUid]['perms_group']   = 31; // 31: Full access
-    $arr_pages[$pageUid]['module']        = 'quick_shop';
-    $arr_pages[$pageUid]['urlType']       = 1;
-    $arr_pages[$pageUid]['sorting']       = 256 * 5;
-      $arr_pages[$pageUid]['TSconfig']      = '
-
-// Created by QUICK SHOP INSTALLER at '.$dateHumanReadable.' -- BEGIN
+// Created by QUICK SHOP INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
 
 
@@ -847,10 +886,79 @@ TCEMAIN {
 
 
 
-// Created by QUICK SHOP INSTALLER at '.$dateHumanReadable.' -- BEGIN
+// Created by QUICK SHOP INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
-';
+'
+            );
     // Products
+    return $page;
+  }
+
+/**
+ * createPageTerms( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$timestamp          : current time
+ * @param	integer		$sorting            : sorting value
+ * @param	string		$dateHumanReadable  : human readabel date
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPageTerms( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  {
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $this->pi_getLL('page_title_terms'),
+              'dokType'       => 1,  // 1: page
+              'crdate'        => $timestamp,
+              'tstamp'        => $timestamp,
+              'perms_userid'  => $this->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    unset( $dateHumanReadable );
+    return $page;
+  }
+
+/**
+ * createPages( ) :
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createPages( )
+  {
+    $arr_pages  = array( );
+
+      // General Values
+    $dateHumanReadable  = date('Y-m-d G:i:s');
+    $timestamp          = time();
+    $table              = 'pages';
+    $no_quote_fields    = false;
+    $pageUid            = $this->zz_getMaxDbUid($table);
+      // General Values
+
+      // Prompt header
+    $this->arrReport[] = '
+      <h2>
+       '.$this->pi_getLL('page_create_header').'
+      </h2>';
+      // Prompt header
+
+    $arr_pages = $this->createPagesLevel01( $pageUid );
+
+var_dump(__METHOD__, __LINE__, $arr_pages );
+die( );
 
     foreach( $arr_pages as $fields_values )
     {
@@ -877,7 +985,7 @@ TCEMAIN {
     {
       $select_fields = '`uid`';
       $from_table    = '`'.$table.'`';
-      $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "'.$this->pi_getLL('page_title_lib').'" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
+      $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "'.$this->pi_getLL('page_title_library').'" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
       $groupBy       = '';
       $orderBy       = '';
       $limit         = '0,1';
@@ -894,7 +1002,7 @@ TCEMAIN {
       $pageUid = $pageUid + 1;
       $arr_pages[$pageUid]['uid']           = $pageUid;
       $arr_pages[$pageUid]['pid']           = $this->markerArray['###PAGE_LIB_UID###'];
-      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_lib_header');
+      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_library_header');
       $arr_pages[$pageUid]['dokType']       = 1;  // 1: page
       $arr_pages[$pageUid]['crdate']        = $timestamp;
       $arr_pages[$pageUid]['tstamp']        = $timestamp;
@@ -910,7 +1018,7 @@ TCEMAIN {
       $pageUid = $pageUid + 1;
       $arr_pages[$pageUid]['uid']           = $pageUid;
       $arr_pages[$pageUid]['pid']           = $this->markerArray['###PAGE_LIB_UID###'];
-      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_lib_footer');
+      $arr_pages[$pageUid]['title']         = $this->pi_getLL('page_title_library_footer');
       $arr_pages[$pageUid]['crdate']        = $timestamp;
       $arr_pages[$pageUid]['tstamp']        = $timestamp;
       $arr_pages[$pageUid]['dokType']       = 1;  // 1: page
@@ -925,7 +1033,7 @@ TCEMAIN {
       foreach($arr_pages as $fields_values)
       {
         $GLOBALS['TYPO3_DB']->exec_INSERTquery($from_table, $fields_values, $no_quote_fields);
-        $this->markerArray['###TITLE###'] = $this->pi_getLL('page_title_lib').' > '.$fields_values['title'];
+        $this->markerArray['###TITLE###'] = $this->pi_getLL('page_title_library').' > '.$fields_values['title'];
         $this->markerArray['###UID###']   = $fields_values['uid'];
         $str_page_prompt = '
           <p>
@@ -939,79 +1047,55 @@ TCEMAIN {
 
     // Pages second level
 
-    $this->zz_getPageUids($timestamp);
+    $this->zz_getPageUids( $timestamp );
 
     return;
   }
 
 /**
- * createPagesCaddy( ) :
+ * createPagesLevel01( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
- * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
- * @return	array		$page               : current page record
+ * @return	void
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function createPagesCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable )
+  private function createPagesLevel01( $pageUid )
   {
-    $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_cart'),
-              'dokType'       => 1,  // 1: page
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
-              'perms_userid'  => $this->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
+    $pages = array( );
 
-    unset( $dateHumanReadable );
-    return $page;
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageCaddy( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageTerms( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+
+    if( $this->markerArray['###INSTALL_CASE###'] == 'install_all' )
+    {
+      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+      $pages[$pageUid] = $this->createPageLegalinfo( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+
+      list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+      $pages[$pageUid] = $this->createPageLibrary( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+    }
+
+    list( $pageUid, $sorting) = explode( ',', $this->countPages( $pageUid ) );
+    $pages[$pageUid] = $this->createPageProducts( $pageUid, $timestamp, $sorting, $dateHumanReadable );
+
+    return $pages;
   }
 
-/**
- * createPagesDelivery( ) :
- *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$timestamp          : current time
- * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
- * @return	array		$page               : current page record
- * @access private
- * @version 3.0.0
- * @since 1.0.0
- */
-  private function createPagesDelivery( $pageUid, $timestamp, $sorting, $dateHumanReadable )
-  {
-    $page = array
-            (
-              'uid'           => $pageUid,
-              'pid'           => $GLOBALS['TSFE']->id,
-              'title'         => $this->pi_getLL('page_title_shipping'),
-              'dokType'       => 1,  // 1: page
-              'crdate'        => $timestamp,
-              'tstamp'        => $timestamp,
-              'perms_userid'  => $this->markerArray['###BE_USER###'],
-              'perms_groupid' => $this->markerArray['###GROUP_UID###'],
-              'perms_user'    => 31, // 31: Full access
-              'perms_group'   => 31, // 31: Full access
-              'urlType'       => 1,
-              'sorting'       => $sorting
-            );
 
-    unset( $dateHumanReadable );
-    return $page;
-  }
 
+ /***********************************************
+  *
+  * Create plugins
+  *
+  **********************************************/
+  
   /**
  * Shop will be installed - with or without template
  *
@@ -1250,17 +1334,12 @@ TCEMAIN {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+ /***********************************************
+  *
+  * Create records
+  *
+  **********************************************/
+  
    /**
  * Shop will be installed - with or without template
  *
@@ -2228,6 +2307,14 @@ TCEMAIN {
     return false;
   }
 
+
+
+ /***********************************************
+  *
+  * Create TypoScript
+  *
+  **********************************************/
+  
   /**
  * Shop will be installed - with or without template
  *
@@ -2305,10 +2392,10 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 
 ';
       $str_libraries                               = '
-      libraries = '.$this->arr_pageUids[$this->pi_getLL('page_title_lib')].'
+      libraries = '.$this->arr_pageUids[$this->pi_getLL('page_title_library')].'
       libraries {
-        header       = '.$this->arr_pageUids[$this->pi_getLL('page_title_lib_header')].'
-        footer       = '.$this->arr_pageUids[$this->pi_getLL('page_title_lib_footer')].'
+        header       = '.$this->arr_pageUids[$this->pi_getLL('page_title_library_header')].'
+        footer       = '.$this->arr_pageUids[$this->pi_getLL('page_title_library_footer')].'
       }
 ';
     }
@@ -2588,7 +2675,7 @@ plugin.tx_wtcart_pi1 {
     $arr_pages[$int_uid]['media']    = 'typo3_quickshop_'.$timestamp.'.jpg';
     $arr_pages[$int_uid]['TSconfig'] = '
 
-// QUICK SHOP INSTALLER at '.$dateHumanReadable.' -- BEGIN
+// QUICK SHOP INSTALLER at ' . $dateHumanReadable . ' -- BEGIN
 
 TCEMAIN {
   permissions {
@@ -2598,7 +2685,7 @@ TCEMAIN {
   }
 }
 
-// QUICK SHOP INSTALLER at '.$dateHumanReadable.' -- END
+// QUICK SHOP INSTALLER at ' . $dateHumanReadable . ' -- END
 
 ';
 
@@ -3436,20 +3523,20 @@ plugin.powermail {
       // Install ALL
       if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
       {
-        if($row['title'] == $this->pi_getLL('page_title_info'))
+        if($row['title'] == $this->pi_getLL('page_title_legalinfo'))
         {
-          $this->arr_pageUids[$this->pi_getLL('page_title_info')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_info');
+          $this->arr_pageUids[$this->pi_getLL('page_title_legalinfo')] = $row['uid'];
+          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_legalinfo');
         }
-        if($row['title'] == $this->pi_getLL('page_title_lib_header'))
+        if($row['title'] == $this->pi_getLL('page_title_library_header'))
         {
-          $this->arr_pageUids[$this->pi_getLL('page_title_lib_header')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_lib_header');
+          $this->arr_pageUids[$this->pi_getLL('page_title_library_header')] = $row['uid'];
+          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_library_header');
         }
-        if($row['title'] == $this->pi_getLL('page_title_lib_footer'))
+        if($row['title'] == $this->pi_getLL('page_title_library_footer'))
         {
-          $this->arr_pageUids[$this->pi_getLL('page_title_lib_footer')] = $row['uid'];
-          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_lib_footer');
+          $this->arr_pageUids[$this->pi_getLL('page_title_library_footer')] = $row['uid'];
+          $this->arr_pageTitles[$row['uid']] = $this->pi_getLL('page_title_library_footer');
         }
       }
       // Install ALL
