@@ -12,7 +12,7 @@
 *  (at your option) any later version.
 *
 *  The GNU General Public License can be found at
-*  
+*
 *
 *  This script is distributed in the hope that it will be useful,
 *  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -24,7 +24,55 @@
 /**
  * [CLASS/FUNCTION INDEX of SCRIPT]
  *
- * Hint: use extdeveval to insert/update function index above.
+ *
+ *
+ *   89: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *
+ *              SECTION: Main
+ *  147:     public function main( $content, $conf)
+ *
+ *              SECTION: Confirmation
+ *  223:     private function confirmation()
+ *
+ *              SECTION: check extensions
+ *  294:     private function checkExtensions( )
+ *
+ *              SECTION: Create
+ *  476:     private function createBeGroup()
+ *  596:     private function createPages()
+ *  905:     private function createTyposcript()
+ * 1219:     private function createPlugins()
+ * 1466:     private function createRecordsPowermail()
+ * 2075:     private function createRecordsShop()
+ * 2445:     private function createFilesShop()
+ * 2512:     private function createContent()
+ *
+ *              SECTION: Consolidate
+ * 2662:     private function consolidatePageCurrent()
+ * 2885:     private function consolidatePluginPowermail()
+ * 2962:     private function consolidateTsWtCart()
+ *
+ *              SECTION: Html
+ * 3100:     private function htmlReport()
+ *
+ *              SECTION: Init
+ * 3154:     private function init_boolTopLevel()
+ * 3193:     private function install()
+ * 3235:     private function install_nothing()
+ *
+ *              SECTION: Prompt
+ * 3258:     private function promptCleanUp()
+ *
+ *              SECTION: ZZ
+ * 3307:     private function zz_getCHash($str_params)
+ * 3321:     private function zz_getMaxDbUid($table)
+ * 3361:     private function zz_getPageUids($timestamp)
+ * 3440:     private function zz_getPathToIcons()
+ * 3467:     private function zz_getFlexValues()
+ *
+ * TOTAL FUNCTIONS: 24
+ * (This index is automatically created/updated by the extension "extdeveval")
+ *
  */
 
 require_once(PATH_tslib.'class.tslib_pibase.php');
@@ -38,14 +86,14 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @subpackage    tx_quickshopinstaller
  * @version 1.0.6
  */
-class tx_quickshopinstaller_pi1 extends tslib_pibase 
+class tx_quickshopinstaller_pi1 extends tslib_pibase
 {
   public $prefixId      = 'tx_quickshopinstaller_pi1';                // Same as class name
   public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1.php';  // Path to this script relative to the extension dir.
   public $extKey        = 'quickshop_installer';                      // The extension key.
   public $pi_checkCHash = true;
 
-  
+
     // [array] The TypoScript configuration array
   public $conf           = false;
 
@@ -59,7 +107,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private $arrReport       = false;
     // [array] Array with images, wrapped as HTML <img ...>
   private $arr_icons       = false;
-  
+
     // [array] Array with variables like group id, page ids ...
   private $markerArray       = false;
     // [array] Uids of the current and the generated pages records. Titles are the keys.
@@ -78,7 +126,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private $arr_fileUids      = false;
     // [array] Uids of the generated tt_content records - here: page content only
   private $arr_contentUids      = false;
-  
+
   private $str_tsWtCart = null;
 
 
@@ -90,12 +138,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   **********************************************/
 
   /**
-   * The main method of the PlugIn
-   *
-   * @param    string       $content: The PlugIn content
-   * @param    array        $conf: The TypoScript configuration array
-   * @return    The content that is displayed on the website
-   */
+ * The main method of the PlugIn
+ *
+ * @param	string		$content: The PlugIn content
+ * @param	array		$conf: The TypoScript configuration array
+ * @return	The		content that is displayed on the website
+ */
   public function main( $content, $conf)
   {
     unset( $content );
@@ -118,7 +166,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     //////////////////////////////////////////////////////////////////////
     //
     // What should be installed?
-    
+
     switch($this->markerArray['###INSTALL_CASE###'])
     {
       case( null ):
@@ -155,7 +203,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     }
 
     return $this->pi_wrapInBaseClass($str_result);
-    
+
   }
 
 
@@ -167,11 +215,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   **********************************************/
 
   /**
-   * Shop will be installed - with or without template
-   *
-   * @param    string       $str_installCase: install_all or install_shop
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @param	string		$str_installCase: install_all or install_shop
+ * @return	The		content that is displayed on the website
+ */
   private function confirmation()
   {
     // RETURN  if form is confirmed
@@ -236,13 +284,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   **********************************************/
 
   /**
-   * checkExtensions( ) : 
-   *
-   * @return    The content that is displayed on the website
-   * @access    private
-   * @version   3.0.0
-   * @since     1.0.0
-   */
+ * checkExtensions( ) :
+ *
+ * @return	The		content that is displayed on the website
+ * @access private
+ * @version   3.0.0
+ * @since     1.0.0
+ */
   private function checkExtensions( )
   {
       // RETURN  if form is confirmed
@@ -258,7 +306,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       </h2>
       ';
 
-      // Shop and Template 
+      // Shop and Template
     if( $this->markerArray['###INSTALL_CASE###'] == 'install_all' )
     {
       $str_extKey   = 'automaketemplate';
@@ -284,7 +332,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
           </p>';
       }
       // automaketemplate is loaded
-  
+
       $str_extKey = 'base_quickshop';
       $str_extTitle = 'Quick Shop - Template ('.$str_extKey.')';
       // RETURN without base_quickshop
@@ -309,7 +357,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       }
       // base_quickshop is loaded
     }
-    // Shop and Template 
+    // Shop and Template
 
 
     $str_extKey = 'browser';
@@ -335,7 +383,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         </p>';
     }
     // browser is loaded
-    
+
     $str_extKey = 'powermail';
     $str_extTitle = 'Powermail ('.$str_extKey.')';
     // RETURN without browser
@@ -359,7 +407,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         </p>';
     }
     // browser is loaded
-    
+
     $str_extKey = 'quick_shop';
     $str_extTitle = 'Quick Shop ('.$str_extKey.')';
     // RETURN without quick_shop
@@ -383,7 +431,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         </p>';
     }
     // quick_shop is loaded
-    
+
 
     $str_extKey = 'wt_cart';
     $str_extTitle = 'Shopping Cart for TYPO3 ('.$str_extKey.')';
@@ -408,7 +456,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         </p>';
     }
     // browser is loaded
-    
+
   }
 
 
@@ -420,14 +468,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   **********************************************/
 
   /**
-   * Shop will be installed - with or without template
-   *
-   * @param    string       $str_installCase: install_all or install_shop
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @param	string		$str_installCase: install_all or install_shop
+ * @return	The		content that is displayed on the website
+ */
   private function createBeGroup()
   {
-    
+
     $this->markerArray['###GROUP_TITLE###'] = 'quick_shop';
 
     //////////////////////////////////////////////////////////////////////
@@ -441,19 +489,19 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $orderBy       = '';
     $limit         = '0,1';
     $uidIndexField = '';
-    
+
     $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
     if(is_array($rows) && count($rows) > 0)
     {
       $group_uid   = $rows[0]['uid'];
       $group_title = $rows[0]['title'];
     }
-    
+
     if($group_uid)
     {
       $this->markerArray['###GROUP_TITLE###'] = $group_title;
       $this->markerArray['###GROUP_UID###']   = $group_uid;
-      
+
       $str_grp_prompt = '
         <h2>
          '.$this->pi_getLL('grp_ok_header').'
@@ -474,7 +522,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // There isn't any group available
 
     $timestamp = time();
-    
+
     $table                    = '`be_groups`';
     $fields_values            = array( );
     $fields_values['uid']     = null;
@@ -487,19 +535,19 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // There isn't any group available
 
     $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "quick_shop" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
-    
+
     $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
     if(is_array($rows) && count($rows) > 0)
     {
       $group_title = $rows[0]['title'];
       $group_uid   = $rows[0]['uid'];
     }
-    
+
     if($group_uid)
     {
       $this->markerArray['###GROUP_TITLE###'] = $group_title;
       $this->markerArray['###GROUP_UID###']   = $group_uid;
-      
+
       $str_grp_prompt = '
         <h2>
          '.$this->pi_getLL('grp_create_header').'
@@ -513,7 +561,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     }
 
     $this->markerArray['###GROUP_UID###'] = false;
-      
+
     $str_grp_prompt = '
       <h2>
        '.$this->pi_getLL('grp_warn_header').'
@@ -540,15 +588,15 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
   /**
-   * Shop will be installed - with or without template
-   *
-   * @param    string       $str_installCase: install_all or install_shop
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @param	string		$str_installCase: install_all or install_shop
+ * @return	The		content that is displayed on the website
+ */
   private function createPages()
   {
     $arr_pages = array( );
-    
+
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('page_create_header').'
@@ -576,7 +624,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // Shopping Cart
     $int_uid = $int_uid + 1;
     $arr_pages[$int_uid]['uid']           = $int_uid;
-    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id; 
+    $arr_pages[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
     $arr_pages[$int_uid]['title']         = $this->pi_getLL('page_title_cart');
     $arr_pages[$int_uid]['dokType']       = 1;  // 1: page
     $arr_pages[$int_uid]['crdate']        = $timestamp;
@@ -772,7 +820,7 @@ TCEMAIN {
       $orderBy       = '';
       $limit         = '0,1';
       $uidIndexField = '';
-      
+
       $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
       if(is_array($rows) && count($rows) > 0)
       {
@@ -826,9 +874,9 @@ TCEMAIN {
       }
       unset($arr_pages);
     }
-    
+
     // Pages second level
-    
+
     $this->zz_getPageUids($timestamp);
 
     return false;
@@ -848,24 +896,24 @@ TCEMAIN {
 
 
   /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   * @version 2.1.0
-   * @since   0.0.1 
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ * @version 2.1.0
+ * @since   0.0.1
+ */
   private function createTyposcript()
   {
     $arr_ts = array( );
-    
+
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('ts_create_header').'
       </h2>';
-    
-    
-    
-    
+
+
+
+
     $timestamp       = time();
     $table           = 'sys_template';
     $no_quote_fields = false;
@@ -880,11 +928,11 @@ TCEMAIN {
     $str_pageTitle    = strtolower($GLOBALS['TSFE']->page['title']);
     $str_pageTitle    = str_replace(' ', '', $str_pageTitle);
     $this->arr_tsUids[$this->str_tsRoot]           = $int_uid;
-    
+
     // Root page: install_all
     if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
     {
-      
+
       $arr_ts[$int_uid]['title']                     = 'page_'.$str_pageTitle.'_'.$str_uid;
       $arr_ts[$int_uid]['sitetitle']                 = $this->markerArray['###WEBSITE_TITLE###'];
       $arr_ts[$int_uid]['root']                      = 1;
@@ -907,18 +955,18 @@ TCEMAIN {
   ////////////////////////////////////////////////////////
   //
   // ajax page object
-  
-  // Add this snippet into the setup of the TypoScript 
+
+  // Add this snippet into the setup of the TypoScript
   // template of your page.
   // Use \'page\', if the name of your page object is \'page\'
   // (this is a default but there isn\'t any rule)
-   
+
 [globalString = GP:tx_browser_pi1|segment=single] || [globalString = GP:tx_browser_pi1|segment=list] || [globalString = GP:tx_browser_pi1|segment=searchform]
   page >
   page < plugin.tx_browser_pi1.javascript.ajax.page
 [global]
   // ajax page object
-  
+
   // TYPO3-Browser: ajax page object II. In case of localisation: Configure the id of sys_languagein the Constant Editor. Move in this line ...jQuery.default to ...jQuery.de (i.e.)
 browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 
@@ -1024,7 +1072,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 
     $arr_ts[$int_uid]['description']               = ''.
       '// Created by QUICK SHOP INSTALLER at '.$str_date;
-      
+
     $arr_ts[$int_uid]['include_static_file']       = ''.
       'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
       'EXT:browser/static/,EXT:quick_shop/static/';
@@ -1038,7 +1086,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     $str_pageTitle      = strtolower($this->pi_getLL('page_title_cart'));
     $str_pageTitle      = str_replace(' ', '', $str_pageTitle);
     $this->str_tsWtCart = '+page_'.$str_pageTitle.'_'.$str_uid;
-    
+
     $this->arr_tsUids[$this->str_tsWtCart]   = $int_uid;
     $arr_ts[$int_uid]['title']               = '+page_'.$str_pageTitle.'_'.$str_uid;
     $arr_ts[$int_uid]['uid']                 = $int_uid;
@@ -1142,9 +1190,9 @@ plugin.tx_wtcart_pi1 {
       $this->arrReport[] = $str_ts_prompt;
     }
     unset($arr_ts);
-    
+
     // INSERT
-    
+
     return false;
   }
 
@@ -1162,23 +1210,23 @@ plugin.tx_wtcart_pi1 {
 
 
   /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   * @version 2.1.0
-   * @since   0.0.1
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ * @version 2.1.0
+ * @since   0.0.1
+ */
   private function createPlugins()
   {
     $arr_plugin = array( );
-    
+
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('plugin_create_header').'
       </h2>';
-    
-    
-    
+
+
+
       //////////////////////////////////////////////////////////////////////
       //
       // General values
@@ -1199,7 +1247,7 @@ plugin.tx_wtcart_pi1 {
     $str_uid = sprintf ('%03d', $int_uid);
 
     $this->arr_pluginUids[$this->pi_getLL('plugin_browser_header')]  = $int_uid;
-    
+
     $arr_plugin[$int_uid]['uid']           = $int_uid;
     $arr_plugin[$int_uid]['pid']           = $GLOBALS['TSFE']->id;
     $arr_plugin[$int_uid]['tstamp']        = $timestamp;
@@ -1314,7 +1362,7 @@ plugin.tx_wtcart_pi1 {
     $str_uid = sprintf ('%03d', $int_uid);
 
     $this->arr_pluginUids[$this->pi_getLL('plugin_wtcart_header')]  = $int_uid;
-    
+
     $arr_plugin[$int_uid]['uid']           = $int_uid;
     $arr_plugin[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_cart')];
     $arr_plugin[$int_uid]['tstamp']        = $timestamp;
@@ -1411,21 +1459,21 @@ plugin.tx_wtcart_pi1 {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function createRecordsPowermail()
   {
     $arr_records = array( );
-    
+
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('record_create_header').'
       </h2>';
-    
-    
-    
+
+
+
     //////////////////////////////////////////////////////////////////////
     //
     // General values for fieldsets
@@ -1499,9 +1547,9 @@ plugin.tx_wtcart_pi1 {
     $arr_records[$int_uid]['felder']        = '5';
     // Order
     // Powermail fieldsets records in page cart
-    
-    
-    
+
+
+
     //////////////////////////////////////////////////////////////////////
     //
     // INSERT fieldset records
@@ -2020,14 +2068,14 @@ plugin.tx_wtcart_pi1 {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function createRecordsShop()
   {
     $arr_records = array( );
-    
+
     //////////////////////////////////////////////////////////////////////
     //
     // Categorie records in sysfolder products
@@ -2074,7 +2122,7 @@ plugin.tx_wtcart_pi1 {
     // Cups
 
     // Add records to database
-    foreach( $arr_records as $fields_values ) 
+    foreach( $arr_records as $fields_values )
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
@@ -2092,9 +2140,9 @@ plugin.tx_wtcart_pi1 {
     // Add records to database
 
     // Categorie records in sysfolder products
-    
-    
-    
+
+
+
     //////////////////////////////////////////////////////////////////////
     //
     // Product records in sysfolder products
@@ -2306,9 +2354,9 @@ plugin.tx_wtcart_pi1 {
     // Add records to database
 
     // Product records in sysfolder products
-    
-    
-    
+
+
+
     //////////////////////////////////////////////////////////////////////
     //
     // MM relation products and categorie records in sysfolder products
@@ -2390,19 +2438,19 @@ plugin.tx_wtcart_pi1 {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function createFilesShop()
   {
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('files_create_header').'
       </h2>';
-    
-    
-    
+
+
+
     //////////////////////////////////////////////////////////////////////
     //
     // Copy product images to upload folder
@@ -2457,21 +2505,21 @@ plugin.tx_wtcart_pi1 {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function createContent()
   {
     $arr_content = array( );
-    
+
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('content_create_header').'
       </h2>';
-    
-    
-    
+
+
+
     //////////////////////////////////////////////////////////////////////
     //
     // General values
@@ -2490,7 +2538,7 @@ plugin.tx_wtcart_pi1 {
 
     $int_uid = $int_uid +1;
     $this->arr_contentUids[$this->pi_getLL('content_shipping_header')]  = $int_uid;
-    
+
     $arr_content[$int_uid]['uid']          = $int_uid;
     $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_shipping')];
     $arr_content[$int_uid]['tstamp']       = $timestamp;
@@ -2511,7 +2559,7 @@ plugin.tx_wtcart_pi1 {
 
     $int_uid = $int_uid +1;
     $this->arr_contentUids[$this->pi_getLL('content_terms_header')]  = $int_uid;
-    
+
     $arr_content[$int_uid]['uid']          = $int_uid;
     $arr_content[$int_uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_terms')];
     $arr_content[$int_uid]['tstamp']       = $timestamp;
@@ -2521,7 +2569,7 @@ plugin.tx_wtcart_pi1 {
     $arr_content[$int_uid]['CType']        = 'text';
     $arr_content[$int_uid]['header']       = $this->pi_getLL('content_terms_header');
     $arr_content[$int_uid]['bodytext']     = $this->pi_getLL('content_terms_bodytext');
-    $arr_content[$int_uid]['sectionIndex'] = 1;   
+    $arr_content[$int_uid]['sectionIndex'] = 1;
     // Content for page terms
 
 
@@ -2540,7 +2588,7 @@ plugin.tx_wtcart_pi1 {
 
       $int_uid = $int_uid +1;
       $this->arr_contentUids[$this->pi_getLL('content_header_header')]  = $int_uid;
-      
+
       $arr_content[$int_uid]['uid']           = $int_uid;
       $arr_content[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_lib_header')];
       $arr_content[$int_uid]['tstamp']        = $timestamp;
@@ -2551,13 +2599,13 @@ plugin.tx_wtcart_pi1 {
       $arr_content[$int_uid]['header']        = $this->pi_getLL('content_header_header');
       $arr_content[$int_uid]['header_layout'] = 100;  // hidden
       $arr_content[$int_uid]['bodytext']      = $str_bodytext;
-      $arr_content[$int_uid]['sectionIndex']  = 1;   
+      $arr_content[$int_uid]['sectionIndex']  = 1;
       // Content for page header
 
       // Content for page footer
       $int_uid = $int_uid +1;
       $this->arr_contentUids[$this->pi_getLL('content_footer_header')]  = $int_uid;
-      
+
       $arr_content[$int_uid]['uid']           = $int_uid;
       $arr_content[$int_uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_lib_footer')];
       $arr_content[$int_uid]['tstamp']        = $timestamp;
@@ -2568,7 +2616,7 @@ plugin.tx_wtcart_pi1 {
       $arr_content[$int_uid]['header']        = $this->pi_getLL('content_footer_header');
       $arr_content[$int_uid]['header_layout'] = 100;  // hidden
       $arr_content[$int_uid]['bodytext']      = $this->pi_getLL('content_footer_bodytext');
-      $arr_content[$int_uid]['sectionIndex']  = 1;   
+      $arr_content[$int_uid]['sectionIndex']  = 1;
       // Content for page footer
     }
     // Content for pages header and footer
@@ -2607,15 +2655,15 @@ plugin.tx_wtcart_pi1 {
   **********************************************/
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function consolidatePageCurrent()
   {
     $arr_pages    = array( );
     $arr_content  = array( );
-    
+
     $this->arrReport[] = '
       <h2>
        '.$this->pi_getLL('consolidate_header').'
@@ -2689,7 +2737,7 @@ TCEMAIN {
     }
     unset($arr_pages);
     // UPDATE
-    
+
     // UPDATE TSconfig and media
 
 
@@ -2792,10 +2840,10 @@ TCEMAIN {
       $where           = 'pid = '.$pid.' AND uid NOT LIKE '.$int_uid;
       $no_quote_fields = false;
       // General Values
-  
+
       $arr_content[$int_uid]['tstamp'] = $timestamp;
       $arr_content[$int_uid]['hidden'] = 1;
-      
+
       foreach($arr_content as $fields_values)
       {
         //var_dump($GLOBALS['TYPO3_DB']->UPDATEquery($table, $where, $fields_values, $no_quote_fields));
@@ -2830,10 +2878,10 @@ TCEMAIN {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function consolidatePluginPowermail()
   {
     $arr_plugin = array( );
@@ -2906,11 +2954,11 @@ TCEMAIN {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   * @version 1.0.5
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ * @version 1.0.5
+ */
   private function consolidateTsWtCart()
   {
     $arr_ts = array( );
@@ -2939,7 +2987,7 @@ TCEMAIN {
       //////////////////////////////////////////////////////////////////////
       //
       // UPDATE constants
-  
+
     $arr_ts[$int_uid]['tstamp']    = $timestamp;
     $arr_ts[$int_uid]['constants'] = '
   ////////////////////////////////
@@ -3045,10 +3093,10 @@ plugin.powermail {
   **********************************************/
 
   /**
-   * Shop will be installed without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function htmlReport()
   {
     if(!is_array($this->arrReport))
@@ -3086,8 +3134,8 @@ plugin.powermail {
 
     return $str_result;
   }
-  
-  
+
+
 
  /***********************************************
   *
@@ -3099,6 +3147,7 @@ plugin.powermail {
  * init_boolTopLevel(): If current page is on the top level, $this->bool_topLevel will become true.
  *                      If not, false.
  *
+ * @return	[type]		...
  * @since 2.1.1
  * @version 2.1.1
  */
@@ -3113,7 +3162,7 @@ plugin.powermail {
     //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
     $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit);
     $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
-    
+
     if($row['pid'] < 1)
     {
       $this->bool_topLevel = true;
@@ -3138,12 +3187,12 @@ plugin.powermail {
    * @param    string       $str_installCase: install_all or install_shop
    * @return    The content that is displayed on the website
    */
-   
+
   //http://forge.typo3.org/issues/9632
   //private function install($str_installCase)
   private function install()
   {
-    
+
     // RETURN if there is any problem with dependencies
     $this->checkExtensions();
     if($this->bool_error)
@@ -3172,17 +3221,17 @@ plugin.powermail {
     $this->consolidatePageCurrent();
     $this->consolidatePluginPowermail();
     $this->consolidateTsWtCart();
-    
+
     $this->promptCleanUp();
 
     return false;
   }
 
  /**
-   * Shop will be installed without template
-   *
-   * @return    The content that is displayed on the website
-   */
+  * Shop will be installed without template
+  *
+  * @return	The		content that is displayed on the website
+  */
   private function install_nothing()
   {
      $this->arrReport[] = '
@@ -3202,10 +3251,10 @@ plugin.powermail {
   **********************************************/
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function promptCleanUp()
   {
     // Get the cHash. Important in case of realUrl and no_cache=0
@@ -3252,8 +3301,8 @@ plugin.powermail {
 /**
  * Calculate the cHash md5 value
  *
- * @param  string    $str_params: URL parameter string like &tx_browser_pi1[showUid]=12&&tx_browser_pi1[cat]=1
- * @return  string    $cHash_md5: md5 value like d218cfedf9
+ * @param	string		$str_params: URL parameter string like &tx_browser_pi1[showUid]=12&&tx_browser_pi1[cat]=1
+ * @return	string		$cHash_md5: md5 value like d218cfedf9
  */
   private function zz_getCHash($str_params)
   {
@@ -3264,14 +3313,15 @@ plugin.powermail {
   }
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @param	[type]		$table: ...
+ * @return	The		content that is displayed on the website
+ */
   private function zz_getMaxDbUid($table)
   {
     $int_maxUid = false;
-    
+
     $select_fields = 'max(`uid`) AS "uid"';
     $from_table    = '`'.$table.'`';
     $where_clause  = '';
@@ -3279,10 +3329,10 @@ plugin.powermail {
     $orderBy       = '';
     $limit         = '';
     $uidIndexField = '';
-    
+
     //var_dump($GLOBALS['TYPO3_DB']->SELECTquery($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField));
     $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
-    
+
     if(is_array($rows) && count($rows) > 0)
     {
       $int_maxUid = $rows[0]['uid'];
@@ -3303,10 +3353,11 @@ plugin.powermail {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @param	[type]		$timestamp: ...
+ * @return	The		content that is displayed on the website
+ */
   private function zz_getPageUids($timestamp)
   {
     $this->arr_pageUids[$GLOBALS['TSFE']->page['title']] = $GLOBALS['TSFE']->id;
@@ -3320,7 +3371,7 @@ plugin.powermail {
     $orderBy       = '';
     $limit         = '';
     $uidIndexField = '';
-      
+
     $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
     foreach($rows as $row)
     {
@@ -3382,10 +3433,10 @@ plugin.powermail {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function zz_getPathToIcons()
   {
     $pathToIcons = t3lib_extMgm::siteRelPath($this->extKey).'/res/images/22x22/';
@@ -3409,10 +3460,10 @@ plugin.powermail {
 
 
    /**
-   * Shop will be installed - with or without template
-   *
-   * @return    The content that is displayed on the website
-   */
+ * Shop will be installed - with or without template
+ *
+ * @return	The		content that is displayed on the website
+ */
   private function zz_getFlexValues()
   {
       // Set defaults
@@ -3422,7 +3473,7 @@ plugin.powermail {
     $this->markerArray['###MAIL_DEFAULT_RECIPIENT###']  = 'mail@my-domain.com';
       // 120613, dwildt+
       // Set defaults
-    
+
       // Init methods for pi_flexform
     $this->pi_initPIflexForm();
 
@@ -3442,7 +3493,7 @@ plugin.powermail {
       }
     }
 
-    
+
     // Set the URL
     if(!isset($this->markerArray['###URL###']))
     {
