@@ -306,22 +306,20 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   */
   private function create( )
   {
-    $this->createBeGroup();
-    $this->createPages();
-    $this->createTyposcript();
-    $this->createPlugins();
+    $this->createBeGroup( );
+    $this->createPages( );
+    $this->createTyposcript( );
+    $this->createPlugins( );
 
     $this->arrReport[ ] = '
       <h2>
        ' . $this->pi_getLL( 'record_create_header' ) . '
       </h2>';
 
-    $this->createRecordsPowermail();
-    $this->createRecordsQuickshop();
-    $this->createFilesShop();
-var_dump(__METHOD__, __LINE__ );
-return;
-    $this->createContent();
+    $this->createRecordsPowermail( );
+    $this->createRecordsQuickshop( );
+    $this->createFilesShop( );
+    $this->createContent( );
   }
 
 /**
@@ -438,6 +436,12 @@ return;
  */
   private function createContent()
   {
+    require_once( 'class.tx_quickshopinstaller_pi1_content.php' );
+    $this->content        = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_content' );
+    $this->content->pObj  = $this;
+
+    $this->content->main( );
+return;
     $arr_content = array( );
 
     $this->arrReport[] = '
