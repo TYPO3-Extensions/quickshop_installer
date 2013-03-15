@@ -318,9 +318,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->createRecordsPowermail();
     $this->createRecordsQuickshop();
+    $this->createFilesShop();
 var_dump(__METHOD__, __LINE__ );
 return;
-    $this->createFilesShop();
     $this->createContent();
   }
 
@@ -580,7 +580,7 @@ return;
  */
   private function createFilesShop()
   {
-    $this->arrReport[] = '
+    $this->arrReport[ ] = '
       <h2>
        '.$this->pi_getLL('files_create_header').'
       </h2>';
@@ -592,14 +592,14 @@ return;
     // Copy product images to upload folder
 
     // General values
-    $str_pathSrce = t3lib_extMgm::siteRelPath($this->extKey).'res/images/products/';
+    $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . 'res/images/products/';
     $str_pathDest = 'uploads/tx_quickshop/';
     // General values
 
-    foreach($this->arr_fileUids as $str_fileSrce => $str_fileDest)
+    foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
     {
-      $bool_success = copy($str_pathSrce.$str_fileSrce, $str_pathDest.$str_fileDest);
-      if ($bool_success)
+      $bool_success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
+      if( $bool_success )
       {
         $this->markerArray['###DEST###'] = $str_fileDest;
         $this->markerArray['###PATH###'] = $str_pathDest;
@@ -701,356 +701,6 @@ return;
     $this->quickshop->pObj = $this;
 
     $this->quickshop->main( );
-return;
-    $arr_records = array( );
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Categorie records in sysfolder products
-
-    // General values
-    $timestamp       = time();
-    $table           = 'tx_quickshop_categories';
-    $no_quote_fields = false;
-    $dateHumanReadable        = date('Y-m-d G:i:s');
-    $uid         = $this->zz_getMaxDbUid($table);
-    // General values
-
-    // Books
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_books')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_qs_cat_title_books');
-    // Books
-
-    // Clothes
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_clothes')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_qs_cat_title_clothes');
-    // Clothes
-
-    // Cups
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_cups')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_qs_cat_title_cups');
-    // Cups
-
-    // Add records to database
-    foreach( $arr_records as $fields_values )
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
-      $str_record_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
-        </p>';
-      $str_record_prompt = $this->cObj->substituteMarkerArray($str_record_prompt, $this->markerArray);
-      $this->arrReport[] = $str_record_prompt;
-    }
-    unset($arr_records);
-    // Add records to database
-
-    // Categorie records in sysfolder products
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Product records in sysfolder products
-
-    // General values
-    $timestamp       = time();
-    $table           = 'tx_quickshop_products';
-    $no_quote_fields = false;
-    $dateHumanReadable        = date('Y-m-d G:i:s');
-    $uid         = $this->zz_getMaxDbUid($table);
-    // General values
-
-    // Book
-    $uid   = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_book')]  = $uid;
-    $str_image = $this->pi_getLL('record_qs_prod_image_book');
-    $str_image = str_replace('###TIMESTAMP###', $timestamp, $str_image);
-    $this->arr_fileUids[$this->pi_getLL('record_qs_prod_image_book')] = $str_image;
-    $arr_records[$uid]['uid']            = $uid;
-    $arr_records[$uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']         = $timestamp;
-    $arr_records[$uid]['crdate']         = $timestamp;
-    $arr_records[$uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_book');
-    $arr_records[$uid]['title']          = $this->pi_getLL('record_qs_prod_title_book');
-    $arr_records[$uid]['short']          = $this->pi_getLL('record_qs_prod_short_book');
-    $arr_records[$uid]['description']    = $this->pi_getLL('record_qs_prod_description_book');
-    $arr_records[$uid]['category']       = 1;
-    $arr_records[$uid]['price']          = $this->pi_getLL('record_qs_prod_price_book');
-    $arr_records[$uid]['tax']            = $this->pi_getLL('record_qs_prod_tax_book');
-    $arr_records[$uid]['in_stock']       = $this->pi_getLL('record_qs_prod_inStock_book');
-    $arr_records[$uid]['image']          = $str_image;
-    $arr_records[$uid]['caption']        = $this->pi_getLL('record_qs_prod_caption_book');
-    $arr_records[$uid]['imageseo']       = $this->pi_getLL('record_qs_prod_caption_book');
-    $arr_records[$uid]['imagewidth']     = '140';
-      // 8: below, center
-    $arr_records[$uid]['imageorient']    = '8';
-    $arr_records[$uid]['imagecols']      = '1';
-    $arr_records[$uid]['image_zoom']     = '1';
-    $arr_records[$uid]['image_noRows']   = '1';
-    // Book
-
-    // Basecap Blue
-    $uid   = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_capBlue')]  = $uid;
-    $str_image = $this->pi_getLL('record_qs_prod_image_capBlue');
-    $str_image = str_replace('###TIMESTAMP###', $timestamp, $str_image);
-    $this->arr_fileUids[$this->pi_getLL('record_qs_prod_image_capBlue')] = $str_image;
-    $arr_records[$uid]['uid']            = $uid;
-    $arr_records[$uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']         = $timestamp;
-    $arr_records[$uid]['crdate']         = $timestamp;
-    $arr_records[$uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_capBlue');
-    $arr_records[$uid]['title']          = $this->pi_getLL('record_qs_prod_title_capBlue');
-    $arr_records[$uid]['short']          = $this->pi_getLL('record_qs_prod_short_capBlue');
-    $arr_records[$uid]['description']    = $this->pi_getLL('record_qs_prod_description_capBlue');
-    $arr_records[$uid]['category']       = 1;
-    $arr_records[$uid]['price']          = $this->pi_getLL('record_qs_prod_price_capBlue');
-    $arr_records[$uid]['tax']            = $this->pi_getLL('record_qs_prod_tax_capBlue');
-    $arr_records[$uid]['in_stock']       = $this->pi_getLL('record_qs_prod_inStock_capBlue');
-    $arr_records[$uid]['image']          = $str_image;
-    $arr_records[$uid]['caption']        = $this->pi_getLL('record_qs_prod_caption_capBlue');
-    $arr_records[$uid]['imageseo']       = $this->pi_getLL('record_qs_prod_caption_capBlue');
-    $arr_records[$uid]['imagewidth']     = '600';
-      // 0: above, center
-    $arr_records[$uid]['imageorient']    = '0';
-    $arr_records[$uid]['imagecols']      = '1';
-    $arr_records[$uid]['image_zoom']     = '1';
-    $arr_records[$uid]['image_noRows']   = '1';
-    // Basecap Blue
-
-    // Basecap Green
-    $uid   = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_capGreen')]  = $uid;
-    $str_image = $this->pi_getLL('record_qs_prod_image_capGreen');
-    $str_image = str_replace('###TIMESTAMP###', $timestamp, $str_image);
-    $this->arr_fileUids[$this->pi_getLL('record_qs_prod_image_capGreen')] = $str_image;
-    $arr_records[$uid]['uid']            = $uid;
-    $arr_records[$uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']         = $timestamp;
-    $arr_records[$uid]['crdate']         = $timestamp;
-    $arr_records[$uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_capGreen');
-    $arr_records[$uid]['title']          = $this->pi_getLL('record_qs_prod_title_capGreen');
-    $arr_records[$uid]['short']          = $this->pi_getLL('record_qs_prod_short_capGreen');
-    $arr_records[$uid]['description']    = $this->pi_getLL('record_qs_prod_description_capGreen');
-    $arr_records[$uid]['category']       = 1;
-    $arr_records[$uid]['price']          = $this->pi_getLL('record_qs_prod_price_capGreen');
-    $arr_records[$uid]['tax']            = $this->pi_getLL('record_qs_prod_tax_capGreen');
-    $arr_records[$uid]['in_stock']       = $this->pi_getLL('record_qs_prod_inStock_capGreen');
-    $arr_records[$uid]['image']          = $str_image;
-    $arr_records[$uid]['caption']        = $this->pi_getLL('record_qs_prod_caption_capGreen');
-    $arr_records[$uid]['imageseo']       = $this->pi_getLL('record_qs_prod_caption_capGreen');
-    $arr_records[$uid]['imagewidth']     = '200';
-      // 26: in text, left
-    $arr_records[$uid]['imageorient']    = '26';
-    $arr_records[$uid]['imagecols']      = '1';
-    $arr_records[$uid]['image_zoom']     = '1';
-    $arr_records[$uid]['image_noRows']   = '1';
-    // Basecap Green
-
-    // Basecap Red
-    $uid   = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_capRed')]  = $uid;
-    $str_image = $this->pi_getLL('record_qs_prod_image_capRed');
-    $str_image = str_replace('###TIMESTAMP###', $timestamp, $str_image);
-    $this->arr_fileUids[$this->pi_getLL('record_qs_prod_image_capRed')] = $str_image;
-    $arr_records[$uid]['uid']            = $uid;
-    $arr_records[$uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']         = $timestamp;
-    $arr_records[$uid]['crdate']         = $timestamp;
-    $arr_records[$uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_capRed');
-    $arr_records[$uid]['title']          = $this->pi_getLL('record_qs_prod_title_capRed');
-    $arr_records[$uid]['short']          = $this->pi_getLL('record_qs_prod_short_capRed');
-    $arr_records[$uid]['description']    = $this->pi_getLL('record_qs_prod_description_capRed');
-    $arr_records[$uid]['category']       = 1;
-    $arr_records[$uid]['price']          = $this->pi_getLL('record_qs_prod_price_capRed');
-    $arr_records[$uid]['tax']            = $this->pi_getLL('record_qs_prod_tax_capRed');
-    $arr_records[$uid]['in_stock']       = $this->pi_getLL('record_qs_prod_inStock_capRed');
-    $arr_records[$uid]['image']          = $str_image;
-    $arr_records[$uid]['caption']        = $this->pi_getLL('record_qs_prod_caption_capRed');
-    $arr_records[$uid]['imageseo']       = $this->pi_getLL('record_qs_prod_caption_capRed');
-    $arr_records[$uid]['imagewidth']     = '200';
-      // 26: in text, left
-    $arr_records[$uid]['imageorient']    = '26';
-    $arr_records[$uid]['imagecols']      = '1';
-    $arr_records[$uid]['image_zoom']     = '1';
-    $arr_records[$uid]['image_noRows']   = '1';
-    // Basecap Red
-
-    // Cup
-    $uid   = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_cup')]  = $uid;
-    $str_image = $this->pi_getLL('record_qs_prod_image_cup');
-    $str_image = str_replace('###TIMESTAMP###', $timestamp, $str_image);
-    $this->arr_fileUids[$this->pi_getLL('record_qs_prod_image_cup')] = $str_image;
-    $arr_records[$uid]['uid']            = $uid;
-    $arr_records[$uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']         = $timestamp;
-    $arr_records[$uid]['crdate']         = $timestamp;
-    $arr_records[$uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_cup');
-    $arr_records[$uid]['title']          = $this->pi_getLL('record_qs_prod_title_cup');
-    $arr_records[$uid]['short']          = $this->pi_getLL('record_qs_prod_short_cup');
-    $arr_records[$uid]['description']    = $this->pi_getLL('record_qs_prod_description_cup');
-    $arr_records[$uid]['category']       = 1;
-    $arr_records[$uid]['price']          = $this->pi_getLL('record_qs_prod_price_cup');
-    $arr_records[$uid]['tax']            = $this->pi_getLL('record_qs_prod_tax_cup');
-    $arr_records[$uid]['in_stock']       = $this->pi_getLL('record_qs_prod_inStock_cup');
-    $arr_records[$uid]['image']          = $str_image;
-    $arr_records[$uid]['caption']        = $this->pi_getLL('record_qs_prod_caption_cup');
-    $arr_records[$uid]['imageseo']       = $this->pi_getLL('record_qs_prod_caption_cup');
-    $arr_records[$uid]['imagewidth']     = '200';
-      // 26: in text, left
-    $arr_records[$uid]['imageorient']    = '26';
-    $arr_records[$uid]['imagecols']      = '1';
-    $arr_records[$uid]['image_zoom']     = '1';
-    $arr_records[$uid]['image_noRows']   = '1';
-    // Cup
-
-    // Pullover
-    $uid   = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_pullover')]  = $uid;
-    $str_image = $this->pi_getLL('record_qs_prod_image_pullover');
-    $str_image = str_replace('###TIMESTAMP###', $timestamp, $str_image);
-    $this->arr_fileUids[$this->pi_getLL('record_qs_prod_image_pullover')] = $str_image;
-    $arr_records[$uid]['uid']            = $uid;
-    $arr_records[$uid]['pid']            = $this->arr_pageUids[$this->pi_getLL('page_title_products')];
-    $arr_records[$uid]['tstamp']         = $timestamp;
-    $arr_records[$uid]['crdate']         = $timestamp;
-    $arr_records[$uid]['cruser_id']      = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['sku']            = $this->pi_getLL('record_qs_prod_sku_pullover');
-    $arr_records[$uid]['title']          = $this->pi_getLL('record_qs_prod_title_pullover');
-    $arr_records[$uid]['short']          = $this->pi_getLL('record_qs_prod_short_pullover');
-    $arr_records[$uid]['description']    = $this->pi_getLL('record_qs_prod_description_pullover');
-    $arr_records[$uid]['category']       = 1;
-    $arr_records[$uid]['price']          = $this->pi_getLL('record_qs_prod_price_pullover');
-    $arr_records[$uid]['tax']            = $this->pi_getLL('record_qs_prod_tax_pullover');
-    $arr_records[$uid]['in_stock']       = $this->pi_getLL('record_qs_prod_inStock_pullover');
-    $arr_records[$uid]['image']          = $str_image;
-    $arr_records[$uid]['caption']        = $this->pi_getLL('record_qs_prod_caption_pullover');
-    $arr_records[$uid]['imageseo']       = $this->pi_getLL('record_qs_prod_caption_pullover');
-    $arr_records[$uid]['imagewidth']     = '200';
-      // 17: in text, right
-    $arr_records[$uid]['imageorient']    = '17';
-    $arr_records[$uid]['imagecols']      = '1';
-    $arr_records[$uid]['image_zoom']     = '1';
-    $arr_records[$uid]['image_noRows']   = '1';
-    // Pullover
-
-    // Add records to database
-    foreach($arr_records as $fields_values)
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
-      $str_record_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
-        </p>';
-      $str_record_prompt = $this->cObj->substituteMarkerArray($str_record_prompt, $this->markerArray);
-      $this->arrReport[] = $str_record_prompt;
-    }
-    unset($arr_records);
-    // Add records to database
-
-    // Product records in sysfolder products
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // MM relation products and categorie records in sysfolder products
-
-    // General values
-    $uid = 0; // Counter only
-    $table   = 'tx_quickshop_products_category_mm';
-
-    // Books
-    $uid   = $uid +1;
-    $arr_records[$uid]['uid_local']   = $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_book')];
-    $arr_records[$uid]['uid_foreign'] = $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_books')];
-    $arr_records[$uid]['sorting']     = 1;
-    // Books
-
-    // Base caps
-    $uid   = $uid +1;
-    $arr_records[$uid]['uid_local']   = $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_capBlue')];
-    $arr_records[$uid]['uid_foreign'] = $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_clothes')];
-    $arr_records[$uid]['sorting']     = 1;
-    $uid   = $uid +1;
-    $arr_records[$uid]['uid_local']   = $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_capGreen')];
-    $arr_records[$uid]['uid_foreign'] = $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_clothes')];
-    $arr_records[$uid]['sorting']     = 1;
-    $uid   = $uid +1;
-    $arr_records[$uid]['uid_local']   = $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_capRed')];
-    $arr_records[$uid]['uid_foreign'] = $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_clothes')];
-    $arr_records[$uid]['sorting']     = 1;
-    // Base caps
-
-    // Cup
-    $uid   = $uid +1;
-    $arr_records[$uid]['uid_local']   = $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_cup')];
-    $arr_records[$uid]['uid_foreign'] = $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_cups')];
-    $arr_records[$uid]['sorting']     = 1;
-    // Cup
-
-    // Pullover
-    $uid   = $uid +1;
-    $arr_records[$uid]['uid_local']   = $this->arr_recordUids[$this->pi_getLL('record_qs_prod_title_pullover')];
-    $arr_records[$uid]['uid_foreign'] = $this->arr_recordUids[$this->pi_getLL('record_qs_cat_title_clothes')];
-    $arr_records[$uid]['sorting']     = 1;
-    // Pullover
-
-//var_dump($this->arr_recordUids);
-    // Add records to database
-    foreach($arr_records as $fields_values)
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-    }
-    unset($arr_records);
-    $this->markerArray['###COUNT###']     = $uid;
-    //$this->markerArray['###TABLE###']   = $this->pi_getLL($table);
-    $this->markerArray['###TABLE###']     = $table;
-    $str_record_prompt = '
-      <p>
-        '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_mm_prompt').'
-      </p>';
-    $str_record_prompt = $this->cObj->substituteMarkerArray($str_record_prompt, $this->markerArray);
-    $this->arrReport[] = $str_record_prompt;
-    // Add records to database
-
-    // Categorie records in sysfolder products
-
-    return false;
   }
 
 /**
