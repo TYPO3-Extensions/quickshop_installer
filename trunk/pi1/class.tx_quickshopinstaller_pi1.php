@@ -117,8 +117,10 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   public  $arr_pageUids      = false;
     // [array] Titles of the current and the generated pages records. Uids are the keys.
   public  $arr_pageTitles    = false;
-    // [array] Uids of the generated sys_templates records
+    // [array] Uids of the generated sys_templates records. Titles are the keys.
   public  $arr_tsUids      = false;
+    // [array] Uids of the generated sys_templates records. Uids are the keys.
+  public  $arr_tsTitles    = false;
     // [string] Title of the root TypoScript
   public  $str_tsRoot      = false;
     // [array] Uids of the generated tt_content records - here: plugins only
@@ -129,8 +131,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   public  $arr_fileUids      = false;
     // [array] Uids of the generated tt_content records - here: page content only
   public  $arr_contentUids      = false;
-
-  public $str_tsWtCart = null;
 
 
 
@@ -1043,7 +1043,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       // Set defaults
       // 120613, dwildt+
     $this->markerArray['###WEBSITE_TITLE###']           = 'TYPO3 Quick Shop';
-    $this->markerArray['###MAIL_SUBJECT###']            = 'TYPO3 Quick Shop - Confirmation';
     $this->markerArray['###MAIL_DEFAULT_RECIPIENT###']  = 'mail@my-domain.com';
       // 120613, dwildt+
       // Set defaults

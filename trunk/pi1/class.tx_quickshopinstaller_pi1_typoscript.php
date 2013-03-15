@@ -115,98 +115,42 @@ class tx_quickshopinstaller_pi1_typoscript
 
     $strUid = sprintf( '%03d', $uid );
 
-    $title = strtolower( $this->pObj->pi_getLL( 'page_title_caddy' ) );
-    $title = str_replace( ' ', null, $title );
-    $title = '+page_' . $title . '_' . $strUid;
+    $title    = 'page_title_caddy';
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
 
-    $this->pObj->str_tsWtCart = $title;
-    $this->pObj->arr_tsUids[$this->pObj->str_tsWtCart] = $uid;
+    $this->pObj->arr_tsUids[ $title ] = $uid;
+    $this->pObj->arr_tsTitles[ $uid ] = $title;
 
-    $record['title']               = $title;
-    $record['uid']                 = $uid;
-    $record['pid']                 = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
-    $record['tstamp']              = time( );
-    $record['sorting']             = 256;
-    $record['crdate']              = time( );
-    $record['cruser_id']           = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file'] = ''.
+    $record['title']                = $llTitle;
+    $record['uid']                  = $uid;
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['tstamp']               = time( );
+    $record['sorting']              = 256;
+    $record['crdate']               = time( );
+    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
+    $record['include_static_file']  = ''.
       'EXT:wt_cart/files/static/,' .
       'EXT:powermail/static/pi1/,' .
       'EXT:powermail/static/css_basic/';
-    // See $this->consolidateTsWtCart()
-    //$record['constants']           = '';
-    $record['config']           = '
-  //////////////////////////////////////////
-  //
-  // INDEX
-  //
-  // page
-  // plugin.tx_powermail_pi1
-  // plugin.tx_wtcart_pi1
-
-
-
-  //////////////////////////////////////////
-  //
-  // page
-
-page {
-  includeCSS {
-    // remove the cart default css
-    file3456     >
+    $record['constants']            = '
+plugin.caddy {
+  db {
+    table = tx_quickshop_products
+    sku   = sku
+    min   = quantity_min
+    max   = quantity_max
+  }
+  gpvar {
+    puid  = tx_browser_pi1|showUid
+    qty   = tx_quick_shop_qty
   }
 }
-  // page
-
-
-
-  //////////////////////////////////////////
-  //
-  // plugin.tx_powermail_pi1
-
-plugin.tx_powermail_pi1 {
-  email {
-    sender_mail {
-      sender {
-        name {
-          value = Quick Shop
-        }
-        email {
-          value = ' . $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] . '
-        }
-      }
-    }
-  }
-  _LOCAL_LANG {
-    default {
-      locallangmarker_confirmation_submit = Order without costs and without delivering!
-    }
-    de {
-      locallangmarker_confirmation_submit = Kostenlos bestellen, nichts bekommen!
-    }
-  }
-}
-  // plugin.tx_powermail_pi1
-
-
-
-  //////////////////////////////////////////
-  //
-  // plugin.tx_wtcart_pi1
-
-plugin.tx_wtcart_pi1 {
-  _LOCAL_LANG {
-    default {
-      wtcart_ll_sku = Produkt-ID
-    }
-    de {
-      wtcart_ll_sku = Bestellnummer
-    }
-  }
-}
-  // plugin.tx_wtcart_pi1
 ';
-    // Cart page
+      // Will set by consolidate->pageCaddyTyposcript
+//    $record['config']               = '';
+    $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
     return $record;
   }

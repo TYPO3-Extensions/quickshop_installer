@@ -69,13 +69,15 @@
       <label index="phrases_powermail_termsAccepted">I'm according with the &lt;link ###PID### _blank&gt;Terms and Conditions&lt;/link&gt;.|Terms and Conditions accepted</label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
       <label index="plugin_browser_header">[Browser for Quickshop]</label>
+      <label index="plugin_caddy_header">Caddy</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="plugin_help">If you want, please select the option "Installation: Quick Shop ..." in the TYPO3 backend plugin.</label>
       <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
+      <label index="plugin_powermail_subject_r">New Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_s">Your Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo shop. Bad news: You won't receive any product. Good news: You won't receive any invoice.</label>
       <label index="plugin_warn">Do you don't want, that Quick Shop Installer installs the Quick Shop?</label>
-      <label index="plugin_wtcart_header">Caddy</label>
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the folder ###TITLE_PID###.</label>
       <label index="record_create_mm_prompt">###COUNT### records are added to the table "###TABLE###".</label>
@@ -243,13 +245,48 @@
       <label index="phrases_powermail_termsAccepted">Ich akzeptiere die &lt;link ###PID### _blank&gt;AGB&lt;/link&gt;.|AGB akzeptiert</label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
       <label index="plugin_browser_header">[Browser für Quickshop]</label>
+      <label index="plugin_caddy_header">Warenkorb</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Quick Shop ..." im TYPO3-Backend-Pllugin.</label>
       <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
-      <label index="plugin_powermail_thanks">Herzlichen Dank für Ihre Bestellung. Sie werden so schnell wie möglich eine Bestätigung erhalten. Achtung: Dies ist ein Demo-Shop. Die schlechte Nachricht: Sie erhalten die bestellten Produkte nicht. Die gute Nachricht: Sie erhalten auch keine Rechnung.</label>
+      <label index="plugin_powermail_subject_r">Neue Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_s">Ihre Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_thanks"><![CDATA[
+        <h1>
+          Danke!
+        </h1>
+        <p>
+          Herzlichen Dank für Deine Bestellung. 
+        </p>
+        <p>
+          Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.
+        </p>
+        <h2>
+          Besondere Hinweise
+        </h2>
+        <p>
+          Dies ist ein Demo-Shop
+        </p>
+        <ul>
+          <li>
+            Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.
+          </li>
+          <li>
+            Die von Dir bestelleten Produkte gibt es nicht.
+          </li>
+          <li>
+            Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. 
+          </li>
+          <li>
+            Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.
+          </li>
+        </ul>
+        <p>
+          Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst.
+        </p>
+      ]]></label>
       <label index="plugin_warn">Willst Du den Quick Shop Installer wirklich nicht benutzen?</label>
-      <label index="plugin_wtcart_header">Warenkorb</label>
       <label index="record_create_header">Datensätze</label>
       <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.</label>
       <label index="record_create_mm_prompt">###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.</label>
