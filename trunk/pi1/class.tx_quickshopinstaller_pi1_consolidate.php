@@ -580,7 +580,7 @@ TCEMAIN {
 
     $record = array( 'hidden' => 1 );
 
-    $uid    = $this->pObj->arr_tsUids[ $this->str_tsRoot ];
+    $uid    = $this->pObj->arr_tsUids[ $this->pObj->str_tsRoot ];
     $pid    = $GLOBALS['TSFE']->id;
     $where  = 'pid = ' . $pid . ' AND uid NOT LIKE ' . $uid;
 

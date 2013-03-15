@@ -309,7 +309,54 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 ';
 
     $record['constants'] = ''.
-'myConst {
+'
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // quick_shop
+  // myConst
+
+  // quick_shop
+quick_shop {
+    // page uids
+  caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+  caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+    
+    // powermail uids
+  powermail {
+    ids {
+      form {
+        default =
+        de      =
+      }
+      address_order {
+        default {
+          address     =
+          city        =
+          company     =
+          country     =
+          first_name  =
+          last_name   =
+          zip         =
+        }
+        de {
+          address     =
+          city        =
+          company     =
+          country     =
+          first_name  =
+          last_name   =
+          zip         =
+        }
+      }
+    }
+  }
+}
+  // quick_shop
+
+  // myConst
+myConst {
   //host = '.$this->pObj->markerArray['###HOST###'].'/
   pages {
     quick_shop = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
@@ -346,7 +393,9 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     // HTML a href title tag for menu item rootpage
     title_tag_quick_shop_page = ' . $this->pObj->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
   }
-}';
+}
+  // myConst
+';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
     $record['include_static_file'] = null .
@@ -394,7 +443,54 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 }
 ';
     $record['constants']           = ''.
-'myConst {
+'
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // quick_shop
+  // myConst
+
+  // quick_shop
+quick_shop {
+    // page uids
+  caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+  caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+    
+    // powermail uids
+  powermail {
+    ids {
+      form {
+        default =
+        de      =
+      }
+      address_order {
+        default {
+          address     =
+          city        =
+          company     =
+          country     =
+          first_name  =
+          last_name   =
+          zip         =
+        }
+        de {
+          address     =
+          city        =
+          company     =
+          country     =
+          first_name  =
+          last_name   =
+          zip         =
+        }
+      }
+    }
+  }
+}
+  // quick_shop
+
+  // myConst
+myConst {
   //host = '.$this->pObj->markerArray['###HOST###'].'/
   pages {
     quick_shop = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
@@ -414,7 +510,9 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
     // HTML a href title tag for menu item rootpage
     title_tag_quick_shop_page = ' . $this->pObj->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
   }
-}';
+}
+  // myConst
+';
 
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
