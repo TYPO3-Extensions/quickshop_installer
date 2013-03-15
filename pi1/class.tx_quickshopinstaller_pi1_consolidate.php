@@ -26,7 +26,7 @@
  *
  *
  *
- *   65: class tx_quickshopinstaller_pi1_consolidation
+ *   65: class tx_quickshopinstaller_pi1_consolidate
  *
  *              SECTION: Main
  *   89:     public function main( )
@@ -62,10 +62,10 @@
  * @version 3.0.0
  * @since 3.0.0
  */
-class tx_quickshopinstaller_pi1_consolidation
+class tx_quickshopinstaller_pi1_consolidate
 {
-  public $prefixId      = 'tx_quickshopinstaller_pi1_consolidation';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_consolidation.php';  // Path to this script relative to the extension dir.
+  public $prefixId      = 'tx_quickshopinstaller_pi1_consolidate';                // Same as class name
+  public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_consolidate.php';  // Path to this script relative to the extension dir.
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
@@ -600,7 +600,7 @@ TCEMAIN {
 
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_consolidation.php'])
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_consolidate.php'])
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_consolidation.php']);
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_consolidate.php']);
 }
