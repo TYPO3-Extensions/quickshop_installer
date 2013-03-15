@@ -1243,8 +1243,8 @@ class tx_quickshopinstaller_pi1_powermail
 /**
  * sqlInsert( )
  *
- * @param	array		$records : TypoScript records for pages
- * @param	[type]		$table: ...
+ * @param	array		$records  : TypoScript records for pages
+ * @param	string		$table    : name of the current table
  * @return	void
  * @access private
  * @version 3.0.0

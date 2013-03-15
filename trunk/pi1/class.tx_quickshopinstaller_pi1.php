@@ -601,6 +601,23 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   *
   **********************************************/
 
+/**
+ * consolidate( ) :
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function consolidate( )
+  {
+    require_once( 'class.tx_quickshopinstaller_pi1_consolidate.php' );
+    $this->consolidate       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_consolidate' );
+    $this->consolidate->pObj = $this;
+
+    $this->consolidate->main( );
+  }
+
    /**
  * Shop will be installed - with or without template
  *
@@ -633,7 +650,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     //////////////////////////////////////////////////////////////////////
     //
-    // UPDATE TSconfig and media
+    // UPDATE root page
 
     $uid = $GLOBALS['TSFE']->id;
 
@@ -685,7 +702,7 @@ TCEMAIN {
     unset($arr_pages);
     // UPDATE
 
-    // UPDATE TSconfig and media
+    // UPDATE root page
 
 
 
@@ -1313,11 +1330,10 @@ plugin.powermail {
       // 120613, dwildt, 1+
     $this->initBoolTopLevel();
     $this->create( );
-var_dump(__METHOD__, __LINE__ );
-return $success;
-    $this->consolidatePageCurrent();
-    $this->consolidatePluginPowermail();
-    $this->consolidateTsWtCart();
+    $this->consolidate( );
+//    $this->consolidatePageCurrent();
+//    $this->consolidatePluginPowermail();
+//    $this->consolidateTsWtCart();
 
     $this->promptCleanUp();
 
@@ -1353,40 +1369,35 @@ return $success;
   *
   **********************************************/
 
-   /**
- * Shop will be installed - with or without template
+/**
+ * promptCleanUp( ) : 
  *
- * @return	The		content that is displayed on the website
+ * @return	void
+  * @access private
+  * @version    3.0.0
+  * @since      1.0.0
  */
-  private function promptCleanUp()
+  private function promptCleanUp( )
   {
-    // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->zz_getCHash(false);
+      // Get the cHash. Important in case of realUrl and no_cache=0
+    $cHash_calc = $this->zz_getCHash( false );
 
-    $lConfCObj['typolink.']['parameter']         = $GLOBALS['TSFE']->id;
-    $lConfCObj['typolink.']['additionalParams']  = '&cHash='.$cHash_calc;
-    $lConfCObj['typolink.']['returnLast']        = 'url';
-    // Set the TypoScript configuration array
-
-    // Set the URL (wrap the Link)
-
-
-    $this->arrReport[] = '
+    $this->arrReport[ ] = '
       <h2>
-       '.$this->pi_getLL('end_header').'
+       ' . $this->pi_getLL('end_header') . '
       </h2>
       <p>
-       '.$this->arr_icons['info'].$this->pi_getLL('end_reloadBe_prompt').'<br />
-       '.$this->arr_icons['info'].$this->pi_getLL('end_deletePlugin_prompt').'
+       ' . $this->arr_icons['info'] . $this->pi_getLL( 'end_reloadBe_prompt' ) . '<br />
+       ' . $this->arr_icons['info'] . $this->pi_getLL( 'end_deletePlugin_prompt' ) . '
       </p>
       <div style="text-align:right;">
         <form name="form_confirm" method="POST">
           <fieldset id="fieldset_confirm" style="border:1px solid #F66800;padding:1em;">
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
-              '.$this->pi_getLL('end_header').'
+              ' . $this->pi_getLL('end_header') . '
             </legend>
-            <input type="hidden" name="cHash"  value="'.$cHash_calc.'" />
-            <input type="submit" name="submit" value=" '.$this->pi_getLL('end_button').' " />
+            <input type="hidden" name="cHash"  value="' . $cHash_calc . '" />
+            <input type="submit" name="submit" value=" ' . $this->pi_getLL('end_button') . ' " />
           </fieldset>
         </form>
       </div>
