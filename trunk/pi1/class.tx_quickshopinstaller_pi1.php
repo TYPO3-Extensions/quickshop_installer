@@ -44,7 +44,7 @@
  *
  *              SECTION: Create records
  *  669:     private function createRecordsPowermail()
- * 1278:     private function createRecordsShop()
+ * 1278:     private function createRecordsQuickshop()
  * 1639:     private function createTyposcript( )
  *
  *              SECTION: Consolidate
@@ -310,10 +310,16 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->createPages();
     $this->createTyposcript();
     $this->createPlugins();
+
+    $this->pObj->arrReport[ ] = '
+      <h2>
+       ' . $this->pObj->pi_getLL( 'record_create_header' ) . '
+      </h2>';
+
     $this->createRecordsPowermail();
+    $this->createRecordsQuickshop();
 var_dump(__METHOD__, __LINE__ );
 return;
-    $this->createRecordsShop();
     $this->createFilesShop();
     $this->createContent();
   }
@@ -638,14 +644,15 @@ return;
     $this->pages->main( );
   }
 
-  /**
- * Shop will be installed - with or without template
+/**
+ * createPlugins( ) :
  *
- * @return	The		content that is displayed on the website
- * @version 2.1.0
- * @since   0.0.1
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
  */
-  private function createPlugins()
+  private function createPlugins( )
   {
     require_once( 'class.tx_quickshopinstaller_pi1_plugins.php' );
     $this->plugins       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_plugins' );
@@ -662,628 +669,39 @@ return;
   *
   **********************************************/
 
-   /**
- * Shop will be installed - with or without template
+/**
+ * createRecordsPowermail( ) :
  *
- * @return	The		content that is displayed on the website
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
  */
-  private function createRecordsPowermail()
+  private function createRecordsPowermail( )
   {
     require_once( 'class.tx_quickshopinstaller_pi1_powermail.php' );
     $this->powermail       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_powermail' );
     $this->powermail->pObj = $this;
 
     $this->powermail->main( );
-return;
-    $arr_records = array( );
-
-    $this->arrReport[] = '
-      <h2>
-       '.$this->pi_getLL('record_create_header').'
-      </h2>';
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General values for fieldsets
-
-    $timestamp       = time();
-    $table           = 'tx_powermail_fieldsets';
-    $no_quote_fields = false;
-    $uid         = $this->zz_getMaxDbUid($table);
-    $max_uid         = $uid;
-    // General values for fieldsets
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fieldsets records in page cart
-
-    // Billing Address
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_fSets_title_billingAddress');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
-    $arr_records[$uid]['felder']        = '5';
-    // Billing Address
-
-    // Delivery Address
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_fSets_title_deliveryAddress');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
-    $arr_records[$uid]['felder']        = '5';
-    // Delivery Address
-
-    // Contact Data
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_fSets_title_contactData');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
-    $arr_records[$uid]['felder']        = '3';
-    // Contact Data
-
-    // Order
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_fSets_title_order');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['tt_content']    = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
-    $arr_records[$uid]['felder']        = '5';
-    // Order
-    // Powermail fieldsets records in page cart
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // INSERT fieldset records
-
-    foreach( $arr_records as $fields_values )
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
-      $str_record_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
-        </p>';
-      $str_record_prompt = $this->cObj->substituteMarkerArray($str_record_prompt, $this->markerArray);
-      $this->arrReport[] = $str_record_prompt;
-    }
-    unset($arr_records);
-    // INSERT fieldset records
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General values for fields
-
-    $timestamp       = time();
-    $table           = 'tx_powermail_fields';
-    $no_quote_fields = false;
-    $uid         = $this->zz_getMaxDbUid($table);
-    $max_uid         = $uid;
-    // General values for fields
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset billing address
-
-    // Surname
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameBilling')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_surnameBilling');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Surname
-
-    // First Name
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameBilling')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_firstnameBilling');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-
-';
-    // First Name
-
-    // Street
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_streetBilling')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_streetBilling');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Street
-
-    // Zip
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_zipBilling')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_zipBilling');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Zip
-
-    // Location
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_locationBilling')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_locationBilling');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_billingAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Location
-    // Powermail fields records in page cart - for fieldset billing address
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset delivery address
-
-    // Surname
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameDelivery')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_surnameDelivery');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = false;
-    // Surname
-
-    // First Name
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameDelivery')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_firstnameDelivery');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = false;
-    // First Name
-
-    // Street
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_streetDelivery')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_streetDelivery');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = false;
-    // Street
-
-    // Zip
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_zipDelivery')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_zipDelivery');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = false;
-    // Zip
-
-    // Location
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_locationDelivery')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_locationDelivery');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_deliveryAddress')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = false;
-    // Location
-    // Powermail fields records in page cart - for fieldset delivery address
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset contact
-
-    // E-mail
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_email')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_email');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="validate">
-                    <value index="vDEF">validate-email</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // E-mail
-
-    // Phone
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_phone')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_phone');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = false;
-    // Phone
-
-    // Fax
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_fax')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_fax');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_contactData')];
-    $arr_records[$uid]['formtype']      = 'text';
-    $arr_records[$uid]['flexform']      = false;
-    // Fax
-    // Powermail fields records in page cart - for fieldset contact
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Powermail fields records in page cart - for fieldset order
-
-    // Note
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_note')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_note');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
-    $arr_records[$uid]['formtype']      = 'textarea';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="cols">
-                    <value index="vDEF">50</value>
-                </field>
-                <field index="rows">
-                    <value index="vDEF">5</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-
-';
-    // Note
-
-    // Payment
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_methodOfPayment')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_methodOfPayment');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
-    $arr_records[$uid]['formtype']      = 'radio';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="options">
-                    <value index="vDEF">'.$this->pi_getLL('phrases_powermail_payment').'</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Payment
-
-    // Shipping
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_methodOfShipping')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_methodOfShipping');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
-    $arr_records[$uid]['formtype']      = 'radio';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="options">
-                    <value index="vDEF">'.$this->pi_getLL('phrases_powermail_shipping').'</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Shipping
-
-    // Terms and Conditions
-    $int_terms = $this->arr_pageUids[$this->pi_getLL('page_title_terms')];
-    $str_terms = htmlspecialchars($this->pi_getLL('phrases_powermail_termsAccepted'));
-    $str_terms = str_replace('###PID###', $int_terms, $str_terms);
-
-    $uid = $uid +1;
-
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_terms')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_terms');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
-    $arr_records[$uid]['formtype']      = 'check';
-    $arr_records[$uid]['flexform']      = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="options">
-                    <value index="vDEF">'.$str_terms.'</value>
-                </field>
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-    // Terms and Conditions
-
-    // Submit
-    $uid = $uid +1;
-    $this->arr_recordUids[$this->pi_getLL('record_pm_field_title_submit')]  = $uid;
-    $arr_records[$uid]['uid']           = $uid;
-    $arr_records[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_caddy')];
-    $arr_records[$uid]['tstamp']        = $timestamp;
-    $arr_records[$uid]['crdate']        = $timestamp;
-    $arr_records[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-    $arr_records[$uid]['title']         = $this->pi_getLL('record_pm_field_title_submit');
-    $arr_records[$uid]['sorting']       = 256 * ($uid - $max_uid);
-    $arr_records[$uid]['fieldset']      = $this->arr_recordUids[$this->pi_getLL('record_pm_fSets_title_order')];
-    $arr_records[$uid]['formtype']      = 'submit';
-    $arr_records[$uid]['flexform']      = '';
-    // Submit
-    // Powermail fields records in page cart - for fieldset order
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // INSERT field records
-
-    foreach($arr_records as $fields_values)
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###TITLE###']     = $fields_values['title'];
-      $this->markerArray['###TABLE###']     = $this->pi_getLL($table);
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
-      $str_record_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('record_create_prompt').'
-        </p>';
-      $str_record_prompt = $this->cObj->substituteMarkerArray($str_record_prompt, $this->markerArray);
-      $this->arrReport[] = $str_record_prompt;
-    }
-    unset($arr_records);
-    // INSERT field records
-
-    return false;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-   /**
- * Shop will be installed - with or without template
+/**
+ * createRecordsQuickshop( ) :
  *
- * @return	The		content that is displayed on the website
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
  */
-  private function createRecordsShop()
+  private function createRecordsQuickshop( )
   {
+    require_once( 'class.tx_quickshopinstaller_pi1_quickshop.php' );
+    $this->quickshop       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_quickshop' );
+    $this->quickshop->pObj = $this;
+
+    $this->quickshop->main( );
+return;
     $arr_records = array( );
 
     //////////////////////////////////////////////////////////////////////
