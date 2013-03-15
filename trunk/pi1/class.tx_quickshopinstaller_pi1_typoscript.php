@@ -130,10 +130,8 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['sorting']              = 256;
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file']  = ''.
-      'EXT:wt_cart/files/static/,' .
-      'EXT:powermail/static/pi1/,' .
-      'EXT:powermail/static/css_basic/';
+    $record['include_static_file']  = 'EXT:caddy/static/,EXT:caddy/static/css/,' 
+                                    . 'EXT:powermail/static/pi1/,EXT:powermail/static/css_basic/';
     $record['constants']            = '
 plugin.caddy {
   db {
