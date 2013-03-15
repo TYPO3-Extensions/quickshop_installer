@@ -35,11 +35,11 @@
  *  112:     private function recordCaddy( $uid )
  *  223:     private function recordRoot( $uid )
  *  253:     private function recordRootCaseAll( $uid )
- *  368:     private function recordRootCaseShopOnly( $uid )
- *  435:     private function records( )
+ *  417:     private function recordRootCaseShopOnly( $uid )
+ *  533:     private function records( )
  *
  *              SECTION: Sql
- *  468:     private function sqlInsert( $records )
+ *  566:     private function sqlInsert( $records )
  *
  * TOTAL FUNCTIONS: 7
  * (This index is automatically created/updated by the extension "extdeveval")
@@ -322,7 +322,7 @@ quick_shop {
     // page uids
   caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
   caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    
+
     // powermail uids
   powermail {
     ids {
@@ -456,7 +456,7 @@ quick_shop {
     // page uids
   caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
   caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    
+
     // powermail uids
   powermail {
     ids {

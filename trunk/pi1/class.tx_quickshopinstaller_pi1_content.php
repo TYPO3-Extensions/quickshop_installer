@@ -34,12 +34,12 @@
  *              SECTION: Records
  *  112:     private function pageDelivery( $uid )
  *  142:     private function pageLibraryFooter( $uid )
- *  172:     private function pageLibraryHeader( $uid )
- *  207:     private function pageTerms( $uid )
- *  236:     private function pages( )
+ *  173:     private function pageLibraryHeader( $uid )
+ *  209:     private function pageTerms( $uid )
+ *  238:     private function pages( )
  *
  *              SECTION: Sql
- *  282:     private function sqlInsert( $records )
+ *  284:     private function sqlInsert( $records )
  *
  * TOTAL FUNCTIONS: 7
  * (This index is automatically created/updated by the extension "extdeveval")
