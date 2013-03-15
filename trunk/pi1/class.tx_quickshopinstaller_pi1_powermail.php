@@ -1104,7 +1104,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
     $record['felder']     = '5';
 
     return $record;
@@ -1134,7 +1134,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
     $record['felder']     = '3';
 
     return $record;
@@ -1164,7 +1164,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
     $record['felder']     = '5';
 
     return $record;
@@ -1194,7 +1194,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
     $record['felder']     = '5';
 
     return $record;
