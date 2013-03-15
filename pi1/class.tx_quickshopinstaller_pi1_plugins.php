@@ -351,7 +351,7 @@ class tx_quickshopinstaller_pi1_plugins
   {
     foreach( $records as $record )
     {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
+      var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tt_content', $record );
       $marker['###HEADER###']     = $record['header'];
       $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] .

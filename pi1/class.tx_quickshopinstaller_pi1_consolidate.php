@@ -479,7 +479,7 @@ TCEMAIN {
       $csvFields  = implode( ', ', $fields );
       $csvFields  = str_replace( 'header,', null, $csvFields );
 
-      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
+      //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
@@ -514,7 +514,7 @@ TCEMAIN {
       $fields     = array_keys( $record );
       $csvFields  = implode( ', ', $fields );
 
-      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
+//      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
@@ -549,7 +549,7 @@ TCEMAIN {
       $csvFields  = implode( ', ', $fields );
       $csvFields  = str_replace( 'header,', null, $csvFields );
 
-      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
+      //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
@@ -580,7 +580,7 @@ TCEMAIN {
 
     $record = array( 'hidden' => 1 );
 
-    $uid    = $this->arr_tsUids[ $this->str_tsRoot ];
+    $uid    = $this->pObj->arr_tsUids[ $this->str_tsRoot ];
     $pid    = $GLOBALS['TSFE']->id;
     $where  = 'pid = ' . $pid . ' AND uid NOT LIKE ' . $uid;
 
