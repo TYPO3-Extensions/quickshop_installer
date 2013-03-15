@@ -251,7 +251,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_capBlue' );
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llTitle );
+    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_capBlue' );
+    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[$llTitle] = $str_image;
 
     $record['uid']          = $uid;
@@ -296,7 +297,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_capGreen' );
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llTitle );
+    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_capGreen' );
+    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[$llTitle] = $str_image;
 
     $record['uid']          = $uid;
@@ -341,7 +343,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_capRed' );
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llTitle );
+    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_capRed' );
+    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[$llTitle] = $str_image;
 
     $record['uid']          = $uid;
@@ -386,7 +389,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_book' );
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llTitle );
+    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_book' );
+    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[$llTitle] = $str_image;
 
     $record['uid']          = $uid;
@@ -431,7 +435,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_cup' );
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llTitle );
+    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_cup' );
+    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[$llTitle] = $str_image;
 
     $record['uid']          = $uid;
@@ -476,7 +481,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_pullover' );
     $this->pObj->arr_recordUids[$llTitle]  = $uid;
 
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llTitle );
+    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_pullover' );
+    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
     $this->pObj->arr_fileUids[$llTitle] = $str_image;
 
     $record['uid']          = $uid;
