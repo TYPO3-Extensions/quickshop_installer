@@ -26,7 +26,7 @@
  *
  *
  *
- *   94: class tx_qsinstaller_pi1_powermail
+ *   94: class tx_quickshopinstaller_pi1_powermail
  *
  *              SECTION: Main
  *  118:     public function main( )
@@ -91,10 +91,10 @@
  * @version 3.0.0
  * @since 3.0.0
  */
-class tx_qsinstaller_pi1_powermail
+class tx_quickshopinstaller_pi1_powermail
 {
-  public $prefixId      = 'tx_qsinstaller_pi1_powermail';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_qsinstaller_pi1_powermail.php';  // Path to this script relative to the extension dir.
+  public $prefixId      = 'tx_quickshopinstaller_pi1_powermail';                // Same as class name
+  public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_powermail.php';  // Path to this script relative to the extension dir.
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
@@ -1302,7 +1302,7 @@ class tx_qsinstaller_pi1_powermail
 
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1_powermail.php'])
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_powermail.php'])
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1_powermail.php']);
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_powermail.php']);
 }
