@@ -106,7 +106,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [boolean] true, if ther is any installation error.
   private $bool_error      = false;
     // [boolean]
-  private $bool_topLevel    = null;
+  public  $bool_topLevel    = null;
     // [array] The flexform array
   private $arr_piFlexform  = false;
     // [array] Array with the report items
