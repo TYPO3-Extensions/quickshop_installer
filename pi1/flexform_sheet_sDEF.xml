@@ -88,19 +88,6 @@
           </config>
         </TCEforms>
       </website_title>
-      <mail_subject>
-        <TCEforms>
-          <exclude>1</exclude>
-          <label>LLL:EXT:quickshop_installer/pi1/flexform_locallang.php:sheet_install.mail_subject</label>
-          <displayCond>FIELD:install_case:=:install_all,install_shop</displayCond>
-          <config>
-            <type>input</type>
-            <size>40</size>
-            <eval>trim,required</eval>
-            <default>TYPO3 Quick Shop - Confirmation</default>
-          </config>
-        </TCEforms>
-      </mail_subject>
       <mail_default_recipient>
         <TCEforms>
           <exclude>1</exclude>

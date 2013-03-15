@@ -32,9 +32,9 @@
  *   81:     public function main( )
  *
  *              SECTION: Records
- *  111:     private function recordBrowser( $uid )
- *  233:     private function recordCaddy( $uid )
- *  263:     private function recordPowermail( $uid )
+ *  111:     private function browser( $uid )
+ *  233:     private function caddy( $uid )
+ *  263:     private function powermail( $uid )
  *  313:     private function records( )
  *
  *              SECTION: Sql
@@ -100,7 +100,35 @@ class tx_quickshopinstaller_pi1_plugins
   **********************************************/
 
 /**
- * recordBrowser( )
+ * records( )
+ *
+ * @return	array		$records : the plugin records
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function records( )
+  {
+    $records  = array( );
+    $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
+
+      // browser plugin
+    $uid = $uid + 1;
+    $records[$uid] = $this->browser( $uid );
+
+      // caddy plugin
+    $uid = $uid + 1;
+    $records[$uid] = $this->caddy( $uid );
+
+      // powermail plugin
+    $uid = $uid + 1;
+    $records[$uid] = $this->powermail( $uid );
+
+    return $records;
+  }
+
+/**
+ * browser( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -108,7 +136,7 @@ class tx_quickshopinstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function recordBrowser( $uid )
+  private function browser( $uid )
   {
     $record = null;
 
@@ -222,7 +250,7 @@ class tx_quickshopinstaller_pi1_plugins
   }
 
 /**
- * recordCaddy( )
+ * caddy( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -230,29 +258,31 @@ class tx_quickshopinstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function recordCaddy( $uid )
+  private function caddy( $uid )
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'plugin_wtcart_header' );
-    $this->pObj->arr_pluginUids['plugin_wtcart_header'] = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'plugin_caddy_header' );
+    $this->pObj->arr_pluginUids['plugin_caddy_header'] = $uid;
 
-    $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
-    $record['tstamp']        = $timestamp;
-    $record['crdate']        = $timestamp;
-    $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']       = 256;
-    $record['CType']         = 'list';
-    $record['header']        = $llHeader;
-    $record['list_type']     = 'wt_cart_pi1';
-    $record['sectionIndex']  = 1;
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256;
+    $record['CType']        = 'list';
+    $record['header']       = $llHeader;
+    $record['list_type']    = 'caddy_pi1';
+    $record['sectionIndex'] = 1;
+// Will updated by consolidate->pageCaddyPluginCaddy
+//    $record['pi_flexform']  = '';
 
     return $record;
   }
 
 /**
- * recordPowermail( )
+ * powermail( )
  *
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
@@ -260,7 +290,7 @@ class tx_quickshopinstaller_pi1_plugins
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function recordPowermail( $uid )
+  private function powermail( $uid )
   {
     $record = null;
 
@@ -269,8 +299,8 @@ class tx_quickshopinstaller_pi1_plugins
 
     $record['uid']                        = $uid;
     $record['pid']                        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
-    $record['tstamp']                     = $timestamp;
-    $record['crdate']                     = $timestamp;
+    $record['tstamp']                     = time( );
+    $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
     $record['sorting']                    = 512;
     $record['CType']                      = 'powermail_pi1';
@@ -278,11 +308,11 @@ class tx_quickshopinstaller_pi1_plugins
     $record['header_layout']              = 100;  // hidden
     $record['list_type']                  = '';
     $record['sectionIndex']               = 1;
-    $record['tx_powermail_title']         = 'order';
+    $record['tx_powermail_title']         = 'quickshop';
     $record['tx_powermail_recipient']     = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'];
-    $record['tx_powermail_subject_r']     = $this->pObj->markerArray['###MAIL_SUBJECT###'];
-    $record['tx_powermail_subject_s']     = $this->pObj->markerArray['###MAIL_SUBJECT###'];
-// Will updated by $this->consolidatePluginPowermail()
+    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_r' );
+    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_s' );
+// Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['tx_powermail_sender']        = $str_sender;
 //    $record['tx_powermail_sendername']    = $str_sendername;
     $record['tx_powermail_confirm']       = 1;
@@ -292,42 +322,14 @@ class tx_quickshopinstaller_pi1_plugins
     $record['tx_powermail_recip_id']      = false;
     $record['tx_powermail_recip_field']   = false;
     $record['tx_powermail_thanks']        = $this->pObj->pi_getLL('plugin_powermail_thanks');
-    $record['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CART###' . "\n" . '###POWERMAIL_ALL###';
-    $record['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CART###' . "\n" . '###POWERMAIL_ALL###';
+    $record['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CADDY###' . "\n" . '###POWERMAIL_ALL###';
+    $record['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CADDY###' . "\n" . '###POWERMAIL_ALL###';
     $record['tx_powermail_redirect']      = false;
     $record['tx_powermail_fieldsets']     = 4;
     $record['tx_powermail_users']         = 0;
     $record['tx_powermail_preview']       = 0;
 
     return $record;
-  }
-
-/**
- * records( )
- *
- * @return	array		$records : the plugin records
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function records( )
-  {
-    $records  = array( );
-    $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
-
-      // browser plugin
-    $uid = $uid + 1;
-    $records[$uid] = $this->recordBrowser( $uid );
-
-      // caddy plugin
-    $uid = $uid + 1;
-    $records[$uid] = $this->recordCaddy( $uid );
-
-      // powermail plugin
-    $uid = $uid + 1;
-    $records[$uid] = $this->recordPowermail( $uid );
-
-    return $records;
   }
 
 

@@ -149,7 +149,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_streetBilling' );
-    $this->pObj->arr_recordUids['record_pm_field_title_streetBilling']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_streetBilling' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -179,7 +179,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_locationBilling' );
-    $this->pObj->arr_recordUids['record_pm_field_title_locationBilling']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_locationBilling' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -209,7 +209,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_companyBilling' );
-    $this->pObj->arr_recordUids['record_pm_field_title_companyBilling']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_companyBilling' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -239,7 +239,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_countryBilling' );
-    $this->pObj->arr_recordUids['record_pm_field_title_countryBilling']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_countryBilling' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -269,7 +269,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_firstnameBilling' );
-    $this->pObj->arr_recordUids['record_pm_field_title_firstnameBilling']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -313,7 +313,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_surnameBilling' );
-    $this->pObj->arr_recordUids['record_pm_field_title_surnameBilling']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -357,7 +357,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_zipBilling' );
-    $this->pObj->arr_recordUids['record_pm_field_title_zipBilling']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_zipBilling' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -395,7 +395,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_email' );
-    $this->pObj->arr_recordUids['record_pm_field_title_email']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -442,7 +442,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_fax' );
-    $this->pObj->arr_recordUids['record_pm_field_title_fax']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_fax' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -472,7 +472,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_phone' );
-    $this->pObj->arr_recordUids['record_pm_field_title_phone']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_phone' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -510,7 +510,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_streetDelivery' );
-    $this->pObj->arr_recordUids['record_pm_field_title_streetDelivery']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_streetDelivery' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -540,7 +540,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_locationDelivery' );
-    $this->pObj->arr_recordUids['record_pm_field_title_locationDelivery']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_locationDelivery' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -570,7 +570,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_companyDelivery' );
-    $this->pObj->arr_recordUids['record_pm_field_title_companyDelivery']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -600,7 +600,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_countryDelivery' );
-    $this->pObj->arr_recordUids['record_pm_field_title_countryDelivery']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -630,7 +630,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_firstnameDelivery' );
-    $this->pObj->arr_recordUids['record_pm_field_title_firstnameDelivery']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -641,20 +641,6 @@ class tx_quickshopinstaller_pi1_powermail
     $record['sorting']   = $sorting;
     $record['fieldset']  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record['formtype']  = 'text';
-    $record['flexform']  = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
 
     return $record;
   }
@@ -674,7 +660,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_surnameDelivery' );
-    $this->pObj->arr_recordUids['record_pm_field_title_surnameDelivery']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -685,20 +671,6 @@ class tx_quickshopinstaller_pi1_powermail
     $record['sorting']   = $sorting;
     $record['fieldset']  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     $record['formtype']  = 'text';
-    $record['flexform']  = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="mandatory">
-                    <value index="vDEF">1</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
 
     return $record;
   }
@@ -718,7 +690,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_zipDelivery' );
-    $this->pObj->arr_recordUids['record_pm_field_title_zipDelivery']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -742,51 +714,6 @@ class tx_quickshopinstaller_pi1_powermail
   **********************************************/
 
 /**
- * fieldOrderDelivery( )
- *
- * @param	integer		$uid      : uid of the current field
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function fieldOrderDelivery( $uid, $sorting )
-  {
-    $record = null;
-
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_methodOfShipping' );
-    $this->pObj->arr_recordUids['record_pm_field_title_methodOfShipping']  = $uid;
-
-    $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
-    $record['tstamp']    = time( );
-    $record['crdate']    = time( );
-    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']     = $llTitle;
-    $record['sorting']   = $sorting;
-    $record['fieldset']  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
-    $record['formtype']  = 'text';
-    $record['formtype']  = 'radio';
-    $record['flexform']  = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="options">
-                    <value index="vDEF">'.$this->pObj->pi_getLL('phrases_powermail_shipping').'</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-
-    return $record;
-  }
-
-/**
  * fieldOrderNote( )
  *
  * @param	integer		$uid      : uid of the current field
@@ -801,7 +728,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_note' );
-    $this->pObj->arr_recordUids['record_pm_field_title_note']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_note' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -835,50 +762,6 @@ class tx_quickshopinstaller_pi1_powermail
   }
 
 /**
- * fieldOrderPayment( )
- *
- * @param	integer		$uid      : uid of the current field
- * @param	integer		$sorting  : sorting value
- * @return	array		$record   : the field record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function fieldOrderPayment( $uid, $sorting )
-  {
-    $record = null;
-
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_methodOfPayment' );
-    $this->pObj->arr_recordUids['record_pm_field_title_methodOfPayment']  = $uid;
-
-    $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
-    $record['tstamp']    = time( );
-    $record['crdate']    = time( );
-    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']     = $llTitle;
-    $record['sorting']   = $sorting;
-    $record['fieldset']  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
-    $record['formtype']  = 'radio';
-    $record['flexform']  = ''.
-'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<T3FlexForms>
-    <data>
-        <sheet index="sDEF">
-            <language index="lDEF">
-                <field index="options">
-                    <value index="vDEF">'.$this->pObj->pi_getLL('phrases_powermail_payment').'</value>
-                </field>
-            </language>
-        </sheet>
-    </data>
-</T3FlexForms>
-';
-
-    return $record;
-  }
-
-/**
  * fieldOrderSubmit( )
  *
  * @param	integer		$uid      : uid of the current field
@@ -893,7 +776,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_submit' );
-    $this->pObj->arr_recordUids['record_pm_field_title_submit']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_submit' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -927,7 +810,7 @@ class tx_quickshopinstaller_pi1_powermail
     $str_terms = str_replace('###PID###', $int_terms, $str_terms);
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_terms' );
-    $this->pObj->arr_recordUids['record_pm_field_title_terms']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_terms' ] = $uid;
 
     $record['uid']       = $uid;
     $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -1053,14 +936,6 @@ class tx_quickshopinstaller_pi1_powermail
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
     $records[$uid] = $this->fieldOrderNote( $uid, $sorting );
 
-      // field order payment
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldOrderPayment( $uid, $sorting );
-
-      // field order delivery
-    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->fieldOrderDelivery( $uid, $sorting );
-
       // field order terms
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
     $records[$uid] = $this->fieldOrderTerms( $uid, $sorting );
@@ -1095,7 +970,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_billingAddress' );
-    $this->pObj->arr_recordUids['record_pm_fSets_title_billingAddress']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ] = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -1105,7 +980,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
-    $record['felder']     = '5';
+    $record['felder']     = '7';
 
     return $record;
   }
@@ -1125,7 +1000,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_contactData' );
-    $this->pObj->arr_recordUids['record_pm_fSets_title_contactData']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ] = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -1155,7 +1030,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_deliveryAddress' );
-    $this->pObj->arr_recordUids['record_pm_fSets_title_deliveryAddress']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ] = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -1165,7 +1040,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
-    $record['felder']     = '5';
+    $record['felder']     = '7';
 
     return $record;
   }
@@ -1185,7 +1060,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_fSets_title_order' );
-    $this->pObj->arr_recordUids['record_pm_fSets_title_order']  = $uid;
+    $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ] = $uid;
 
     $record['uid']        = $uid;
     $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -1195,7 +1070,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
-    $record['felder']     = '5';
+    $record['felder']     = '3';
 
     return $record;
   }

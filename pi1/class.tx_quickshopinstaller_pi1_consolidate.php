@@ -34,7 +34,7 @@
  *              SECTION: pages
  *  116:     private function pageCaddy( )
  *  139:     private function pageCaddyPluginPowermail( )
- *  168:     private function pageCaddyPluginWtcart( )
+ *  168:     private function pageCaddyPluginCaddy( )
  *  264:     private function pageRoot( )
  *  295:     private function pageRootFileCopy( $timestamp )
  *  344:     private function pageRootPluginInstallHide( )
@@ -122,10 +122,143 @@ class tx_quickshopinstaller_pi1_consolidate
     $records    = $this->pageCaddyPluginPowermail( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
-      // Update the wt_cart plugin
-    $records    = $this->pageCaddyPluginWtcart( );
+      // Update the caddy plugin
+    $records    = $this->pageCaddyPluginCaddy( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
+      // Update the TypoScript
+    $records    = $this->pageCaddyTyposcript( );
+    $this->sqlUpdateTyposcript( $records, $pageTitle );
+
+  }
+
+/**
+ * pageCaddyPluginCaddy( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageCaddyPluginCaddy( )
+  {
+    $records  = null;
+    $uid      = $this->pObj->arr_pluginUids[ 'plugin_caddy_header' ];
+
+      // values
+    $llHeader = $this->pObj->pi_getLL( 'plugin_caddy_header' );
+      // values
+
+    $records[$uid]['header']      = $llHeader;
+    $records[$uid]['pi_flexform'] = null .
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="origin">
+            <language index="lDEF">
+                <field index="order">
+                    <value index="vDEF">1000</value>
+                </field>
+                <field index="invoice">
+                    <value index="vDEF">1000000</value>
+                </field>
+                <field index="deliveryorder">
+                    <value index="vDEF">400000</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="email">
+            <language index="lDEF">
+                <field index="customerEmail">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] . 
+                    '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="invoice">
+            <language index="lDEF">
+                <field index="company">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyBilling' ] . 
+                    '</value>
+                </field>
+                <field index="firstName">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] . 
+                    '</value>
+                </field>
+                <field index="lastName">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameBilling' ] . 
+                    '</value>
+                </field>
+                <field index="address">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressBilling' ] . 
+                    '</value>
+                </field>
+                <field index="zip">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipBilling' ] . 
+                    '</value>
+                </field>
+                <field index="city">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityBilling' ] . 
+                    '</value>
+                </field>
+                <field index="country">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryBilling' ] . 
+                    '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="deliveryorder">
+            <language index="lDEF">
+                <field index="company">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] . 
+                    '</value>
+                </field>
+                <field index="firstName">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] . 
+                    '</value>
+                </field>
+                <field index="lastName">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameDelivery' ] . 
+                    '</value>
+                </field>
+                <field index="address">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressDelivery' ] . 
+                    '</value>
+                </field>
+                <field index="zip">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] . 
+                    '</value>
+                </field>
+                <field index="city">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityDelivery' ] . 
+                    '</value>
+                </field>
+                <field index="country">
+                    <value index="vDEF">' 
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] . 
+                    '</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>
+';
+
+    return $records;
   }
 
 /**
@@ -158,98 +291,53 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginWtcart( )
+ * pageCaddyTyposcript( )
  *
- * @return	array		$records : the plugin record
+ * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function pageCaddyPluginWtcart( )
+  private function pageCaddyTyposcript( )
   {
-    $records  = null;
-    $uid      = $this->pObj->arr_tsUids[ $this->pObj->str_tsWtCart ];
+    $records = null;
 
-      // values
-    $llTitle          = $this->pObj->pi_getLL( 'plugin_wtcart_header' );
-    list( $noreply )  = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
-    $noreply          = $noreply . '@###DOMAIN###';
-      // values
+    $title  = 'page_title_caddy';
+    $uid    = $this->pObj->arr_tsUids[ $title ];
 
-    $records[$uid]['header']    = $llTitle;
-    $records[$uid]['constants'] = '
-  ////////////////////////////////
-  //
-  // INDEX
-  //
-  // plugin.wtcart
-  // plugin.powermail
+    $strUid = sprintf( '%03d', $uid );
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+    
+    list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    $noreply                  = 'noreplay@' . $domain;
+    
 
-
-
-  ////////////////////////////////
-  //
-  // plugin.wtcart
-
-plugin.wtcart {
-  gpvar {
-    qty  = tx_quick_shop_qty
-    puid = tx_browser_pi1|showUid
-  }
-  db {
-    table = tx_quickshop_products
-    min   = quantity_min
-    max   = quantity_max
-    sku   = sku
-  }
-  powermailContent {
-    uid = ' . $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ] . '
-  }
-  debug = 0
-}
-  // plugin.wtcart
-
-
-
-  ////////////////////////////////
-  //
-  // plugin.powermail
-
-plugin.powermail {
-  allow {
-    email2receiver = 1
-    email2sender   = 1
-  }
+    $records[$uid]['title']   = $llTitle;
+    $records[$uid]['config']  = '
+plugin.tx_powermail_pi1 {
   email {
-    noreply  = ' . $noreply . '
-  }
-  format {
-    datetime = %H:%M %d.%m.%Y
-    format {
-      .date  = %d.%m.%Y
+    sender_mail {
+      sender {
+        name {
+          value = Quick Shop
+        }
+        email {
+          value = ' . $noreply . '
+        }
+      }
     }
-  }
-  label {
-    allowTags =
-  }
-  clear {
-    session = 1
-  }
-  hiddenfields {
-    show = 1,1,1,1,1
-  }
-  field {
-    checkboxJS = 1
   }
   _LOCAL_LANG {
+    default {
+      locallangmarker_confirmation_submit = Test Quick Shop without commitment!
+    }
     de {
-      locallangmarker_confirmation_submit = Bestellung abschicken
+      locallangmarker_confirmation_submit = Quick Shop unverbindlich testen!
     }
   }
-}
-  // plugin.powermail
-';
-
+}';
     return $records;
   }
 
@@ -584,7 +672,7 @@ TCEMAIN {
     $pid    = $GLOBALS['TSFE']->id;
     $where  = 'pid = ' . $pid . ' AND uid NOT LIKE ' . $uid;
 
-    var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
+    //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
     $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
     $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
