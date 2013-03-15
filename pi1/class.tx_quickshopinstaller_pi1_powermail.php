@@ -117,11 +117,6 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $records = array( );
 
-    $this->pObj->arrReport[ ] = '
-      <h2>
-       ' . $this->pObj->pi_getLL( 'record_create_header' ) . '
-      </h2>';
-
     $records = $this->fieldsets( );
     $this->sqlInsert( $records, 'tx_powermail_fieldsets' );
 
