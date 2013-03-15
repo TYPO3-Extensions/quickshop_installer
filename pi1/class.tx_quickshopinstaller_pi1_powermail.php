@@ -26,58 +26,56 @@
  *
  *
  *
- *   94: class tx_quickshopinstaller_pi1_powermail
+ *   92: class tx_quickshopinstaller_pi1_powermail
  *
  *              SECTION: Main
- *  118:     public function main( )
+ *  116:     public function main( )
  *
  *              SECTION: Fields: billing address
- *  147:     private function fieldBillingaddressAddress( $uid, $sorting )
- *  177:     private function fieldBillingaddressCity( $uid, $sorting )
- *  207:     private function fieldBillingaddressCompany( $uid, $sorting )
- *  237:     private function fieldBillingaddressCountry( $uid, $sorting )
- *  267:     private function fieldBillingaddressFirstname( $uid, $sorting )
- *  311:     private function fieldBillingaddressSurname( $uid, $sorting )
- *  355:     private function fieldBillingaddressZip( $uid, $sorting )
+ *  145:     private function fieldBillingaddressAddress( $uid, $sorting )
+ *  175:     private function fieldBillingaddressCity( $uid, $sorting )
+ *  205:     private function fieldBillingaddressCompany( $uid, $sorting )
+ *  235:     private function fieldBillingaddressCountry( $uid, $sorting )
+ *  265:     private function fieldBillingaddressFirstname( $uid, $sorting )
+ *  309:     private function fieldBillingaddressSurname( $uid, $sorting )
+ *  353:     private function fieldBillingaddressZip( $uid, $sorting )
  *
  *              SECTION: Fields: contact data
- *  393:     private function fieldContactdataEmail( $uid, $sorting )
- *  440:     private function fieldContactdataFax( $uid, $sorting )
- *  470:     private function fieldContactdataPhone( $uid, $sorting )
+ *  391:     private function fieldContactdataEmail( $uid, $sorting )
+ *  438:     private function fieldContactdataFax( $uid, $sorting )
+ *  468:     private function fieldContactdataPhone( $uid, $sorting )
  *
  *              SECTION: Fields: delivery address
- *  508:     private function fieldDeliveryaddressAddress( $uid, $sorting )
- *  538:     private function fieldDeliveryaddressCity( $uid, $sorting )
- *  568:     private function fieldDeliveryaddressCompany( $uid, $sorting )
- *  598:     private function fieldDeliveryaddressCountry( $uid, $sorting )
- *  628:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
- *  672:     private function fieldDeliveryaddressSurname( $uid, $sorting )
- *  716:     private function fieldDeliveryaddressZip( $uid, $sorting )
+ *  506:     private function fieldDeliveryaddressAddress( $uid, $sorting )
+ *  536:     private function fieldDeliveryaddressCity( $uid, $sorting )
+ *  566:     private function fieldDeliveryaddressCompany( $uid, $sorting )
+ *  596:     private function fieldDeliveryaddressCountry( $uid, $sorting )
+ *  626:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
+ *  656:     private function fieldDeliveryaddressSurname( $uid, $sorting )
+ *  686:     private function fieldDeliveryaddressZip( $uid, $sorting )
  *
  *              SECTION: Fields: order
- *  754:     private function fieldOrderDelivery( $uid, $sorting )
- *  799:     private function fieldOrderNote( $uid, $sorting )
- *  847:     private function fieldOrderPayment( $uid, $sorting )
- *  891:     private function fieldOrderSubmit( $uid, $sorting )
- *  921:     private function fieldOrderTerms( $uid, $sorting )
+ *  724:     private function fieldOrderNote( $uid, $sorting )
+ *  772:     private function fieldOrderSubmit( $uid, $sorting )
+ *  802:     private function fieldOrderTerms( $uid, $sorting )
  *
  *              SECTION: Controller
- *  979:     private function fields( )
+ *  860:     private function fields( )
  *
  *              SECTION: Fieldsets
- * 1093:     private function fieldsetBillingaddress( $uid, $sorting )
- * 1123:     private function fieldsetContactdata( $uid, $sorting )
- * 1153:     private function fieldsetDeliveryaddress( $uid, $sorting )
- * 1183:     private function fieldsetOrder( $uid, $sorting )
- * 1211:     private function fieldsets( )
+ *  966:     private function fieldsetBillingaddress( $uid, $sorting )
+ *  996:     private function fieldsetContactdata( $uid, $sorting )
+ * 1026:     private function fieldsetDeliveryaddress( $uid, $sorting )
+ * 1056:     private function fieldsetOrder( $uid, $sorting )
+ * 1084:     private function fieldsets( )
  *
  *              SECTION: Sql
- * 1253:     private function sqlInsert( $records, $table )
+ * 1126:     private function sqlInsert( $records, $table )
  *
  *              SECTION: ZZ
- * 1289:     private function zz_counter( $uid )
+ * 1162:     private function zz_counter( $uid )
  *
- * TOTAL FUNCTIONS: 31
+ * TOTAL FUNCTIONS: 29
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */

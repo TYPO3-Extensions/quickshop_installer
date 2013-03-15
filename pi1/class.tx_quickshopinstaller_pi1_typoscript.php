@@ -33,13 +33,13 @@
  *
  *              SECTION: Records
  *  112:     private function recordCaddy( $uid )
- *  223:     private function recordRoot( $uid )
- *  253:     private function recordRootCaseAll( $uid )
- *  417:     private function recordRootCaseShopOnly( $uid )
- *  533:     private function records( )
+ *  167:     private function recordRoot( $uid )
+ *  197:     private function recordRootCaseAll( $uid )
+ *  361:     private function recordRootCaseShopOnly( $uid )
+ *  477:     private function records( )
  *
  *              SECTION: Sql
- *  566:     private function sqlInsert( $records )
+ *  510:     private function sqlInsert( $records )
  *
  * TOTAL FUNCTIONS: 7
  * (This index is automatically created/updated by the extension "extdeveval")

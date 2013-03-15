@@ -32,13 +32,13 @@
  *   81:     public function main( )
  *
  *              SECTION: Records
- *  111:     private function browser( $uid )
- *  233:     private function caddy( $uid )
- *  263:     private function powermail( $uid )
- *  313:     private function records( )
+ *  110:     private function records( )
+ *  139:     private function browser( $uid )
+ *  261:     private function caddy( $uid )
+ *  293:     private function powermail( $uid )
  *
  *              SECTION: Sql
- *  350:     private function sqlInsert( $records )
+ *  352:     private function sqlInsert( $records )
  *
  * TOTAL FUNCTIONS: 6
  * (This index is automatically created/updated by the extension "extdeveval")

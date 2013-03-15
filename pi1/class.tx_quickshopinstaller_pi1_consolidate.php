@@ -26,29 +26,30 @@
  *
  *
  *
- *   65: class tx_quickshopinstaller_pi1_consolidate
+ *   66: class tx_quickshopinstaller_pi1_consolidate
  *
  *              SECTION: Main
- *   89:     public function main( )
+ *   90:     public function main( )
  *
  *              SECTION: pages
- *  116:     private function pageCaddy( )
- *  139:     private function pageCaddyPluginPowermail( )
- *  168:     private function pageCaddyPluginCaddy( )
- *  264:     private function pageRoot( )
- *  295:     private function pageRootFileCopy( $timestamp )
- *  344:     private function pageRootPluginInstallHide( )
- *  366:     private function pageRootProperties( $timestamp )
- *  419:     private function pageRootTyposcriptOtherHide( )
+ *  117:     private function pageCaddy( )
+ *  144:     private function pageCaddyPluginCaddy( )
+ *  273:     private function pageCaddyPluginPowermail( )
+ *  302:     private function pageCaddyTyposcript( )
+ *  353:     private function pageRoot( )
+ *  384:     private function pageRootFileCopy( $timestamp )
+ *  433:     private function pageRootPluginInstallHide( )
+ *  455:     private function pageRootProperties( $timestamp )
+ *  508:     private function pageRootTyposcriptOtherHide( )
  *
  *              SECTION: Sql
- *  442:     private function sqlInsert( $records, $table )
- *  471:     private function sqlUpdatePlugin( $records, $pageTitle )
- *  507:     private function sqlUpdatePages( $records, $pageTitle )
- *  541:     private function sqlUpdateTyposcript( $records, $pageTitle )
- *  575:     private function sqlUpdateTyposcriptOtherHide( )
+ *  531:     private function sqlInsert( $records, $table )
+ *  560:     private function sqlUpdatePlugin( $records, $pageTitle )
+ *  596:     private function sqlUpdatePages( $records, $pageTitle )
+ *  630:     private function sqlUpdateTyposcript( $records, $pageTitle )
+ *  664:     private function sqlUpdateTyposcriptOtherHide( )
  *
- * TOTAL FUNCTIONS: 14
+ * TOTAL FUNCTIONS: 15
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -170,8 +171,8 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="email">
             <language index="lDEF">
                 <field index="customerEmail">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] .
                     '</value>
                 </field>
             </language>
@@ -179,38 +180,38 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="invoice">
             <language index="lDEF">
                 <field index="company">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyBilling' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyBilling' ] .
                     '</value>
                 </field>
                 <field index="firstName">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] .
                     '</value>
                 </field>
                 <field index="lastName">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameBilling' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameBilling' ] .
                     '</value>
                 </field>
                 <field index="address">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressBilling' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressBilling' ] .
                     '</value>
                 </field>
                 <field index="zip">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipBilling' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipBilling' ] .
                     '</value>
                 </field>
                 <field index="city">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityBilling' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityBilling' ] .
                     '</value>
                 </field>
                 <field index="country">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryBilling' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryBilling' ] .
                     '</value>
                 </field>
             </language>
@@ -218,38 +219,38 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="deliveryorder">
             <language index="lDEF">
                 <field index="company">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] .
                     '</value>
                 </field>
                 <field index="firstName">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] .
                     '</value>
                 </field>
                 <field index="lastName">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameDelivery' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameDelivery' ] .
                     '</value>
                 </field>
                 <field index="address">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressDelivery' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressDelivery' ] .
                     '</value>
                 </field>
                 <field index="zip">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] .
                     '</value>
                 </field>
                 <field index="city">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityDelivery' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityDelivery' ] .
                     '</value>
                 </field>
                 <field index="country">
-                    <value index="vDEF">' 
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] . 
+                    <value index="vDEF">'
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] .
                     '</value>
                 </field>
             </language>
@@ -309,10 +310,10 @@ class tx_quickshopinstaller_pi1_consolidate
     $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
     $llTitle  = str_replace( ' ', null, $llTitle );
     $llTitle  = '+page_' . $llTitle . '_' . $strUid;
-    
+
     list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
     $noreply                  = 'noreplay@' . $domain;
-    
+
 
     $records[$uid]['title']   = $llTitle;
     $records[$uid]['config']  = '
