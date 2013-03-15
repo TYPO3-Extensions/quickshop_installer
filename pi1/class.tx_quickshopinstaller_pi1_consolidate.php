@@ -26,22 +26,29 @@
  *
  *
  *
- *   58: class tx_quickshopinstaller_pi1_typoscript
+ *   65: class tx_quickshopinstaller_pi1_consolidation
  *
  *              SECTION: Main
- *   82:     public function main( )
+ *   89:     public function main( )
  *
- *              SECTION: Records
- *  112:     private function recordCaddy( $uid )
- *  223:     private function recordRoot( $uid )
- *  253:     private function recordRootCaseAll( $uid )
- *  368:     private function recordRootCaseShopOnly( $uid )
- *  435:     private function records( )
+ *              SECTION: pages
+ *  116:     private function pageCaddy( )
+ *  139:     private function pageCaddyPluginPowermail( )
+ *  168:     private function pageCaddyPluginWtcart( )
+ *  264:     private function pageRoot( )
+ *  295:     private function pageRootFileCopy( $timestamp )
+ *  344:     private function pageRootPluginInstallHide( )
+ *  366:     private function pageRootProperties( $timestamp )
+ *  419:     private function pageRootTyposcriptOtherHide( )
  *
  *              SECTION: Sql
- *  468:     private function sqlInsert( $records )
+ *  442:     private function sqlInsert( $records, $table )
+ *  471:     private function sqlUpdatePlugin( $records, $pageTitle )
+ *  507:     private function sqlUpdatePages( $records, $pageTitle )
+ *  541:     private function sqlUpdateTyposcript( $records, $pageTitle )
+ *  575:     private function sqlUpdateTyposcriptOtherHide( )
  *
- * TOTAL FUNCTIONS: 7
+ * TOTAL FUNCTIONS: 14
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -142,7 +149,7 @@ class tx_quickshopinstaller_pi1_consolidation
     $uidSurname     = $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ];
     $customerName = 'uid' . $uidFirstname . ',uid' . $uidSurname;
       // values
-    
+
     $records[$uid]['header']                  = $llHeader;
     $records[$uid]['tx_powermail_sender']     = $customerEmail;
     $records[$uid]['tx_powermail_sendername'] = $customerName;
@@ -168,7 +175,7 @@ class tx_quickshopinstaller_pi1_consolidation
     list( $noreply )  = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
     $noreply          = $noreply . '@###DOMAIN###';
       // values
-    
+
     $records[$uid]['header']    = $llTitle;
     $records[$uid]['constants'] = '
   ////////////////////////////////
@@ -365,7 +372,7 @@ plugin.powermail {
     $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
     $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
 
-      // SWITCH : siteroot depends on toplevel 
+      // SWITCH : siteroot depends on toplevel
     switch( $this->pObj->bool_topLevel )
     {
       case( true ):
@@ -376,7 +383,7 @@ plugin.powermail {
         $is_siteroot = 0;
         break;
     }
-      // SWITCH : siteroot depends on toplevel 
+      // SWITCH : siteroot depends on toplevel
 
     $records[$uid]['title']       = $this->pObj->pi_getLL( 'page_title_root' );
     $records[$uid]['nav_hide']    = 1;
@@ -464,7 +471,7 @@ TCEMAIN {
   private function sqlUpdatePlugin( $records, $pageTitle )
   {
     $table = 'tt_content';
-    
+
     foreach( $records as $uid => $record )
     {
       $where      = 'uid = ' . $uid;
@@ -474,7 +481,7 @@ TCEMAIN {
 
       var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
-      
+
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
       $this->pObj->markerArray['###TITLE###']     = '"' . $record['header'] . '"';
       $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
@@ -483,7 +490,7 @@ TCEMAIN {
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_content' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-      $this->pObj->arrReport[ ] = $prompt; 
+      $this->pObj->arrReport[ ] = $prompt;
     }
   }
 
@@ -500,7 +507,7 @@ TCEMAIN {
   private function sqlUpdatePages( $records, $pageTitle )
   {
     $table = 'pages';
-    
+
     foreach( $records as $uid => $record )
     {
       $where      = 'uid = ' . $uid;
@@ -509,7 +516,7 @@ TCEMAIN {
 
       var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
-      
+
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
       $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
       $prompt = '
@@ -517,7 +524,7 @@ TCEMAIN {
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_page' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-      $this->pObj->arrReport[ ] = $prompt; 
+      $this->pObj->arrReport[ ] = $prompt;
     }
   }
 
@@ -534,7 +541,7 @@ TCEMAIN {
   private function sqlUpdateTyposcript( $records, $pageTitle )
   {
     $table = 'sys_template';
-    
+
     foreach( $records as $uid => $record )
     {
       $where      = 'uid = ' . $uid;
@@ -544,7 +551,7 @@ TCEMAIN {
 
       var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
-      
+
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
       $this->pObj->markerArray['###TITLE###']     = '"' . $record['header'] . '"';
       $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
@@ -553,7 +560,7 @@ TCEMAIN {
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_content' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-      $this->pObj->arrReport[ ] = $prompt; 
+      $this->pObj->arrReport[ ] = $prompt;
     }
   }
 
@@ -568,9 +575,9 @@ TCEMAIN {
   private function sqlUpdateTyposcriptOtherHide( )
   {
     $pageTitle = $GLOBALS['TSFE']->page['title'];
-    
+
     $table = 'sys_template';
-    
+
     $record = array( 'hidden' => 1 );
 
     $uid    = $this->arr_tsUids[ $this->str_tsRoot ];
@@ -586,9 +593,9 @@ TCEMAIN {
         ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'consolidate_prompt_template' ) . '
       </p>';
     $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-    $this->pObj->arrReport[ ] = $prompt; 
+    $this->pObj->arrReport[ ] = $prompt;
   }
-  
+
 }
 
 

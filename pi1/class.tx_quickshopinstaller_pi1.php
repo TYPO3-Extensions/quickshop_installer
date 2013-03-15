@@ -26,55 +26,56 @@
  *
  *
  *
- *   94: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *   95: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  152:     public function main( $content, $conf)
+ *  153:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  232:     private function confirmation()
+ *  233:     private function confirmation()
  *
  *              SECTION: Create
- *  307:     private function create( )
- *  331:     private function createBeGroup()
- *  440:     private function createContent( )
- *  454:     private function createFilesShop()
- *  511:     private function createPages( )
- *  528:     private function createPlugins( )
+ *  308:     private function create( )
+ *  332:     private function createBeGroup()
+ *  441:     private function createContent( )
+ *  455:     private function createFilesShop()
+ *  512:     private function createPages( )
+ *  529:     private function createPlugins( )
  *
  *              SECTION: Create records
- *  553:     private function createRecordsPowermail( )
- *  570:     private function createRecordsQuickshop( )
- *  587:     private function createTyposcript( )
+ *  554:     private function createRecordsPowermail( )
+ *  571:     private function createRecordsQuickshop( )
+ *  588:     private function createTyposcript( )
  *
  *              SECTION: Consolidate
- *  609:     private function consolidatePageCurrent()
- *  832:     private function consolidatePluginPowermail()
- *  909:     private function consolidateTsWtCart()
+ *  613:     private function consolidate( )
+ *  627:     private function consolidatePageCurrent()
+ *  850:     private function consolidatePluginPowermail()
+ *  927:     private function consolidateTsWtCart()
  *
  *              SECTION: Extensions
- * 1051:     private function extensionCheck( )
- * 1116:     private function extensionCheckCaseBaseTemplate( )
- * 1155:     private function extensionCheckExtension( $key, $title )
+ * 1069:     private function extensionCheck( )
+ * 1134:     private function extensionCheckCaseBaseTemplate( )
+ * 1173:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- * 1196:     private function htmlReport( )
+ * 1214:     private function htmlReport( )
  *
  *              SECTION: Init
- * 1253:     private function initBoolTopLevel( )
- * 1294:     private function install( )
- * 1335:     private function installNothing( )
+ * 1271:     private function initBoolTopLevel( )
+ * 1312:     private function install( )
+ * 1352:     private function installNothing( )
  *
  *              SECTION: Prompt
- * 1361:     private function promptCleanUp()
+ * 1381:     private function promptCleanUp( )
  *
  *              SECTION: ZZ
- * 1410:     private function zz_getCHash($str_params)
- * 1424:     public function zz_getMaxDbUid( $table )
- * 1451:     private function zz_getPathToIcons()
- * 1465:     private function zz_getFlexValues()
+ * 1422:     private function zz_getCHash($str_params)
+ * 1436:     public function zz_getMaxDbUid( $table )
+ * 1463:     private function zz_getPathToIcons()
+ * 1477:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 26
+ * TOTAL FUNCTIONS: 27
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -1370,12 +1371,12 @@ plugin.powermail {
   **********************************************/
 
 /**
- * promptCleanUp( ) : 
+ * promptCleanUp( ) :
  *
  * @return	void
-  * @access private
-  * @version    3.0.0
-  * @since      1.0.0
+ * @access private
+ * @version    3.0.0
+ * @since      1.0.0
  */
   private function promptCleanUp( )
   {
