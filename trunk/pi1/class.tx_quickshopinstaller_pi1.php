@@ -26,7 +26,7 @@
  *
  *
  *
- *   95: class tx_qsinstaller_pi1 extends tslib_pibase
+ *   95: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
  *  153:     public function main( $content, $conf)
@@ -440,8 +440,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createContent( )
   {
-    require_once( 'class.tx_qsinstaller_pi1_content.php' );
-    $this->content        = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_content' );
+    require_once( 'class.tx_quickshopinstaller_pi1_content.php' );
+    $this->content        = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_content' );
     $this->content->pObj  = $this;
 
     $this->content->main( );
@@ -511,8 +511,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPages( )
   {
-    require_once( 'class.tx_qsinstaller_pi1_pages.php' );
-    $this->pages        = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_pages' );
+    require_once( 'class.tx_quickshopinstaller_pi1_pages.php' );
+    $this->pages        = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_pages' );
     $this->pages->pObj  = $this;
 
     $this->pages->main( );
@@ -528,8 +528,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPlugins( )
   {
-    require_once( 'class.tx_qsinstaller_pi1_plugins.php' );
-    $this->plugins       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_plugins' );
+    require_once( 'class.tx_quickshopinstaller_pi1_plugins.php' );
+    $this->plugins       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_plugins' );
     $this->plugins->pObj = $this;
 
     $this->plugins->main( );
@@ -553,8 +553,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createRecordsPowermail( )
   {
-    require_once( 'class.tx_qsinstaller_pi1_powermail.php' );
-    $this->powermail       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_powermail' );
+    require_once( 'class.tx_quickshopinstaller_pi1_powermail.php' );
+    $this->powermail       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_powermail' );
     $this->powermail->pObj = $this;
 
     $this->powermail->main( );
@@ -570,8 +570,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createRecordsQuickshop( )
   {
-    require_once( 'class.tx_qsinstaller_pi1_quickshop.php' );
-    $this->quickshop       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_quickshop' );
+    require_once( 'class.tx_quickshopinstaller_pi1_quickshop.php' );
+    $this->quickshop       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_quickshop' );
     $this->quickshop->pObj = $this;
 
     $this->quickshop->main( );
@@ -587,8 +587,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createTyposcript( )
   {
-    require_once( 'class.tx_qsinstaller_pi1_typoscript.php' );
-    $this->typoscript       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_typoscript' );
+    require_once( 'class.tx_quickshopinstaller_pi1_typoscript.php' );
+    $this->typoscript       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_typoscript' );
     $this->typoscript->pObj = $this;
 
     $this->typoscript->main( );
@@ -612,8 +612,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function consolidate( )
   {
-    require_once( 'class.tx_qsinstaller_pi1_consolidate.php' );
-    $this->consolidate       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_consolidate' );
+    require_once( 'class.tx_quickshopinstaller_pi1_consolidate.php' );
+    $this->consolidate       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_consolidate' );
     $this->consolidate->pObj = $this;
 
     $this->consolidate->main( );

@@ -2,7 +2,7 @@
 <T3locallang>
   <meta type="array">
     <type>module</type>
-    <description>Language labels for plugin tx_qsinstaller_pi1</description>
+    <description>Language labels for plugin tx_quickshopinstaller_pi1</description>
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
