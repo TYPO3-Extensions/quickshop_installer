@@ -283,7 +283,7 @@
           </li>
         </ul>
         <p>
-          Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst.
+          Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###
         </p>
       ]]></label>
       <label index="plugin_warn">Willst Du den Quick Shop Installer wirklich nicht benutzen?</label>

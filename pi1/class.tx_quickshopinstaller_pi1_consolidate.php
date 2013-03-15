@@ -191,12 +191,12 @@ class tx_quickshopinstaller_pi1_consolidate
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameBilling' ] .
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ] .
                     '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressBilling' ] .
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_streetBilling' ] .
                     '</value>
                 </field>
                 <field index="zip">
@@ -206,7 +206,7 @@ class tx_quickshopinstaller_pi1_consolidate
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityBilling' ] .
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_locationBilling' ] .
                     '</value>
                 </field>
                 <field index="country">
@@ -230,12 +230,12 @@ class tx_quickshopinstaller_pi1_consolidate
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_lastnameDelivery' ] .
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameDelivery' ] .
                     '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_addressDelivery' ] .
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_streetDelivery' ] .
                     '</value>
                 </field>
                 <field index="zip">
@@ -245,7 +245,7 @@ class tx_quickshopinstaller_pi1_consolidate
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_cityDelivery' ] .
+                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_locationDelivery' ] .
                     '</value>
                 </field>
                 <field index="country">
