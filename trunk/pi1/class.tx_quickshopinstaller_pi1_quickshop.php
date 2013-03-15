@@ -103,11 +103,6 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $records = array( );
 
-    $this->pObj->arrReport[ ] = '
-      <h2>
-       ' . $this->pObj->pi_getLL( 'record_create_header' ) . '
-      </h2>';
-
     $records = $this->categories( );
     $this->sqlInsert( $records, 'tx_quickshop_categories' );
 
