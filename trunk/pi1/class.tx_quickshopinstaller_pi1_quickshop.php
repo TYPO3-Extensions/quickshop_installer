@@ -32,34 +32,34 @@
  *  102:     public function main( )
  *
  *              SECTION: Categories
- *  138:     private function categoryBook( $uid )
- *  164:     private function categoryClothes( $uid )
- *  190:     private function categoryCup( $uid )
- *  215:     private function categories( )
+ *  132:     private function categories( )
+ *  161:     private function categoryBook( $uid )
+ *  188:     private function categoryClothes( $uid )
+ *  215:     private function categoryCup( $uid )
  *
  *              SECTION: Records
- *  252:     private function recordBasecapBlue( $uid )
- *  297:     private function recordBasecapGreen( $uid )
- *  342:     private function recordBasecapRed( $uid )
- *  387:     private function recordBook( $uid )
- *  432:     private function recordCup( $uid )
- *  477:     private function recordPullover( $uid )
- *  521:     private function records( )
+ *  250:     private function recordBasecapBlue( $uid )
+ *  298:     private function recordBasecapGreen( $uid )
+ *  346:     private function recordBasecapRed( $uid )
+ *  394:     private function recordBook( $uid )
+ *  442:     private function recordCup( $uid )
+ *  490:     private function recordPullover( $uid )
+ *  537:     private function records( )
  *
  *              SECTION: Relations
- *  570:     private function relationBasecapBlue( $sorting )
- *  590:     private function relationBasecapGreen( $sorting )
- *  610:     private function relationBasecapRed( $sorting )
- *  630:     private function relationBook( $sorting )
- *  650:     private function relationCup( $sorting )
- *  670:     private function relationPullover( $sorting )
- *  689:     private function relations( )
+ *  586:     private function relationBasecapBlue( $sorting )
+ *  606:     private function relationBasecapGreen( $sorting )
+ *  626:     private function relationBasecapRed( $sorting )
+ *  646:     private function relationBook( $sorting )
+ *  666:     private function relationCup( $sorting )
+ *  686:     private function relationPullover( $sorting )
+ *  705:     private function relations( )
  *
  *              SECTION: Sql
- *  739:     private function sqlInsert( $records, $table )
+ *  755:     private function sqlInsert( $records, $table )
  *
  *              SECTION: ZZ
- *  775:     private function zz_counter( $uid )
+ *  791:     private function zz_counter( $uid )
  *
  * TOTAL FUNCTIONS: 21
  * (This index is automatically created/updated by the extension "extdeveval")
