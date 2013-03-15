@@ -26,7 +26,7 @@
  *
  *
  *
- *   69: class tx_quickshopinstaller_pi1_pages
+ *   69: class tx_qsinstaller_pi1_pages
  *
  *              SECTION: Main
  *   93:     public function main( )
@@ -66,10 +66,10 @@
  * @version 3.0.0
  * @since 3.0.0
  */
-class tx_quickshopinstaller_pi1_pages
+class tx_qsinstaller_pi1_pages
 {
-  public $prefixId      = 'tx_quickshopinstaller_pi1_pages';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_pages.php';  // Path to this script relative to the extension dir.
+  public $prefixId      = 'tx_qsinstaller_pi1_pages';                // Same as class name
+  public $scriptRelPath = 'pi1/class.tx_qsinstaller_pi1_pages.php';  // Path to this script relative to the extension dir.
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
@@ -716,7 +716,7 @@ TCEMAIN {
 
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_pages.php'])
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1_pages.php'])
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_pages.php']);
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1_pages.php']);
 }

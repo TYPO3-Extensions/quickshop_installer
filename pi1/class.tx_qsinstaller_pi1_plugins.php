@@ -26,7 +26,7 @@
  *
  *
  *
- *   57: class tx_quickshopinstaller_pi1_plugins
+ *   57: class tx_qsinstaller_pi1_plugins
  *
  *              SECTION: Main
  *   81:     public function main( )
@@ -54,10 +54,10 @@
  * @version 3.0.0
  * @since 3.0.0
  */
-class tx_quickshopinstaller_pi1_plugins
+class tx_qsinstaller_pi1_plugins
 {
-  public $prefixId      = 'tx_quickshopinstaller_pi1_plugins';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_plugins.php';  // Path to this script relative to the extension dir.
+  public $prefixId      = 'tx_qsinstaller_pi1_plugins';                // Same as class name
+  public $scriptRelPath = 'pi1/class.tx_qsinstaller_pi1_plugins.php';  // Path to this script relative to the extension dir.
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
@@ -238,7 +238,7 @@ class tx_quickshopinstaller_pi1_plugins
     $this->pObj->arr_pluginUids['plugin_wtcart_header'] = $uid;
 
     $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[ 'page_title_caddy ' ];
+    $record['pid']           = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
     $record['tstamp']        = $timestamp;
     $record['crdate']        = $timestamp;
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
@@ -351,7 +351,7 @@ class tx_quickshopinstaller_pi1_plugins
   {
     foreach( $records as $record )
     {
-      var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
+      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tt_content', $record );
       $marker['###HEADER###']     = $record['header'];
       $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
@@ -368,7 +368,7 @@ class tx_quickshopinstaller_pi1_plugins
 
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_plugins.php'])
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1_plugins.php'])
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1_plugins.php']);
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1_plugins.php']);
 }
