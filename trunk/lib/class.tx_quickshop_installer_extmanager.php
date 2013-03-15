@@ -38,10 +38,15 @@
  *
  *
  *
- *   49: class tx_quickshop_installer_extmanager
- *   67:     function promptQuickstart()
+ *   53: class tx_quickshop_installer_extmanager
+ *   74:     function initialPage()
+ *  252:     private function add_installerPage()
+ *  281:     private function add_installerPlugin()
+ *  313:     private function add_installerTS()
+ *  360:     private function get_installerPages()
+ *  395:     private function get_maxUid($from_table)
  *
- * TOTAL FUNCTIONS: 2
+ * TOTAL FUNCTIONS: 6
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -62,7 +67,7 @@ class tx_quickshop_installer_extmanager
  *                If the user enabled the adding of the installer page,
  *                the installer page will be added in the database.
  *
- * @return  string    message wrapped in HTML
+ * @return	string		message wrapped in HTML
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -168,7 +173,7 @@ class tx_quickshop_installer_extmanager
       //
       // Language configuration
 
-    switch($llStatic) 
+    switch($llStatic)
     {
       case($llStatic == 'German'):
         $this->str_llStatic = 'de';
@@ -193,7 +198,7 @@ class tx_quickshop_installer_extmanager
 
       /////////////////////////////////////////////////////////
       //
-      // RETURN page was added succesfully 
+      // RETURN page was added succesfully
 
     $arr_installerPages = $this->get_installerPages();
     if(!empty($arr_installerPages))
@@ -210,13 +215,13 @@ class tx_quickshop_installer_extmanager
       $str_prompt = str_replace('###TITLE_UID###', $str_installerPages, $str_prompt);
       return $str_prompt;
     }
-      // RETURN page was added succesfully 
+      // RETURN page was added succesfully
 
 
 
       /////////////////////////////////////////////////////////
       //
-      // RETURN with an error 
+      // RETURN with an error
 
     $str_prompt = $str_prompt.'
       <div class="typo3-message message-error">
@@ -226,7 +231,7 @@ class tx_quickshop_installer_extmanager
       </div>
     ';
     return $str_prompt;
-      // RETURN with an error 
+      // RETURN with an error
   }
 
 
@@ -240,7 +245,7 @@ class tx_quickshop_installer_extmanager
   /**
  * add_installerPage(): Add a page with module 'quickshop_inst' to the root level
  *
- * @return  void
+ * @return	void
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -269,7 +274,7 @@ class tx_quickshop_installer_extmanager
   /**
  * add_installerPlugin(): Add the plugin
  *
- * @return  void
+ * @return	void
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -278,7 +283,7 @@ class tx_quickshop_installer_extmanager
     $table      = 'tt_content';
     $int_maxUid = $this->get_maxUid($table);
     $int_maxUid = $int_maxUid + 1;
-    
+
     $fields_values['uid']                 = $int_maxUid;
     $fields_values['pid']                 = $this->int_pageUid;
     $fields_values['CType']               = 'list';
@@ -301,7 +306,7 @@ class tx_quickshop_installer_extmanager
   /**
  * add_installerTS(): Add the TypoScript
  *
- * @return  void
+ * @return	void
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -310,7 +315,7 @@ class tx_quickshop_installer_extmanager
     $table      = 'sys_template';
     $int_maxUid = $this->get_maxUid($table);
     $int_maxUid = $int_maxUid + 1;
-    
+
     $fields_values['uid']                 = $int_maxUid;
     $fields_values['pid']                 = $this->int_pageUid;
     $fields_values['title']               = 'page_quickshopinstaller_' . sprintf('%03d', $int_maxUid);
@@ -348,7 +353,7 @@ page {
   /**
  * get_installerPages(): Get all pages with module = qs_inst AND not deleted
  *
- * @return  array   rows with installer pages
+ * @return	array		rows with installer pages
  * @since 1.0.0
  * @version 1.0.0
  */
@@ -382,8 +387,8 @@ page {
   /**
  * get_maxUid(): Get the max uid of the given table
  *
- * @param    string       $from_table: the table
- * @return  int   max uid
+ * @param	string		$from_table: the table
+ * @return	int		max uid
  * @since 1.0.0
  * @version 1.0.0
  */

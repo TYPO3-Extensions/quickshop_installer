@@ -26,56 +26,42 @@
  *
  *
  *
- *   92: class tx_quickshopinstaller_pi1_quickshop
+ *   78: class tx_quickshopinstaller_pi1_quickshop
  *
  *              SECTION: Main
- *  116:     public function main( )
+ *  102:     public function main( )
  *
- *              SECTION: Fields: billing address
- *  150:     private function fieldBillingaddressAddress( $uid, $sorting )
- *  180:     private function fieldBillingaddressCity( $uid, $sorting )
- *  210:     private function recordBook( $uid, $sorting )
- *  240:     private function fieldBillingaddressCountry( $uid, $sorting )
- *  270:     private function fieldBillingaddressFirstname( $uid, $sorting )
- *  314:     private function fieldBillingaddressSurname( $uid, $sorting )
- *  358:     private function fieldBillingaddressZip( $uid, $sorting )
+ *              SECTION: Categories
+ *  138:     private function categoryBook( $uid )
+ *  164:     private function categoryClothes( $uid )
+ *  190:     private function categoryCup( $uid )
+ *  215:     private function categories( )
  *
- *              SECTION: Fields: contact data
- *  396:     private function fieldContactdataEmail( $uid, $sorting )
- *  443:     private function fieldContactdataFax( $uid, $sorting )
- *  473:     private function fieldContactdataPhone( $uid, $sorting )
+ *              SECTION: Records
+ *  252:     private function recordBasecapBlue( $uid )
+ *  297:     private function recordBasecapGreen( $uid )
+ *  342:     private function recordBasecapRed( $uid )
+ *  387:     private function recordBook( $uid )
+ *  432:     private function recordCup( $uid )
+ *  477:     private function recordPullover( $uid )
+ *  521:     private function records( )
  *
- *              SECTION: Fields: delivery address
- *  511:     private function fieldDeliveryaddressAddress( $uid, $sorting )
- *  541:     private function fieldDeliveryaddressCity( $uid, $sorting )
- *  571:     private function fieldDeliveryaddressCompany( $uid, $sorting )
- *  601:     private function fieldDeliveryaddressCountry( $uid, $sorting )
- *  631:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
- *  675:     private function fieldDeliveryaddressSurname( $uid, $sorting )
- *  719:     private function fieldDeliveryaddressZip( $uid, $sorting )
- *
- *              SECTION: Fields: order
- *  757:     private function fieldOrderDelivery( $uid, $sorting )
- *  802:     private function fieldOrderNote( $uid, $sorting )
- *  850:     private function fieldOrderPayment( $uid, $sorting )
- *  894:     private function fieldOrderSubmit( $uid, $sorting )
- *  924:     private function fieldOrderTerms( $uid, $sorting )
- *  973:     private function records( )
- *
- *              SECTION: Fieldsets
- * 1079:     private function categoryBook( $uid, $sorting )
- * 1109:     private function fieldsetContactdata( $uid, $sorting )
- * 1139:     private function fieldsetDeliveryaddress( $uid, $sorting )
- * 1169:     private function fieldsetOrder( $uid, $sorting )
- * 1197:     private function categories( )
+ *              SECTION: Relations
+ *  570:     private function relationBasecapBlue( $sorting )
+ *  590:     private function relationBasecapGreen( $sorting )
+ *  610:     private function relationBasecapRed( $sorting )
+ *  630:     private function relationBook( $sorting )
+ *  650:     private function relationCup( $sorting )
+ *  670:     private function relationPullover( $sorting )
+ *  689:     private function relations( )
  *
  *              SECTION: Sql
- * 1239:     private function sqlInsert( $records, $table )
+ *  739:     private function sqlInsert( $records, $table )
  *
  *              SECTION: ZZ
- * 1275:     private function zz_counter( $uid )
+ *  775:     private function zz_counter( $uid )
  *
- * TOTAL FUNCTIONS: 31
+ * TOTAL FUNCTIONS: 21
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
