@@ -312,7 +312,7 @@ class tx_quickshopinstaller_pi1_consolidate
     $llTitle  = '+page_' . $llTitle . '_' . $strUid;
 
     list( $noreply, $domain ) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
-    $noreply                  = 'noreplay@' . $domain;
+    $noreply                  = 'noreply@' . $domain;
 
 
     $records[$uid]['title']   = $llTitle;

@@ -296,6 +296,11 @@ class tx_quickshopinstaller_pi1_plugins
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
     $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
+    
+    $emailRecipient = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###']
+                    . PHP_EOL
+                    . 'Quick Shop'
+                    ;
 
     $record['uid']                        = $uid;
     $record['pid']                        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
@@ -309,7 +314,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record['list_type']                  = '';
     $record['sectionIndex']               = 1;
     $record['tx_powermail_title']         = 'quickshop';
-    $record['tx_powermail_recipient']     = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'];
+    $record['tx_powermail_recipient']     = $emailRecipient;
     $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_r' );
     $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_s' );
 // Will updated by consolidate->pageCaddyPluginPowermail
