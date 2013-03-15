@@ -311,9 +311,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->createTyposcript();
     $this->createPlugins();
 
-    $this->pObj->arrReport[ ] = '
+    $this->arrReport[ ] = '
       <h2>
-       ' . $this->pObj->pi_getLL( 'record_create_header' ) . '
+       ' . $this->pi_getLL( 'record_create_header' ) . '
       </h2>';
 
     $this->createRecordsPowermail();
