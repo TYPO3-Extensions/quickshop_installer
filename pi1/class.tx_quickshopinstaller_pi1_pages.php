@@ -103,8 +103,8 @@ class tx_quickshopinstaller_pi1_pages
     $pageUid      = $GLOBALS['TSFE']->id;
     $pageTitle    = 'page_title_root';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
       // Set the global vars for the root page
 
       // Get the latest uid from the püages table
@@ -159,8 +159,8 @@ class tx_quickshopinstaller_pi1_pages
               'sorting'       => $sorting
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
@@ -196,8 +196,8 @@ class tx_quickshopinstaller_pi1_pages
               'sorting'       => $sorting
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
@@ -233,8 +233,8 @@ class tx_quickshopinstaller_pi1_pages
               'sorting'       => $sorting
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
@@ -284,8 +284,8 @@ TCEMAIN {
 '
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
@@ -305,8 +305,7 @@ TCEMAIN {
     $pageTitle    = 'page_title_library_footer';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
     $pidTitle     = 'page_title_library';
-    $llPidTitle   = $this->pObj->pi_getLL( $pidTitle );
-    $pid          = $this->pObj->arr_pageUids[ $llPidTitle ];
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
@@ -324,8 +323,8 @@ TCEMAIN {
               'sorting'       => $sorting
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
@@ -345,8 +344,7 @@ TCEMAIN {
     $pageTitle    = 'page_title_library_header';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
     $pidTitle     = 'page_title_library';
-    $llPidTitle   = $this->pObj->pi_getLL( $pidTitle );
-    $pid          = $this->pObj->arr_pageUids[ $llPidTitle ];
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
             (
@@ -364,8 +362,8 @@ TCEMAIN {
               'sorting'       => $sorting
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
@@ -460,8 +458,8 @@ TCEMAIN {
 '
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
@@ -498,8 +496,8 @@ TCEMAIN {
               'sorting'       => $sorting
             );
 
-    $this->pObj->arr_pageUids[ $llPageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $llPageTitle;
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
 
     return $page;
   }
