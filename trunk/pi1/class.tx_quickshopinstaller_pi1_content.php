@@ -26,21 +26,22 @@
  *
  *
  *
- *   57: class tx_quickshopinstaller_pi1_content
+ *   58: class tx_quickshopinstaller_pi1_content
  *
  *              SECTION: Main
- *   81:     public function main( )
+ *   82:     public function main( )
  *
  *              SECTION: Records
- *  111:     private function pageDelivery(( $uid )
- *  233:     private function recordCaddy( $uid )
- *  263:     private function recordPowermail( $uid )
- *  313:     private function pages( )
+ *  112:     private function pageDelivery( $uid )
+ *  142:     private function pageLibraryFooter( $uid )
+ *  172:     private function pageLibraryHeader( $uid )
+ *  207:     private function pageTerms( $uid )
+ *  236:     private function pages( )
  *
  *              SECTION: Sql
- *  350:     private function sqlInsert( $records )
+ *  282:     private function sqlInsert( $records )
  *
- * TOTAL FUNCTIONS: 6
+ * TOTAL FUNCTIONS: 7
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -249,7 +250,7 @@ class tx_quickshopinstaller_pi1_content
     {
       return $records;
     }
-    
+
       // content for page library header
     $uid = $uid + 1;
     $records[$uid] = $this->pageLibraryHeader( $uid );
