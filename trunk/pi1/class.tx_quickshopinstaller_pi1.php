@@ -429,152 +429,21 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     return false;
   }
 
-   /**
- * Shop will be installed - with or without template
+/**
+ * createContent( ) :
  *
- * @return	The		content that is displayed on the website
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
  */
-  private function createContent()
+  private function createContent( )
   {
     require_once( 'class.tx_quickshopinstaller_pi1_content.php' );
     $this->content        = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_content' );
     $this->content->pObj  = $this;
 
     $this->content->main( );
-return;
-    $arr_content = array( );
-
-    $this->arrReport[] = '
-      <h2>
-       '.$this->pi_getLL('content_create_header').'
-      </h2>';
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // General values
-
-    $timestamp       = time();
-    $table           = 'tt_content';
-    $no_quote_fields = false;
-    $uid         = $this->zz_getMaxDbUid($table);
-    // General values
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Content for page shipping
-
-    $uid = $uid +1;
-    $this->arr_contentUids[$this->pi_getLL('content_shipping_header')]  = $uid;
-
-    $arr_content[$uid]['uid']          = $uid;
-    $arr_content[$uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_shipping')];
-    $arr_content[$uid]['tstamp']       = $timestamp;
-    $arr_content[$uid]['crdate']       = $timestamp;
-    $arr_content[$uid]['cruser_id']    = $this->markerArray['###BE_USER###'];
-    $arr_content[$uid]['sorting']      = 256 * 1;
-    $arr_content[$uid]['CType']        = 'text';
-    $arr_content[$uid]['header']       = $this->pi_getLL('content_shipping_header');
-    $arr_content[$uid]['bodytext']     = $this->pi_getLL('content_shipping_bodytext');
-    $arr_content[$uid]['sectionIndex'] = 1;
-    // Content for page shipping
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Content for page terms
-
-    $uid = $uid +1;
-    $this->arr_contentUids[$this->pi_getLL('content_terms_header')]  = $uid;
-
-    $arr_content[$uid]['uid']          = $uid;
-    $arr_content[$uid]['pid']          = $this->arr_pageUids[$this->pi_getLL('page_title_terms')];
-    $arr_content[$uid]['tstamp']       = $timestamp;
-    $arr_content[$uid]['crdate']       = $timestamp;
-    $arr_content[$uid]['cruser_id']    = $this->markerArray['###BE_USER###'];
-    $arr_content[$uid]['sorting']      = 256 * 1;
-    $arr_content[$uid]['CType']        = 'text';
-    $arr_content[$uid]['header']       = $this->pi_getLL('content_terms_header');
-    $arr_content[$uid]['bodytext']     = $this->pi_getLL('content_terms_bodytext');
-    $arr_content[$uid]['sectionIndex'] = 1;
-    // Content for page terms
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Content for pages header and footer
-
-    if($this->markerArray['###INSTALL_CASE###'] == 'install_all')
-    {
-      // Content for page header
-      $int_root     = $GLOBALS['TSFE']->id;
-      //$str_bodytext = htmlspecialchars($this->pi_getLL('content_header_bodytext'));
-      $str_bodytext = $this->pi_getLL('content_header_bodytext');
-      $str_bodytext = str_replace('###PID###', $int_root, $str_bodytext);
-
-      $uid = $uid +1;
-      $this->arr_contentUids[$this->pi_getLL('content_header_header')]  = $uid;
-
-      $arr_content[$uid]['uid']           = $uid;
-      $arr_content[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_library_header')];
-      $arr_content[$uid]['tstamp']        = $timestamp;
-      $arr_content[$uid]['crdate']        = $timestamp;
-      $arr_content[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-      $arr_content[$uid]['sorting']       = 256 * 1;
-      $arr_content[$uid]['CType']         = 'text';
-      $arr_content[$uid]['header']        = $this->pi_getLL('content_header_header');
-      $arr_content[$uid]['header_layout'] = 100;  // hidden
-      $arr_content[$uid]['bodytext']      = $str_bodytext;
-      $arr_content[$uid]['sectionIndex']  = 1;
-      // Content for page header
-
-      // Content for page footer
-      $uid = $uid +1;
-      $this->arr_contentUids[$this->pi_getLL('content_footer_header')]  = $uid;
-
-      $arr_content[$uid]['uid']           = $uid;
-      $arr_content[$uid]['pid']           = $this->arr_pageUids[$this->pi_getLL('page_title_library_footer')];
-      $arr_content[$uid]['tstamp']        = $timestamp;
-      $arr_content[$uid]['crdate']        = $timestamp;
-      $arr_content[$uid]['cruser_id']     = $this->markerArray['###BE_USER###'];
-      $arr_content[$uid]['sorting']       = 256 * 1;
-      $arr_content[$uid]['CType']         = 'text';
-      $arr_content[$uid]['header']        = $this->pi_getLL('content_footer_header');
-      $arr_content[$uid]['header_layout'] = 100;  // hidden
-      $arr_content[$uid]['bodytext']      = $this->pi_getLL('content_footer_bodytext');
-      $arr_content[$uid]['sectionIndex']  = 1;
-      // Content for page footer
-    }
-    // Content for pages header and footer
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // INSERT content records
-
-    foreach($arr_content as $fields_values)
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $fields_values, $no_quote_fields));
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
-      $this->markerArray['###HEADER###']    = $fields_values['header'];
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->arr_pageTitles[$fields_values['pid']].'" (uid '.$fields_values['pid'].')';
-      $str_content_prompt = '
-        <p>
-          '.$this->arr_icons['ok'].' '.$this->pi_getLL('content_create_prompt').'
-        </p>';
-      $str_content_prompt = $this->cObj->substituteMarkerArray($str_content_prompt, $this->markerArray);
-      $this->arrReport[] = $str_content_prompt;
-    }
-    unset($arr_content);
-    // INSERT content records
-
-    return false;
   }
 
    /**
