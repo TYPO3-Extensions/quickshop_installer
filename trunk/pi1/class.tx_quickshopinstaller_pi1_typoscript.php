@@ -120,11 +120,11 @@ class tx_quickshopinstaller_pi1_typoscript
     $title = '+page_' . $title . '_' . $strUid;
 
     $this->pObj->str_tsWtCart = $title;
-    $this->pObj->arr_tsUids[$this->pObj->str_tsWtCart]   = $uid;
+    $this->pObj->arr_tsUids[$this->pObj->str_tsWtCart] = $uid;
 
     $record['title']               = $title;
     $record['uid']                 = $uid;
-    $record['pid']                 = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_caddy')];
+    $record['pid']                 = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
     $record['tstamp']              = time( );
     $record['sorting']             = 256;
     $record['crdate']              = time( );
@@ -312,15 +312,15 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 'myConst {
   //host = '.$this->pObj->markerArray['###HOST###'].'/
   pages {
-    quick_shop = ' . $this->pObj->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
+    quick_shop = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
     quick_shop {
-      cart      = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )] . '
-      shipping  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_shipping' )] . '
-      terms     = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_terms' )] . '
-      libraries = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_library' )].'
+      cart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+      shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+      terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+      libraries = ' . $this->pObj->arr_pageUids[ 'page_title_library' ] . '
       libraries {
-        header  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_library_header' )].'
-        footer  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_library_footer' )].'
+        header  = ' . $this->pObj->arr_pageUids[ 'page_title_library_header' ] . '
+        footer  = ' . $this->pObj->arr_pageUids[ 'page_title_library_footer' ] . '
       }
     }
   }
@@ -397,11 +397,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
 'myConst {
   //host = '.$this->pObj->markerArray['###HOST###'].'/
   pages {
-    quick_shop = ' . $this->pObj->arr_pageUids[$GLOBALS['TSFE']->page['title']] . '
+    quick_shop = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
     quick_shop {
-      cart      = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )] . '
-      shipping  = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_shipping' )] . '
-      terms     = ' . $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_terms' )] . '
+      cart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+      shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+      terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
     }
   }
   dims {

@@ -114,10 +114,10 @@ class tx_quickshopinstaller_pi1_content
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'content_shipping_header' );
-    $this->pObj->arr_contentUids[$llHeader] = $uid;
+    $this->pObj->arr_contentUids['content_shipping_header'] = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_shipping' )];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_shipping' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -144,10 +144,10 @@ class tx_quickshopinstaller_pi1_content
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'content_footer_header' );
-    $this->pObj->arr_contentUids[$llHeader]  = $uid;
+    $this->pObj->arr_contentUids['content_footer_header']  = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_library_footer')];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_library_footer' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -179,10 +179,10 @@ class tx_quickshopinstaller_pi1_content
     $bodytext = str_replace('###PID###', $pid, $bodytext);
 
     $llHeader = $this->pObj->pi_getLL( 'content_header_header' );
-    $this->pObj->arr_contentUids[$llHeader]  = $uid;
+    $this->pObj->arr_contentUids['content_header_header']  = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_library_header')];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_library_header' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -209,10 +209,10 @@ class tx_quickshopinstaller_pi1_content
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'content_terms_header' );
-    $this->pObj->arr_contentUids[$llHeader]  = $uid;
+    $this->pObj->arr_contentUids['content_terms_header']  = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_terms')];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_terms' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];

@@ -122,84 +122,6 @@ class tx_quickshopinstaller_pi1_quickshop
   **********************************************/
 
 /**
- * categoryBook( )
- *
- * @param	integer		$uid      : uid of the current fieldset
- * @return	array		$record   : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function categoryBook( $uid )
-  {
-    $record = null;
-
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_cat_title_books' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
-
-    $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
-    $record['tstamp']     = time( );
-    $record['crdate']     = time( );
-    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llTitle;
-
-    return $record;
-  }
-
-/**
- * categoryClothes( )
- *
- * @param	integer		$uid      : uid of the current fieldset
- * @return	array		$record   : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function categoryClothes( $uid )
-  {
-    $record = null;
-
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_cat_title_clothes' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
-
-    $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
-    $record['tstamp']     = time( );
-    $record['crdate']     = time( );
-    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llTitle;
-
-    return $record;
-  }
-
-/**
- * categoryCup( )
- *
- * @param	integer		$uid      : uid of the current fieldset
- * @return	array		$record   : the plugin record
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function categoryCup( $uid )
-  {
-    $record = null;
-
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_cat_title_cups' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
-
-    $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
-    $record['tstamp']     = time( );
-    $record['crdate']     = time( );
-    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
-    $record['title']      = $llTitle;
-
-    return $record;
-  }
-
-/**
  * categories( )
  *
  * @return	array		$records : the fieldset records
@@ -227,6 +149,87 @@ class tx_quickshopinstaller_pi1_quickshop
     return $records;
   }
 
+/**
+ * categoryBook( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryBook( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_qs_cat_title_books';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+
+/**
+ * categoryClothes( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryClothes( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_qs_cat_title_clothes';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+
+/**
+ * categoryCup( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryCup( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_qs_cat_title_cups';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+
+    return $record;
+  }
+
 
 
  /***********************************************
@@ -248,15 +251,17 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_capBlue' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
+    $llLabel = 'record_qs_prod_title_capBlue';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_capBlue' );
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[$llImage] = $str_image;
+    $llLabel = 'record_qs_prod_image_capBlue';
+    $llImage = $this->pObj->pi_getLL( $llLabel );
+    $llImage = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llLabel ] = $llImage;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -268,7 +273,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capBlue');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capBlue');
     $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capBlue');
-    $record['image']        = $str_image;
+    $record['image']        = $llImage;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capBlue');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capBlue');
     $record['imagewidth']   = '600';
@@ -294,15 +299,17 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_capGreen' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
+    $llLabel = 'record_qs_prod_title_capGreen';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_capGreen' );
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[$llImage] = $str_image;
+    $llLabel = 'record_qs_prod_image_capGreen';
+    $llImage = $this->pObj->pi_getLL( $llLabel );
+    $llImage = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llLabel ] = $llImage;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -314,7 +321,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capGreen');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capGreen');
     $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capGreen');
-    $record['image']        = $str_image;
+    $record['image']        = $llImage;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capGreen');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capGreen');
     $record['imagewidth']   = '200';
@@ -340,15 +347,17 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_capRed' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
+    $llLabel = 'record_qs_prod_title_capRed';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_capRed' );
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[$llImage] = $str_image;
+    $llLabel = 'record_qs_prod_image_capRed';
+    $llImage = $this->pObj->pi_getLL( $llLabel );
+    $llImage = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llLabel ] = $llImage;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -360,7 +369,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capRed');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capRed');
     $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capRed');
-    $record['image']        = $str_image;
+    $record['image']        = $llImage;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capRed');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capRed');
     $record['imagewidth']   = '200';
@@ -386,15 +395,17 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_book' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
+    $llLabel = 'record_qs_prod_title_book';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_book' );
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[$llImage] = $str_image;
+    $llLabel = 'record_qs_prod_image_book';
+    $llImage = $this->pObj->pi_getLL( $llLabel );
+    $llImage = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llLabel ] = $llImage;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -406,7 +417,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_book');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_book');
     $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_book');
-    $record['image']        = $str_image;
+    $record['image']        = $llImage;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_book');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_book');
     $record['imagewidth']   = '140';
@@ -432,15 +443,17 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_cup' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
+    $llLabel = 'record_qs_prod_title_cup';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_cup' );
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[$llImage] = $str_image;
+    $llLabel = 'record_qs_prod_image_cup';
+    $llImage = $this->pObj->pi_getLL( $llLabel );
+    $llImage = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llLabel ] = $llImage;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -452,7 +465,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_cup');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_cup');
     $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_cup');
-    $record['image']        = $str_image;
+    $record['image']        = $llImage;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_cup');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_cup');
     $record['imagewidth']   = '200';
@@ -478,15 +491,17 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_qs_prod_title_pullover' );
-    $this->pObj->arr_recordUids[$llTitle]  = $uid;
+    $llLabel = 'record_qs_prod_title_pullover';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
-    $llImage = $this->pObj->pi_getLL( 'record_qs_prod_image_pullover' );
-    $str_image = str_replace( '###TIMESTAMP###', time( ), $llImage );
-    $this->pObj->arr_fileUids[$llImage] = $str_image;
+    $llLabel = 'record_qs_prod_image_pullover';
+    $llImage = $this->pObj->pi_getLL( $llLabel );
+    $llImage = str_replace( '###TIMESTAMP###', time( ), $llImage );
+    $this->pObj->arr_fileUids[ $llLabel ] = $llImage;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -498,7 +513,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_pullover');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_pullover');
     $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_pullover');
-    $record['image']        = $str_image;
+    $record['image']        = $llImage;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_pullover');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_pullover');
     $record['imagewidth']   = '200';
@@ -572,8 +587,8 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $record['uid_local']   = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_prod_title_capBlue')];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_cat_title_clothes')];
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capBlue' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
     $record['sorting']     = $sorting;
 
     return $record;
@@ -592,8 +607,8 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $record['uid_local']   = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_prod_title_capGreen')];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_cat_title_clothes')];
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capGreen' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
     $record['sorting']     = $sorting;
 
     return $record;
@@ -612,8 +627,8 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $record['uid_local']   = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_prod_title_capRed')];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_cat_title_clothes')];
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capRed' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
     $record['sorting']     = $sorting;
 
     return $record;
@@ -632,8 +647,8 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $record['uid_local']   = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_prod_title_book')];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_cat_title_books')];
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_book' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_books' ];
     $record['sorting']     = $sorting;
 
     return $record;
@@ -652,8 +667,8 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $record['uid_local']   = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_prod_title_cup')];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_cat_title_cups')];
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_cup' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_cups' ];
     $record['sorting']     = $sorting;
 
     return $record;
@@ -672,8 +687,8 @@ class tx_quickshopinstaller_pi1_quickshop
   {
     $record = null;
 
-    $record['uid_local']   = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_prod_title_pullover')];
-    $record['uid_foreign'] = $this->pObj->arr_recordUids[$this->pObj->pi_getLL('record_qs_cat_title_clothes')];
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_pullover' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
     $record['sorting']     = $sorting;
 
     return $record;

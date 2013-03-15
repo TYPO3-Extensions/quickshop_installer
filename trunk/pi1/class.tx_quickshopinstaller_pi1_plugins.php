@@ -113,7 +113,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_browser_header' );
-    $this->pObj->arr_pluginUids[$llHeader] = $uid;
+    $this->pObj->arr_pluginUids['plugin_browser_header'] = $uid;
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
@@ -123,7 +123,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record['sorting']       = 128;
     $record['CType']         = 'list';
     $record['header']        = $llHeader;
-    $record['pages']         = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_products' )];
+    $record['pages']         = $this->pObj->arr_pageUids[ 'page_title_products' ];
     $record['header_layout'] = 100;  // hidden
     $record['list_type']     = 'browser_pi1';
     $record['sectionIndex']  = 1;
@@ -235,10 +235,10 @@ class tx_quickshopinstaller_pi1_plugins
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_wtcart_header' );
-    $this->pObj->arr_pluginUids[$llHeader] = $uid;
+    $this->pObj->arr_pluginUids['plugin_wtcart_header'] = $uid;
 
     $record['uid']           = $uid;
-    $record['pid']           = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy ')];
+    $record['pid']           = $this->pObj->arr_pageUids[ 'page_title_caddy ' ];
     $record['tstamp']        = $timestamp;
     $record['crdate']        = $timestamp;
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
@@ -265,10 +265,10 @@ class tx_quickshopinstaller_pi1_plugins
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
-    $this->pObj->arr_pluginUids[$llHeader] = $uid;
+    $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[$this->pObj->pi_getLL( 'page_title_caddy' )];
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
     $record['tstamp']                     = $timestamp;
     $record['crdate']                     = $timestamp;
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];

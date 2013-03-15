@@ -845,7 +845,7 @@ TCEMAIN {
 
     $timestamp       = time();
     $table           = 'tt_content';
-    $uid         = $this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')];
+    $uid         = $this->arr_pluginUids[ 'plugin_powermail_header' ];
     $where           = 'uid = '.$uid;
     $no_quote_fields = false;
     // General Values
@@ -856,11 +856,11 @@ TCEMAIN {
     // UPDATE sender and sendername
 
     $str_sender     = ''.
-      'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_email')];
+      'uid'.$this->arr_recordUids[ 'record_pm_field_title_email' ];
     $str_sendername = ''.
-      'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_firstnameBilling')].
+      'uid'.$this->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ].
       ','.
-      'uid'.$this->arr_recordUids[$this->pi_getLL('record_pm_field_title_surnameBilling')];
+      'uid'.$this->arr_recordUids[ 'record_pm_field_title_surnameBilling' ];
 
     $arr_plugin[$uid]['tstamp']                  = $timestamp;
     $arr_plugin[$uid]['tx_powermail_sender']     = $str_sender;
@@ -873,7 +873,7 @@ TCEMAIN {
       // Message
       $this->markerArray['###FIELD###']     = '"tx_powermail_sender, tx_powermail_sendername"';
       $this->markerArray['###TITLE###']     = '"'.$this->pi_getLL('plugin_powermail_header').'"';
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_caddy').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_caddy')].')';
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_caddy').'" (uid '.$this->arr_pageUids[ 'page_title_caddy' ].')';
       $str_consolidate_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content').'
@@ -962,7 +962,7 @@ plugin.wtcart {
     sku   = sku
   }
   powermailContent {
-    uid = '.$this->arr_pluginUids[$this->pi_getLL('plugin_powermail_header')].'
+    uid = '.$this->arr_pluginUids[ 'plugin_powermail_header' ].'
   }
   debug = 0
 }
@@ -1015,7 +1015,7 @@ plugin.powermail {
       // Message
       $this->markerArray['###FIELD###']     = '"constants"';
       $this->markerArray['###TITLE###']     = '"'.$this->str_tsWtCart.'"';
-      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_caddy').'" (uid '.$this->arr_pageUids[$this->pi_getLL('page_title_caddy')].')';
+      $this->markerArray['###TITLE_PID###'] = '"'.$this->pi_getLL('page_title_caddy').'" (uid '.$this->arr_pageUids[ 'page_title_caddy' ].')';
       $str_consolidate_prompt = '
         <p>
           '.$this->arr_icons['ok'].' '.$this->pi_getLL('consolidate_prompt_content').'
