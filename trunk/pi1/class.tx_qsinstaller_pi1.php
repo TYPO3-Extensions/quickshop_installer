@@ -26,7 +26,7 @@
  *
  *
  *
- *   95: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *   95: class tx_qsinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
  *  153:     public function main( $content, $conf)
@@ -92,10 +92,10 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @version 3.0.0
  * @since 1.0.0
  */
-class tx_quickshopinstaller_pi1 extends tslib_pibase
+class tx_qsinstaller_pi1 extends tslib_pibase
 {
-  public $prefixId      = 'tx_quickshopinstaller_pi1';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1.php';  // Path to this script relative to the extension dir.
+  public $prefixId      = 'tx_qsinstaller_pi1';                // Same as class name
+  public $scriptRelPath = 'pi1/class.tx_qsinstaller_pi1.php';  // Path to this script relative to the extension dir.
   public $extKey        = 'quickshop_installer';                      // The extension key.
   public $pi_checkCHash = true;
 
@@ -186,7 +186,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       default:
         $this->arrReport[ ] = '
           <p>
-            switch in tx_quickshopinstaller_pi1::main has an undefined value: ' .
+            switch in tx_qsinstaller_pi1::main has an undefined value: ' .
             $this->markerArray['###INSTALL_CASE###'].'
           </p>';
         $this->bool_error = true;
@@ -245,7 +245,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->zz_getCHash('&tx_quickshopinstaller_pi1[confirm]=1');
+    $cHash_calc = $this->zz_getCHash('&tx_qsinstaller_pi1[confirm]=1');
 
     // Confirmation form
     $this->arrReport[] = '
@@ -277,7 +277,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               '.$this->pi_getLL('confirm_header').'
             </legend>
-            <input type="hidden" name="tx_quickshopinstaller_pi1[confirm]" value="1" />
+            <input type="hidden" name="tx_qsinstaller_pi1[confirm]" value="1" />
             <input type="hidden" name="cHash"                              value="'.$cHash_calc.'" />
             <input type="submit" name="submit" value=" '.$this->pi_getLL('confirm_button').' " />
           </fieldset>
@@ -440,8 +440,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createContent( )
   {
-    require_once( 'class.tx_quickshopinstaller_pi1_content.php' );
-    $this->content        = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_content' );
+    require_once( 'class.tx_qsinstaller_pi1_content.php' );
+    $this->content        = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_content' );
     $this->content->pObj  = $this;
 
     $this->content->main( );
@@ -511,8 +511,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPages( )
   {
-    require_once( 'class.tx_quickshopinstaller_pi1_pages.php' );
-    $this->pages        = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_pages' );
+    require_once( 'class.tx_qsinstaller_pi1_pages.php' );
+    $this->pages        = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_pages' );
     $this->pages->pObj  = $this;
 
     $this->pages->main( );
@@ -528,8 +528,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createPlugins( )
   {
-    require_once( 'class.tx_quickshopinstaller_pi1_plugins.php' );
-    $this->plugins       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_plugins' );
+    require_once( 'class.tx_qsinstaller_pi1_plugins.php' );
+    $this->plugins       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_plugins' );
     $this->plugins->pObj = $this;
 
     $this->plugins->main( );
@@ -553,8 +553,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createRecordsPowermail( )
   {
-    require_once( 'class.tx_quickshopinstaller_pi1_powermail.php' );
-    $this->powermail       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_powermail' );
+    require_once( 'class.tx_qsinstaller_pi1_powermail.php' );
+    $this->powermail       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_powermail' );
     $this->powermail->pObj = $this;
 
     $this->powermail->main( );
@@ -570,8 +570,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createRecordsQuickshop( )
   {
-    require_once( 'class.tx_quickshopinstaller_pi1_quickshop.php' );
-    $this->quickshop       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_quickshop' );
+    require_once( 'class.tx_qsinstaller_pi1_quickshop.php' );
+    $this->quickshop       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_quickshop' );
     $this->quickshop->pObj = $this;
 
     $this->quickshop->main( );
@@ -587,8 +587,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createTyposcript( )
   {
-    require_once( 'class.tx_quickshopinstaller_pi1_typoscript.php' );
-    $this->typoscript       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_typoscript' );
+    require_once( 'class.tx_qsinstaller_pi1_typoscript.php' );
+    $this->typoscript       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_typoscript' );
     $this->typoscript->pObj = $this;
 
     $this->typoscript->main( );
@@ -612,8 +612,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function consolidate( )
   {
-    require_once( 'class.tx_quickshopinstaller_pi1_consolidate.php' );
-    $this->consolidate       = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_consolidate' );
+    require_once( 'class.tx_qsinstaller_pi1_consolidate.php' );
+    $this->consolidate       = t3lib_div::makeInstance( 'tx_qsinstaller_pi1_consolidate' );
     $this->consolidate->pObj = $this;
 
     $this->consolidate->main( );
@@ -1535,7 +1535,7 @@ plugin.powermail {
 
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1.php'])
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1.php'])
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1.php']);
+  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_qsinstaller_pi1.php']);
 }

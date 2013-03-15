@@ -10,14 +10,14 @@
   Bugfix
   * #42526: Empty page, if installer plugin was never saved
             Effected file:
-            pi1/class.tx_quickshopinstaller_pi1.php
+            pi1/class.tx_qsinstaller_pi1.php
 
 2.1.1
   2012-06-13
   Improvement
   * 00000: Update for Powermail
            Effected file:
-           class.tx_quickshopinstaller_pi1.php
+           class.tx_qsinstaller_pi1.php
            * Powermail static template default and css basic will included
   * 00000: Missing recipient in powermail form
            ###MAIL_DEFAULT_SENDER### -> ###MAIL_DEFAULT_RECIPIENT###
@@ -28,7 +28,7 @@
   Improvement
   * 00000: Update for Browser version 3.7.9 (record browser)
            Effected file:
-           class.tx_quickshopinstaller_pi1.php
+           class.tx_qsinstaller_pi1.php
            * createPlugins
            * createTyposcript
   
