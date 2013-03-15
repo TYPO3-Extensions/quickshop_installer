@@ -146,16 +146,17 @@ class tx_quickshopinstaller_pi1_content
     $llHeader = $this->pObj->pi_getLL( 'content_footer_header' );
     $this->pObj->arr_contentUids['content_footer_header']  = $uid;
 
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_library_footer' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256 * 1;
-    $record['CType']        = 'text';
-    $record['header']       = $llHeader;
-    $record['bodytext']     = $this->pObj->pi_getLL('content_footer_bodytext');
-    $record['sectionIndex'] = 1;
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'page_title_library_footer' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'text';
+    $record['header']         = $llHeader;
+    $record['header_layout']  = 100; // hidden
+    $record['bodytext']       = $this->pObj->pi_getLL('content_footer_bodytext');
+    $record['sectionIndex']   = 1;
 
     return $record;
   }
@@ -181,16 +182,17 @@ class tx_quickshopinstaller_pi1_content
     $llHeader = $this->pObj->pi_getLL( 'content_header_header' );
     $this->pObj->arr_contentUids['content_header_header']  = $uid;
 
-    $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_library_header' ];
-    $record['tstamp']       = time( );
-    $record['crdate']       = time( );
-    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
-    $record['sorting']      = 256 * 1;
-    $record['CType']        = 'text';
-    $record['header']       = $llHeader;
-    $record['bodytext']     = $bodytext;
-    $record['sectionIndex'] = 1;
+    $record['uid']            = $uid;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'page_title_library_header' ];
+    $record['tstamp']         = time( );
+    $record['crdate']         = time( );
+    $record['cruser_id']      = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']        = 256 * 1;
+    $record['CType']          = 'text';
+    $record['header']         = $llHeader;
+    $record['header_layout']  = 100; // hidden
+    $record['bodytext']       = $bodytext;
+    $record['sectionIndex']   = 1;
 
     return $record;
   }
