@@ -803,7 +803,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $int_terms = $this->pObj->arr_pageUids[$this->pObj->pi_getLL('page_title_terms')];
+    $int_terms = $this->pObj->arr_pageUids[ 'page_title_terms' ];
     $str_terms = htmlspecialchars($this->pObj->pi_getLL('phrases_powermail_termsAccepted'));
     $str_terms = str_replace('###PID###', $int_terms, $str_terms);
 
@@ -826,7 +826,7 @@ class tx_quickshopinstaller_pi1_powermail
         <sheet index="sDEF">
             <language index="lDEF">
                 <field index="options">
-                    <value index="vDEF">'.$str_terms.'</value>
+                    <value index="vDEF">' . $str_terms . '</value>
                 </field>
                 <field index="mandatory">
                     <value index="vDEF">1</value>
