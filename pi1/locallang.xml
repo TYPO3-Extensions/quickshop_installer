@@ -69,7 +69,7 @@
             world wide
           </li>
         </ul>
-      ]]>
+      ]]></label>
       <label index="content_terms_header">Terms and conditions</label>
       <label index="content_terms_bodytext">Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
       <label index="end_button">Reload this page</label>
@@ -283,7 +283,7 @@
             als Entwickler des Quick Shop erw&auml;hnst, freuen wir uns.
           </li>
         </ul>
-      ]]>
+      ]]></label>
       <label index="content_shipping_header">Versand</label>
       <label index="content_shipping_bodytext"><![CDATA[
         <p>
@@ -303,7 +303,7 @@
             weltweit
           </li>
         </ul>
-      ]]>
+      ]]></label>
       <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
       <label index="content_terms_bodytext">Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
       <label index="consolidate_header">Konsolidierung</label>
