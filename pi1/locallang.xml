@@ -31,8 +31,7 @@
       <label index="content_header_header">[Header]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Home"&gt;Quick Shop&lt;/link&gt;</label>
       <label index="content_legalinfo_header">Legal info</label>
-      <label index="content_legalinfo_bodytext"><![CDATA[
-        <p>
+      <label index="content_legalinfo_bodytext"><![CDATA[<p>
           Your legal info
         </p>
         <h2>
@@ -51,8 +50,7 @@
         </ul>
       ]]></label>
       <label index="content_shipping_header">Delivery</label>
-      <label index="content_shipping_bodytext"><![CDATA[
-        <p>
+      <label index="content_shipping_bodytext"><![CDATA[<p>
           Please clarify your delivery conditions like
         </p>
         <ul>
@@ -71,8 +69,7 @@
         </ul>
       ]]></label>
       <label index="content_terms_header">Terms and conditions</label>
-      <label index="content_terms_bodytext"><![CDATA[
-        <p>
+      <label index="content_terms_bodytext"><![CDATA[<p>
           We don't have any terms and conditions, because this is a shop for demonstration only.
         </p>
         <ul>
@@ -132,8 +129,7 @@
       <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
       <label index="plugin_powermail_subject_r">New Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_s">Your Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_thanks"><![CDATA[
-        <h1>
+      <label index="plugin_powermail_thanks"><![CDATA[<h1>
           Thanks!
         </h1>
         <p>
@@ -284,8 +280,7 @@
       <label index="content_header_header">[Kopfzeile]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Startseite"&gt;Quick Shop&lt;/link&gt;</label>
       <label index="content_legalinfo_header">Impressum</label>
-      <label index="content_legalinfo_bodytext"><![CDATA[
-        <p>
+      <label index="content_legalinfo_bodytext"><![CDATA[<p>
           Hier solltest Du Dein Impressum angeben.
         </p>
         <h2>
@@ -303,8 +298,7 @@
         </ul>
       ]]></label>
       <label index="content_shipping_header">Versand</label>
-      <label index="content_shipping_bodytext"><![CDATA[
-        <p>
+      <label index="content_shipping_bodytext"><![CDATA[<p>
           Hier solltest Du Angaben zum Versand machen wie etwa
         </p>
         <ul>
@@ -323,8 +317,7 @@
         </ul>
       ]]></label>
       <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_terms_bodytext"><![CDATA[
-        <p>
+      <label index="content_terms_bodytext"><![CDATA[<p>
           Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:
         </p>
         <ul>
@@ -391,8 +384,7 @@
       <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
       <label index="plugin_powermail_subject_r">Neue Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_s">Ihre Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_thanks"><![CDATA[
-        <h1>
+      <label index="plugin_powermail_thanks"><![CDATA[<h1>
           Danke!
         </h1>
         <p>

@@ -417,6 +417,14 @@ plugin.tx_powermail_pi1 {
           </p>';
         $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
         $this->pObj->arrReport[ ] = $prompt;
+        $this->pObj->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
+        $this->pObj->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
+        $prompt = '
+          <p>
+            '.$this->pObj->arr_icons['warn'].' '.$this->pObj->pi_getLL('files_create_prompt_error').'
+          </p>';
+        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
+        $this->pObj->arrReport[ ] = $prompt;
         break;
     }
       // SWICTH : prompt depending on success
@@ -478,6 +486,7 @@ plugin.tx_powermail_pi1 {
     $records[$uid]['nav_hide']    = 1;
     $records[$uid]['is_siteroot'] = $is_siteroot;
     $records[$uid]['media']       = 'typo3_quickshop_' . $timestamp . '.jpg';
+    $records[$uid]['module']      = null;
     $records[$uid]['TSconfig']    = '
 
 // QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' ) . ' -- BEGIN
