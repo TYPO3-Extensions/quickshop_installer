@@ -210,18 +210,18 @@ class tx_quickshopinstaller_pi1_content
   {
     $record = null;
 
-    $llHeader = $this->pObj->pi_getLL( 'content_legal_header' );
-    $this->pObj->arr_contentUids['content_legal_header']  = $uid;
+    $llHeader = $this->pObj->pi_getLL( 'content_legalinfo_header' );
+    $this->pObj->arr_contentUids['content_legalinfo_header']  = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_legal' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_legalinfo' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
     $record['sorting']      = 256 * 1;
     $record['CType']        = 'text';
     $record['header']       = $llHeader;
-    $record['bodytext']     = $this->pObj->pi_getLL('content_legal_bodytext');
+    $record['bodytext']     = $this->pObj->pi_getLL('content_legalinfo_bodytext');
     $record['sectionIndex'] = 1;
 
     return $record;
