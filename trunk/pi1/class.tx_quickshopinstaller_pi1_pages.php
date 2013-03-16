@@ -671,9 +671,7 @@ TCEMAIN {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
       
         // prompt
-      $pageTitle = $this->pObj->arr_pageTitles[$page['title']];
-      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
-      $marker['###TITLE###'] = $pageTitle;
+      $marker['###TITLE###'] = $page['title'];
       $marker['###UID###']   = $page['uid'];
       $prompt = '
         <p>
