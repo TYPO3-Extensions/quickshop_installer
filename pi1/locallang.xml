@@ -30,8 +30,46 @@
       <label index="content_footer_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
       <label index="content_header_header">[Header]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Home"&gt;Quick Shop&lt;/link&gt;</label>
-      <label index="content_shipping_header">Shipping</label>
-      <label index="content_shipping_bodytext">Our shipping conditions
+      <label index="content_legal_header">Legal info</label>
+      <label index="content_legal_bodytext"><![CDATA[
+        <p>
+          Your legal info
+        </p>
+        <h2>
+          Good to know
+        </h2>
+        <ul>
+          <li>
+            If you provide a website without a legal info or an unproper legal info,
+            you can get trouble with lawyers.
+          </li>
+          <li>
+            If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Quick Shop" target="_blank">
+              Die Netzmacher</a>
+            the developer of the Quick Shop, we would be happy.
+          </li>
+        </ul>
+      ]]>
+      <label index="content_shipping_header">Delivery</label>
+      <label index="content_shipping_bodytext"><![CDATA[
+        <p>
+          Please clarify your delivery conditions like
+        </p>
+        <ul>
+          <li>
+            within your country
+          </li>
+          <li>
+            to islands of your country
+          </li>
+          <li>
+            within Europe
+          </li>
+          <li>
+            world wide
+          </li>
+        </ul>
+      ]]>
       <label index="content_terms_header">Terms and conditions</label>
       <label index="content_terms_bodytext">Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
       <label index="end_button">Reload this page</label>
@@ -76,7 +114,40 @@
       <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
       <label index="plugin_powermail_subject_r">New Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_s">Your Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_thanks">Thanks for your order. You will get an confirmation as soon as possible. Be aware: this is a demo shop. Bad news: You won't receive any product. Good news: You won't receive any invoice.</label>
+      <label index="plugin_powermail_thanks"><![CDATA[
+        <h1>
+          Thanks!
+        </h1>
+        <p>
+          Thanks for your order. 
+        </p>
+        <p>
+          We sent a confirmation to your e-mail.
+        </p>
+        <h2>
+          Good to know
+        </h2>
+        <p>
+          This is a demo shop only.
+        </p>
+        <ul>
+          <li>
+            The shop demonstrates the workflow of Quick Shop.
+          </li>
+          <li>
+            The ordered products aren't available.
+          </li>
+          <li>
+            Invoice and delivery order are for demonstration only.
+          </li>
+          <li>
+            You don't need to pay the invoice of course.
+          </li>
+        </ul>
+        <p>
+          Thanks, that you are interested in TYPO3 Quick Shop!
+        </p>
+      ]]></label>
       <label index="plugin_warn">Do you don't want, that Quick Shop Installer installs the Quick Shop?</label>
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the folder ###TITLE_PID###.</label>
@@ -166,10 +237,6 @@
       <label index="record_pm_field_title_submit">Confirm</label>
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
-* germany 
-* german islands
-* europe
-* rest of the world</label>
       <label index="tt_content.list_type_pi1">Quick Shop - 1-Click-Installer</label>
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
@@ -198,12 +265,45 @@
       <label index="content_footer_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
       <label index="content_header_header">[Kopfzeile]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Startseite"&gt;Quick Shop&lt;/link&gt;</label>
+      <label index="content_legal_header">Impressum</label>
+      <label index="content_legal_bodytext"><![CDATA[
+        <p>
+          Hier solltest Du Dein Impressum angeben.
+        </p>
+        <h2>
+          Gut zu wissen
+        </h2>
+        <ul>
+          <li>
+            Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.
+          </li>
+          <li>
+            Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Quick Shop" target="_blank">
+              Netzmacher</a>
+            als Entwickler des Quick Shop erw&auml;hnst, freuen wir uns.
+          </li>
+        </ul>
+      ]]>
       <label index="content_shipping_header">Versand</label>
-      <label index="content_shipping_bodytext">Hier finden Sie Angaben zum Versand
-* innerhalb Deutschlands
-* auf Deutsche Inseln
-* innerhalb Europas
-* Rest der Welt</label>
+      <label index="content_shipping_bodytext"><![CDATA[
+        <p>
+          Hier solltest Du Angaben zum Versand machen wie etwa
+        </p>
+        <ul>
+          <li>
+            innerhalb Deutschlands
+          </li>
+          <li>
+            auf Deutsche Inseln
+          </li>
+          <li>
+            innerhalb Europas
+          </li>
+          <li>
+            weltweit
+          </li>
+        </ul>
+      ]]>
       <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
       <label index="content_terms_bodytext">Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
       <label index="consolidate_header">Konsolidierung</label>
@@ -273,7 +373,7 @@
             Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.
           </li>
           <li>
-            Die von Dir bestelleten Produkte gibt es nicht.
+            Die von Dir bestellten Produkte gibt es nicht.
           </li>
           <li>
             Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. 
