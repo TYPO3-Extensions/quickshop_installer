@@ -264,8 +264,8 @@
       <label index="confirm_header">Installation durchführen</label>
       <label index="confirm_prompt_createBeGroup">Backend Gruppe erstellen</label>
       <label index="confirm_prompt_createPages">Seitenbaum bauen</label>
-      <label index="confirm_prompt_createContent">Inhalt fuer Kopf- und Fußzeile erstellen.</label>
-      <label index="confirm_prompt_createTs">TypoScript fuer Browser, Caddy und Powermail erstellen.</label>
+      <label index="confirm_prompt_createContent">Inhalt für Kopf- und Fußzeile erstellen.</label>
+      <label index="confirm_prompt_createTs">TypoScript für Browser, Caddy und Powermail erstellen.</label>
       <label index="confirm_prompt_createPlugins">Plugins Browser, Caddy und Powermail erstellen.</label>
       <label index="confirm_prompt_createPowermail">Konfiguriere Powermail</label>
       <label index="confirm_prompt_createProducts">Erstelle sechs Beispielprodukte</label>
