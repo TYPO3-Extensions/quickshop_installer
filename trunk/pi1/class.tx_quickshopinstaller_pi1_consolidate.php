@@ -392,13 +392,13 @@ plugin.tx_powermail_pi1 {
     $str_pathSrce     = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
     $str_pathDest     = 'uploads/media/';
 
-    if( ! file_exists( $str_pathSrceAbs . $str_fileSrce ) )
-    {
-var_dump( __METHOD__, __LINE__, $str_pathSrceAbs . $str_fileSrce, 0 );
-    }
+//    if( ! file_exists( $str_pathSrceAbs . $str_fileSrce ) )
+//    {
+//var_dump( __METHOD__, __LINE__, $str_pathSrceAbs . $str_fileSrce, 0 );
+//    }
       // Copy
     $success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
-var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest, $success );
+//var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest, $success );
       // SWICTH : prompt depending on success
     switch( $success )
     {
