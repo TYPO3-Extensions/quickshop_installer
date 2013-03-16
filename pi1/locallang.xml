@@ -71,7 +71,26 @@
         </ul>
       ]]></label>
       <label index="content_terms_header">Terms and conditions</label>
-      <label index="content_terms_bodytext">Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
+      <label index="content_terms_bodytext"><![CDATA[
+        <p>
+          We don't have any terms and conditions, because this is a shop for demonstration only.
+        </p>
+        <ul>
+          <li>
+            The shop demonstrates the workflow of Quick Shop.
+          </li>
+          <li>
+            The ordered products aren't available.
+          </li>
+          <li>
+            Invoice and delivery order are for demonstration only.
+          </li>
+          <li>
+            You don't need to pay the invoice of course.
+          </li>
+        </ul>
+      ]]></label>
+        Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Quick Shop Installer, if you don't need it any longer.</label>
       <label index="end_header">Finish the installation</label>
@@ -305,7 +324,28 @@
         </ul>
       ]]></label>
       <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_terms_bodytext">Unsere Allgemeine Geschäftsbedingungen (AGB): Dies ist ein Demo-Shop. Hier kann man nichts kaufen. Wir liefern nichts.</label>
+      <label index="content_terms_bodytext"><![CDATA[
+        <p>
+          Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:
+        </p>
+        <ul>
+          <li>
+            Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.
+          </li>
+          <li>
+            Die von Dir bestellten Artikel gibt es nicht.
+          </li>
+          <li>
+            Du bekommst die Artikel nicht geliefert.
+          </li>
+          <li>
+            Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. 
+          </li>
+          <li>
+            Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.
+          </li>
+        </ul>
+      ]]></label>
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
@@ -333,13 +373,13 @@
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="page_title_root">Quick Shop</label>
       <label index="page_title_caddy">Warenkorb</label>
-      <label index="page_title_shipping">Versand</label>
-      <label index="page_title_terms">AGB</label>
       <label index="page_title_legalinfo">Impressum</label>
       <label index="page_title_library">Bibliotheken</label>
       <label index="page_title_library_header">Kopf</label>
       <label index="page_title_library_footer">Fuß</label>
-      <label index="page_title_products">Quick Shop - Produkte</label>
+      <label index="page_title_products">Quick Shop - Artikel</label>
+      <label index="page_title_shipping">Versand</label>
+      <label index="page_title_terms">AGB</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
       <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
       <label index="phrases_powermail_termsAccepted">Ich akzeptiere die &lt;link ###PID### _blank&gt;AGB&lt;/link&gt;.|AGB akzeptiert</label>
@@ -373,7 +413,10 @@
             Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.
           </li>
           <li>
-            Die von Dir bestellten Produkte gibt es nicht.
+            Die von Dir bestellten Artikel gibt es nicht.
+          </li>
+          <li>
+            Du bekommst die Artikel nicht geliefert.
           </li>
           <li>
             Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. 
@@ -479,7 +522,7 @@
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
       <label index="tx_powermail_fields">Powermail Felder</label>
       <label index="tx_quickshop_categories">Quick Shop Kategorien</label>
-      <label index="tx_quickshop_products">Quick Shop Produkte</label>
+      <label index="tx_quickshop_products">Quick Shop Artikel</label>
       <label index="tx_quickshop_products_category_mm">Quick Shop MM Relationen</label>
     </languageKey>
   </data>
