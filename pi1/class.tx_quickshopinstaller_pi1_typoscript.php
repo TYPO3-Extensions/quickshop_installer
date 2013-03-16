@@ -235,7 +235,6 @@ plugin.base_quickshop {
     host = ' . $this->pObj->markerArray['###HOST###'] . '/
   }
   pages {
-    root = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
     library {
       header = ' . $this->pObj->arr_pageUids[ 'page_title_library_header' ] . '
       footer = ' . $this->pObj->arr_pageUids[ 'page_title_library_footer' ] . '
@@ -248,6 +247,7 @@ plugin.base_quickshop {
 plugin.quick_shop {
   pages {
     caddy     = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+    root      = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
     shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
   }
 }
@@ -351,9 +351,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
 
   // quick_shop
 plugin.quick_shop {
-    // page uids
-  caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-  caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+  pages {
+    caddy     = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+    root      = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
+    shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+  }
 }
   // quick_shop
 ';
