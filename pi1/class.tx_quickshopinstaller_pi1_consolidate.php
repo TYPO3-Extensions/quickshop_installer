@@ -388,12 +388,17 @@ plugin.tx_powermail_pi1 {
     $str_fileDest = 'typo3_quickshop_' . $timestamp . '.jpg';
 
       // Paths
-    $str_pathSrce = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
-    $str_pathDest = 'uploads/media/';
+    $str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
+    $str_pathSrce     = t3lib_extMgm::siteRelPath( 'quick_shop' ) . 'res/images/';
+    $str_pathDest     = 'uploads/media/';
 
+    if( ! file_exists( $str_pathSrceAbs . $str_fileSrce ) )
+    {
+var_dump( __METHOD__, __LINE__, $str_pathSrceAbs . $str_fileSrce, 0 );
+    }
       // Copy
     $success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
-
+var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest, $success );
       // SWICTH : prompt depending on success
     switch( $success )
     {
@@ -414,14 +419,6 @@ plugin.tx_powermail_pi1 {
         $prompt = '
           <p>
             '.$this->pObj->arr_icons['ok'].' '.$this->pObj->pi_getLL('files_create_prompt').'
-          </p>';
-        $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
-        $this->pObj->arrReport[ ] = $prompt;
-        $this->pObj->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
-        $this->pObj->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
-        $prompt = '
-          <p>
-            '.$this->pObj->arr_icons['warn'].' '.$this->pObj->pi_getLL('files_create_prompt_error').'
           </p>';
         $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
         $this->pObj->arrReport[ ] = $prompt;
