@@ -219,10 +219,41 @@ plugin.caddy {
       'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
       'EXT:browser/static/,EXT:quick_shop/static/';
     $record['includeStaticAfterBasedOn'] = 1;
+    $record['constants'] = ''.
+'
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // plugin.base_quickshop
+  // plugin.quick_shop
+
+  // base_quickshop
+plugin.base_quickshop {
+  basic {
+      // for baseURL
+    host = ' . $this->pObj->markerArray['###HOST###'] . '
+  }
+  pages {
+    root = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
+    library {
+      header = ' . $this->pObj->arr_pageUids[ 'page_title_library_header' ] . '
+      footer = ' . $this->pObj->arr_pageUids[ 'page_title_library_footer' ] . '
+    }
+  }
+}
+  // base_quickshop
+
+  // quick_shop
+plugin.quick_shop {
+    // page uids
+  caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+  caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+}
+  // quick_shop
+';
     $record['config']                    = ''.
 'config {
-  baseURL            = ' . $this->pObj->markerArray['###HOST###'] . '/
-  metaCharset        = UTF-8
   tx_realurl_enable  = 0
   no_cache           = 1
   language           = ' . $GLOBALS['TSFE']->lang . '
@@ -253,64 +284,6 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery. ' . $GLOBALS['TSFE'
 
 ';
 
-    $record['constants'] = ''.
-'
-  ////////////////////////////////////////////////////////
-  //
-  // INDEX
-  //
-  // quick_shop
-  // myConst
-
-  // quick_shop
-quick_shop {
-    // page uids
-  caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-  caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-}
-  // quick_shop
-
-  // myConst
-myConst {
-  //host = '.$this->pObj->markerArray['###HOST###'].'/
-  pages {
-    quick_shop = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
-    quick_shop {
-      cart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-      shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-      terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
-      libraries = ' . $this->pObj->arr_pageUids[ 'page_title_library' ] . '
-      libraries {
-        header  = ' . $this->pObj->arr_pageUids[ 'page_title_library_header' ] . '
-        footer  = ' . $this->pObj->arr_pageUids[ 'page_title_library_footer' ] . '
-      }
-    }
-  }
-  paths {
-    res  = EXT:base_quickshop/res/
-    html = EXT:base_quickshop/res/html/
-    css  = EXT:base_quickshop/res/html/css/
-  }
-  files {
-    html {
-      template = index.html
-      css      = basic.css
-      favicon  = images/favicon.ico
-    }
-  }
-  dims {
-    header_image {
-      maxW = 210
-      maxH = 420
-    }
-  }
-  words {
-    // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = ' . $this->pObj->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
-  }
-}
-  // myConst
-';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
     $record['include_static_file'] = null .
@@ -352,51 +325,26 @@ myConst {
     $record['root']                       = 0;
     $record['clear']                      = 0;  // Clear nothing
     $record['includeStaticAfterBasedOn']  = 0;
-    $record['config']                     = ''.
-'config {
-  no_cache = 1
-}
-';
     $record['constants']           = ''.
 '
   ////////////////////////////////////////////////////////
   //
   // INDEX
   //
-  // quick_shop
-  // myConst
+  // plugin.quick_shop
 
   // quick_shop
-quick_shop {
+plugin.quick_shop {
     // page uids
   caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
   caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
 }
   // quick_shop
-
-  // myConst
-myConst {
-  //host = '.$this->pObj->markerArray['###HOST###'].'/
-  pages {
-    quick_shop = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
-    quick_shop {
-      cart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-      shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-      terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
-    }
-  }
-  dims {
-    header_image {
-      maxW = 210
-      maxH = 420
-    }
-  }
-  words {
-    // HTML a href title tag for menu item rootpage
-    title_tag_quick_shop_page = ' . $this->pObj->pi_getLL( 'phrases_ts_titleTag_quickshop_page' ) . '
-  }
+';
+    $record['config']                     = ''.
+'config {
+  no_cache = 1
 }
-  // myConst
 ';
 
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
