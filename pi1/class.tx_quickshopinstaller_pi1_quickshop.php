@@ -767,10 +767,11 @@ class tx_quickshopinstaller_pi1_quickshop
         // CONTINUE : pid is empty, no prompt
       
         // prompt
+      $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
+      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
       $marker['###TITLE###']      = $record['title'];
       $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
-      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[ $record['pid'] ] .
-                                    '" (uid ' . $record['pid'] . ')';
+      $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'record_create_prompt' ) . '

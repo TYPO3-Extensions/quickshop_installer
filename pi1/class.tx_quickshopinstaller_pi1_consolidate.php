@@ -525,35 +525,6 @@ TCEMAIN {
   **********************************************/
 
 /**
- * sqlInsert( )
- *
- * @param	array		$records  : TypoScript records for pages
- * @param	string		$table    : name of the current table
- * @return	void
- * @access private
- * @version 3.0.0
- * @since   0.0.1
- */
-  private function sqlInsert( $records, $table )
-  {
-    foreach( $records as $record )
-    {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
-      $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
-      $marker['###TITLE###']      = $record['title'];
-      $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
-      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
-                                    '" (uid ' . $record['pid'] . ')';
-      $prompt = '
-        <p>
-          ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'record_create_prompt' ) . '
-        </p>';
-      $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
-      $this->pObj->arrReport[ ] = $prompt;
-    }
-  }
-
-/**
  * sqlUpdatePlugin( )
  *
  * @param	array		$records  : TypoScript records for pages

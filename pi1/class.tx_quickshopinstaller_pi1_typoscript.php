@@ -418,16 +418,20 @@ plugin.quick_shop {
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $record, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'sys_template', $record );
+      
+        // prompt
+      $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
+      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
       $marker['###TITLE###']     = $record['title'];
       $marker['###UID###']       = $record['uid'];
-      $marker['###TITLE_PID###'] = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
-                                   '" (uid ' . $record['pid'] . ')';
+      $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
           '.$this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'ts_create_prompt' ).'
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[ ] = $prompt;
+        // prompt
     }
   }
 }

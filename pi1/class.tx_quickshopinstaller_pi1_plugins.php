@@ -360,15 +360,19 @@ class tx_quickshopinstaller_pi1_plugins
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tt_content', $record );
+      
+        // prompt
+      $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
+      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
       $marker['###HEADER###']     = $record['header'];
-      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
-                                    '" (uid ' . $record['pid'] . ')';
+      $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'plugin_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[ ] = $prompt;
+        // prompt
     }
   }
 }
