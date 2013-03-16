@@ -30,8 +30,8 @@
       <label index="content_footer_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
       <label index="content_header_header">[Header]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Home"&gt;Quick Shop&lt;/link&gt;</label>
-      <label index="content_legal_header">Legal info</label>
-      <label index="content_legal_bodytext"><![CDATA[
+      <label index="content_legalinfo_header">Legal info</label>
+      <label index="content_legalinfo_bodytext"><![CDATA[
         <p>
           Your legal info
         </p>
@@ -283,8 +283,8 @@
       <label index="content_footer_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
       <label index="content_header_header">[Kopfzeile]</label>
       <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Startseite"&gt;Quick Shop&lt;/link&gt;</label>
-      <label index="content_legal_header">Impressum</label>
-      <label index="content_legal_bodytext"><![CDATA[
+      <label index="content_legalinfo_header">Impressum</label>
+      <label index="content_legalinfo_bodytext"><![CDATA[
         <p>
           Hier solltest Du Dein Impressum angeben.
         </p>
