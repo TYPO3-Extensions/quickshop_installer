@@ -1063,7 +1063,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
     // Set the URL
-    if(!isset($this->markerArray['###URL###']))
+    if( ! isset( $this->markerArray['###URL###'] ) )
     {
       $this->markerArray['###HOST###'] = t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST');
     }
