@@ -248,7 +248,7 @@
       <label index="record_pm_field_title_methodOfPayment">payment</label>
       <label index="record_pm_field_title_methodOfShipping">shipping</label>
       <label index="record_pm_field_title_terms">terms and conditions</label>
-      <label index="record_pm_field_title_submit">Confirm</label>
+      <label index="record_pm_field_title_submit">Test Quick Shop without commitment!</label>
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
       <label index="tt_content.list_type_pi1">Quick Shop - 1-Click-Installer</label>
@@ -506,7 +506,7 @@
       <label index="record_pm_field_title_methodOfPayment">Zahlungsart</label>
       <label index="record_pm_field_title_methodOfShipping">Versandart</label>
       <label index="record_pm_field_title_terms">AGB</label>
-      <label index="record_pm_field_title_submit">Bestellen</label>
+      <label index="record_pm_field_title_submit">Quick Shop unverbindlich testen!</label>
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="tt_content.list_type_pi1">Quick Shop - 1-Klick-Installer</label>
