@@ -164,7 +164,7 @@
       ]]></label>
       <label index="plugin_warn">Do you don't want, that Quick Shop Installer installs the Quick Shop?</label>
       <label index="record_create_header">Records</label>
-      <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the folder ###TITLE_PID###.</label>
+      <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the page/folder ###TITLE_PID###.</label>
       <label index="record_create_mm_prompt">###COUNT### records are added to the table "###TABLE###".</label>
       <label index="record_qs_cat_title_books">books</label>
       <label index="record_qs_cat_title_clothes">clothes</label>
@@ -422,7 +422,7 @@
       ]]></label>
       <label index="plugin_warn">Willst Du den Quick Shop Installer wirklich nicht benutzen?</label>
       <label index="record_create_header">Datensätze</label>
-      <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" im Ordner ###TITLE_PID### eingefügt.</label>
+      <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" in der Seite/im Ordner ###TITLE_PID### eingefügt.</label>
       <label index="record_create_mm_prompt">###COUNT### Datensätze wurden in die Tabelle "###TABLE###" eingefügt.</label>
       <label index="record_qs_cat_title_books">Bücher</label>
       <label index="record_qs_cat_title_clothes">Kleidung</label>
