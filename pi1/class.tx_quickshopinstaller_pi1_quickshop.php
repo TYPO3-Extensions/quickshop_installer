@@ -758,9 +758,18 @@ class tx_quickshopinstaller_pi1_quickshop
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
+      
+        // CONTINUE : pid is empty, no prompt
+      if( empty( $record['pid'] ) )
+      {
+        continue;
+      }
+        // CONTINUE : pid is empty, no prompt
+      
+        // prompt
       $marker['###TITLE###']      = $record['title'];
       $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
-      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
+      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[ $record['pid'] ] .
                                     '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
@@ -768,6 +777,7 @@ class tx_quickshopinstaller_pi1_quickshop
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[ ] = $prompt;
+        // prompt
     }
   }
 

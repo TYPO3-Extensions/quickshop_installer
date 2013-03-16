@@ -83,7 +83,7 @@
           <config>
             <type>input</type>
             <size>40</size>
-            <eval>trim,nospace</eval>
+            <eval>trim</eval>
             <default>TYPO3 Quick Shop</default>
           </config>
         </TCEforms>

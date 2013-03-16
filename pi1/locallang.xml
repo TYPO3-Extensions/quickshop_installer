@@ -12,8 +12,8 @@
       <label index="confirm_prompt_createBeGroup">Create a backend group</label>
       <label index="confirm_prompt_createPages">Create a page tree</label>
       <label index="confirm_prompt_createContent">Create content for the header and footer</label>
-      <label index="confirm_prompt_createTs">Create TypoScript for the browser, wt_cart and powermail</label>
-      <label index="confirm_prompt_createPlugins">Create the plugins browser, wt_cart and powermail</label>
+      <label index="confirm_prompt_createTs">Create TypoScript for the browser, caddy and powermail</label>
+      <label index="confirm_prompt_createPlugins">Create the plugins browser, caddy and powermail</label>
       <label index="confirm_prompt_createPowermail">Create configuration records for powermail</label>
       <label index="confirm_prompt_createProducts">Create six example products</label>
       <label index="confirm_prompt_createFiles">Create product images</label>

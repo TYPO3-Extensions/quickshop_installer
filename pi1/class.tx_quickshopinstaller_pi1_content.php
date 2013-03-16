@@ -198,6 +198,36 @@ class tx_quickshopinstaller_pi1_content
   }
 
 /**
+ * pageLegal( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageLegal( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_legal_header' );
+    $this->pObj->arr_contentUids['content_legal_header']  = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_legal' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'text';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $this->pObj->pi_getLL('content_legal_bodytext');
+    $record['sectionIndex'] = 1;
+
+    return $record;
+  }
+
+/**
  * pageTerms( )
  *
  * @param	integer		$uid: uid of the current plugin
@@ -252,6 +282,10 @@ class tx_quickshopinstaller_pi1_content
     {
       return $records;
     }
+
+      // content for page legal
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageLegal( $uid );
 
       // content for page library header
     $uid = $uid + 1;
