@@ -90,7 +90,6 @@
           </li>
         </ul>
       ]]></label>
-        Our terms and conditions: This is a shop for demonstration only. You can't order anything. We sell nothing.</label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Quick Shop Installer, if you don't need it any longer.</label>
       <label index="end_header">Finish the installation</label>
