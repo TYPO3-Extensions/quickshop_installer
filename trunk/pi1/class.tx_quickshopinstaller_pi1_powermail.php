@@ -1129,16 +1129,20 @@ class tx_quickshopinstaller_pi1_powermail
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
+      
+        // prompt
+      $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
+      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
       $marker['###TITLE###']      = $record['title'];
       $marker['###TABLE###']      = $this->pObj->pi_getLL( $table );
-      $marker['###TITLE_PID###']  = '"' . $this->pObj->arr_pageTitles[$record['pid']] .
-                                    '" (uid ' . $record['pid'] . ')';
+      $marker['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $record['pid'] . ')';
       $prompt = '
         <p>
           ' . $this->pObj->arr_icons['ok'] . ' ' . $this->pObj->pi_getLL( 'record_create_prompt' ) . '
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[ ] = $prompt;
+        // prompt
     }
   }
 

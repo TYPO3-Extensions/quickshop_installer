@@ -669,7 +669,11 @@ TCEMAIN {
     foreach( $pages as $page )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
-      $marker['###TITLE###'] = $page['title'];
+      
+        // prompt
+      $pageTitle = $this->pObj->arr_pageTitles[$page['title']];
+      $pageTitle = $this->pObj->pi_getLL( $pageTitle );
+      $marker['###TITLE###'] = $pageTitle;
       $marker['###UID###']   = $page['uid'];
       $prompt = '
         <p>
@@ -677,6 +681,7 @@ TCEMAIN {
         </p>';
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $marker );
       $this->pObj->arrReport[] = $prompt;
+        // prompt
     }
 
     unset($pages);
