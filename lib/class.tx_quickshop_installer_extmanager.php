@@ -251,16 +251,17 @@ class tx_quickshop_installer_extmanager
  */
   private function add_installerPage()
   {
-    $table                    = 'pages';
-    $int_maxUid               = $this->get_maxUid($table);
-    $this->int_pageUid        = $int_maxUid + 1;
-    $fields_values['uid']     = $this->int_pageUid;
-    $fields_values['title']   = $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:installPageTitle');
-    $fields_values['module']  = 'qs_inst';
-    $fields_values['sorting'] = '1000000000';
-    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
+    $table              = 'pages';
+    $record             = null;
+    $int_maxUid         = $this->get_maxUid($table);
+    $this->int_pageUid  = $int_maxUid + 1;
+    $record['uid']      = $this->int_pageUid;
+    $record['title']    = $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:installPageTitle');
+    $record['module']   = 'qs_inst';
+    $record['sorting']  = '1000000000';
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ));
     //exit;
-    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
+    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$record,$no_quote_fields=FALSE);
   }
 
 
@@ -281,18 +282,19 @@ class tx_quickshop_installer_extmanager
   private function add_installerPlugin()
   {
     $table      = 'tt_content';
+    $record     = null;
     $int_maxUid = $this->get_maxUid($table);
     $int_maxUid = $int_maxUid + 1;
 
-    $fields_values['uid']                 = $int_maxUid;
-    $fields_values['pid']                 = $this->int_pageUid;
-    $fields_values['CType']               = 'list';
-    $fields_values['header']              = $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:installPluginTitle');
-    $fields_values['header_layout']       = '100';
-    $fields_values['list_type']           = 'quickshop_installer_pi1';
-    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
+    $record['uid']                 = $int_maxUid;
+    $record['pid']                 = $this->int_pageUid;
+    $record['CType']               = 'list';
+    $record['header']              = $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:installPluginTitle');
+    $record['header_layout']       = '100';
+    $record['list_type']           = 'quickshop_installer_pi1';
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ));
     //exit;
-    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
+    $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
   }
 
 
@@ -313,16 +315,17 @@ class tx_quickshop_installer_extmanager
   private function add_installerTS()
   {
     $table      = 'sys_template';
+    $record     = null;
     $int_maxUid = $this->get_maxUid($table);
     $int_maxUid = $int_maxUid + 1;
 
-    $fields_values['uid']                 = $int_maxUid;
-    $fields_values['pid']                 = $this->int_pageUid;
-    $fields_values['title']               = 'page_quickshopinstaller_' . sprintf('%03d', $int_maxUid);
-    $fields_values['root']                = '1';
-    $fields_values['clear']               = '3';
-    $fields_values['include_static_file'] = 'EXT:css_styled_content/static/';
-    $fields_values['config']              = '
+    $record['uid']                 = $int_maxUid;
+    $record['pid']                 = $this->int_pageUid;
+    $record['title']               = 'page_quickshopinstaller_' . sprintf('%03d', $int_maxUid);
+    $record['root']                = '1';
+    $record['clear']               = '3';
+    $record['include_static_file'] = 'EXT:css_styled_content/static/';
+    $record['config']              = '
 config {
   baseURL            = ' . t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST') . '/
   language           = ' . $this->str_llStatic . '
@@ -334,12 +337,28 @@ config {
 page = PAGE
 page {
   typeNum = 0
-  10 < styles.content.get
+  10 = COA
+  10 {
+    10 = TEXT
+    10 {
+      value (
+        <style type="text/css">
+        body { 
+          background-image:url(typo3conf/ext/quickshop_installer/res/images/background.gif);
+          background-repeat:no-repeat; 
+          background-position:center center;
+          background-attachment:fixed;
+        }
+        </style>
+)
+    }
+    20 < styles.content.get
+  }
 }
 ';
-    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$fields_values,$no_quote_fields=FALSE));
+    //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->INSERTquery($table,$record,$no_quote_fields=FALSE));
     //exit;
-    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table,$fields_values,$no_quote_fields=FALSE);
+    $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
   }
 
 
