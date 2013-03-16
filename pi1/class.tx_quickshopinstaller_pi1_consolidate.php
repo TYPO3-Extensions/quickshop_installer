@@ -175,6 +175,15 @@ class tx_quickshopinstaller_pi1_consolidate
                       . $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] .
                     '</value>
                 </field>
+                <field index="termsMode">
+                    <value index="vDEF">customer</value>
+                </field>
+                <field index="invoiceMode">
+                    <value index="vDEF">all</value>
+                </field>
+                <field index="deliveryorderMode">
+                    <value index="vDEF">vendor</value>
+                </field>
             </language>
         </sheet>
         <sheet index="invoice">
@@ -252,6 +261,19 @@ class tx_quickshopinstaller_pi1_consolidate
                     <value index="vDEF">'
                       . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] .
                     '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="paths">
+            <language index="lDEF">
+                <field index="terms">
+                    <value index="vDEF">typo3conf/ext/caddy/files/pdf/default/typo3-quick-shop-agb_A4.pdf</value>
+                </field>
+                <field index="invoice">
+                    <value index="vDEF">typo3conf/ext/caddy/files/pdf/default/typo3-quick-shop-rechnung_A4.pdf</value>
+                </field>
+                <field index="deliveryorder">
+                    <value index="vDEF">typo3conf/ext/caddy/files/pdf/default/typo3-quick-shop-lieferschein_A4.pdf</value>
                 </field>
             </language>
         </sheet>

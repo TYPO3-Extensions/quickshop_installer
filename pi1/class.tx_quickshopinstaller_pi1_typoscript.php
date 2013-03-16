@@ -249,6 +249,7 @@ plugin.quick_shop {
     caddy     = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
     root      = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
     shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+    terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
   }
 }
   // quick_shop
@@ -355,6 +356,7 @@ plugin.quick_shop {
     caddy     = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
     root      = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
     shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+    terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
   }
 }
   // quick_shop
