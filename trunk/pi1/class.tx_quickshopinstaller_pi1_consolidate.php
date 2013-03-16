@@ -402,7 +402,7 @@ var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $
       // SWICTH : prompt depending on success
     switch( $success )
     {
-      case( ! $success ):
+      case( false ):
         $this->pObj->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
         $this->pObj->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
         $prompt = '
@@ -412,7 +412,7 @@ var_dump( __METHOD__, __LINE__, $str_pathSrce . $str_fileSrce, $str_pathDest . $
         $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
         $this->pObj->arrReport[ ] = $prompt;
         break;
-      case( $success ):
+      case( true ):
       default:
         $this->pObj->markerArray['###DEST###'] = $str_fileDest;
         $this->pObj->markerArray['###PATH###'] = $str_pathDest;
