@@ -232,10 +232,10 @@ plugin.caddy {
 plugin.base_quickshop {
   basic {
       // for baseURL
-    host = ' . $this->pObj->markerArray['###HOST###'] . '
+    host = ' . $this->pObj->markerArray['###HOST###'] . '/
   }
   pages {
-    root = ' . $this->pObj->arr_pageUids[ $GLOBALS['TSFE']->page['title'] ] . '
+    root = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
     library {
       header = ' . $this->pObj->arr_pageUids[ 'page_title_library_header' ] . '
       footer = ' . $this->pObj->arr_pageUids[ 'page_title_library_footer' ] . '
@@ -246,24 +246,37 @@ plugin.base_quickshop {
 
   // quick_shop
 plugin.quick_shop {
-    // page uids
-  caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-  caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+  pages {
+    caddy     = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+    shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+  }
 }
   // quick_shop
 ';
     $record['config']                    = ''.
-'config {
+'
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // config
+  // TYPO3-Browser: ajax page object I
+  // TYPO3-Browser: ajax page object II
+
+
+
+  // config
+config {
   tx_realurl_enable  = 0
   no_cache           = 1
   language           = ' . $GLOBALS['TSFE']->lang . '
   htmlTag_langKey    = ' . $GLOBALS['TSFE']->lang . '
 }
+  // config
 
 
-  ////////////////////////////////////////////////////////
-  //
-  // ajax page object I
+
+  // TYPO3-Browser: ajax page object I
 
   // Add this snippet into the setup of the TypoScript
   // template of your page.
@@ -274,13 +287,16 @@ plugin.quick_shop {
   page >
   page < plugin.tx_browser_pi1.javascript.ajax.page
 [global]
-  // ajax page object I
+  // TYPO3-Browser: ajax page object I
 
-  // TYPO3-Browser: ajax page object II.
+
+
+  // TYPO3-Browser: ajax page object II
   // In case of localisation: 
   // * Configure the id of sys_language in the Constant Editor. 
   // * Move in this line ...jQuery.default to ...jQuery.de (i.e.)
-browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery. ' . $GLOBALS['TSFE']->lang . '
+browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']->lang . '
+  // TYPO3-Browser: ajax page object II
 
 ';
 
