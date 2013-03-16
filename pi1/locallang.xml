@@ -15,7 +15,7 @@
       <label index="confirm_prompt_createTs">Create TypoScript for the browser, caddy and powermail</label>
       <label index="confirm_prompt_createPlugins">Create the plugins browser, caddy and powermail</label>
       <label index="confirm_prompt_createPowermail">Create configuration records for powermail</label>
-      <label index="confirm_prompt_createProducts">Create six example products</label>
+      <label index="confirm_prompt_createProducts">Create six example iItems</label>
       <label index="confirm_prompt_createFiles">Create product images</label>
       <label index="confirm_prompt_createContent">Create page content</label>
       <label index="confirm_prompt_consolidate">Consolidating</label>
@@ -77,7 +77,7 @@
             The shop demonstrates the workflow of Quick Shop.
           </li>
           <li>
-            The ordered products aren't available.
+            The ordered iItems aren't available.
           </li>
           <li>
             Invoice and delivery order are for demonstration only.
@@ -116,7 +116,7 @@
       <label index="page_title_library">libraries</label>
       <label index="page_title_library_header">header</label>
       <label index="page_title_library_footer">footer</label>
-      <label index="page_title_products">Quick Shop - Products</label>
+      <label index="page_title_products">Items</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
       <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
       <label index="phrases_powermail_termsAccepted">I'm according with the &lt;link ###PID### _blank&gt;Terms and Conditions&lt;/link&gt;.|Terms and Conditions accepted</label>
@@ -149,7 +149,7 @@
             The shop demonstrates the workflow of Quick Shop.
           </li>
           <li>
-            The ordered products aren't available.
+            The ordered iItems aren't available.
           </li>
           <li>
             Invoice and delivery order are for demonstration only.
@@ -255,7 +255,7 @@
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
       <label index="tx_quickshop_categories">Quick Shop Categories</label>
-      <label index="tx_quickshop_products">Quick Shop Products</label>
+      <label index="tx_quickshop_products">Quick Shop Items</label>
       <label index="tx_quickshop_products_category_mm">Quick Shop MM Relations</label>
     </languageKey>
     <languageKey index="de" type="array">
@@ -369,7 +369,7 @@
       <label index="page_title_library">Bibliotheken</label>
       <label index="page_title_library_header">Kopf</label>
       <label index="page_title_library_footer">Fuß</label>
-      <label index="page_title_products">Quick Shop - Artikel</label>
+      <label index="page_title_products">Artikel</label>
       <label index="page_title_shipping">Versand</label>
       <label index="page_title_terms">AGB</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>

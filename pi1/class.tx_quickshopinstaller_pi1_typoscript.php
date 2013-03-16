@@ -232,7 +232,7 @@ plugin.caddy {
 
   ////////////////////////////////////////////////////////
   //
-  // ajax page object
+  // ajax page object I
 
   // Add this snippet into the setup of the TypoScript
   // template of your page.
@@ -243,10 +243,13 @@ plugin.caddy {
   page >
   page < plugin.tx_browser_pi1.javascript.ajax.page
 [global]
-  // ajax page object
+  // ajax page object I
 
-  // TYPO3-Browser: ajax page object II. In case of localisation: Configure the id of sys_languagein the Constant Editor. Move in this line ...jQuery.default to ...jQuery.de (i.e.)
-browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery
+  // TYPO3-Browser: ajax page object II.
+  // In case of localisation: 
+  // * Configure the id of sys_language in the Constant Editor. 
+  // * Move in this line ...jQuery.default to ...jQuery.de (i.e.)
+browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery. ' . $GLOBALS['TSFE']->lang . '
 
 ';
 
@@ -264,36 +267,6 @@ quick_shop {
     // page uids
   caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
   caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-
-    // powermail uids
-  powermail {
-    ids {
-      form {
-        default =
-        de      =
-      }
-      address_order {
-        default {
-          address     =
-          city        =
-          company     =
-          country     =
-          first_name  =
-          last_name   =
-          zip         =
-        }
-        de {
-          address     =
-          city        =
-          company     =
-          country     =
-          first_name  =
-          last_name   =
-          zip         =
-        }
-      }
-    }
-  }
 }
   // quick_shop
 
@@ -398,36 +371,6 @@ quick_shop {
     // page uids
   caddyUidCart      = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
   caddyUidShipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-
-    // powermail uids
-  powermail {
-    ids {
-      form {
-        default =
-        de      =
-      }
-      address_order {
-        default {
-          address     =
-          city        =
-          company     =
-          country     =
-          first_name  =
-          last_name   =
-          zip         =
-        }
-        de {
-          address     =
-          city        =
-          company     =
-          country     =
-          first_name  =
-          last_name   =
-          zip         =
-        }
-      }
-    }
-  }
 }
   // quick_shop
 
