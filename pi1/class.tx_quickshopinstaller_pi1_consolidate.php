@@ -166,6 +166,12 @@ class tx_quickshopinstaller_pi1_consolidate
                 <field index="deliveryorder">
                     <value index="vDEF">216</value>
                 </field>
+                <field index="min">
+                    <value index="vDEF">3</value>
+                </field>
+                <field index="max">
+                    <value index="vDEF">10</value>
+                </field>
             </language>
         </sheet>
         <sheet index="email">

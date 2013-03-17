@@ -426,6 +426,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['imagecols']    = '1';
     $record['image_zoom']   = '1';
     $record['image_noRows'] = '1';
+    $record['quantity_min'] = '0';
+    $record['quantity_max'] = '3';
 
     return $record;
   }
@@ -474,6 +476,8 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['imagecols']    = '1';
     $record['image_zoom']   = '1';
     $record['image_noRows'] = '1';
+    $record['quantity_min'] = '2';
+    $record['quantity_max'] = '0';
 
     return $record;
   }
