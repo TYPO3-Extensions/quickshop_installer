@@ -267,13 +267,13 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="paths">
             <language index="lDEF">
                 <field index="terms">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/default/typo3-quick-shop-agb_A4.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-invoice.pdf</value>
                 </field>
                 <field index="invoice">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/default/typo3-quick-shop-rechnung_A4.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-invoice.pdf</value>
                 </field>
                 <field index="deliveryorder">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/default/typo3-quick-shop-lieferschein_A4.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-invoice.pdf</value>
                 </field>
             </language>
         </sheet>
