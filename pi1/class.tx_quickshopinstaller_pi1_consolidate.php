@@ -300,10 +300,10 @@ class tx_quickshopinstaller_pi1_consolidate
       // values
     $llHeader       = $this->pObj->pi_getLL( 'plugin_powermail_header' );
     $uidEmail       = $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ];
-    $customerEmail  = ' uid' . $uidEmail;
+    $customerEmail  = 'uid' . $uidEmail;
     $uidFirstname   = $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ];
     $uidSurname     = $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ];
-    $customerName = 'uid' . $uidFirstname . ',uid' . $uidSurname;
+    $customerName   = 'uid' . $uidFirstname . ',uid' . $uidSurname;
       // values
 
     $records[$uid]['header']                  = $llHeader;
