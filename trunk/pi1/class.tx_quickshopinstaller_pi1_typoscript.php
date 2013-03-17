@@ -196,7 +196,7 @@ plugin.caddy {
         $record = $this->recordRootCaseAll( $uid );
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
-        $record = $this->recordRootCaseShop( $uid );
+        $record = $this->recordRootCaseShopOnly( $uid );
         break;
     }
       // SWITCH : install case
