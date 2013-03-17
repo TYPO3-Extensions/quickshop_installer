@@ -141,7 +141,7 @@ class tx_quickshopinstaller_pi1_typoscript
   
 
   // plugin.caddy
- plugin.caddy {
+plugin.caddy {
   db {
     table = tx_quickshop_products
     sku   = sku
@@ -151,6 +151,18 @@ class tx_quickshopinstaller_pi1_typoscript
   gpvar {
     puid  = tx_browser_pi1|showUid
     qty   = tx_quickshop_qty
+  }
+  pdf {
+    textColor {
+      address             = #333
+      caddy               = #F66800
+      date                = #F66800
+      numberDeliveryorder = #F66800
+      numberInvoice       = #F66800
+      numberLine          = #333
+      numberOrder         = #F66800
+      terms               = #F66800
+    }
   }
 }
   // plugin.caddy
