@@ -154,14 +154,14 @@ plugin.caddy {
   }
   pdf {
     textColor {
-      address             = #333
-      caddy               = #F66800
-      date                = #F66800
-      numberDeliveryorder = #F66800
-      numberInvoice       = #F66800
-      numberLine          = #333
-      numberOrder         = #F66800
-      terms               = #F66800
+      address             = #333333
+      caddy               = #FF9B00
+      date                = #FF9B00
+      numberDeliveryorder = #FF9B00
+      numberInvoice       = #FF9B00
+      numberLine          = #333333
+      numberOrder         = #FF9B00
+      terms               = #FF9B00
     }
   }
 }
