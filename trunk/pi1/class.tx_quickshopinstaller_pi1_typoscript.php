@@ -131,7 +131,7 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file']  = 'EXT:caddy/static/,EXT:caddy/static/css/,' 
-                                    . 'EXT:powermail/static/pi1/,EXT:powermail/static/css_basic/';
+                                    . 'EXT:powermail/static/pi1/,EXT:powermail/static/css_fancy/';
     $record['constants']            = '
   ////////////////////////////////////////////////////////
   //
