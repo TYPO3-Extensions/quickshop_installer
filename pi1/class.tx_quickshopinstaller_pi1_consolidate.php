@@ -158,13 +158,13 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="origin">
             <language index="lDEF">
                 <field index="order">
-                    <value index="vDEF">1000</value>
+                    <value index="vDEF">3972</value>
                 </field>
                 <field index="invoice">
-                    <value index="vDEF">1000000</value>
+                    <value index="vDEF">83</value>
                 </field>
                 <field index="deliveryorder">
-                    <value index="vDEF">400000</value>
+                    <value index="vDEF">216</value>
                 </field>
             </language>
         </sheet>
