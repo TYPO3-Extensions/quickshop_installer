@@ -133,7 +133,15 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['include_static_file']  = 'EXT:caddy/static/,EXT:caddy/static/css/,' 
                                     . 'EXT:powermail/static/pi1/,EXT:powermail/static/css_basic/';
     $record['constants']            = '
-plugin.caddy {
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // plugin.caddy
+  
+
+  // plugin.caddy
+ plugin.caddy {
   db {
     table = tx_quickshop_products
     sku   = sku
@@ -142,9 +150,10 @@ plugin.caddy {
   }
   gpvar {
     puid  = tx_browser_pi1|showUid
-    qty   = tx_quick_shop_qty
+    qty   = tx_quickshop_qty
   }
 }
+  // plugin.caddy
 ';
       // Will set by consolidate->pageCaddyTyposcript
 //    $record['config']               = '';
