@@ -108,17 +108,26 @@
       <label index="record_qs_prod_title_capBlue">Base cap (blue)</label>
       <label index="record_qs_prod_title_cup">Cup</label>
       <label index="record_qs_prod_title_pullover">Pullover</label>
-      <label index="record_qs_prod_short_book">Never seen: Images of the TYPO3 Vip</label>
+      <label index="record_qs_prod_short_book">Never seen: Images of the TYPO3 Vip. Because of the weight you can get maximum 3 books per order.</label>
       <label index="record_qs_prod_short_capGreen">Base cap in green and with TYPO3 logo</label>
       <label index="record_qs_prod_short_capRed">Base cap in red and with TYPO3 logo</label>
       <label index="record_qs_prod_short_capBlue">Base cap in blue and with TYPO3 logo</label>
-      <label index="record_qs_prod_short_cup">Cup with TYPO3 logo</label>
+      <label index="record_qs_prod_short_cup">Cup with TYPO3 logo. The cup is cheap :) but you have to roder 2 cups per order at least.</label>
       <label index="record_qs_prod_short_pullover">Pullover with TYPO3 logo and an head on the top.</label>
-      <label index="record_qs_prod_description_book">Did you ever seen Kaspar with a base cap of this shop? You didn't. But now you can. This book is illustrated with 4.293 photos of the TYPO3 Vip. 3.923 photos have never been published. The book has 1.423 pages. The font size is 5 point. The weight is 8,74 kilogramm. The price is really, really cheap.</label>
+      <label index="record_qs_prod_description_book"><![CDATA[Did you ever seen Kaspar with a base cap of this shop?
+You didn't.
+But now you can.
+This book is illustrated with 4.293 photos of the TYPO3 Vip. 3.923 photos have never been published. The book has 1.423 pages. The font size is 5 point. The weight is 8,74 kilogramm. The price is really, really cheap.
+Because of the weight:
+<ul><li>3 books maximum per order!</li></ul>]]></label>
       <label index="record_qs_prod_description_capGreen">You are able to look like clever and smart - but with this base cap only.</label>
       <label index="record_qs_prod_description_capRed">You are able to look like clever and smart - but with this base cap only.</label>
       <label index="record_qs_prod_description_capBlue">You are able to look like clever and smart - but with this base cap only.</label>
-      <label index="record_qs_prod_description_cup">The cup has a special skin inside. The skin will extend every warm drink with cleverness. If you are drinking your coffee out of this cup, you will never have any problem with TYPO3 or its extensions! If you like, Kaspar will drink coffee out of this cup. We won't clean up the cup. You don't have to ay for this special service.</label>
+      <label index="record_qs_prod_description_cup"><![CDATA[The cup has a special skin inside. The skin will extend every warm drink with cleverness. If you are drinking your coffee out of this cup, you will never have any problem with TYPO3 or its extensions!
+If you like, <strong>Kaspar will drink coffee out of this cup</strong>.
+We won't clean up the cup. You don't have to pay for this special service.
+Because of the price:
+<ul><li>You have to order two cups at least.</li></ul>]]></label>
       <label index="record_qs_prod_description_pullover">This pullover has a TYPO3 logo and an head on the top. If you are using this pullover and this head instead of your head, you will never have headdache after using TYPO3. And all of your friends will believe, that you are looking like more clever and more smart than everybody!</label>
       <label index="record_qs_prod_price_book">99.99</label>
       <label index="record_qs_prod_price_capGreen">1.99</label>
@@ -288,17 +297,26 @@
       <label index="record_qs_prod_title_capBlue">Basecap (blau)</label>
       <label index="record_qs_prod_title_cup">Tasse</label>
       <label index="record_qs_prod_title_pullover">Pullover</label>
-      <label index="record_qs_prod_short_book">Noch nie veröffentlicht: Bilder der TYPO3 VIPs</label>
+      <label index="record_qs_prod_short_book">Noch nie veröffentlicht: Bilder der TYPO3 VIPs. Auf Grund des schweren Gewichts können nur 3 Stück pro Bestellung versendet werden.</label>
       <label index="record_qs_prod_short_capGreen">Basecap in grün und mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_capRed">Basecap in rot und mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_capBlue">Basecap in blau und with TYPO3 logo</label>
-      <label index="record_qs_prod_short_cup">Tasse mit TYPO3-Logo</label>
+      <label index="record_qs_prod_short_cup">Tasse mit TYPO3-Logo. Wegen des niedrigen Preises :) musst Du pro Bestellung mindestens 2 Tassen bestellen :(</label>
       <label index="record_qs_prod_short_pullover">Pullover mit TYPO3-Logo und Kopf.</label>
-      <label index="record_qs_prod_description_book">Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen? Nein, hast Du nicht! Aber jetzt kannst Du ihn sehen. Dieses Buch zeigt 4.293 Fotos der TYPO3 VIPs. 3.923 Fotos sind noch nie veröffentlich worden. Das Buch hat 1.423 Seiten. Die Schriftgröße ist 5 Punkt. Gewicht: 8,74 Kilogramm. Der Preis: wirklich billig!</label>
+      <label index="record_qs_prod_description_book"><![CDATA[Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen?
+Nein, hast Du nicht!
+Aber jetzt kannst Du ihn sehen.
+Dieses Buch zeigt 4.293 Fotos der TYPO3 VIPs. 3.923 Fotos sind noch nie veröffentlich worden. Das Buch hat 1.423 Seiten. Die Schriftgröße ist 5 Punkt. Gewicht: 8,74 Kilogramm. Der Preis: wirklich billig!
+Wegen des schweren Gewichts:
+<ul><li>Höchstens 3 Stück pro Bestellung</li></ul>]]></label>
       <label index="record_qs_prod_description_capGreen">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_capRed">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_capBlue">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
-      <label index="record_qs_prod_description_cup">Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getränk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben! Wenn Du willst, lassen wir vor dem Versand Kaspar Kaffee aus der Tasse trinken. Die Tasse wird dann nicht nicht gereinigt. Keine Zusatzkosten!</label>
+      <label index="record_qs_prod_description_cup"><![CDATA[Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getränk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben!
+Wenn Du willst, lassen wir vor dem Versand <strong>Kaspar Kaffee aus der Tasse</strong> trinken. Die Tasse wird dann nicht nicht gereinigt.
+Keine Zusatzkosten!
+Wegen des sagenhaft niedrigen Preises:
+<ul><li>Du musst mindestens zwei Tassen bestellen.</li></ul>]]></label>
       <label index="record_qs_prod_description_pullover">Dieser Pullover hat nicht nur ein TYPO3-Logo sondern auch einen Kopf. Wenn Du diesen Pullover und den Kopf anstelle Deines Kopfes anziehst, wirst Du nie weider durch die Benutzung von TYPO3 Kopfschmerzen bekommen. Und alle Deine Freunde werden glauben, dass Du viel klüger aussiehst als jeder andere!</label>
       <label index="record_qs_prod_price_book">99.99</label>
       <label index="record_qs_prod_price_capGreen">1.99</label>
