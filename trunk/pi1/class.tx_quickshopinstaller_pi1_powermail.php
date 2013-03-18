@@ -103,6 +103,7 @@ class tx_quickshopinstaller_pi1_powermail
   private $fieldsetsLabelFields = null;
   private $fieldsetsLabelTable  = null;
 
+  private $fieldsetsValueForm   = null;
 
 
 
@@ -123,6 +124,9 @@ class tx_quickshopinstaller_pi1_powermail
   public function main( )
   {
     $records = array( );
+
+    $records = $this->forms( );
+    $this->sqlInsert( $records, 'tx_powermail_domain_model_forms' );
 
     $records = $this->fieldsets( );
     $this->sqlInsert( $records, $this->fieldsetsLabelTable );
@@ -1140,7 +1144,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelForms] = $this->fieldsetsValueForm;
     $record[$this->fieldsetsLabelFields]     = '7';
 
     return $record;
@@ -1170,7 +1174,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelForms] = $this->fieldsetsValueForm;
     $record[$this->fieldsetsLabelFields]     = '3';
 
     return $record;
@@ -1200,7 +1204,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelForms] = $this->fieldsetsValueForm;
     $record[$this->fieldsetsLabelFields]     = '7';
 
     return $record;
@@ -1230,7 +1234,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelForms] = $this->fieldsetsValueForm;
     $record[$this->fieldsetsLabelFields]     = '3';
 
     return $record;
@@ -1249,6 +1253,7 @@ class tx_quickshopinstaller_pi1_powermail
     $records  = array( );
     
     $this->fieldsetsSetLabelsByVersion( ); 
+    $this->fieldsetsSetValuesByVersion( );
             
     $uid      = $this->pObj->zz_getMaxDbUid( $this->fieldsetsLabelTable );
 
@@ -1337,6 +1342,68 @@ class tx_quickshopinstaller_pi1_powermail
     $this->fieldsetsLabelTable  = 'tx_powermail_domain_model_pages';
   }
 
+/**
+ * fieldsetsSetValuesByVersion( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsetsSetValuesByVersion( )
+  {
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $this->fieldsetsSetValuesByVersion1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $this->fieldsetsSetValuesByVersion2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+  }
+ 
+/**
+ * fieldsetsSetValuesByVersion1x( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsetsSetValuesByVersion1x( )
+  {
+    $this->fieldsetsValueForm = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+  }
+
+/**
+ * fieldsetsSetValuesByVersion2x( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsetsSetValuesByVersion2x( )
+  {
+    $this->fieldsetsValueForm = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
+  }
+ 
 
 
  /***********************************************
@@ -1357,9 +1424,9 @@ class tx_quickshopinstaller_pi1_powermail
  */
   private function sqlInsert( $records, $table )
   {
-    foreach( $records as $record )
+    foreach( ( array ) $records as $record )
     {
-      //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
+      var_dump(__METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
       $error = $GLOBALS['TYPO3_DB']->sql_error( );      
       
@@ -1389,6 +1456,117 @@ class tx_quickshopinstaller_pi1_powermail
       $this->pObj->arrReport[ ] = $prompt;
         // prompt
     }
+  }
+
+
+
+ /***********************************************
+  *
+  * forms
+  *
+  **********************************************/
+
+/**
+ * formCaddyOrder( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function formCaddyOrder( $uid )
+  {
+    $record = null;
+
+    $llTitle = $this->pObj->pi_getLL( 'record_pm_form_title_caddyorder' );
+    $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['pages']      = 4; // Number of fieldsets/pages
+
+    return $record;
+  }
+
+/**
+ * forms( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function forms( )
+  {
+    $records  = null;
+
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $records = $this->forms1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $records = $this->forms2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $records;
+  }
+
+/**
+ * forms1x( ) : Return nothing: Powermail 1x doesn't know any form
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function forms1x( )
+  {
+    $records = null;
+
+    return $records;
+  }
+
+/**
+ * forms2x( )
+ *
+ * @return	array		$records : the fieldset records
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function forms2x( )
+  {
+    $records  = array( );
+    
+    $uid      = $this->pObj->zz_getMaxDbUid( 'tx_powermail_domain_model_forms' );
+
+      // fieldset billing address
+    $uid = $uid + 1;
+    $records[$uid] = $this->formCaddyOrder( $uid );
+    
+    return $records;
   }
 
 
