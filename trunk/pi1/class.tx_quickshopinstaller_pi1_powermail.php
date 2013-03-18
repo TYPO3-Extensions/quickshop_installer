@@ -1092,7 +1092,7 @@ class tx_quickshopinstaller_pi1_powermail
     
     $this->fieldsetsSetLabelsByVersion( ); 
             
-    $uid      = $this->pObj->zz_getMaxDbUid( 'tx_powermail_fieldsets' );
+    $uid      = $this->pObj->zz_getMaxDbUid( $this->fieldsetsLabelTable );
 
       // fieldset billing address
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
