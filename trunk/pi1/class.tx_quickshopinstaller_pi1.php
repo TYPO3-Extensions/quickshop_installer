@@ -132,6 +132,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // [array] Uids of the generated tt_content records - here: page content only
   public  $arr_contentUids      = false;
 
+  public  $powermailVersionInt = null;
+  public  $powermailVersionStr = null;
+  
 
 
  /***********************************************
@@ -856,7 +859,21 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       $this->bool_topLevel = false;
     }
   }
+ /**
+  * initPowermailVersion( ) :
+  *
+  * @return	void
+  * @access     private
+  * @version    3.0.0
+  * @since      3.0.0
+  */
 
+  private function initPowermailVersion( )
+  {
+    $arrResult = $this->zz_getExtensionVersion( 'powermail' );
+    $this->powermailVersionInt = $arrResult['int'];
+    $this->powermailVersionStr = $arrResult['str'];
+  }
 
 
  /***********************************************
@@ -895,8 +912,10 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       return $success;
     }
 
-      // 120613, dwildt, 1+
     $this->initBoolTopLevel();
+    
+    $this->initPowermailVersion( );
+
     $this->create( );
     $this->consolidate( );
 
@@ -1032,7 +1051,46 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->arr_icons['ok']    = '<img width="22" height="22" src="'.$pathToIcons.'dialog-ok-apply.png"> ';
     $this->arr_icons['info']  = '<img width="22" height="22" src="'.$pathToIcons.'dialog-information.png"> ';
   }
+  
+ /**
+  * extMgmVersion( ): Returns the version of an extension as an interger and a string.
+  *                   I.e
+  *                   * int: 4007007
+  *                   * str: 4.7.7
+  *
+  * @param    string        $_EXTKEY    : extension key
+  * @return    array        $arrReturn  : version as int (integer) and str (string)
+  * @access private
+  * @version 2.0.0
+  * @since 2.0.0
+  */
+  private function zz_getExtensionVersion( $_EXTKEY )
+  {
+    $arrReturn = null;
+    
+    if( ! t3lib_extMgm::isLoaded( $_EXTKEY ) )
+    {
+      $arrReturn['int'] = 0;
+      $arrReturn['str'] = 0;
+      return $arrReturn;
+    }
 
+      // Do not use require_once!
+    require( t3lib_extMgm::extPath( $_EXTKEY ) . 'ext_emconf.php');
+    $strVersion = $EM_CONF[$_EXTKEY]['version'];
+
+      // Set version as integer (sample: 4.7.7 -> 4007007)
+    list( $main, $sub, $bugfix ) = explode( '.', $strVersion );
+    $intVersion = ( ( int ) $main ) * 1000000;
+    $intVersion = $intVersion + ( ( int ) $sub ) * 1000;
+    $intVersion = $intVersion + ( ( int ) $bugfix ) * 1;
+      // Set version as integer (sample: 4.7.7 -> 4007007)
+    
+    $arrReturn['int'] = $intVersion;
+    $arrReturn['str'] = $strVersion;
+    return $arrReturn;
+  }
+  
    /**
  * Shop will be installed - with or without template
  *

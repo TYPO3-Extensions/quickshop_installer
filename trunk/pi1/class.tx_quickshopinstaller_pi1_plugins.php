@@ -292,6 +292,45 @@ class tx_quickshopinstaller_pi1_plugins
  */
   private function powermail( $uid )
   {
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $record = $this->powermail1x( $uid );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $record = $this->powermail2x( $uid );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $record;
+  }
+
+/**
+ * powermail1x( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function powermail1x( $uid )
+  {
     $record = null;
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
@@ -335,6 +374,25 @@ class tx_quickshopinstaller_pi1_plugins
     $record['tx_powermail_preview']       = 0;
 
     return $record;
+  }
+
+/**
+ * powermail2x( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function powermail2x( $uid )
+  {
+    $prompt = 'POWERMAIL 2.x<br />' . PHP_EOL .
+              'Please maintain the code!<br />' . PHP_EOL .
+              'Sorry for the trouble.<br />' . PHP_EOL .
+              'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+            __METHOD__ . ' (' . __LINE__ . ')';
+    die( $prompt );
   }
 
 
