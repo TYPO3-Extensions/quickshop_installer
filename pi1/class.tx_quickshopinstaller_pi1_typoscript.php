@@ -77,7 +77,7 @@ class tx_quickshopinstaller_pi1_typoscript
  * @return	void
  * @access public
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   public function main( )
   {
@@ -107,7 +107,7 @@ class tx_quickshopinstaller_pi1_typoscript
  * @return	array		$record : the TypoScript record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function recordCaddy( $uid )
   {
@@ -130,8 +130,7 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['sorting']              = 256;
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file']  = 'EXT:caddy/static/,EXT:caddy/static/css/,' 
-                                    . 'EXT:powermail/static/pi1/,EXT:powermail/static/css_fancy/';
+    $record['include_static_file']  = $this->recordCaddyStaticFiles( );
     $record['constants']            = '
   ////////////////////////////////////////////////////////
   //
@@ -175,13 +174,91 @@ plugin.caddy {
   }
 
 /**
+ * recordCaddyStaticFiles( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function recordCaddyStaticFiles( )
+  {
+    $staticFiles = null;
+    
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $staticFiles = $this->recordCaddyStaticFilesPowermail1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $staticFiles = $this->recordCaddyStaticFilesPowermail2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+    
+    return $staticFiles;
+  }
+
+/**
+ * recordCaddyStaticFilesPowermail1x( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function recordCaddyStaticFilesPowermail1x( )
+  {
+    $staticFiles  = 'EXT:caddy/static/,' 
+                  . 'EXT:caddy/static/css/,' 
+                  . 'EXT:caddy/static/powermail/1x,' 
+                  . 'EXT:powermail/static/pi1/,' 
+                  . 'EXT:powermail/static/css_fancy/';
+
+    return $staticFiles;
+  }
+
+/**
+ * recordCaddyStaticFilesPowermail2x( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function recordCaddyStaticFilesPowermail2x( )
+  {
+    $staticFiles  = 'EXT:caddy/static/,' 
+                  . 'EXT:caddy/static/css/,' 
+                  . 'EXT:caddy/static/powermail/2x,' 
+                  . 'EXT:powermail/Configuration/TypoScript/Main,' 
+                  . 'EXT:powermail/Configuration/TypoScript/CssFancy';
+
+    return $staticFiles;
+  }
+
+/**
  * recordRoot( )
  *
  * @param	[type]		$$uid: ...
  * @return	array
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function recordRoot( $uid )
   {
@@ -211,7 +288,7 @@ plugin.caddy {
  * @return	array		$record : the TypoScript record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function recordRootCaseAll( $uid )
   {
@@ -338,7 +415,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
  * @return	array		$record : the TypoScript record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function recordRootCaseShopOnly( $uid )
   {
@@ -402,7 +479,7 @@ plugin.quick_shop {
  * @return	array		$records : the TypoScript records
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function records( )
   {
@@ -435,7 +512,7 @@ plugin.quick_shop {
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function sqlInsert( $records )
   {
