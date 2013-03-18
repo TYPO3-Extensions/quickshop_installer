@@ -669,6 +669,19 @@ TCEMAIN {
     foreach( $pages as $page )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
+      
+      if( $error )
+      {
+        $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'pages', $page );
+        $prompt = 'SQL-ERROR<br />' . PHP_EOL .
+                  'query: ' . $query . '.<br />' . PHP_EOL .
+                  'error: ' . $error . '.<br />' . PHP_EOL .
+                  'Sorry for the trouble.<br />' . PHP_EOL .
+                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                __METHOD__ . ' (' . __LINE__ . ')';
+        die( $prompt );
+      }
       
         // prompt
       $marker['###TITLE###'] = $page['title'];
