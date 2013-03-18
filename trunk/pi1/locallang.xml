@@ -301,7 +301,7 @@ Because of the price:
       <label index="record_qs_prod_short_capGreen">Basecap in grün und mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_capRed">Basecap in rot und mit TYPO3-Logo</label>
       <label index="record_qs_prod_short_capBlue">Basecap in blau und with TYPO3 logo</label>
-      <label index="record_qs_prod_short_cup">Tasse mit TYPO3-Logo. Wegen des niedrigen Preises :) musst Du pro Bestellung mindestens 2 Tassen bestellen :(</label>
+      <label index="record_qs_prod_short_cup">Tasse mit TYPO3-Logo. Wegen des niedrigen Preises :) musst Du pro Bestellung mindestens 2 Tassen ordern :(</label>
       <label index="record_qs_prod_short_pullover">Pullover mit TYPO3-Logo und Kopf.</label>
       <label index="record_qs_prod_description_book"><![CDATA[Hast Du jemals Kaspar mit einem Basecap aus diesem Shop herumlaufen sehen?
 Nein, hast Du nicht!
@@ -313,7 +313,7 @@ Wegen des schweren Gewichts:
       <label index="record_qs_prod_description_capRed">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_capBlue">Selbst Du kannst intelligent aussehen. Alles was Du brauchst ist diese Kappe.</label>
       <label index="record_qs_prod_description_cup"><![CDATA[Die Tasse hat eine spezielle Beschichtung auf der Innenseite. Jedes warme Getränk wird dadurch mit besonderer Intelligenz kontaminiert. Trink Deinen Kaffee oder Tee aus dieser Tasse, und Du wirst nie wieder irgendein Problem mit TYPO3 oder dessen Extensions haben!
-Wenn Du willst, lassen wir vor dem Versand <strong>Kaspar Kaffee aus der Tasse</strong> trinken. Die Tasse wird dann nicht nicht gereinigt.
+Wenn Du willst, <strong>lassen wir vor dem Versand Kaspar Kaffee aus der Tasse trinken</strong>. Die Tasse wird dann nicht gereinigt.
 Keine Zusatzkosten!
 Wegen des sagenhaft niedrigen Preises:
 <ul><li>Du musst mindestens zwei Tassen bestellen.</li></ul>]]></label>
