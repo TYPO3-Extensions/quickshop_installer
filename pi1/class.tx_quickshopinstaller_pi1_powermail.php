@@ -91,15 +91,17 @@
  */
 class tx_quickshopinstaller_pi1_powermail
 {
-  public $prefixId      = 'tx_quickshopinstaller_pi1_powermail';                // Same as class name
-  public $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_powermail.php';  // Path to this script relative to the extension dir.
-  public $extKey        = 'quickshop_installer';                      // The extension key.
+  public  $prefixId      = 'tx_quickshopinstaller_pi1_powermail';
+  public  $scriptRelPath = 'pi1/class.tx_quickshopinstaller_pi1_powermail.php';
+  public  $extKey        = 'quickshop_installer';
 
-  public $pObj = null;
+  public  $pObj = null;
   
-  public $fieldsetsLabelForms  = null;
-  public $fieldsetsLabelFields = null;
-  public $fieldsetsLabelTable  = null;
+  private $fieldsLabelTable = null;
+  
+  private $fieldsetsLabelForms  = null;
+  private $fieldsetsLabelFields = null;
+  private $fieldsetsLabelTable  = null;
 
 
 
@@ -126,7 +128,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->sqlInsert( $records, $this->fieldsetsLabelTable );
 
     $records = $this->fields( );
-    $this->sqlInsert( $records, 'tx_powermail_fields' );
+    $this->sqlInsert( $records, $this->fieldsLabelTable );
   }
 
 
@@ -865,7 +867,10 @@ class tx_quickshopinstaller_pi1_powermail
   private function fields( )
   {
     $records  = array( );
-    $uid      = $this->pObj->zz_getMaxDbUid( 'tx_powermail_fields' );
+
+    $this->fieldsSetLabelsByVersion( ); 
+               
+    $uid      = $this->pObj->zz_getMaxDbUid( $this->fieldsLabelTable );
 
       // field billing address company
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
@@ -948,6 +953,68 @@ class tx_quickshopinstaller_pi1_powermail
     $records[$uid] = $this->fieldOrderSubmit( $uid, $sorting );
 
     return $records;
+  }
+
+/**
+ * fieldsSetLabelsByVersion( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsSetLabelsByVersion( )
+  {
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $this->fieldsSetLabelsByVersion1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $this->fieldsSetLabelsByVersion2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+  }
+
+/**
+ * fieldsSetLabelsByVersion1x( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsSetLabelsByVersion1x( )
+  {
+    $this->fieldsLabelTable  = 'tx_powermail_fields';
+  }
+
+/**
+ * fieldsSetLabelsByVersion2x( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsSetLabelsByVersion2x( )
+  {
+    $this->fieldsetsLabelTable  = 'tx_powermail_domain_model_fields';
   }
 
 
