@@ -354,8 +354,8 @@ class tx_quickshopinstaller_pi1_plugins
     $record['sectionIndex']               = 1;
     $record['tx_powermail_title']         = 'quickshop';
     $record['tx_powermail_recipient']     = $emailRecipient;
-    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_r' );
-    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_s' );
+    $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_r1x' );
+    $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_s1x' );
 // Will updated by consolidate->pageCaddyPluginPowermail
 //    $record['tx_powermail_sender']        = $str_sender;
 //    $record['tx_powermail_sendername']    = $str_sendername;
@@ -365,9 +365,9 @@ class tx_quickshopinstaller_pi1_plugins
     $record['tx_powermail_recip_table']   = 0;
     $record['tx_powermail_recip_id']      = null;
     $record['tx_powermail_recip_field']   = null;
-    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL('plugin_powermail_thanks');
-    $record['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CADDY###' . "\n" . '###POWERMAIL_ALL###';
-    $record['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CADDY###' . "\n" . '###POWERMAIL_ALL###';
+    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL('plugin_powermail_thanks1x');
+    $record['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###';
+    $record['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###';
     $record['tx_powermail_redirect']      = null;
     $record['tx_powermail_fieldsets']     = 4;
     $record['tx_powermail_users']         = 0;
