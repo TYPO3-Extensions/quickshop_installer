@@ -683,7 +683,7 @@ TCEMAIN {
 /**
  * sqlUpdatePlugin( )
  *
- * @param	array		$records  : TypoScript records for pages
+ * @param	array		$records  : tt_content records for pages
  * @param	string		$pageTitle  : title of the page
  * @return	void
  * @access private
@@ -699,13 +699,13 @@ TCEMAIN {
       $where      = 'uid = ' . $uid;
       $fields     = array_keys( $record );
       $csvFields  = implode( ', ', $fields );
-      $csvFields  = str_replace( 'header,', null, $csvFields );
+      $csvFields  = str_replace( 'title, ', null, $csvFields );
 
-      //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
+      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
-      $this->pObj->markerArray['###TITLE###']     = '"' . $record['header'] . '"';
+      $this->pObj->markerArray['###TITLE###']     = '"' . $record['title'] . '"';
       $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
       $prompt = '
         <p>
@@ -783,7 +783,7 @@ TCEMAIN {
       $where      = 'uid = ' . $uid;
       $fields     = array_keys( $record );
       $csvFields  = implode( ', ', $fields );
-      $csvFields  = str_replace( 'header,', null, $csvFields );
+      $csvFields  = str_replace( 'title, ', null, $csvFields );
 
       //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
@@ -802,7 +802,7 @@ TCEMAIN {
         die( $prompt );
       }
       $this->pObj->markerArray['###FIELD###']     = $csvFields;
-      $this->pObj->markerArray['###TITLE###']     = '"' . $record['header'] . '"';
+      $this->pObj->markerArray['###TITLE###']     = '"' . $record['title'] . '"';
       $this->pObj->markerArray['###TITLE_PID###'] = '"' . $pageTitle . '" (uid ' . $uid . ')';
       $prompt = '
         <p>
