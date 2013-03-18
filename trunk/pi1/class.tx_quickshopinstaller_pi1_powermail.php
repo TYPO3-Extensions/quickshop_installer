@@ -231,7 +231,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = 'text';
-    $record               = $this->fieldsSetMarker( $record, __METHOD__ );
+    $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
   }
@@ -1524,7 +1524,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     foreach( ( array ) $records as $record )
     {
-      var_dump(__METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
+      //var_dump(__METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
       $error = $GLOBALS['TYPO3_DB']->sql_error( );      
       
