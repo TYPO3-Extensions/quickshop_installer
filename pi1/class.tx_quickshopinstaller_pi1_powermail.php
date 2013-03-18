@@ -285,7 +285,12 @@ class tx_quickshopinstaller_pi1_powermail
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = 'text';
-    $record['flexform']  = ''.
+
+    $versionInt = $this->pObj->powermailVersionInt;
+    switch( true )
+    {
+      case( $versionInt >= 1000000 && $versionInt < 2000000 ):
+        $record['flexform']  = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
@@ -299,6 +304,18 @@ class tx_quickshopinstaller_pi1_powermail
     </data>
 </T3FlexForms>
 ';
+        break;
+      case( $versionInt >= 2000000 && $versionInt < 3000000 ):
+        $record['mandatory'] = 'true';
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is not 1.x and 2.x: ' . $versionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
     return $record;
   }
@@ -329,7 +346,11 @@ class tx_quickshopinstaller_pi1_powermail
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
     $record[ $this->fieldsLabelType ]  = 'text';
-    $record['flexform']  = ''.
+    $versionInt = $this->pObj->powermailVersionInt;
+    switch( true )
+    {
+      case( $versionInt >= 1000000 && $versionInt < 2000000 ):
+        $record['flexform']  = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
@@ -343,6 +364,18 @@ class tx_quickshopinstaller_pi1_powermail
     </data>
 </T3FlexForms>
 ';
+        break;
+      case( $versionInt >= 2000000 && $versionInt < 3000000 ):
+        $record['mandatory'] = 'true';
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is not 1.x and 2.x: ' . $versionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
     return $record;
   }
@@ -411,7 +444,12 @@ class tx_quickshopinstaller_pi1_powermail
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
     $record[ $this->fieldsLabelType ]  = 'text';
-    $record['flexform']  = ''.
+
+    $versionInt = $this->pObj->powermailVersionInt;
+    switch( true )
+    {
+      case( $versionInt >= 1000000 && $versionInt < 2000000 ):
+        $record['flexform']  = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
@@ -428,6 +466,20 @@ class tx_quickshopinstaller_pi1_powermail
     </data>
 </T3FlexForms>
 ';
+        break;
+      case( $versionInt >= 2000000 && $versionInt < 3000000 ):
+        $record['mandatory']    = 'true';
+        $record['sender_email'] = 'true';
+        $record['validation']   = 'true';
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is not 1.x and 2.x: ' . $versionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
     return $record;
   }
@@ -745,7 +797,12 @@ class tx_quickshopinstaller_pi1_powermail
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
     $record[ $this->fieldsLabelType ]  = 'text';
     $record[ $this->fieldsLabelType ]  = 'textarea';
-    $record['flexform']  = ''.
+
+    $versionInt = $this->pObj->powermailVersionInt;
+    switch( true )
+    {
+      case( $versionInt >= 1000000 && $versionInt < 2000000 ):
+        $record['flexform']  = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
@@ -762,6 +819,18 @@ class tx_quickshopinstaller_pi1_powermail
     </data>
 </T3FlexForms>
 ';
+        break;
+      case( $versionInt >= 2000000 && $versionInt < 3000000 ):
+          // Nothing
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is not 1.x and 2.x: ' . $versionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
     return $record;
   }
@@ -826,7 +895,12 @@ class tx_quickshopinstaller_pi1_powermail
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
     $record[ $this->fieldsLabelType ]  = 'check';
-    $record['flexform']  = ''.
+
+    $versionInt = $this->pObj->powermailVersionInt;
+    switch( true )
+    {
+      case( $versionInt >= 1000000 && $versionInt < 2000000 ):
+        $record['flexform']  = ''.
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
@@ -843,6 +917,19 @@ class tx_quickshopinstaller_pi1_powermail
     </data>
 </T3FlexForms>
 ';
+        break;
+      case( $versionInt >= 2000000 && $versionInt < 3000000 ):
+        $record['mandatory']  = 'true';
+        $record['settings']   = $str_terms;
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is not 1.x and 2.x: ' . $versionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
 
     return $record;
   }
