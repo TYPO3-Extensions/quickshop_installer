@@ -1014,7 +1014,7 @@ class tx_quickshopinstaller_pi1_powermail
  */
   private function fieldsSetLabelsByVersion2x( )
   {
-    $this->fieldsetsLabelTable  = 'tx_powermail_domain_model_fields';
+    $this->fieldsLabelTable  = 'tx_powermail_domain_model_fields';
   }
 
 
