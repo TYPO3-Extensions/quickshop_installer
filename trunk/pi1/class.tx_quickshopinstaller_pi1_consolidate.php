@@ -375,7 +375,9 @@ class tx_quickshopinstaller_pi1_consolidate
     $uidForm          = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
     $receiverSubject  = $this->pObj->pi_getLL( 'plugin_powermail_subject_r2x' );
     $receiverBody     = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}}' . PHP_EOL . '{powermail_all}';
-    $senderEmail      = 'noreply@typo3-quick-shop.de';
+    list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    unset( $name );
+    $senderEmail      = 'noreply@' . $domain;
     $senderSubject    = $this->pObj->pi_getLL( 'plugin_powermail_subject_s2x' );
     $senderBody       = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}}' . PHP_EOL . '{powermail_all}';
     $thxBody          = htmlentities( $this->pObj->pi_getLL('plugin_powermail_thanks1x') );
