@@ -182,13 +182,13 @@ class tx_quickshopinstaller_pi1_consolidate
                     '</value>
                 </field>
                 <field index="termsMode">
-                    <value index="vDEF">customer</value>
+                    <value index="vDEF">all</value>
                 </field>
                 <field index="invoiceMode">
                     <value index="vDEF">all</value>
                 </field>
                 <field index="deliveryorderMode">
-                    <value index="vDEF">vendor</value>
+                    <value index="vDEF">all</value>
                 </field>
             </language>
         </sheet>
