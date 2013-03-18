@@ -99,6 +99,7 @@ class tx_quickshopinstaller_pi1_powermail
   
   public $fieldsetsLabelForms  = null;
   public $fieldsetsLabelFields = null;
+  public $fieldsetsLabelTable  = null;
 
 
 
@@ -122,7 +123,7 @@ class tx_quickshopinstaller_pi1_powermail
     $records = array( );
 
     $records = $this->fieldsets( );
-    $this->sqlInsert( $records, 'tx_powermail_fieldsets' );
+    $this->sqlInsert( $records, $this->fieldsetsLabelTable );
 
     $records = $this->fields( );
     $this->sqlInsert( $records, 'tx_powermail_fields' );
@@ -1160,6 +1161,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $this->fieldsetsLabelForms  = 'tt_content';
     $this->fieldsetsLabelFields = 'felder';
+    $this->fieldsetsLabelTable  = 'tx_powermail_fieldsets';
   }
 
 /**
@@ -1174,6 +1176,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $this->fieldsetsLabelForms  = 'forms';
     $this->fieldsetsLabelFields = 'fields';
+    $this->fieldsetsLabelTable  = 'tx_powermail_domain_model_pages';
   }
 
 
