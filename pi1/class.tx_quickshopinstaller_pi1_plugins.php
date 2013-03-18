@@ -387,12 +387,25 @@ class tx_quickshopinstaller_pi1_plugins
  */
   private function powermail2x( $uid )
   {
-    $prompt = 'POWERMAIL 2.x<br />' . PHP_EOL .
-              'Please maintain the code!<br />' . PHP_EOL .
-              'Sorry for the trouble.<br />' . PHP_EOL .
-              'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
-            __METHOD__ . ' (' . __LINE__ . ')';
-    die( $prompt );
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
+    $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
+    
+    $record['uid']                        = $uid;
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['tstamp']                     = time( );
+    $record['crdate']                     = time( );
+    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']                    = 512;
+    $record['CType']                      = 'list';
+    $record['header']                     = $llHeader;
+    $record['header_layout']              = 100;  // hidden
+    $record['list_type']                  = 'powermail_pi1';
+// Will updated by consolidate->pageCaddyPluginPowermail
+//    $record['pi_flexform']              = null;
+
+    return $record;
   }
 
 

@@ -301,6 +301,46 @@ class tx_quickshopinstaller_pi1_consolidate
   private function pageCaddyPluginPowermail( )
   {
     $records  = null;
+
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $records = $this->pageCaddyPluginPowermail1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $records = $this->pageCaddyPluginPowermail2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $records;
+  }
+
+/**
+ * pageCaddyPluginPowermail1x( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageCaddyPluginPowermail1x( )
+  {
+    $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
 
       // values
@@ -317,6 +357,24 @@ class tx_quickshopinstaller_pi1_consolidate
     $records[$uid]['tx_powermail_sendername'] = $customerName;
 
     return $records;
+  }
+
+/**
+ * pageCaddyPluginPowermail2x( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageCaddyPluginPowermail2x( )
+  {
+    $prompt = 'POWERMAIL 2.x<br />' . PHP_EOL .
+              'Please maintain the code!<br />' . PHP_EOL .
+              'Sorry for the trouble.<br />' . PHP_EOL .
+              'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+            __METHOD__ . ' (' . __LINE__ . ')';
+    die( $prompt );
   }
 
 /**
