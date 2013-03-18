@@ -762,6 +762,19 @@ class tx_quickshopinstaller_pi1_quickshop
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
+      
+      if( $error )
+      {
+        $query  = $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record );
+        $prompt = 'SQL-ERROR<br />' . PHP_EOL .
+                  'query: ' . $query . '.<br />' . PHP_EOL .
+                  'error: ' . $error . '.<br />' . PHP_EOL .
+                  'Sorry for the trouble.<br />' . PHP_EOL .
+                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
+                __METHOD__ . ' (' . __LINE__ . ')';
+        die( $prompt );
+      }
       
         // CONTINUE : pid is empty, no prompt
       if( empty( $record['pid'] ) )
