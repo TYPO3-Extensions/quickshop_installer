@@ -369,12 +369,80 @@ class tx_quickshopinstaller_pi1_consolidate
  */
   private function pageCaddyPluginPowermail2x( )
   {
-    $prompt = 'POWERMAIL 2.x<br />' . PHP_EOL .
-              'Please maintain the code!<br />' . PHP_EOL .
-              'Sorry for the trouble.<br />' . PHP_EOL .
-              'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
-            __METHOD__ . ' (' . __LINE__ . ')';
-    die( $prompt );
+    $records  = null;
+    $uid      = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+
+    $uidForm          = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
+    $receiverSubject  = $this->pObj->pi_getLL( 'plugin_powermail_subject_r2x' );
+    $receiverBody     = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}}' . PHP_EOL . '{powermail_all}';
+    $senderEmail      = 'noreply@typo3-quick-shop.de';
+    $senderSubject    = $this->pObj->pi_getLL( 'plugin_powermail_subject_s2x' );
+    $senderBody       = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}}' . PHP_EOL . '{powermail_all}';
+    $thxBody          = htmlentities( $this->pObj->pi_getLL('plugin_powermail_thanks1x') );
+
+    $records[$uid]['pi_flexform'] = null .
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="main">
+            <language index="lDEF">
+                <field index="settings.flexform.main.form">
+                    <value index="vDEF">' . $uidForm . '</value>
+                </field>
+                <field index="settings.flexform.main.confirmation">
+                    <value index="vDEF">1</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="receiver">
+            <language index="lDEF">
+                <field index="settings.flexform.receiver.name">
+                    <value index="vDEF">{billingaddressfirstname} {billingaddresslastname}</value>
+                </field>
+                <field index="settings.flexform.receiver.email">
+                    <value index="vDEF">{contactdataemail}</value>
+                </field>
+                <field index="settings.flexform.receiver.subject">
+                    <value index="vDEF">' . $receiverSubject . '</value>
+                </field>
+                <field index="settings.flexform.receiver.body">
+                    <value index="vDEF">' . $receiverBody . '</value>
+                    <value index="_TRANSFORM_vDEF.vDEFbase">' . $receiverBody . '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="sender">
+            <language index="lDEF">
+                <field index="settings.flexform.sender.name">
+                    <value index="vDEF">Quick Shop</value>
+                </field>
+                <field index="settings.flexform.sender.email">
+                    <value index="vDEF">' . $senderEmail . '</value>
+                </field>
+                <field index="settings.flexform.sender.subject">
+                    <value index="vDEF">' . $senderSubject . '</value>
+                </field>
+                <field index="settings.flexform.sender.body">
+                    <value index="vDEF">' . $senderBody . '</value>
+                    <value index="_TRANSFORM_vDEF.vDEFbase">' . $senderBody . '</value>
+                </field>
+            </language>
+        </sheet>
+        <sheet index="thx">
+            <language index="lDEF">
+                <field index="settings.flexform.thx.body">
+                    <value index="vDEF">' . $thxBody . '</value>
+                    <value index="_TRANSFORM_vDEF.vDEFbase">' . $thxBody . '</value>
+                </field>
+                <field index="settings.flexform.thx.redirect">
+                    <value index="vDEF"></value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>';
+
+    return $records;
   }
 
 /**
