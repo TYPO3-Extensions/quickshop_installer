@@ -96,6 +96,10 @@ class tx_quickshopinstaller_pi1_powermail
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
+  
+  public $fieldsetsLabelForms  = null;
+  public $fieldsetsLabelFields = null;
+
 
 
 
@@ -977,8 +981,8 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
-    $record['felder']     = '7';
+    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelFields]     = '7';
 
     return $record;
   }
@@ -1007,8 +1011,8 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
-    $record['felder']     = '3';
+    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelFields]     = '3';
 
     return $record;
   }
@@ -1037,8 +1041,8 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
-    $record['felder']     = '7';
+    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelFields]     = '7';
 
     return $record;
   }
@@ -1067,8 +1071,8 @@ class tx_quickshopinstaller_pi1_powermail
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
-    $record['tt_content'] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
-    $record['felder']     = '3';
+    $record[$this->fieldsetsLabelForms] = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
+    $record[$this->fieldsetsLabelFields]     = '3';
 
     return $record;
   }
@@ -1084,6 +1088,9 @@ class tx_quickshopinstaller_pi1_powermail
   private function fieldsets( )
   {
     $records  = array( );
+    
+    $this->fieldsetsSetLabelsByVersion( ); 
+            
     $uid      = $this->pObj->zz_getMaxDbUid( 'tx_powermail_fieldsets' );
 
       // fieldset billing address
@@ -1103,6 +1110,70 @@ class tx_quickshopinstaller_pi1_powermail
     $records[$uid] = $this->fieldsetOrder( $uid, $sorting );
 
     return $records;
+  }
+
+/**
+ * fieldsetsSetLabelsByVersion( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsetsSetLabelsByVersion( )
+  {
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $this->fieldsetsSetLabelsByVersion1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $this->fieldsetsSetLabelsByVersion2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+  }
+
+/**
+ * fieldsetsSetLabelsByVersion1x( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsetsSetLabelsByVersion1x( )
+  {
+    $this->fieldsetsLabelForms  = 'tt_content';
+    $this->fieldsetsLabelFields = 'felder';
+  }
+
+/**
+ * fieldsetsSetLabelsByVersion2x( )
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsetsSetLabelsByVersion2x( )
+  {
+    $this->fieldsetsLabelForms  = 'forms';
+    $this->fieldsetsLabelFields = 'fields';
   }
 
 
