@@ -178,7 +178,7 @@ class tx_quickshopinstaller_pi1_consolidate
             <language index="lDEF">
                 <field index="customerEmail">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_email' ) .
                     '</value>
                 </field>
                 <field index="termsMode">
@@ -196,37 +196,37 @@ class tx_quickshopinstaller_pi1_consolidate
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyBilling' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_companyBilling' ) .
                     '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_firstnameBilling' ) .
                     '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_surnameBilling' ) .
                     '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_streetBilling' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_streetBilling' ) .
                     '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipBilling' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_zipBilling' ) .
                     '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_locationBilling' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_locationBilling' ) .
                     '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryBilling' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_countryBilling' ) .
                     '</value>
                 </field>
             </language>
@@ -235,37 +235,37 @@ class tx_quickshopinstaller_pi1_consolidate
             <language index="lDEF">
                 <field index="company">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_companyDelivery' ) .
                     '</value>
                 </field>
                 <field index="firstName">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_firstnameDelivery' ) .
                     '</value>
                 </field>
                 <field index="lastName">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameDelivery' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_surnameDelivery' ) .
                     '</value>
                 </field>
                 <field index="address">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_streetDelivery' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_streetDelivery' ) .
                     '</value>
                 </field>
                 <field index="zip">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_zipDelivery' ) .
                     '</value>
                 </field>
                 <field index="city">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_locationDelivery' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_locationDelivery' ) .
                     '</value>
                 </field>
                 <field index="country">
                     <value index="vDEF">'
-                      . $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] .
+                      . $this->zz_getPowermailUid( 'record_pm_field_title_countryDelivery' ) .
                     '</value>
                 </field>
             </language>
@@ -873,6 +873,88 @@ TCEMAIN {
       </p>';
     $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
     $this->pObj->arrReport[ ] = $prompt;
+  }
+
+
+
+ /***********************************************
+  *
+  * ZZ
+  *
+  **********************************************/
+
+/**
+ * zz_getPowermailUid( )
+ *
+ * @param	string		$label        : label for the powermail field
+ * @return	string          $powermailUid : uid of the powermail field record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function zz_getPowermailUid( $label )
+  {
+    $powermailUid = null; 
+    
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $powermailUid = $this->zz_getPowermailUid1x( $label );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $powermailUid = $this->zz_getPowermailUid2x( $label );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $powermailUid;    
+  }
+
+/**
+ * zz_getPowermailUid1x( )
+ *
+ * @param	string		$label        : label for the powermail field
+ * @return	string          $powermailUid : uid of the powermail field record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function zz_getPowermailUid1x( $label )
+  {
+    $powermailUid = $this->pObj->arr_recordUids[ $label ];
+
+    return $powermailUid;    
+  }
+
+/**
+ * zz_getPowermailUid2x( )
+ *
+ * @param	string		$label        : label for the powermail field
+ * @return	string          $powermailUid : uid of the powermail field record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function zz_getPowermailUid2x( $label )
+  {
+    $powermailUid = 'tx_powermail_domain_model_fields_' 
+                  . $this->pObj->arr_recordUids[ $label ];
+
+    return $powermailUid;    
   }
 
 }
