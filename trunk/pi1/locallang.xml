@@ -95,7 +95,7 @@
 <h2>Good to know</h2>
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Quick Shop.</li><li>The ordered iItems aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
-<p>Thanks, that you are interested in TYPO3 Quick Shop! {f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.clearcaddysession\')}}</p>]]></label>
+<p>Thanks, that you are interested in TYPO3 Quick Shop! {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
       <label index="plugin_warn">Do you don't want, that Quick Shop Installer installs the Quick Shop?</label>
       <label index="record_create_header">Records</label>
       <label index="record_create_prompt">Record "###TITLE###" is added to the table "###TABLE###" in the page/folder ###TITLE_PID###.</label>
@@ -236,7 +236,7 @@ Because of the price:
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
-      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgblendet.</label>
+      <label index="consolidate_prompt_template">Bisherige Templates auf der Seite ###TITLE_PID### wurden ausgeblendet.</label>
       <label index="end_button">Seite neu laden</label>
       <label index="end_deletePlugin_prompt">TYPO3 Backend: Entferne den Quick Shop Installer, wenn Du ihn nicht mehr brauchst!</label>
       <label index="end_header">Installation beenden!</label>
@@ -278,9 +278,9 @@ Because of the price:
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Quick Shop ..." im TYPO3-Backend-Pllugin.</label>
       <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
       <label index="plugin_powermail_subject_r1x">Neue Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddyordernumber\')}}</label>
+      <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_subject_s1x">Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_subject_s2x">Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddyordernumber\')}}</label>
+      <label index="plugin_powermail_subject_s2x">Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
@@ -294,7 +294,7 @@ Because of the price:
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. {f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.clearcaddysession\')}}</p>]]></label>
+<p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
       <label index="plugin_warn">Willst Du den Quick Shop Installer wirklich nicht benutzen?</label>
       <label index="record_create_header">Datensätze</label>
       <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" in der Seite/im Ordner ###TITLE_PID### eingefügt.</label>
