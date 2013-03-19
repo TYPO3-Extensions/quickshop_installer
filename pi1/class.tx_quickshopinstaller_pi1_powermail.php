@@ -315,8 +315,8 @@ class tx_quickshopinstaller_pi1_powermail
 ';
         break;
       case( $versionInt >= 2000000 && $versionInt < 3000000 ):
-        $record['mandatory']    = 'true';
-        $record['sender_name']  = 'true';
+        $record['mandatory']    = true;
+        $record['sender_name']  = true;
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -377,8 +377,8 @@ class tx_quickshopinstaller_pi1_powermail
 ';
         break;
       case( $versionInt >= 2000000 && $versionInt < 3000000 ):
-        $record['mandatory'] = 'true';
-        $record['sender_name']  = 'true';
+        $record['mandatory'] = true;
+        $record['sender_name']  = true;
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -482,9 +482,9 @@ class tx_quickshopinstaller_pi1_powermail
 ';
         break;
       case( $versionInt >= 2000000 && $versionInt < 3000000 ):
-        $record['mandatory']    = 'true';
-        $record['sender_email'] = 'true';
-        $record['validation']   = 'true';
+        $record['mandatory']    = true;
+        $record['sender_email'] = true;
+        $record['validation']   = true;
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -944,7 +944,7 @@ class tx_quickshopinstaller_pi1_powermail
 ';
         break;
       case( $versionInt >= 2000000 && $versionInt < 3000000 ):
-        $record['mandatory']  = 'true';
+        $record['mandatory']  = true;
         $record['settings']   = $str_terms;
         break;
       default:
