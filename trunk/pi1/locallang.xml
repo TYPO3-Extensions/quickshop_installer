@@ -72,7 +72,7 @@
       <label index="page_title_products">Items</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
       <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
-      <label index="phrases_powermail_termsAccepted">I'm according with the &lt;link ###PID### _blank&gt;Terms and Conditions&lt;/link&gt;.|Terms and Conditions accepted</label>
+      <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
       <label index="plugin_browser_header">[Browser for Quickshop]</label>
       <label index="plugin_caddy_header">Caddy</label>
@@ -269,7 +269,7 @@ Because of the price:
       <label index="page_title_terms">AGB</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
       <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
-      <label index="phrases_powermail_termsAccepted">Ich akzeptiere die &lt;link ###PID### _blank&gt;AGB&lt;/link&gt;.|AGB akzeptiert</label>
+      <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
       <label index="plugin_browser_header">[Browser für Quickshop]</label>
       <label index="plugin_caddy_header">Warenkorb</label>

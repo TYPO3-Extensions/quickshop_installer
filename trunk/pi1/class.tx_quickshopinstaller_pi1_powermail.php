@@ -168,7 +168,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -199,7 +199,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -230,7 +230,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -261,7 +261,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -292,7 +292,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     $versionInt = $this->pObj->powermailVersionInt;
@@ -315,7 +315,8 @@ class tx_quickshopinstaller_pi1_powermail
 ';
         break;
       case( $versionInt >= 2000000 && $versionInt < 3000000 ):
-        $record['mandatory'] = 'true';
+        $record['mandatory']    = 'true';
+        $record['sender_name']  = 'true';
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -354,7 +355,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
     $versionInt = $this->pObj->powermailVersionInt;
     switch( true )
@@ -377,6 +378,7 @@ class tx_quickshopinstaller_pi1_powermail
         break;
       case( $versionInt >= 2000000 && $versionInt < 3000000 ):
         $record['mandatory'] = 'true';
+        $record['sender_name']  = 'true';
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -415,7 +417,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -454,7 +456,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     $versionInt = $this->pObj->powermailVersionInt;
@@ -521,7 +523,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -552,7 +554,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -591,7 +593,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -622,7 +624,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -653,7 +655,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -684,7 +686,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -715,7 +717,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -746,7 +748,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -777,7 +779,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
+    $record[ $this->fieldsLabelType ]  = 'input';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -816,7 +818,6 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
-    $record[ $this->fieldsLabelType ]  = 'text';
     $record[ $this->fieldsLabelType ]  = 'textarea';
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
@@ -903,7 +904,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $int_terms = $this->pObj->arr_pageUids[ 'page_title_terms' ];
-    $str_terms = htmlspecialchars($this->pObj->pi_getLL('phrases_powermail_termsAccepted'));
+    $str_terms = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_termsAccepted') );
     $str_terms = str_replace('###PID###', $int_terms, $str_terms);
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_terms' );
