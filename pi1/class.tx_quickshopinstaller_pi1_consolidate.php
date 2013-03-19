@@ -372,16 +372,18 @@ class tx_quickshopinstaller_pi1_consolidate
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
 
+    $llHeader         = $this->pObj->pi_getLL( 'plugin_powermail_header' );
     $uidForm          = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
     $receiverSubject  = $this->pObj->pi_getLL( 'plugin_powermail_subject_r2x' );
-    $receiverBody     = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}}' . PHP_EOL . '{powermail_all}';
+    $receiverBody     = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}' . PHP_EOL . '{powermail_all}';
     list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
     unset( $name );
     $senderEmail      = 'noreply@' . $domain;
     $senderSubject    = $this->pObj->pi_getLL( 'plugin_powermail_subject_s2x' );
-    $senderBody       = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}}' . PHP_EOL . '{powermail_all}';
+    $senderBody       = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}' . PHP_EOL . '{powermail_all}';
     $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('plugin_powermail_thanks2x') );
 
+    $records[$uid]['header']                  = $llHeader;
     $records[$uid]['pi_flexform'] = null .
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
@@ -701,7 +703,7 @@ TCEMAIN {
       $csvFields  = implode( ', ', $fields );
       $csvFields  = str_replace( 'header, ', null, $csvFields );
 
-      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
+      //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
       $error = $GLOBALS['TYPO3_DB']->sql_error( );      
