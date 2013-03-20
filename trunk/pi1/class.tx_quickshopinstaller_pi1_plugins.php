@@ -365,9 +365,9 @@ class tx_quickshopinstaller_pi1_plugins
     $record['tx_powermail_recip_table']   = 0;
     $record['tx_powermail_recip_id']      = null;
     $record['tx_powermail_recip_field']   = null;
-    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL('plugin_powermail_thanks1x');
-    $record['tx_powermail_mailsender']    = '###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###';
-    $record['tx_powermail_mailreceiver']  = '###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###';
+    $record['tx_powermail_thanks']        = $this->pObj->pi_getLL( 'plugin_powermail_thanks1x' );
+    $record['tx_powermail_mailsender']    = $this->pObj->pi_getLL( 'plugin_powermail_body_s1x' );
+    $record['tx_powermail_mailreceiver']  = $this->pObj->pi_getLL( 'plugin_powermail_body_r1x' );
     $record['tx_powermail_redirect']      = null;
     $record['tx_powermail_fieldsets']     = 4;
     $record['tx_powermail_users']         = 0;

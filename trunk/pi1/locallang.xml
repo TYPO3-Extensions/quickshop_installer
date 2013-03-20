@@ -70,6 +70,7 @@
       <label index="page_title_library_header">header</label>
       <label index="page_title_library_footer">footer</label>
       <label index="page_title_products">Items</label>
+      <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
       <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
       <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
@@ -79,6 +80,10 @@
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="plugin_help">If you want, please select the option "Installation: Quick Shop ..." in the TYPO3 backend plugin.</label>
+      <label index="plugin_powermail_body_r1x"><![CDATA[###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_r2x"><![CDATA[<p>Dear Quick-Shop-Provider,<br />There is a new order.</p><ul><li>The terms & conditions</li><li>the delivery order and</li><li>the invoice</li></ul><p>are attached.</p><p>You don't have to do anything, because this is a demo only.</p><p>The customer got</p><ul><li>the terms & conditions</li><li>the delivery order and</li><li>the invoice</li></ul><p>too.</p><p>If Quick Shop satisfies you and if you like to subsidise the project, please visit:</p><ul><li>Subsidise Quick Shop! »</li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>]]></label>
+      <label index="plugin_powermail_body_s1x"><![CDATA[###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Quick Shop.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If Quick Shop satisfies you and if you like to subsidise the project, please visit:</p><ul><li>Subsidise Quick Shop! »</li></ul>]]></label>
       <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
       <label index="plugin_powermail_subject_r">New Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_s">Your Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
@@ -89,9 +94,9 @@
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Quick Shop.</li><li>The ordered iItems aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
 <p>Thanks, that you are interested in TYPO3 Quick Shop! ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
-      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Thanks!</h1>
+      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Thanks {billingaddressfirstname} {billingaddresslastname}!</h1>
 <p>Thanks for your order.</p>
-<p>We sent a confirmation to your e-mail.</p>
+<p>You get a confirmation to your e-mail {contactdataemail}.</p>
 <h2>Good to know</h2>
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Quick Shop.</li><li>The ordered iItems aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
@@ -267,15 +272,40 @@ Because of the price:
       <label index="page_title_products">Artikel</label>
       <label index="page_title_shipping">Versand</label>
       <label index="page_title_terms">AGB</label>
+      <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
       <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
       <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
       <label index="plugin_browser_header">[Browser für Quickshop]</label>
       <label index="plugin_caddy_header">Warenkorb</label>
+      <label index="plugin_caddy_note_note_1x"></label>
+      <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
+
+  1. Caddy-Marker 
+  2. Lieferschein-Feldbezeichnungen
+
+1. Caddy-Marker
+
+  * {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')} 
+  * Ist im Powermail-Formular entfernt in den Feldern
+    * Text für Absender
+    * Text für Empfänger
+  * Grund: HTML-Layout ist zerschossen.
+  * Ursache: unklar.
+
+2. Lieferschein-Feldbezeichnungen
+  * Die Bezeichnungen sind andere als bei der Rechnungsadresse
+    * Grund: Bei gleichen Bezeichnungen wird im Betsätigungsformular
+      der Wert des Feldes Rechnungsadresse mit dem Wert des Feldes
+      Lieferadresse überschrieben.]]></label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Quick Shop ..." im TYPO3-Backend-Pllugin.</label>
+      <label index="plugin_powermail_body_r1x"><![CDATA[###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_r2x"><![CDATA[<p>Lieber Quick-Shop-Betreiber,<br />es gibt eine neue Bestellung.</p><ul><li>AGB</li><li>Lieferschein und</li><li>Rechnung</li></ul><p>liegen anbei.</p><p>Da es sich um eine Demo handelt,</p><ul><li>ist von Dir nichts zu veranlassen.</li></ul><p>Und der Kunde hat</p><ul><li>AGB</li><li>Lieferschein und</li><li>Rechnung</li></ul><p>ebenfalls erhalten.</p><p>Wenn Dir Quick Shop gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li>Quick Shop unterstützen »</li></ul><p>Dirk Wildt<br />http://wildt.at.die-netzmacher.de</p>]]></label>
+      <label index="plugin_powermail_body_s1x"><![CDATA[###POWERMAIL_TYPOSCRIPT_CADDY###' . PHP_EOL . '###POWERMAIL_ALL###]]></label>
+      <label index="plugin_powermail_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein und</li><li>Rechnung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Quick Shop gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li>Quick Shop unterstützen »</li></ul>]]></label>
       <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
       <label index="plugin_powermail_subject_r1x">Neue Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
@@ -288,13 +318,14 @@ Because of the price:
 <p>Dies ist ein Demo-Shop</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
 <p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
-      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Danke!</h1>
+      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
-<p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
+<p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
-<p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
+<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul>
+<p>Danke, dass Du Dich für TYPO3-Quick-Shop interessierst. 
+{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.clearcaddysession')}</p>]]></label>
       <label index="plugin_warn">Willst Du den Quick Shop Installer wirklich nicht benutzen?</label>
       <label index="record_create_header">Datensätze</label>
       <label index="record_create_prompt">Der Datensatz "###TITLE###" wurde in die Tabelle "###TABLE###" in der Seite/im Ordner ###TITLE_PID### eingefügt.</label>
