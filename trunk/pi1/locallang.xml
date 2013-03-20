@@ -39,7 +39,7 @@
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
       <label index="content_terms_header">Terms and conditions</label>
       <label index="content_terms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
-<ul><li>The shop demonstrates the workflow of Quick Shop.</li><li>The ordered iItems aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>]]></label>
+<ul><li>The shop demonstrates the workflow of Quick Shop.</li><li>The ordered iItems aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If Quick Shop satisfies you and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Quick Shop! »</a></li></ul><p>]]></label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Quick Shop Installer, if you don't need it any longer.</label>
       <label index="end_header">Finish the installation</label>
@@ -263,7 +263,7 @@ Because of the price:
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
       <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
       <label index="content_terms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
-<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>]]></label>
+<ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Quick Shop gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Quick Shop! »</a></li></ul>]]></label>
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) auf der Seite ###TITLE_PID### ist aktualisiert.</label>
