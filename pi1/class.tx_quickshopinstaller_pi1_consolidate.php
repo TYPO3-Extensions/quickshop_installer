@@ -87,7 +87,7 @@ class tx_quickshopinstaller_pi1_consolidate
  * @return	void
  * @access public
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   public function main( )
   {
@@ -114,7 +114,7 @@ class tx_quickshopinstaller_pi1_consolidate
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageCaddy( )
   {
@@ -141,7 +141,7 @@ class tx_quickshopinstaller_pi1_consolidate
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageCaddyPluginCaddy( )
   {
@@ -308,7 +308,7 @@ class tx_quickshopinstaller_pi1_consolidate
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageCaddyPluginPowermail( )
   {
@@ -348,7 +348,7 @@ class tx_quickshopinstaller_pi1_consolidate
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageCaddyPluginPowermail1x( )
   {
@@ -377,7 +377,7 @@ class tx_quickshopinstaller_pi1_consolidate
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageCaddyPluginPowermail2x( )
   {
@@ -467,9 +467,42 @@ class tx_quickshopinstaller_pi1_consolidate
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageCaddyTyposcript( )
+  {
+    $records = null;
+
+    $pmX = $this->powermailVersionAppendix( );
+    switch( true )
+    {
+      case( $pmX == '1x' ):
+        $records = $this->pageCaddyTyposcript1x( );
+        break;
+      case( $pmX == '2x' ):
+        $records = $this->pageCaddyTyposcript2x( );
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is neither 1x nor 2x. Internal: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $records;
+  }
+
+/**
+ * pageCaddyTyposcript1x( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageCaddyTyposcript1x( )
   {
     $records = null;
 
@@ -513,12 +546,29 @@ plugin.tx_powermail_pi1 {
   }
 
 /**
+ * pageCaddyTyposcript2x( )
+ *
+ * @return	array		$records    : the TypoScript record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageCaddyTyposcript2x( )
+  {
+    $records = null;
+    
+      // Nothing to do.
+
+    return $records;
+  }
+
+/**
  * pageRoot( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageRoot( )
   {
@@ -549,7 +599,7 @@ plugin.tx_powermail_pi1 {
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageRootFileCopy( $timestamp )
   {
@@ -603,7 +653,7 @@ plugin.tx_powermail_pi1 {
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageRootPluginInstallHide( )
   {
@@ -625,7 +675,7 @@ plugin.tx_powermail_pi1 {
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageRootProperties( $timestamp )
   {
@@ -679,7 +729,7 @@ TCEMAIN {
  * @return	array		$record : the TypoScript record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function pageRootTyposcriptOtherHide( )
   {
@@ -702,7 +752,7 @@ TCEMAIN {
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function sqlUpdatePlugin( $records, $pageTitle )
   {
@@ -750,7 +800,7 @@ TCEMAIN {
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function powermailVersionAppendix( )
   {
@@ -795,7 +845,7 @@ TCEMAIN {
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function sqlUpdatePages( $records, $pageTitle )
   {
@@ -843,7 +893,7 @@ TCEMAIN {
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function sqlUpdateTyposcript( $records, $pageTitle )
   {
@@ -890,7 +940,7 @@ TCEMAIN {
  * @return	void
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function sqlUpdateTyposcriptOtherHide( )
   {
@@ -945,7 +995,7 @@ TCEMAIN {
  * @return	string          $powermailUid : uid of the powermail field record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function zz_getPowermailUid( $label )
   {
@@ -986,7 +1036,7 @@ TCEMAIN {
  * @return	string          $powermailUid : uid of the powermail field record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function zz_getPowermailUid1x( $label )
   {
@@ -1002,7 +1052,7 @@ TCEMAIN {
  * @return	string          $powermailUid : uid of the powermail field record
  * @access private
  * @version 3.0.0
- * @since   0.0.1
+ * @since   3.0.0
  */
   private function zz_getPowermailUid2x( $label )
   {
