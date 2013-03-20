@@ -582,7 +582,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_streetDelivery' );
+    $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_streetDelivery' );
     $this->pObj->arr_recordUids[ 'record_pm_field_title_streetDelivery' ] = $uid;
 
     $record['uid']       = $uid;
@@ -613,7 +613,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_locationDelivery' );
+    $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_locationDelivery' );
     $this->pObj->arr_recordUids[ 'record_pm_field_title_locationDelivery' ] = $uid;
 
     $record['uid']       = $uid;
@@ -644,7 +644,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_companyDelivery' );
+    $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_companyDelivery' );
     $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] = $uid;
 
     $record['uid']       = $uid;
@@ -675,7 +675,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_countryDelivery' );
+    $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_countryDelivery' );
     $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] = $uid;
 
     $record['uid']       = $uid;
@@ -706,7 +706,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_firstnameDelivery' );
+    $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_firstnameDelivery' );
     $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
@@ -737,7 +737,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_surnameDelivery' );
+    $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_surnameDelivery' );
     $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
@@ -768,7 +768,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_zipDelivery' );
+    $llTitle = $this->fieldsSetTitleDeliveryByVersion( 'record_pm_field_title_zipDelivery' );
     $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] = $uid;
 
     $record['uid']       = $uid;
@@ -1209,6 +1209,83 @@ class tx_quickshopinstaller_pi1_powermail
     $record['own_marker_select']  = true;
     $record['marker']             = strtolower( $marker );
     return $record;
+  }
+
+/**
+ * fieldsSetTitleDeliveryByVersion( )
+ *
+ * @param       string      $$llLabel : the label in the locallang file
+ * @return	string      $llValue  : the localised value
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsSetTitleDeliveryByVersion( $llLabel )
+  {
+    $llValue = null; 
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $llValue = $this->fieldsSetTitleDeliveryByVersion1x( $llLabel );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $llValue = $this->fieldsSetTitleDeliveryByVersion2x( $llLabel );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+    
+    return $llValue;
+  }
+
+/**
+ * fieldsSetTitleDeliveryByVersion1x( )  : 
+ *
+ * @param       string      $$llLabel : the label in the locallang file
+ * @return	string      $llValue  : the localised value
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsSetTitleDeliveryByVersion1x( $llLabel )
+  {
+    $llValue = $this->pObj->pi_getLL( $llLabel );
+    
+    return $llValue;
+  }
+
+
+/**
+ * fieldsSetTitleDeliveryByVersion2x( )  : 
+ *
+ * @param       string      $$llLabel : the label in the locallang file
+ * @return	string      $llValue  : the localised value
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function fieldsSetTitleDeliveryByVersion2x( $llLabel )
+  {
+    
+    $llAppendix2x = $this->pObj->pi_getLL( 'phrases_pm_fields_delivery_appendix2x' );
+    $llValue      = $this->pObj->pi_getLL( $llLabel )
+                  . $llAppendix2x
+                  ;
+    
+    return $llValue;
   }
 
 

@@ -70,6 +70,8 @@ class tx_quickshopinstaller_pi1_consolidate
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
+  
+  private $powermailVersionAppendix = null;
 
 
 
@@ -145,6 +147,7 @@ class tx_quickshopinstaller_pi1_consolidate
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'plugin_caddy_header' ];
+    $pmX      = $this->powermailVersionAppendix( );
 
       // values
     $llHeader = $this->pObj->pi_getLL( 'plugin_caddy_header' );
@@ -155,6 +158,15 @@ class tx_quickshopinstaller_pi1_consolidate
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
     <data>
+        <sheet index="note">
+            <language index="lDEF">
+                <field index="note">
+                    <value index="vDEF">' 
+                      . $this->pObj->pi_getLL( 'plugin_caddy_note_note_' . $pmX ) . 
+                    '</value>
+                </field>
+            </language>
+        </sheet>
         <sheet index="origin">
             <language index="lDEF">
                 <field index="order">
@@ -375,15 +387,15 @@ class tx_quickshopinstaller_pi1_consolidate
     $llHeader         = $this->pObj->pi_getLL( 'plugin_powermail_header' );
     $uidForm          = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
     $receiverSubject  = $this->pObj->pi_getLL( 'plugin_powermail_subject_r2x' );
-    $receiverBody     = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}' . PHP_EOL . '{powermail_all}';
+    $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_powermail_body_r2x' ) );
     list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
     unset( $name );
     $senderEmail      = 'noreply@' . $domain;
     $senderSubject    = $this->pObj->pi_getLL( 'plugin_powermail_subject_s2x' );
-    $senderBody       = '{f:cObject(typoscriptObjectPath:\'plugin.tx_caddy_pi1.powermail.caddy\')}' . PHP_EOL . '{powermail_all}';
+    $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_powermail_body_s2x' ) );
     $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('plugin_powermail_thanks2x') );
 
-    $records[$uid]['header']                  = $llHeader;
+    $records[$uid]['header']      = $llHeader;
     $records[$uid]['pi_flexform'] = null .
 '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3FlexForms>
@@ -730,6 +742,49 @@ TCEMAIN {
       $prompt = $this->pObj->cObj->substituteMarkerArray( $prompt, $this->pObj->markerArray );
       $this->pObj->arrReport[ ] = $prompt;
     }
+  }
+
+/**
+ * powermailVersionAppendix( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function powermailVersionAppendix( )
+  {
+    if( $this->powermailVersionAppendix !== null )
+    {
+      return $this->powermailVersionAppendix;
+    }
+
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $this->powermailVersionAppendix = '1x';
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $this->powermailVersionAppendix = '2x';
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $this->powermailVersionAppendix;
   }
 
 /**
