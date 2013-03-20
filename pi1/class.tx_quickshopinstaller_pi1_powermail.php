@@ -98,6 +98,7 @@ class tx_quickshopinstaller_pi1_powermail
   public  $pObj = null;
   
   private $fieldsLabelTable = null;
+  private $fieldsValueType  = null;
   
   private $fieldsetsLabelForms  = null;
   private $fieldsetsLabelFields = null;
@@ -168,7 +169,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']      = $llTitle;
     $record['sorting']    = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -199,7 +200,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -230,7 +231,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -261,7 +262,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -292,7 +293,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     $versionInt = $this->pObj->powermailVersionInt;
@@ -355,7 +356,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
     $versionInt = $this->pObj->powermailVersionInt;
     switch( true )
@@ -417,7 +418,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -456,7 +457,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     $versionInt = $this->pObj->powermailVersionInt;
@@ -523,7 +524,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -554,7 +555,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -593,7 +594,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -624,7 +625,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -655,7 +656,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -686,7 +687,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -717,7 +718,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -748,7 +749,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -779,7 +780,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record['title']     = $llTitle;
     $record['sorting']   = $sorting;
     $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
-    $record[ $this->fieldsLabelType ]  = 'input';
+    $record[ $this->fieldsLabelType ]  = $this->fieldsValueType;
     $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
 
     return $record;
@@ -980,7 +981,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $records  = array( );
 
-    $this->fieldsSetLabelsByVersion( ); 
+    $this->fieldsSetLabelsAndValuesByVersion( ); 
                
     $uid      = $this->pObj->zz_getMaxDbUid( $this->fieldsLabelTable );
 
@@ -1068,14 +1069,14 @@ class tx_quickshopinstaller_pi1_powermail
   }
 
 /**
- * fieldsSetLabelsByVersion( )
+ * fieldsSetLabelsAndValuesByVersion( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function fieldsSetLabelsByVersion( )
+  private function fieldsSetLabelsAndValuesByVersion( )
   {
     switch( true )
     {
@@ -1087,10 +1088,10 @@ class tx_quickshopinstaller_pi1_powermail
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $this->fieldsSetLabelsByVersion1x( );
+        $this->fieldsSetLabelsAndValuesByVersion1x( );
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $this->fieldsSetLabelsByVersion2x( );
+        $this->fieldsSetLabelsAndValuesByVersion2x( );
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -1104,33 +1105,35 @@ class tx_quickshopinstaller_pi1_powermail
   }
 
 /**
- * fieldsSetLabelsByVersion1x( )
+ * fieldsSetLabelsAndValuesByVersion1x( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function fieldsSetLabelsByVersion1x( )
+  private function fieldsSetLabelsAndValuesByVersion1x( )
   {
     $this->fieldsLabelFieldset  = 'fieldset';
     $this->fieldsLabelTable     = 'tx_powermail_fields';
     $this->fieldsLabelType      = 'formtype';
+    $this->fieldsValueType      = 'text';
   }
 
 /**
- * fieldsSetLabelsByVersion2x( )
+ * fieldsSetLabelsAndValuesByVersion2x( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function fieldsSetLabelsByVersion2x( )
+  private function fieldsSetLabelsAndValuesByVersion2x( )
   {
     $this->fieldsLabelFieldset  = 'pages';
     $this->fieldsLabelTable     = 'tx_powermail_domain_model_fields';
     $this->fieldsLabelType      = 'type';
+    $this->fieldsValueType      = 'input';
   }
 
 /**
