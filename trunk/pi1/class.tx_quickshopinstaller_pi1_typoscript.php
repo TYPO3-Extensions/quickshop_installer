@@ -310,10 +310,11 @@ plugin.base_quickshop {
   // quick_shop
 plugin.quick_shop {
   pages {
-    caddy     = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    root      = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
-    shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
+    root        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
+    shipping    = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
   }
 }
   // quick_shop
@@ -419,10 +420,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
   // quick_shop
 plugin.quick_shop {
   pages {
-    caddy     = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    root      = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
-    shipping  = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    terms     = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
+    root        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
+    shipping    = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
   }
 }
   // quick_shop
