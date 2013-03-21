@@ -33,7 +33,7 @@
       <label index="content_legalinfo_header">Legal info</label>
       <label index="content_legalinfo_bodytext"><![CDATA[<p>Your legal info</p>
 <h2>Good to know</h2>
-<ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Quick Shop" target="_blank">Die Netzmacher</a>the developer of the Quick Shop, we would be happy.</li></ul>]]></label>
+<ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Quick Shop" target="_blank">Die Netzmacher</a> - the developer of the Quick Shop -, we would be happy.</li></ul>]]></label>
       <label index="content_revocation_header">Power of Revocation</label>
       <label index="content_revocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>
@@ -264,7 +264,7 @@ Because of the price:
       <label index="content_legalinfo_header">Impressum</label>
       <label index="content_legalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
 <h2>Gut zu wissen</h2>
-<ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Quick Shop" target="_blank">Netzmacher</a>als Entwickler des Quick Shop erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
+<ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Quick Shop" target="_blank">Netzmacher</a> als Entwickler des Quick Shop erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
       <label index="content_revocation_header">Widerrufsrecht</label>
       <label index="content_revocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
 <h2>Gut zu wissen</h2>
