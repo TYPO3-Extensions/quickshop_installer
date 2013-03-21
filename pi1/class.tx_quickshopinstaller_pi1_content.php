@@ -228,6 +228,36 @@ class tx_quickshopinstaller_pi1_content
   }
 
 /**
+ * pageRevocation( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function pageRevocation( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_revocation_header' );
+    $this->pObj->arr_contentUids['content_revocation_header']  = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_revocation' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'text';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $this->pObj->pi_getLL('content_revocation_bodytext');
+    $record['sectionIndex'] = 1;
+
+    return $record;
+  }
+
+/**
  * pageTerms( )
  *
  * @param	integer		$uid: uid of the current plugin

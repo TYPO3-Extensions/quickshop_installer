@@ -465,6 +465,43 @@ TCEMAIN {
   }
 
 /**
+ * pageRevocation( ) :
+ *
+ * @param	integer		$pageUid            : uid of the current page
+ * @param	integer		$sorting            : sorting value
+ * @return	array		$page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function pageRevocation( $pageUid, $sorting )
+  {
+    $pageTitle    = 'page_title_revocation';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
+
+    return $page;
+  }
+
+/**
  * pageTerms( ) :
  *
  * @param	integer		$pageUid            : uid of the current page
@@ -622,6 +659,9 @@ TCEMAIN {
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageDelivery( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageRevocation( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageTerms( $pageUid, $sorting );

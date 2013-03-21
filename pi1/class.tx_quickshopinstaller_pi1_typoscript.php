@@ -131,41 +131,8 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file']  = $this->recordCaddyStaticFiles( );
-    $record['constants']            = '
-  ////////////////////////////////////////////////////////
-  //
-  // INDEX
-  //
-  // plugin.caddy
-  
-
-  // plugin.caddy
-plugin.caddy {
-  db {
-    table = tx_quickshop_products
-    sku   = sku
-    min   = quantity_min
-    max   = quantity_max
-  }
-  gpvar {
-    puid  = tx_browser_pi1|showUid
-    qty   = tx_quickshop_qty
-  }
-  pdf {
-    textColor {
-      address             = #333333
-      caddy               = #FF9B00
-      date                = #FF9B00
-      numberDeliveryorder = #FF9B00
-      numberInvoice       = #FF9B00
-      numberLine          = #333333
-      numberOrder         = #FF9B00
-      terms               = #FF9B00
-    }
-  }
-}
-  // plugin.caddy
-';
+    $record['constants']            = null;
+    
       // Will set by consolidate->pageCaddyTyposcript
 //    $record['config']               = '';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
@@ -225,7 +192,8 @@ plugin.caddy {
   {
     $staticFiles  = 'EXT:caddy/static/,' 
                   . 'EXT:caddy/static/css/,' 
-                  . 'EXT:caddy/static/powermail/1x,' 
+                  . 'EXT:caddy/static/powermail/1x/,' 
+                  . 'EXT:quick_shop/static/caddy/,'
                   . 'EXT:powermail/static/pi1/,' 
                   . 'EXT:powermail/static/css_fancy/';
 
@@ -244,9 +212,10 @@ plugin.caddy {
   {
     $staticFiles  = 'EXT:caddy/static/,' 
                   . 'EXT:caddy/static/css/,' 
-                  . 'EXT:caddy/static/powermail/2x,' 
-                  . 'EXT:powermail/Configuration/TypoScript/Main,' 
-                  . 'EXT:powermail/Configuration/TypoScript/CssFancy';
+                  . 'EXT:caddy/static/powermail/2x/,' 
+                  . 'EXT:quick_shop/static/caddy/,'
+                  . 'EXT:powermail/Configuration/TypoScript/Main/,' 
+                  . 'EXT:powermail/Configuration/TypoScript/CssFancy/';
 
     return $staticFiles;
   }
@@ -313,9 +282,11 @@ plugin.caddy {
     $record['sitetitle']            = $this->pObj->markerArray['###WEBSITE_TITLE###'];
     $record['root']                 = 1;
     $record['clear']                = 3;  // Clear all
-    $record['include_static_file']  = '' .
-      'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,'.
-      'EXT:browser/static/,EXT:quick_shop/static/';
+    $record['include_static_file']  = 'EXT:css_styled_content/static/,' 
+                                    . 'EXT:browser/static/,'
+                                    . 'EXT:base_quickshop/static/,' 
+                                    . 'EXT:quick_shop/static/'
+                                    ;
     $record['includeStaticAfterBasedOn'] = 1;
     $record['constants'] = ''.
 '
@@ -467,8 +438,10 @@ plugin.quick_shop {
 
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
-    $record['include_static_file'] = null .
-      'EXT:css_styled_content/static/,EXT:browser/static/,EXT:quick_shop/static/';
+    $record['include_static_file']  = 'EXT:css_styled_content/static/,' 
+                                    . 'EXT:browser/static/,'
+                                    . 'EXT:quick_shop/static/'
+                                    ;
 
     return $record;
   }

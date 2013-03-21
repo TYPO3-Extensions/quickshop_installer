@@ -34,6 +34,12 @@
       <label index="content_legalinfo_bodytext"><![CDATA[<p>Your legal info</p>
 <h2>Good to know</h2>
 <ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Quick Shop" target="_blank">Die Netzmacher</a>the developer of the Quick Shop, we would be happy.</li></ul>]]></label>
+      <label index="content_revocation_header">Power of Revocation</label>
+      <label index="content_revocation_bodytext"><![CDATA[<p>Your right of revocation</p>
+<h2>Good to know</h2>
+<ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
+<h2>Helpful links</h2>
+<ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a><br /><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a><br /><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
       <label index="content_shipping_header">Delivery</label>
       <label index="content_shipping_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
@@ -61,15 +67,16 @@
       <label index="grp_warn_prompt">Quick Shop Installer couldn't create the group "###GROUP_TITLE###". It doesn't matter.</label>
       <label index="page_create_header">Pages and Directories</label>
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
-      <label index="page_title_root">quick shop</label>
       <label index="page_title_caddy">caddy</label>
-      <label index="page_title_shipping">shipping</label>
-      <label index="page_title_terms">terms and conditions</label>
       <label index="page_title_legalinfo">legal info</label>
       <label index="page_title_library">libraries</label>
       <label index="page_title_library_header">header</label>
       <label index="page_title_library_footer">footer</label>
       <label index="page_title_products">Items</label>
+      <label index="page_title_revocation">revocation</label>
+      <label index="page_title_root">quick shop</label>
+      <label index="page_title_shipping">shipping</label>
+      <label index="page_title_terms">terms</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
       <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
@@ -258,6 +265,12 @@ Because of the price:
       <label index="content_legalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
 <h2>Gut zu wissen</h2>
 <ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Quick Shop" target="_blank">Netzmacher</a>als Entwickler des Quick Shop erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
+      <label index="content_revocation_header">Widerrufsrecht</label>
+      <label index="content_revocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
+<h2>Gut zu wissen</h2>
+<ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
+<h2>Hilfreiche Links</h2>
+<ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a><br /><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a><br /><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
       <label index="content_shipping_header">Versand</label>
       <label index="content_shipping_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
