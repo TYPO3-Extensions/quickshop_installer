@@ -304,6 +304,10 @@ class tx_quickshopinstaller_pi1_content
     $uid = $uid + 1;
     $records[$uid] = $this->pageDelivery( $uid );
 
+      // content for page revocation
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageRevocation( $uid );
+
       // content for page terms
     $uid = $uid + 1;
     $records[$uid] = $this->pageTerms( $uid );
