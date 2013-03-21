@@ -282,11 +282,6 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['sitetitle']            = $this->pObj->markerArray['###WEBSITE_TITLE###'];
     $record['root']                 = 1;
     $record['clear']                = 3;  // Clear all
-    $record['include_static_file']  = 'EXT:css_styled_content/static/,' 
-                                    . 'EXT:browser/static/,'
-                                    . 'EXT:base_quickshop/static/,' 
-                                    . 'EXT:quick_shop/static/'
-                                    ;
     $record['includeStaticAfterBasedOn'] = 1;
     $record['constants'] = ''.
 '
@@ -372,9 +367,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
 
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
-    $record['include_static_file'] = null .
-      'EXT:css_styled_content/static/,EXT:base_quickshop/static/base_quickshop/,' .
-      'EXT:browser/static/,EXT:quick_shop/static/';
+    $record['include_static_file']  = 'EXT:css_styled_content/static/,' 
+                                    . 'EXT:browser/static/,'
+                                    . 'EXT:base_quickshop/static/,' 
+                                    . 'EXT:quick_shop/static/'
+                                    ;
 
     return $record;
   }
