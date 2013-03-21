@@ -1,7 +1,7 @@
 2.0.1
   2013-03-21
   Feature
-  * #i0002: Power of Revocation
+  * #i0001: Power of Revocation
             Effected files:
             * pi1
               * class.tx_quickshopinstaller_pi1_content.php
