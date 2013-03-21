@@ -196,6 +196,9 @@ class tx_quickshopinstaller_pi1_consolidate
                 <field index="termsMode">
                     <value index="vDEF">all</value>
                 </field>
+                <field index="revocationMode">
+                    <value index="vDEF">all</value>
+                </field>
                 <field index="invoiceMode">
                     <value index="vDEF">all</value>
                 </field>
@@ -285,13 +288,16 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="paths">
             <language index="lDEF">
                 <field index="terms">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-invoice.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
+                </field>
+                <field index="revocation">
+                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
                 </field>
                 <field index="invoice">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-invoice.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
                 </field>
                 <field index="deliveryorder">
-                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-invoice.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/res/pdf/typo3-quick-shop-draft.pdf</value>
                 </field>
             </language>
         </sheet>

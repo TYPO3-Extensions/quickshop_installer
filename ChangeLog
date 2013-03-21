@@ -4,6 +4,7 @@
   * #i0001: Power of Revocation
             Effected files:
             * pi1
+              * class.tx_quickshopinstaller_pi1_consolidate.php
               * class.tx_quickshopinstaller_pi1_content.php
               * class.tx_quickshopinstaller_pi1_pages.php
               * class.tx_quickshopinstaller_pi1_typoscript.php
