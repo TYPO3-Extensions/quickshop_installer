@@ -309,6 +309,7 @@ Because of the price:
       <label index="page_title_library_header">Kopf</label>
       <label index="page_title_library_footer">Fuß</label>
       <label index="page_title_products">Artikel</label>
+      <label index="page_title_revocation">Widerrufsrecht</label>
       <label index="page_title_shipping">Versand</label>
       <label index="page_title_terms">AGB</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
