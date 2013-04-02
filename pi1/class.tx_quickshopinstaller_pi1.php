@@ -674,6 +674,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       $success = false;
     }
 
+    $key    = 'cps_tcatree';
+    $title  = 'Record tree for TCA';
+    if( ! $this->extensionCheckExtension( $key, $title ) )
+    {
+      $success = false;
+    }
+
     $key    = 'powermail';
     $title  = 'Powermail';
     if( ! $this->extensionCheckExtension( $key, $title ) )
