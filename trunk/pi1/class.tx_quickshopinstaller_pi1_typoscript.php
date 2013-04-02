@@ -130,7 +130,7 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['sorting']              = 256;
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['include_static_file']  = $this->recordCaddyStaticFiles( );
+//    $record['include_static_file']  = $this->recordCaddyStaticFiles( );
     $record['constants']            = null;
     
       // Will set by consolidate->pageCaddyTyposcript
@@ -272,16 +272,21 @@ class tx_quickshopinstaller_pi1_typoscript
     $this->pObj->str_tsRoot = $title;
     $this->pObj->arr_tsUids[$this->pObj->str_tsRoot] = $uid;
 
-    $record['title']                = $title;
-    $record['uid']                  = $uid;
-    $record['pid']                  = $GLOBALS['TSFE']->id;
-    $record['tstamp']               = time( );
-    $record['sorting']              = 256;
-    $record['crdate']               = time( );
-    $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-    $record['sitetitle']            = $this->pObj->markerArray['###WEBSITE_TITLE###'];
-    $record['root']                 = 1;
-    $record['clear']                = 3;  // Clear all
+    $record['title']                      = $title;
+    $record['uid']                        = $uid;
+    $record['pid']                        = $GLOBALS['TSFE']->id;
+    $record['tstamp']                     = time( );
+    $record['sorting']                    = 256;
+    $record['crdate']                     = time( );
+    $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
+    $record['sitetitle']                  = $this->pObj->markerArray['###WEBSITE_TITLE###'];
+    $record['root']                       = 1;
+    $record['clear']                      = 3;  // Clear all
+    $record['include_static_file']        = 'EXT:css_styled_content/static/,' 
+                                          . 'EXT:browser/static/,'
+                                          . 'EXT:base_quickshop/static/,' 
+                                          . $this->recordRootStaticFiles( )
+                                          ;
     $record['includeStaticAfterBasedOn'] = 1;
     $record['constants'] = ''.
 '
@@ -290,6 +295,7 @@ class tx_quickshopinstaller_pi1_typoscript
   // INDEX
   //
   // plugin.base_quickshop
+  // plugin.caddy
   // plugin.quick_shop
 
   // base_quickshop
@@ -307,14 +313,24 @@ plugin.base_quickshop {
 }
   // base_quickshop
 
+  // caddy
+plugin.caddy {
+  pages {
+    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+    caddymini   = ' . $this->pObj->arr_pageUids[ 'page_title_caddy_caddymini' ] . '
+    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+  }
+}
+  // caddy
+
   // quick_shop
 plugin.quick_shop {
   pages {
     caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
-    root        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
     shipping    = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
   }
 }
   // quick_shop
@@ -368,12 +384,6 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
 
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
-    $record['include_static_file']  = 'EXT:css_styled_content/static/,' 
-                                    . 'EXT:browser/static/,'
-                                    . 'EXT:base_quickshop/static/,' 
-                                    . 'EXT:quick_shop/static/'
-                                    ;
-
     return $record;
   }
 
@@ -408,6 +418,10 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
     $record['root']                       = 0;
     $record['clear']                      = 0;  // Clear nothing
+    $record['include_static_file']        = 'EXT:css_styled_content/static/,' 
+                                          . 'EXT:browser/static/,'
+                                          . $this->recordRootStaticFiles( )
+                                          ;
     $record['includeStaticAfterBasedOn']  = 0;
     $record['constants']           = ''.
 '
@@ -415,16 +429,27 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
   //
   // INDEX
   //
+  // plugin.caddy
   // plugin.quick_shop
+
+  // caddy
+plugin.caddy {
+  pages {
+    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
+    caddymini   = ' . $this->pObj->arr_pageUids[ 'page_title_caddy_caddymini' ] . '
+    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+  }
+}
+  // caddy
 
   // quick_shop
 plugin.quick_shop {
   pages {
     caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
-    root        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
     shipping    = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
   }
 }
   // quick_shop
@@ -437,12 +462,89 @@ plugin.quick_shop {
 
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
-    $record['include_static_file']  = 'EXT:css_styled_content/static/,' 
-                                    . 'EXT:browser/static/,'
-                                    . 'EXT:quick_shop/static/'
-                                    ;
-
     return $record;
+  }
+
+/**
+ * recordRootStaticFiles( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function recordRootStaticFiles( )
+  {
+    $staticFiles = null;
+    
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $staticFiles = $this->recordRootStaticFilesPowermail1x( );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $staticFiles = $this->recordRootStaticFilesPowermail2x( );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+    
+    return $staticFiles;
+  }
+
+/**
+ * recordRootStaticFilesPowermail1x( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function recordRootStaticFilesPowermail1x( )
+  {
+    $staticFiles  = 'EXT:quick_shop/static/,'
+                  . 'EXT:caddy/static/,' 
+                  . 'EXT:caddy/static/css/,' 
+                  . 'EXT:caddy/static/powermail/1x/,' 
+                  . 'EXT:quick_shop/static/caddy/,'
+                  . 'EXT:powermail/static/pi1/,' 
+                  . 'EXT:powermail/static/css_fancy/';
+
+    return $staticFiles;
+  }
+
+/**
+ * recordRootStaticFilesPowermail2x( )
+ *
+ * @return	string		$staticFiles  : the list of static files
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function recordRootStaticFilesPowermail2x( )
+  {
+    $staticFiles  = 'EXT:quick_shop/static/,'
+                  . 'EXT:caddy/static/,' 
+                  . 'EXT:caddy/static/css/,' 
+                  . 'EXT:caddy/static/powermail/2x/,' 
+                  . 'EXT:quick_shop/static/caddy/,'
+                  . 'EXT:powermail/Configuration/TypoScript/Main/,' 
+                  . 'EXT:powermail/Configuration/TypoScript/CssFancy/';
+
+    return $staticFiles;
   }
 
 /**
