@@ -84,6 +84,8 @@
       <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
       <label index="plugin_browser_header">[Browser for Quickshop]</label>
+      <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
+   * incompatibility of tree view filter and AJAX</label>
       <label index="plugin_caddy_header">Caddy</label>
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
@@ -323,6 +325,8 @@ Because of the price:
       <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
       <label index="plugin_browser_header">[Browser für Quickshop]</label>
+      <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
+   * Unverträglichkeit von Baummenü-Filter (Tree View) und AJAX</label>
       <label index="plugin_caddy_header">Warenkorb</label>
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt

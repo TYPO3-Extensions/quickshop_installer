@@ -199,7 +199,7 @@ class tx_quickshopinstaller_pi1_pages
             );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
-    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
+    $this->pObj->arr_pageTitles[ $pageUid ] = $pageTitle;
 
     return $page;
   }

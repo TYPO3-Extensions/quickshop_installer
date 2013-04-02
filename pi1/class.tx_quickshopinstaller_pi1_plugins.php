@@ -142,6 +142,8 @@ class tx_quickshopinstaller_pi1_plugins
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_browser_header' );
     $this->pObj->arr_pluginUids['plugin_browser_header'] = $uid;
+    
+    $myComment  = $this->pObj->pi_getLL( 'plugin_browser_mycomment' );
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
@@ -202,6 +204,9 @@ class tx_quickshopinstaller_pi1_plugins
                 <field index="viewsList">
                     <value index="vDEF">1</value>
                 </field>
+                <field index="myComment">
+                    <value index="vDEF">' . $myComment . '</value>
+                </field>
             </language>
         </sheet>
         <sheet index="templating">
@@ -220,7 +225,7 @@ class tx_quickshopinstaller_pi1_plugins
         <sheet index="javascript">
             <language index="lDEF">
                 <field index="mode">
-                    <value index="vDEF">list_and_single</value>
+                    <value index="vDEF">disabled</value>
                 </field>
                 <field index="ajaxChecklist">
                     <value index="vDEF">1</value>
