@@ -1,4 +1,17 @@
-2.0.1
+3.0.3
+  2013-04-03
+  Improvements
+  # *i0004: Improvements for Quick Shop 3.0.2 - nested categories
+  # *i0003: Improvements for caddy 3.0.3
+
+3.0.2
+  2013-03-22
+  Improvemnet
+  * #i0002: localisation
+            Effected files:
+            * pi1
+              * locallang.xml
+3.0.1
   2013-03-21
   Feature
   * #i0001: Power of Revocation

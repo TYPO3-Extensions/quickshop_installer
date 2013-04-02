@@ -146,7 +146,47 @@ class tx_quickshopinstaller_pi1_quickshop
     $uid = $uid + 1;
     $records[$uid] = $this->categoryCup( $uid );
 
+      // category blue - depends on clothes
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryBlue( $uid );
+
+      // category green - depends on clothes
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryGreen( $uid );
+
+      // category red - depends on clothes
+    $uid = $uid + 1;
+    $records[$uid] = $this->categoryRed( $uid );
+
     return $records;
+  }
+
+/**
+ * categoryBlue( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryBlue( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_qs_cat_title_blue';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['uid_parent'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
+
+    return $record;
   }
 
 /**
@@ -226,6 +266,62 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
     $record['title']      = $llTitle;
+
+    return $record;
+  }
+
+/**
+ * categoryGreen( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryGreen( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_qs_cat_title_green';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['uid_parent'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
+
+    return $record;
+  }
+
+/**
+ * categoryRed( )
+ *
+ * @param	integer		$uid      : uid of the current fieldset
+ * @return	array		$record   : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function categoryRed( $uid )
+  {
+    $record = null;
+
+    $llLabel = 'record_qs_cat_title_red';
+    $llTitle = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_recordUids[ $llLabel ] = $uid;
+
+    $record['uid']        = $uid;
+    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['tstamp']     = time( );
+    $record['crdate']     = time( );
+    $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']      = $llTitle;
+    $record['uid_parent'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
 
     return $record;
   }
@@ -579,7 +675,7 @@ class tx_quickshopinstaller_pi1_quickshop
   **********************************************/
 
 /**
- * relationBasecapBlue( )
+ * relationBasecapBlueBlue( )
  *
  * @param	integer		$sorting  : sorting value
  * @return	array		$record   : the field record
@@ -587,7 +683,27 @@ class tx_quickshopinstaller_pi1_quickshop
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationBasecapBlue( $sorting )
+  private function relationBasecapBlueBlue( $sorting )
+  {
+    $record = null;
+
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capBlue' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_blue' ];
+    $record['sorting']     = $sorting;
+
+    return $record;
+  }
+
+/**
+ * relationBasecapBlueClothes( )
+ *
+ * @param	integer		$sorting  : sorting value
+ * @return	array		$record   : the field record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationBasecapBlueClothes( $sorting )
   {
     $record = null;
 
@@ -599,7 +715,7 @@ class tx_quickshopinstaller_pi1_quickshop
   }
 
 /**
- * relationBasecapGreen( )
+ * relationBasecapGreenClothes( )
  *
  * @param	integer		$sorting  : sorting value
  * @return	array		$record   : the field record
@@ -607,7 +723,7 @@ class tx_quickshopinstaller_pi1_quickshop
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationBasecapGreen( $sorting )
+  private function relationBasecapGreenClothes( $sorting )
   {
     $record = null;
 
@@ -619,7 +735,7 @@ class tx_quickshopinstaller_pi1_quickshop
   }
 
 /**
- * relationBasecapRed( )
+ * relationBasecapGreenGreen( )
  *
  * @param	integer		$sorting  : sorting value
  * @return	array		$record   : the field record
@@ -627,12 +743,52 @@ class tx_quickshopinstaller_pi1_quickshop
  * @version 3.0.0
  * @since   0.0.1
  */
-  private function relationBasecapRed( $sorting )
+  private function relationBasecapGreenGreen( $sorting )
+  {
+    $record = null;
+
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capGreen' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_green' ];
+    $record['sorting']     = $sorting;
+
+    return $record;
+  }
+
+/**
+ * relationBasecapRedClothes( )
+ *
+ * @param	integer		$sorting  : sorting value
+ * @return	array		$record   : the field record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationBasecapRedClothes( $sorting )
   {
     $record = null;
 
     $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capRed' ];
     $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_clothes' ];
+    $record['sorting']     = $sorting;
+
+    return $record;
+  }
+
+/**
+ * relationBasecapRedRed( )
+ *
+ * @param	integer		$sorting  : sorting value
+ * @return	array		$record   : the field record
+ * @access private
+ * @version 3.0.0
+ * @since   0.0.1
+ */
+  private function relationBasecapRedRed( $sorting )
+  {
+    $record = null;
+
+    $record['uid_local']   = $this->pObj->arr_recordUids[ 'record_qs_prod_title_capRed' ];
+    $record['uid_foreign'] = $this->pObj->arr_recordUids[ 'record_qs_cat_title_red' ];
     $record['sorting']     = $sorting;
 
     return $record;
@@ -717,15 +873,21 @@ class tx_quickshopinstaller_pi1_quickshop
 
       // record basecap blue
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapBlue( $sorting );
+    $records[$uid] = $this->relationBasecapBlueClothes( $sorting );
+    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
+    $records[$uid] = $this->relationBasecapBlueBlue( $sorting );
 
       // record basecap green
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapGreen( $sorting );
+    $records[$uid] = $this->relationBasecapGreenClothes( $sorting );
+    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
+    $records[$uid] = $this->relationBasecapGreenGreen( $sorting );
 
       // record basecap red
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
-    $records[$uid] = $this->relationBasecapRed( $sorting );
+    $records[$uid] = $this->relationBasecapRedClothes( $sorting );
+    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
+    $records[$uid] = $this->relationBasecapRedRed( $sorting );
 
       // record cup
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
