@@ -750,7 +750,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function extensionCheckExtension( $key, $title )
   {
     $boolInstalled  = null;
-    $titleWiKey     = $key . ': ' . $title;
+    $titleWiKey     = $key . ': "' . $title . '"';
 
       // RETURN : extension is installed
     if( t3lib_extMgm::isLoaded( $key ) )
