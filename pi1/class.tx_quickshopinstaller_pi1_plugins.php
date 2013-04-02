@@ -143,7 +143,7 @@ class tx_quickshopinstaller_pi1_plugins
     $llHeader = $this->pObj->pi_getLL( 'plugin_browser_header' );
     $this->pObj->arr_pluginUids['plugin_browser_header'] = $uid;
     
-    $myComment  = $this->pObj->pi_getLL( 'plugin_browser_mycomment' );
+    $myComment  = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_browser_mycomment' ) );
 
     $record['uid']           = $uid;
     $record['pid']           = $GLOBALS['TSFE']->id;
