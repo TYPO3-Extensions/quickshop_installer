@@ -212,7 +212,7 @@ class tx_quickshopinstaller_pi1_plugins
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:quick_shop/res/templates/default.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
