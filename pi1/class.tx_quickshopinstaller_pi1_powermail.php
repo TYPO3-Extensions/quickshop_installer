@@ -874,7 +874,34 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $int_revocation = $this->pObj->arr_pageUids[ 'page_title_revocation' ];
-    $str_revocation = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_revocationAccepted') );
+    
+      // phrases_powermail_revocationAccepted in dependence of Powermail 1.x or 2.x
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $str_revocation = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_revocationAccepted1x') );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $str_revocation = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_revocationAccepted2x') );
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+      // phrases_powermail_revocationAccepted in dependence of Powermail 1.x or 2.x
+
     $str_revocation = str_replace('###PID###', $int_revocation, $str_revocation);
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_revocation' );
