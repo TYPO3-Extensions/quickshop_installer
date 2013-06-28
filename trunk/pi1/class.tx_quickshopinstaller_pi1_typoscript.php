@@ -297,6 +297,7 @@ class tx_quickshopinstaller_pi1_typoscript
   // plugin.base_quickshop
   // plugin.caddy
   // plugin.quick_shop
+  // plugin.tx_powermail
 
   // base_quickshop
 plugin.base_quickshop {
@@ -334,6 +335,19 @@ plugin.quick_shop {
   }
 }
   // quick_shop
+
+  // plugin.tx_powermail
+  // This is for powermail 2.x and hasn\'t  an effect in powermail 1.x
+plugin.tx_powermail {
+  settings {
+    javascript {
+      powermailJQuery = 
+      powermailJQueryUi = 
+    }
+  }
+}
+  // This is for powermail 2.x and hasn\'t  an effect in powermail 1.x
+  // plugin.tx_powermail
 ';
     $record['config']                    = ''.
 '

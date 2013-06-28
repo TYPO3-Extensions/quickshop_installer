@@ -5,7 +5,10 @@
             * New field revocation in powermail form
               * pi1
                 * class.tx_quickshopinstaller_pi1_powermail.php
-                * locallang.xml            
+                * locallang.xml
+            * Powermail 2: <link ...> moved to <a ...>
+            * Root TypoScript
+              * Don't embed jQuery by powermail
 
 3.0.3
   2013-04-03
