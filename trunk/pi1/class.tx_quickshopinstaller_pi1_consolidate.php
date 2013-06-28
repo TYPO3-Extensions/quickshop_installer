@@ -121,6 +121,10 @@ class tx_quickshopinstaller_pi1_consolidate
     $records    = array( );
     $pageTitle  = $this->pObj->pi_getLL( 'page_title_caddy' );
 
+      // Update the jss script
+    $records    = $this->pageCaddyContentJss( );
+    $this->sqlUpdateContent( $records, $pageTitle );
+
       // Update the powermail plugin
     $records    = $this->pageCaddyPluginPowermail( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
@@ -133,6 +137,59 @@ class tx_quickshopinstaller_pi1_consolidate
     $records    = $this->pageCaddyTyposcript( );
     $this->sqlUpdateTyposcript( $records, $pageTitle );
 
+  }
+
+/**
+ * pageCaddyContentJss( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.4
+ * @since   3.0.4
+ */
+  private function pageCaddyContentJss( )
+  {
+    $records  = null;
+    $uid      = $this->pObj->arr_contentUids['content_caddy_header'];
+
+      // values
+    $llHeader = $this->pObj->pi_getLL( 'plugin_caddy_header' );
+      // values
+    
+    $pmFieldsetUid = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $pmFieldsetHtmlId = 'tx-powermail-pi1_fieldset_' . $pmFieldsetUid;
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $pmFieldsetHtmlId = 'powermail_fieldset_' . $pmFieldsetUid;
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+    
+    $jssScript = $this->pObj->pi_getLL('content_caddy_bodytext');
+    $jssScript = str_replace( '###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###', $pmFieldsetHtmlId, $jssScript );
+    
+
+    $records[$uid]['header']      = $llHeader;
+    $records[$uid]['bodytext']    = $jssScript;
+
+    return $records;
   }
 
 /**
@@ -749,6 +806,21 @@ TCEMAIN {
   * Sql
   *
   **********************************************/
+
+/**
+ * sqlUpdateContent( )
+ *
+ * @param	array		$records  : tt_content records for pages
+ * @param	string		$pageTitle  : title of the page
+ * @return	void
+ * @access private
+ * @version 3.0.4
+ * @since   3.0.4
+ */
+  private function sqlUpdateContent( $records, $pageTitle )
+  {
+    $this->sqlUpdatePlugin( $records, $pageTitle );
+  }
 
 /**
  * sqlUpdatePlugin( )
