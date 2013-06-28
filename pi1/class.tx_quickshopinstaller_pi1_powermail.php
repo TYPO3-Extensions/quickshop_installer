@@ -1002,7 +1002,34 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $int_terms = $this->pObj->arr_pageUids[ 'page_title_terms' ];
-    $str_terms = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_termsAccepted') );
+
+      // phrases_powermail_termsAccepted in dependence of Powermail 1.x or 2.x
+    switch( true )
+    {
+      case( $this->pObj->powermailVersionInt < 1000000 ):
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is below 1.0.0: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+      case( $this->pObj->powermailVersionInt < 2000000 ):
+        $str_terms = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_termsAccepted1x') );
+        break;
+      case( $this->pObj->powermailVersionInt < 3000000 ):
+        $str_terms = $this->pObj->pi_getLL('phrases_powermail_termsAccepted2x');
+        break;
+      case( $this->pObj->powermailVersionInt >= 3000000 ):
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is 3.x: ' . $this->pObj->powermailVersionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+      // phrases_powermail_termsAccepted in dependence of Powermail 1.x or 2.x
+
     $str_terms = str_replace('###PID###', $int_terms, $str_terms);
 
     $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_terms' );
