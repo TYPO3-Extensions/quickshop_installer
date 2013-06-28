@@ -889,7 +889,7 @@ class tx_quickshopinstaller_pi1_powermail
         $str_revocation = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_revocationAccepted1x') );
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $str_revocation = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_revocationAccepted2x') );
+        $str_revocation = $this->pObj->pi_getLL('phrases_powermail_revocationAccepted2x');
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
