@@ -80,7 +80,8 @@
       <label index="page_title_terms">Terms</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
-      <label index="phrases_powermail_revocationAccepted"><![CDATA[I know the <link ###PID### _blank>right of revocation</link>.|Right of revocation: I know it]]></label>
+      <label index="phrases_powermail_revocationAccepted1x"><![CDATA[I know the <link ###PID### _blank>right of revocation</link>.|Right of revocation: I know it]]></label>
+      <label index="phrases_powermail_revocationAccepted2x"><![CDATA[I know the <a href="index.php/?id=###PID###" target="_blank">right of revocation</a>.|Right of revocation: I know it]]></label>
       <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
       <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
@@ -326,7 +327,8 @@ Because of the price:
       <label index="page_title_terms">AGB</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
-      <label index="phrases_powermail_revocationAccepted"><![CDATA[Ich habe die <link ###PID### _blank>Widerrufsbelehrung</link> gelesen.|Widerrufsbelehrung gelesen]]></label>
+      <label index="phrases_powermail_revocationAccepted1x"><![CDATA[Ich habe die <link ###PID### _blank>Widerrufsbelehrung</link> gelesen.|Widerrufsbelehrung gelesen]]></label>
+      <label index="phrases_powermail_revocationAccepted2x"><![CDATA[Ich habe die <a href="index.php/?id=###PID###" target="_blank">Widerrufsbelehrung</a> gelesen.|Widerrufsbelehrung gelesen]]></label>
       <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
       <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
