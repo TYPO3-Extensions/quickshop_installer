@@ -44,7 +44,7 @@
   $( document ).ready( function( )
   {
       // HTML unique class of the fieldset delivery address
-    var fieldset_delivery_address  = ".tx-powermail-pi1_fieldset_115";
+    var fieldset_delivery_address  = "###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
 
       // RETURN there isn't any HTML element with the defined class
     if( ! $( fieldset_delivery_address ).length )
