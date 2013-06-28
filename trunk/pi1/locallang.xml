@@ -24,6 +24,77 @@
       <label index="consolidate_prompt_content">Element ###TITLE### (###FIELD###) in page ###TITLE_PID### is updated.</label>
       <label index="consolidate_prompt_page">Page ###TITLE_PID### (###FIELD###) is updated.</label>
       <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
+      <label index="content_caddy_header">[fade_deliveryorderaddress.jss]</label>
+      <label index="content_caddy_bodytext"><![CDATA[
+<script type="text/javascript">
+
+  /**
+   *
+   * Copyright (c) 2013 Dirk Wildt
+   * http://wildt.at.die-netzmacher.de/
+   *
+
+   * Version 0.0.3
+   *
+   * Slider for delivery address
+   */
+
+
+
+  $( document ).ready( function( )
+  {
+      // HTML unique class of the fieldset delivery address
+    var fieldset_delivery_address  = ".tx-powermail-pi1_fieldset_115";
+
+      // RETURN there isn't any HTML element with the defined class
+    if( ! $( fieldset_delivery_address ).length )
+    {
+      return;
+    }
+
+      // Hide all fields (divs) of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'div' )
+      .slideUp( 'fast' );
+    var bool_visible = false;
+
+      // Display the legend of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'legend' )
+      .css( "visibility", "visible" )
+      .css( "cursor", "pointer" )
+      .slideDown( 'fast' );
+
+      // Method for toogle the display of the delivery address
+      // The user has clicked on the legend
+    $( fieldset_delivery_address ).children( 'legend' ).bind(
+      'click',
+      function( e )
+      {
+          // delivery address is visible
+        if( bool_visible )
+        {
+            // Hide all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideUp( 'fast' );
+        }
+          // delivery address is visible
+          // delivery address is hidden
+        else
+        {
+            // Display all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideDown( 'fast' );
+        }
+          // delivery address is hidden
+        bool_visible = ! bool_visible;
+      }
+    );
+      // The user has clicked on the legend
+      // Method for toogle the display of the delivery address
+
+  });
+
+</script>
+]]></label>
       <label index="content_create_header">Page content</label>
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="content_footer_header">[Footer]</label>
@@ -93,19 +164,9 @@
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
 
-  1. Caddy-Marker 
-  2. Field labels of the delivery address
+  1. Field labels of the delivery address
 
-1. Caddy-Marker
-
-  * {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')} 
-  * This marker is removed at the powermail form in the fields
-    * bodytext of the receiver
-    * bodytext of the sender
-  * Reason: HTML layout is broken
-  * Cause: unknown
-
-2. Field labels of the delivery address
+1. Field labels of the delivery address
   * The lables differ form the labels of the invoice address
     * Reason: If lables are the same ther is a bug in the confirmation form.
       The value of the invoice address will overriden 
@@ -341,19 +402,9 @@ Because of the price:
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
 
-  1. Caddy-Marker 
-  2. Lieferschein-Feldbezeichnungen
+  1. Lieferschein-Feldbezeichnungen
 
-1. Caddy-Marker
-
-  * {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')} 
-  * Ist im Powermail-Formular entfernt in den Feldern
-    * Text für Absender
-    * Text für Empfänger
-  * Grund: HTML-Layout ist zerschossen.
-  * Ursache: unklar.
-
-2. Lieferschein-Feldbezeichnungen
+1. Lieferschein-Feldbezeichnungen
   * Die Bezeichnungen sind andere als bei der Rechnungsadresse
     * Grund: Bei gleichen Bezeichnungen wird im Betsätigungsformular
       der Wert des Feldes Rechnungsadresse mit dem Wert des Feldes
