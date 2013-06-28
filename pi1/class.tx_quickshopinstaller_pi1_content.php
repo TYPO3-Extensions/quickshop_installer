@@ -101,6 +101,36 @@ class tx_quickshopinstaller_pi1_content
   **********************************************/
 
 /**
+ * pageCaddy( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.4
+ * @since   3.0.4
+ */
+  private function pageCaddy( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_caddy_header' );
+    $this->pObj->arr_contentUids['content_caddy_header'] = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'html';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $this->pObj->pi_getLL('content_caddy_bodytext');
+    $record['sectionIndex'] = 0;
+
+    return $record;
+  }
+
+/**
  * pageDelivery( )
  *
  * @param	integer		$uid: uid of the current plugin
@@ -299,6 +329,10 @@ class tx_quickshopinstaller_pi1_content
   {
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
+
+      // content for page delivery
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageCaddy( $uid );
 
       // content for page delivery
     $uid = $uid + 1;
