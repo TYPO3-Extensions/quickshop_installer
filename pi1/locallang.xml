@@ -26,6 +26,7 @@
       <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
       <label index="content_caddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_caddy_bodytext"><![CDATA[
+<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   /**
@@ -44,7 +45,7 @@
   $( document ).ready( function( )
   {
       // HTML unique class of the fieldset delivery address
-    var fieldset_delivery_address  = "###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
+    var fieldset_delivery_address  = ".###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
 
       // RETURN there isn't any HTML element with the defined class
     if( ! $( fieldset_delivery_address ).length )
@@ -329,6 +330,78 @@ Because of the price:
       <label index="confirm_prompt_createContent">Erstelle Seiteninhalte</label>
       <label index="confirm_prompt_consolidate">Daten konsolidieren</label>
       <label index="confirm_button">Installieren</label>
+      <label index="content_caddy_header">[fade_Lieferadresse.jss]</label>
+      <label index="content_caddy_bodytext"><![CDATA[
+<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  /**
+   *
+   * Copyright (c) 2013 Dirk Wildt
+   * http://wildt.at.die-netzmacher.de/
+   *
+
+   * Version 0.0.3
+   *
+   * Slider for delivery address
+   */
+
+
+
+  $( document ).ready( function( )
+  {
+      // HTML unique class of the fieldset delivery address
+    var fieldset_delivery_address  = ".###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###";
+
+      // RETURN there isn't any HTML element with the defined class
+    if( ! $( fieldset_delivery_address ).length )
+    {
+      return;
+    }
+
+      // Hide all fields (divs) of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'div' )
+      .slideUp( 'fast' );
+    var bool_visible = false;
+
+      // Display the legend of the fieldset delivery address
+    $( fieldset_delivery_address ).children( 'legend' )
+      .css( "visibility", "visible" )
+      .css( "cursor", "pointer" )
+      .slideDown( 'fast' );
+
+      // Method for toogle the display of the delivery address
+      // The user has clicked on the legend
+    $( fieldset_delivery_address ).children( 'legend' ).bind(
+      'click',
+      function( e )
+      {
+          // delivery address is visible
+        if( bool_visible )
+        {
+            // Hide all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideUp( 'fast' );
+        }
+          // delivery address is visible
+          // delivery address is hidden
+        else
+        {
+            // Display all fields (divs) of the fieldset delivery address
+          $( fieldset_delivery_address ).children( 'div' )
+            .slideDown( 'fast' );
+        }
+          // delivery address is hidden
+        bool_visible = ! bool_visible;
+      }
+    );
+      // The user has clicked on the legend
+      // Method for toogle the display of the delivery address
+
+  });
+
+</script>
+]]></label>
       <label index="content_create_header">Seiteninhalt</label>
       <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
       <label index="content_footer_header">[Fußzeile]</label>
