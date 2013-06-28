@@ -619,9 +619,30 @@ plugin.tx_powermail_pi1 {
   private function pageCaddyTyposcript2x( )
   {
     $records = null;
-    
-      // Nothing to do.
 
+    $title  = 'page_title_caddy';
+    $uid    = $this->pObj->arr_tsUids[ $title ];
+
+    $strUid = sprintf( '%03d', $uid );
+    $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
+    $llTitle  = str_replace( ' ', null, $llTitle );
+    $llTitle  = '+page_' . $llTitle . '_' . $strUid;
+
+    $records[$uid]['title']   = $llTitle;
+    $records[$uid]['config']  = '
+plugin.tx_powermail {
+  _LOCAL_LANG {
+    default {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Order without commitment
+    }
+    de {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Unverbindlich testen
+    }
+  }
+}
+';
     return $records;
   }
 
