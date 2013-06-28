@@ -153,7 +153,7 @@ class tx_quickshopinstaller_pi1_consolidate
     $uid      = $this->pObj->arr_contentUids['content_caddy_header'];
 
       // values
-    $llHeader = $this->pObj->pi_getLL( 'plugin_caddy_header' );
+    $llHeader = $this->pObj->pi_getLL( 'content_caddy_header' );
       // values
     
     $pmFieldsetUid = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
