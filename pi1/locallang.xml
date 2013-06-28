@@ -80,6 +80,7 @@
       <label index="page_title_terms">Terms</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
+      <label index="phrases_powermail_revocationAccepted"><![CDATA[I know the <link ###PID### _blank>right of revocation</link>.|Right of revocation: I know it]]></label>
       <label index="phrases_powermail_shipping">Shipping in Germany|inland|*</label>
       <label index="phrases_powermail_termsAccepted"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
@@ -235,6 +236,7 @@ Because of the price:
       <label index="record_pm_field_title_methodOfPayment">payment</label>
       <label index="record_pm_field_title_methodOfShipping">shipping</label>
       <label index="record_pm_field_title_terms">terms and conditions</label>
+      <label index="record_pm_field_title_revocation">revocation</label>
       <label index="record_pm_field_title_submit">Test Quick Shop without commitment!</label>
       <label index="record_pm_form_title_caddyorder">Caddy orderform</label>
       <label index="ts_create_header">TypoScript</label>
@@ -324,6 +326,7 @@ Because of the price:
       <label index="page_title_terms">AGB</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
+      <label index="phrases_powermail_revocationAccepted"><![CDATA[Ich habe die <link ###PID### _blank>Widerrufsbelehrung</link> gelesen.|Widerrufsbelehrung gelesen]]></label>
       <label index="phrases_powermail_shipping">Versand innerhalb Deutschlands|Inland|*</label>
       <label index="phrases_powermail_termsAccepted"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
@@ -480,6 +483,7 @@ Wegen des sagenhaft niedrigen Preises:
       <label index="record_pm_field_title_methodOfPayment">Zahlungsart</label>
       <label index="record_pm_field_title_methodOfShipping">Versandart</label>
       <label index="record_pm_field_title_terms">AGB</label>
+      <label index="record_pm_field_title_revocation">Widerrufsbelehrung</label>
       <label index="record_pm_field_title_submit">Quick Shop unverbindlich testen!</label>
       <label index="record_pm_form_title_caddyorder">Caddy Bestellformular</label>
       <label index="ts_create_header">TypoScript</label>
