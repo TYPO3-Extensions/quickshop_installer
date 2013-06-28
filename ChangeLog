@@ -3,7 +3,9 @@
   Improvements
   # *i0005: * Update for Caddy 2.0.8 and Quick Shop 3.0.5
             * New field revocation in powermail form
-            
+              * pi1
+                * class.tx_quickshopinstaller_pi1_powermail.php
+                * locallang.xml            
 
 3.0.3
   2013-04-03
