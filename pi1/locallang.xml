@@ -240,6 +240,9 @@ Because of the price:
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">TypoScript "###TITLE###" (uid ###UID###) is added to the page ###TITLE_PID###.</label>
       <label index="tt_content.list_type_pi1">Quick Shop - 1-Click-Installer</label>
+      <label index="tx_powermail_domain_model_fields">Powermail Fields</label>
+      <label index="tx_powermail_domain_model_forms">Powermail Forms</label>
+      <label index="tx_powermail_domain_model_pages">Powermail Pages</label>
       <label index="tx_powermail_fieldsets">Powermail Fieldsets</label>
       <label index="tx_powermail_fields">Powermail Fields</label>
       <label index="tx_quickshop_categories">Quick Shop Categories</label>
@@ -482,6 +485,9 @@ Wegen des sagenhaft niedrigen Preises:
       <label index="ts_create_header">TypoScript</label>
       <label index="ts_create_prompt">Das TypoScript "###TITLE###" (uid ###UID###) wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="tt_content.list_type_pi1">Quick Shop - 1-Klick-Installer</label>
+      <label index="tx_powermail_domain_model_fields">Powermail Felder</label>
+      <label index="tx_powermail_domain_model_forms">Powermail Formulare</label>
+      <label index="tx_powermail_domain_model_pages">Powermail Seiten</label>
       <label index="tx_powermail_fieldsets">Powermail Feldgruppen</label>
       <label index="tx_powermail_fields">Powermail Felder</label>
       <label index="tx_quickshop_categories">Quick Shop Kategorien</label>
