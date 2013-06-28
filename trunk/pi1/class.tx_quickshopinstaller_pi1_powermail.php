@@ -860,6 +860,76 @@ class tx_quickshopinstaller_pi1_powermail
   }
 
 /**
+ * fieldOrderRevocation( )
+ *
+ * @param	integer		$uid      : uid of the current field
+ * @param	integer		$sorting  : sorting value
+ * @return	array		$record   : the field record
+ * @access private
+ * @version 3.0.4
+ * @since   3.0.4
+ */
+  private function fieldOrderRevocation( $uid, $sorting )
+  {
+    $record = null;
+
+    $int_revocation = $this->pObj->arr_pageUids[ 'page_title_revocation' ];
+    $str_revocation = htmlspecialchars( $this->pObj->pi_getLL('phrases_powermail_revocationAccepted') );
+    $str_revocation = str_replace('###PID###', $int_revocation, $str_revocation);
+
+    $llTitle = $this->pObj->pi_getLL( 'record_pm_field_title_revocation' );
+    $this->pObj->arr_recordUids[ 'record_pm_field_title_revocation' ] = $uid;
+
+    $record['uid']       = $uid;
+    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['tstamp']    = time( );
+    $record['crdate']    = time( );
+    $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
+    $record['title']     = $llTitle;
+    $record['sorting']   = $sorting;
+    $record[ $this->fieldsLabelFieldset ]  = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ];
+    $record[ $this->fieldsLabelType ]  = 'check';
+    $record               = $this->fieldsSetMarkerByVersion( $record, __METHOD__ );
+
+    $versionInt = $this->pObj->powermailVersionInt;
+    switch( true )
+    {
+      case( $versionInt >= 1000000 && $versionInt < 2000000 ):
+        $record['flexform']  = ''.
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="options">
+                    <value index="vDEF">' . $str_revocation . '</value>
+                </field>
+                <field index="mandatory">
+                    <value index="vDEF">1</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>
+';
+        break;
+      case( $versionInt >= 2000000 && $versionInt < 3000000 ):
+        $record['mandatory']  = true;
+        $record['settings']   = $str_revocation;
+        break;
+      default:
+        $prompt = 'ERROR: unexpected result<br />
+          powermail version is not 1.x and 2.x: ' . $versionInt . '<br />
+          Method: ' . __METHOD__ . ' (line ' . __LINE__ . ')<br />
+          TYPO3 extension: ' . $this->extKey;
+        die( $prompt );
+        break;
+    }
+
+    return $record;
+  }
+
+/**
  * fieldOrderSubmit( )
  *
  * @param	integer		$uid      : uid of the current field
@@ -1060,6 +1130,10 @@ class tx_quickshopinstaller_pi1_powermail
       // field order terms
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
     $records[$uid] = $this->fieldOrderTerms( $uid, $sorting );
+
+      // field order revocation
+    list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );
+    $records[$uid] = $this->fieldOrderRevocation( $uid, $sorting );
 
       // field order submit
     list( $uid, $sorting) = explode( ',', $this->zz_counter( $uid ) );

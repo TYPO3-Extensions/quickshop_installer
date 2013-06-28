@@ -1,7 +1,9 @@
 3.0.4
   2013-06-28
   Improvements
-  # *i0005: Update for Caddy 2.0.8 and Quick Shop 3.0.5
+  # *i0005: * Update for Caddy 2.0.8 and Quick Shop 3.0.5
+            * New field revocation in powermail form
+            
 
 3.0.3
   2013-04-03
