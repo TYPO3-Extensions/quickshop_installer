@@ -131,7 +131,20 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
 //    $record['include_static_file']  = $this->recordCaddyStaticFiles( );
-    $record['constants']            = null;
+    $record['constants']            = '
+plugin.tx_powermail {
+  _LOCAL_LANG {
+    default {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Order ithout commitment
+    }
+    de {
+        // Next button will be empty in Powermail 2.x
+      //confirmation_next = Unverbindlich testen
+    }
+  }
+}
+';
     
       // Will set by consolidate->pageCaddyTyposcript
 //    $record['config']               = '';
