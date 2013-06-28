@@ -195,7 +195,8 @@ class tx_quickshopinstaller_pi1_pages
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
               'urlType'       => 1,
-              'sorting'       => $sorting
+              'sorting'       => $sorting,
+              'nav_hide'      => 1
             );
 
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;

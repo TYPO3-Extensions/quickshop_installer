@@ -9,6 +9,7 @@
             * Powermail 2: <link ...> moved to <a ...>
             * Root TypoScript
               * Don't embed jQuery by powermail
+            * Hide the mini caddy in menus
 
 3.0.3
   2013-04-03
