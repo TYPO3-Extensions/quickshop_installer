@@ -9,7 +9,9 @@
             * Powermail 2: <link ...> moved to <a ...>
             * Root TypoScript
               * Don't embed jQuery by powermail
+              * pi1/class.tx_quickshopinstaller_pi1_typoscript.php
             * Hide the mini caddy in menus
+              * pi1/class.tx_quickshopinstaller_pi1_pages.php
 
 3.0.3
   2013-04-03
