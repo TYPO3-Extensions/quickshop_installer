@@ -172,6 +172,7 @@
     * Reason: If lables are the same ther is a bug in the confirmation form.
       The value of the invoice address will overriden 
       by the value of the delivery address.]]></label>
+      <label index="plugin_caddymini_header">[Mini Caddy]</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Plugin "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="plugin_help">If you want, please select the option "Installation: Quick Shop ..." in the TYPO3 backend plugin.</label>
@@ -482,6 +483,7 @@ Because of the price:
     * Grund: Bei gleichen Bezeichnungen wird im Betsätigungsformular
       der Wert des Feldes Rechnungsadresse mit dem Wert des Feldes
       Lieferadresse überschrieben.]]></label>
+      <label index="plugin_caddymini_header">[Mini-Warenkorb]</label>
       <label index="plugin_create_header">Plugins</label>
       <label index="plugin_create_prompt">Das Plugin "###HEADER###" wurde der Seite ###TITLE_PID### zugefügt.</label>
       <label index="plugin_help">Wenn doch, dann aktiviere die Option "Installation: Quick Shop ..." im TYPO3-Backend-Pllugin.</label>
