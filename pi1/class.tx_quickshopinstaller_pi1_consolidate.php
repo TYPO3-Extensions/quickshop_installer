@@ -133,6 +133,10 @@ class tx_quickshopinstaller_pi1_consolidate
     $records    = $this->pageCaddyPluginCaddy( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
+      // Update the caddy plugin
+    $records    = $this->pageCaddyPluginCaddyMini( );
+    $this->sqlUpdatePlugin( $records, $pageTitle );
+
       // Update the TypoScript
     $records    = $this->pageCaddyTyposcript( );
     $this->sqlUpdateTyposcript( $records, $pageTitle );
