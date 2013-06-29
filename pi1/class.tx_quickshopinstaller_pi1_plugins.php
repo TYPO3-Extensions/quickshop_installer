@@ -120,6 +120,10 @@ class tx_quickshopinstaller_pi1_plugins
     $uid = $uid + 1;
     $records[$uid] = $this->caddy( $uid );
 
+      // mini caddy plugin
+    $uid = $uid + 1;
+    $records[$uid] = $this->caddymini( $uid );
+
       // powermail plugin
     $uid = $uid + 1;
     $records[$uid] = $this->powermail( $uid );
@@ -279,6 +283,41 @@ class tx_quickshopinstaller_pi1_plugins
     $record['CType']        = 'list';
     $record['header']       = $llHeader;
     $record['list_type']    = 'caddy_pi1';
+    $record['sectionIndex'] = 1;
+// Will updated by consolidate->pageCaddyPluginCaddy
+//    $record['pi_flexform']  = '';
+
+    return $record;
+  }
+
+/**
+ * caddymini( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 3.0.5
+ * @since   3.0.5
+ * 
+ * @internal  #i0007
+ */
+  private function caddymini( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'plugin_caddymini_header' );
+    $this->pObj->arr_pluginUids['plugin_caddymini_header'] = $uid;
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_caddy_caddymini' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256;
+    $record['CType']        = 'list';
+    $record['header']       = $llHeader;
+    $record['header_layout']  = 100; // hidden
+    $record['list_type']    = 'caddy_pi3';
     $record['sectionIndex'] = 1;
 // Will updated by consolidate->pageCaddyPluginCaddy
 //    $record['pi_flexform']  = '';

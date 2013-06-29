@@ -366,6 +366,49 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
+ * pageCaddyPluginCaddyMini( )
+ *
+ * @return	array		$records : the plugin record
+ * @access private
+ * @version 3.0.0
+ * @since   3.0.0
+ */
+  private function pageCaddyPluginCaddyMini( )
+  {
+    $records  = null;
+    $uid      = $this->pObj->arr_pluginUids[ 'plugin_caddymini_header' ];
+
+      // values
+    $llHeader   = $this->pObj->pi_getLL( 'plugin_caddymini_header' );
+    $pidOfCaddy = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+      // values
+
+    $records[$uid]['header']      = $llHeader;
+    $records[$uid]['pi_flexform'] = null .
+'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3FlexForms>
+    <data>
+        <sheet index="sDEF">
+            <language index="lDEF">
+                <field index="sdefPidCaddy">
+                    <value index="vDEF">' . $pidOfCaddy . '</value>
+                </field>
+                <field index="sdefCaddyMode">
+                    <value index="vDEF">woItems</value>
+                </field>
+                <field index="sdefDrs">
+                    <value index="vDEF">0</value>
+                </field>
+            </language>
+        </sheet>
+    </data>
+</T3FlexForms>
+';
+
+    return $records;
+  }
+
+/**
  * pageCaddyPluginPowermail( )
  *
  * @return	array		$records : the plugin record
@@ -605,6 +648,23 @@ plugin.tx_powermail_pi1 {
     }
   }
 }';
+    
+      // SWITCH : install case
+    switch( true )
+    {
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
+        $records[$uid]['config']  = $records[$uid]['config'] . '
+
+  // Don\'t display the mini caddy
+page.10.subparts.menue.20 >
+';
+        break;
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
+        // Do nothing
+        break;
+    }
+      // SWITCH : install case
+
     return $records;
   }
 
@@ -643,6 +703,24 @@ plugin.tx_powermail {
   }
 }
 ';
+    
+      // SWITCH : install case
+    switch( true )
+    {
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
+        $records[$uid]['config']  = $records[$uid]['config'] . '
+
+  // Don\'t display the mini caddy
+page.10.subparts.menue.20 >
+';
+        break;
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
+        // Do nothing
+        break;
+    }
+      // SWITCH : install case
+
+    
     return $records;
   }
 
