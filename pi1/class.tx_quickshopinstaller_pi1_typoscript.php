@@ -364,7 +364,7 @@ plugin.tx_powermail {
   // config
 config {
   tx_realurl_enable  = 0
-  no_cache           = 1
+  //no_cache           = 1
   language           = ' . $GLOBALS['TSFE']->lang . '
   htmlTag_langKey    = ' . $GLOBALS['TSFE']->lang . '
 }
@@ -470,7 +470,7 @@ plugin.quick_shop {
 ';
     $record['config']                     = ''.
 'config {
-  no_cache = 1
+  //no_cache = 1
 }
 ';
 
