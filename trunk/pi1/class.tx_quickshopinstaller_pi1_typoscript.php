@@ -136,7 +136,7 @@ class tx_quickshopinstaller_pi1_typoscript
       // Will set by consolidate->pageCaddyTyposcript
     //$record['config']               = '';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
-var_dump( __METHOD__, __LINE__, $record );
+
     return $record;
   }
 
@@ -206,8 +206,9 @@ var_dump( __METHOD__, __LINE__, $record );
  */
   private function recordCaddyStaticFilesPowermail2x( )
   {
-    $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main/,' 
-                  . 'EXT:powermail/Configuration/TypoScript/CssFancy/';
+      // 130721, dwildt: Without an ending slash!
+    $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main,' 
+                  . 'EXT:powermail/Configuration/TypoScript/CssFancy';
 
     return $staticFiles;
   }
