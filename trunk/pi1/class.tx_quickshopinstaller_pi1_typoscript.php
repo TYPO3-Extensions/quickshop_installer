@@ -136,7 +136,7 @@ class tx_quickshopinstaller_pi1_typoscript
       // Will set by consolidate->pageCaddyTyposcript
     //$record['config']               = '';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
-
+var_dump( __METHOD__, __LINE__, $record );
     return $record;
   }
 
