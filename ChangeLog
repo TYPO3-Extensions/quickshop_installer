@@ -5,6 +5,11 @@
             Effected files:
             * pi1
               * class.tx_quickshopinstaller_pi1_typoscript.php
+  Bugfix
+  # *i0009: page caddy doesn't include static typoscript files
+            Effected files:
+            * pi1
+              * class.tx_quickshopinstaller_pi1_typoscript.php
 
 3.0.5
   2013-06-29

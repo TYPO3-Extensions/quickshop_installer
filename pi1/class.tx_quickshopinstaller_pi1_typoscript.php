@@ -130,7 +130,7 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['sorting']              = 256;
     $record['crdate']               = time( );
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
-//    $record['include_static_file']  = $this->recordCaddyStaticFiles( );
+    $record['include_static_file']  = $this->recordCaddyStaticFiles( );
     $record['constants']            = null;
     
       // Will set by consolidate->pageCaddyTyposcript
@@ -190,11 +190,7 @@ class tx_quickshopinstaller_pi1_typoscript
  */
   private function recordCaddyStaticFilesPowermail1x( )
   {
-    $staticFiles  = 'EXT:caddy/static/,' 
-                  . 'EXT:caddy/static/css/,' 
-                  . 'EXT:caddy/static/powermail/1x/,' 
-                  . 'EXT:quick_shop/static/caddy/,'
-                  . 'EXT:powermail/static/pi1/,' 
+    $staticFiles  = 'EXT:powermail/static/pi1/,' 
                   . 'EXT:powermail/static/css_fancy/';
 
     return $staticFiles;
@@ -210,11 +206,7 @@ class tx_quickshopinstaller_pi1_typoscript
  */
   private function recordCaddyStaticFilesPowermail2x( )
   {
-    $staticFiles  = 'EXT:caddy/static/,' 
-                  . 'EXT:caddy/static/css/,' 
-                  . 'EXT:caddy/static/powermail/2x/,' 
-                  . 'EXT:quick_shop/static/caddy/,'
-                  . 'EXT:powermail/Configuration/TypoScript/Main/,' 
+    $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main/,' 
                   . 'EXT:powermail/Configuration/TypoScript/CssFancy/';
 
     return $staticFiles;
@@ -533,9 +525,7 @@ plugin.quick_shop {
                   . 'EXT:caddy/static/,' 
                   . 'EXT:caddy/static/css/,' 
                   . 'EXT:caddy/static/powermail/1x/,' 
-                  . 'EXT:quick_shop/static/caddy/,'
-                  . 'EXT:powermail/static/pi1/,' 
-                  . 'EXT:powermail/static/css_fancy/';
+                  . 'EXT:quick_shop/static/caddy/';
 
     return $staticFiles;
   }
@@ -554,9 +544,7 @@ plugin.quick_shop {
                   . 'EXT:caddy/static/,' 
                   . 'EXT:caddy/static/css/,' 
                   . 'EXT:caddy/static/powermail/2x/,' 
-                  . 'EXT:quick_shop/static/caddy/,'
-                  . 'EXT:powermail/Configuration/TypoScript/Main/,' 
-                  . 'EXT:powermail/Configuration/TypoScript/CssFancy/';
+                  . 'EXT:quick_shop/static/caddy/';
 
     return $staticFiles;
   }
