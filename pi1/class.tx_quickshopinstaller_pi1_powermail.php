@@ -1411,10 +1411,14 @@ class tx_quickshopinstaller_pi1_powermail
   private function fieldsSetTitleDeliveryByVersion2x( $llLabel )
   {
     
-    $llAppendix2x = $this->pObj->pi_getLL( 'phrases_pm_fields_delivery_appendix2x' );
-    $llValue      = $this->pObj->pi_getLL( $llLabel )
-                  . $llAppendix2x
-                  ;
+//    $llAppendix2x = $this->pObj->pi_getLL( 'phrases_pm_fields_delivery_appendix2x' );
+//    $llValue      = $this->pObj->pi_getLL( $llLabel )
+//                  . $llAppendix2x
+//                  ;
+    $llPrependix2x  = $this->pObj->pi_getLL( 'phrases_pm_fields_delivery_prependix2x' );
+    $llValue        = $llPrependix2x
+                    . $this->pObj->pi_getLL( $llLabel )
+                    ;
     
     return $llValue;
   }
