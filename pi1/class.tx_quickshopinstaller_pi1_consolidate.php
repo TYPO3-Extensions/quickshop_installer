@@ -26,30 +26,42 @@
  *
  *
  *
- *   66: class tx_quickshopinstaller_pi1_consolidate
+ *   78: class tx_quickshopinstaller_pi1_consolidate
  *
  *              SECTION: Main
- *   90:     public function main( )
+ *  104:     public function main( )
  *
  *              SECTION: pages
- *  117:     private function pageCaddy( )
- *  144:     private function pageCaddyPluginCaddy( )
- *  273:     private function pageCaddyPluginPowermail( )
- *  302:     private function pageCaddyTyposcript( )
- *  353:     private function pageRoot( )
- *  384:     private function pageRootFileCopy( $timestamp )
- *  433:     private function pageRootPluginInstallHide( )
- *  455:     private function pageRootProperties( $timestamp )
- *  508:     private function pageRootTyposcriptOtherHide( )
+ *  131:     private function pageCaddy( )
+ *  166:     private function pageCaddyContentJss( )
+ *  219:     private function pageCaddyPluginCaddy( )
+ *  392:     private function pageCaddyPluginCaddyMini( )
+ *  435:     private function pageCaddyPluginPowermail( )
+ *  475:     private function pageCaddyPluginPowermail1x( )
+ *  504:     private function pageCaddyPluginPowermail2x( )
+ *  594:     private function pageCaddyTyposcript( )
+ *  627:     private function pageCaddyTyposcript1x( )
+ *  695:     private function pageCaddyTyposcript2x( )
+ *  751:     private function pageRoot( )
+ *  782:     private function pageRootFileCopy( $timestamp )
+ *  836:     private function pageRootPluginInstallHide( )
+ *  858:     private function pageRootProperties( $timestamp )
+ *  912:     private function pageRootTyposcriptOtherHide( )
  *
  *              SECTION: Sql
- *  531:     private function sqlInsert( $records, $table )
- *  560:     private function sqlUpdatePlugin( $records, $pageTitle )
- *  596:     private function sqlUpdatePages( $records, $pageTitle )
- *  630:     private function sqlUpdateTyposcript( $records, $pageTitle )
- *  664:     private function sqlUpdateTyposcriptOtherHide( )
+ *  935:     private function sqlUpdateContent( $records, $pageTitle )
+ *  950:     private function sqlUpdatePlugin( $records, $pageTitle )
+ *  998:     private function powermailVersionAppendix( )
+ * 1043:     private function sqlUpdatePages( $records, $pageTitle )
+ * 1091:     private function sqlUpdateTyposcript( $records, $pageTitle )
+ * 1138:     private function sqlUpdateTyposcriptOtherHide( )
  *
- * TOTAL FUNCTIONS: 15
+ *              SECTION: ZZ
+ * 1193:     private function zz_getPowermailUid( $label )
+ * 1234:     private function zz_getPowermailUid1x( $label )
+ * 1250:     private function zz_getPowermailUid2x( $label )
+ *
+ * TOTAL FUNCTIONS: 25
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -70,7 +82,7 @@ class tx_quickshopinstaller_pi1_consolidate
   public $extKey        = 'quickshop_installer';                      // The extension key.
 
   public $pObj = null;
-  
+
   private $powermailVersionAppendix = null;
 
 
@@ -159,7 +171,7 @@ class tx_quickshopinstaller_pi1_consolidate
       // values
     $llHeader = $this->pObj->pi_getLL( 'content_caddy_header' );
       // values
-    
+
     $pmFieldsetUid = $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ];
     switch( true )
     {
@@ -185,10 +197,10 @@ class tx_quickshopinstaller_pi1_consolidate
         die( $prompt );
         break;
     }
-    
+
     $jssScript = $this->pObj->pi_getLL('content_caddy_bodytext');
     $jssScript = str_replace( '###POWERMAIL_FIELDSET_DELIVERYORDER_ADDRESS###', $pmFieldsetHtmlId, $jssScript );
-    
+
 
     $records[$uid]['header']      = $llHeader;
     $records[$uid]['bodytext']    = $jssScript;
@@ -222,8 +234,8 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="note">
             <language index="lDEF">
                 <field index="note">
-                    <value index="vDEF">' 
-                      . $this->pObj->pi_getLL( 'plugin_caddy_note_note_' . $pmX ) . 
+                    <value index="vDEF">'
+                      . $this->pObj->pi_getLL( 'plugin_caddy_note_note_' . $pmX ) .
                     '</value>
                 </field>
             </language>
@@ -652,7 +664,7 @@ plugin.tx_powermail_pi1 {
     }
   }
 }';
-    
+
       // SWITCH : install case
     switch( true )
     {
@@ -707,7 +719,7 @@ plugin.tx_powermail {
   }
 }
 ';
-    
+
       // SWITCH : install case
     switch( true )
     {
@@ -724,7 +736,7 @@ page.10.subparts.menue.20 >
     }
       // SWITCH : install case
 
-    
+
     return $records;
   }
 
@@ -949,8 +961,8 @@ TCEMAIN {
       //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record );
@@ -1041,8 +1053,8 @@ TCEMAIN {
 //      var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record );
@@ -1090,8 +1102,8 @@ TCEMAIN {
       //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
       $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record );
@@ -1138,7 +1150,7 @@ TCEMAIN {
     //var_dump( __METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->UPDATEquery( $table, $where, $record ) );
     $GLOBALS['TYPO3_DB']->exec_UPDATEquery( $table, $where, $record );
 
-    $error = $GLOBALS['TYPO3_DB']->sql_error( );      
+    $error = $GLOBALS['TYPO3_DB']->sql_error( );
 
     if( $error )
     {
@@ -1173,15 +1185,15 @@ TCEMAIN {
  * zz_getPowermailUid( )
  *
  * @param	string		$label        : label for the powermail field
- * @return	string          $powermailUid : uid of the powermail field record
+ * @return	string		$powermailUid : uid of the powermail field record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
   private function zz_getPowermailUid( $label )
   {
-    $powermailUid = null; 
-    
+    $powermailUid = null;
+
     switch( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
@@ -1207,14 +1219,14 @@ TCEMAIN {
         break;
     }
 
-    return $powermailUid;    
+    return $powermailUid;
   }
 
 /**
  * zz_getPowermailUid1x( )
  *
  * @param	string		$label        : label for the powermail field
- * @return	string          $powermailUid : uid of the powermail field record
+ * @return	string		$powermailUid : uid of the powermail field record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
@@ -1223,24 +1235,24 @@ TCEMAIN {
   {
     $powermailUid = $this->pObj->arr_recordUids[ $label ];
 
-    return $powermailUid;    
+    return $powermailUid;
   }
 
 /**
  * zz_getPowermailUid2x( )
  *
  * @param	string		$label        : label for the powermail field
- * @return	string          $powermailUid : uid of the powermail field record
+ * @return	string		$powermailUid : uid of the powermail field record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
   private function zz_getPowermailUid2x( $label )
   {
-    $powermailUid = 'tx_powermail_domain_model_fields_' 
+    $powermailUid = 'tx_powermail_domain_model_fields_'
                   . $this->pObj->arr_recordUids[ $label ];
 
-    return $powermailUid;    
+    return $powermailUid;
   }
 
 }

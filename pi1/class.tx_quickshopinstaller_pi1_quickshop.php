@@ -26,42 +26,48 @@
  *
  *
  *
- *   78: class tx_quickshopinstaller_pi1_quickshop
+ *   84: class tx_quickshopinstaller_pi1_quickshop
  *
  *              SECTION: Main
- *  102:     public function main( )
+ *  108:     public function main( )
  *
  *              SECTION: Categories
- *  132:     private function categories( )
- *  161:     private function categoryBook( $uid )
- *  188:     private function categoryClothes( $uid )
- *  215:     private function categoryCup( $uid )
+ *  138:     private function categories( )
+ *  179:     private function categoryBlue( $uid )
+ *  207:     private function categoryBook( $uid )
+ *  234:     private function categoryClothes( $uid )
+ *  261:     private function categoryCup( $uid )
+ *  288:     private function categoryGreen( $uid )
+ *  316:     private function categoryRed( $uid )
  *
  *              SECTION: Records
- *  250:     private function recordBasecapBlue( $uid )
- *  298:     private function recordBasecapGreen( $uid )
- *  346:     private function recordBasecapRed( $uid )
- *  394:     private function recordBook( $uid )
- *  442:     private function recordCup( $uid )
- *  490:     private function recordPullover( $uid )
- *  537:     private function records( )
+ *  352:     private function recordBasecapBlue( $uid )
+ *  400:     private function recordBasecapGreen( $uid )
+ *  448:     private function recordBasecapRed( $uid )
+ *  496:     private function recordBook( $uid )
+ *  546:     private function recordCup( $uid )
+ *  596:     private function recordPullover( $uid )
+ *  643:     private function records( )
  *
  *              SECTION: Relations
- *  586:     private function relationBasecapBlue( $sorting )
- *  606:     private function relationBasecapGreen( $sorting )
- *  626:     private function relationBasecapRed( $sorting )
- *  646:     private function relationBook( $sorting )
- *  666:     private function relationCup( $sorting )
- *  686:     private function relationPullover( $sorting )
- *  705:     private function relations( )
+ *  692:     private function relationBasecapBlueBlue( $sorting )
+ *  712:     private function relationBasecapBlueClothes( $sorting )
+ *  732:     private function relationBasecapGreenClothes( $sorting )
+ *  752:     private function relationBasecapGreenGreen( $sorting )
+ *  772:     private function relationBasecapRedClothes( $sorting )
+ *  792:     private function relationBasecapRedRed( $sorting )
+ *  812:     private function relationBook( $sorting )
+ *  832:     private function relationCup( $sorting )
+ *  852:     private function relationPullover( $sorting )
+ *  871:     private function relations( )
  *
  *              SECTION: Sql
- *  755:     private function sqlInsert( $records, $table )
+ *  927:     private function sqlInsert( $records, $table )
  *
  *              SECTION: ZZ
- *  791:     private function zz_counter( $uid )
+ *  987:     private function zz_counter( $uid )
  *
- * TOTAL FUNCTIONS: 21
+ * TOTAL FUNCTIONS: 27
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -924,8 +930,8 @@ class tx_quickshopinstaller_pi1_quickshop
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record );
@@ -937,14 +943,14 @@ class tx_quickshopinstaller_pi1_quickshop
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
-      
+
         // CONTINUE : pid is empty, no prompt
       if( empty( $record['pid'] ) )
       {
         continue;
       }
         // CONTINUE : pid is empty, no prompt
-      
+
         // prompt
       $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );

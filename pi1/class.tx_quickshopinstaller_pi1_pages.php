@@ -26,33 +26,35 @@
  *
  *
  *
- *   69: class tx_quickshopinstaller_pi1_pages
+ *   71: class tx_quickshopinstaller_pi1_pages
  *
  *              SECTION: Main
- *   93:     public function main( )
+ *   95:     public function main( )
  *
  *              SECTION: Create pages
- *  140:     private function pageCaddy( $pageUid, $sorting )
- *  178:     private function pageDelivery( $pageUid, $sorting )
- *  215:     private function pageLegalinfo( $pageUid, $sorting )
- *  252:     private function pageLibrary( $pageUid, $sorting )
- *  303:     private function pageLibraryFooter( $pageUid, $sorting )
- *  342:     private function pageLibraryHeader( $pageUid, $sorting )
- *  381:     private function pageProducts( $pageUid, $sorting )
- *  478:     private function pageTerms( $pageUid, $sorting )
- *  514:     private function pagesLibrary( $pageUid )
- *  540:     private function pagesLibraryRecords( $pageUid )
- *  568:     private function pagesLibrarySqlInsert( $pages )
- *  595:     private function pagesRoot( $pageUid )
- *  616:     private function pagesRootRecords( $pageUid )
+ *  142:     private function pageCaddy( $pageUid, $sorting )
+ *  180:     private function pageCaddyCaddymini( $pageUid, $sorting )
+ *  220:     private function pageDelivery( $pageUid, $sorting )
+ *  257:     private function pageLegalinfo( $pageUid, $sorting )
+ *  294:     private function pageLibrary( $pageUid, $sorting )
+ *  345:     private function pageLibraryFooter( $pageUid, $sorting )
+ *  384:     private function pageLibraryHeader( $pageUid, $sorting )
+ *  423:     private function pageProducts( $pageUid, $sorting )
+ *  519:     private function pageRevocation( $pageUid, $sorting )
+ *  557:     private function pageTerms( $pageUid, $sorting )
+ *  593:     private function pagesLibrary( $pageUid )
+ *  619:     private function pagesLibraryRecords( $pageUid )
+ *  647:     private function pagesLibrarySqlInsert( $pages )
+ *  674:     private function pagesRoot( $pageUid )
+ *  695:     private function pagesRootRecords( $pageUid )
  *
  *              SECTION: Sql
- *  667:     private function sqlInsert( $pages )
+ *  752:     private function sqlInsert( $pages )
  *
  *              SECTION: ZZ
- *  702:     private function zz_countPages( $pageUid )
+ *  803:     private function zz_countPages( $pageUid )
  *
- * TOTAL FUNCTIONS: 16
+ * TOTAL FUNCTIONS: 18
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -752,8 +754,8 @@ TCEMAIN {
     foreach( $pages as $page )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'pages', $page );
@@ -765,7 +767,7 @@ TCEMAIN {
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
-      
+
         // prompt
       $marker['###TITLE###'] = $page['title'];
       $marker['###UID###']   = $page['uid'];

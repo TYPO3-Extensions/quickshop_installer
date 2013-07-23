@@ -26,21 +26,24 @@
  *
  *
  *
- *   57: class tx_quickshopinstaller_pi1_plugins
+ *   60: class tx_quickshopinstaller_pi1_plugins
  *
  *              SECTION: Main
- *   81:     public function main( )
+ *   84:     public function main( )
  *
  *              SECTION: Records
- *  110:     private function records( )
- *  139:     private function browser( $uid )
- *  261:     private function caddy( $uid )
- *  293:     private function powermail( $uid )
+ *  113:     private function records( )
+ *  146:     private function browser( $uid )
+ *  273:     private function caddy( $uid )
+ *  306:     private function caddymini( $uid )
+ *  339:     private function powermail( $uid )
+ *  378:     private function powermail1x( $uid )
+ *  434:     private function powermail2x( $uid )
  *
  *              SECTION: Sql
- *  352:     private function sqlInsert( $records )
+ *  474:     private function sqlInsert( $records )
  *
- * TOTAL FUNCTIONS: 6
+ * TOTAL FUNCTIONS: 9
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -146,7 +149,7 @@ class tx_quickshopinstaller_pi1_plugins
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_browser_header' );
     $this->pObj->arr_pluginUids['plugin_browser_header'] = $uid;
-    
+
     $myComment  = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_browser_mycomment' ) );
 
     $record['uid']           = $uid;
@@ -298,7 +301,6 @@ class tx_quickshopinstaller_pi1_plugins
  * @access private
  * @version 3.0.5
  * @since   3.0.5
- * 
  * @internal  #i0007
  */
   private function caddymini( $uid )
@@ -379,7 +381,7 @@ class tx_quickshopinstaller_pi1_plugins
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
     $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
-    
+
     $emailRecipient = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###']
                     . PHP_EOL
                     . 'Quick Shop'
@@ -435,7 +437,7 @@ class tx_quickshopinstaller_pi1_plugins
 
     $llHeader = $this->pObj->pi_getLL( 'plugin_powermail_header' );
     $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
-    
+
     $record['uid']                        = $uid;
     $record['pid']                        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
     $record['tstamp']                     = time( );
@@ -475,8 +477,8 @@ class tx_quickshopinstaller_pi1_plugins
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tt_content', $record );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record );
@@ -488,7 +490,7 @@ class tx_quickshopinstaller_pi1_plugins
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
-      
+
         // prompt
       $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );

@@ -26,22 +26,25 @@
  *
  *
  *
- *   58: class tx_quickshopinstaller_pi1_content
+ *   61: class tx_quickshopinstaller_pi1_content
  *
  *              SECTION: Main
- *   82:     public function main( )
+ *   85:     public function main( )
  *
  *              SECTION: Records
- *  112:     private function pageDelivery( $uid )
- *  142:     private function pageLibraryFooter( $uid )
- *  173:     private function pageLibraryHeader( $uid )
- *  209:     private function pageTerms( $uid )
- *  238:     private function pages( )
+ *  115:     private function pageCaddy( $uid )
+ *  145:     private function pageDelivery( $uid )
+ *  175:     private function pageLibraryFooter( $uid )
+ *  206:     private function pageLibraryHeader( $uid )
+ *  242:     private function pageLegal( $uid )
+ *  272:     private function pageRevocation( $uid )
+ *  302:     private function pageTerms( $uid )
+ *  331:     private function pages( )
  *
  *              SECTION: Sql
- *  284:     private function sqlInsert( $records )
+ *  389:     private function sqlInsert( $records )
  *
- * TOTAL FUNCTIONS: 7
+ * TOTAL FUNCTIONS: 10
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -389,8 +392,8 @@ class tx_quickshopinstaller_pi1_content
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'tt_content', $record );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'tt_content', $record );
