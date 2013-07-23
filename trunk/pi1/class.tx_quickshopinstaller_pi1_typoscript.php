@@ -191,7 +191,9 @@ class tx_quickshopinstaller_pi1_typoscript
   private function recordCaddyStaticFilesPowermail1x( )
   {
     $staticFiles  = 'EXT:powermail/static/pi1/,' 
-                  . 'EXT:powermail/static/css_fancy/';
+                  . 'EXT:powermail/static/css_fancy/,'
+                  . 'EXT:caddy/static/powermail/1x/' 
+                  ;
 
     return $staticFiles;
   }
@@ -206,9 +208,12 @@ class tx_quickshopinstaller_pi1_typoscript
  */
   private function recordCaddyStaticFilesPowermail2x( )
   {
-      // 130721, dwildt: Without an ending slash!
+      // 130721, dwildt: powermail 2.x without an ending slash!
     $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main,' 
-                  . 'EXT:powermail/Configuration/TypoScript/CssFancy';
+                  . 'EXT:powermail/Configuration/TypoScript/CssFancy,'
+                  . 'EXT:caddy/static/powermail/2x/,' 
+                  . 'EXT:caddy/static/powermail/2x/css/,' 
+                  ;
 
     return $staticFiles;
   }
@@ -525,7 +530,6 @@ plugin.quick_shop {
     $staticFiles  = 'EXT:quick_shop/static/,'
                   . 'EXT:caddy/static/,' 
                   . 'EXT:caddy/static/css/,' 
-                  . 'EXT:caddy/static/powermail/1x/,' 
                   . 'EXT:quick_shop/static/caddy/';
 
     return $staticFiles;
@@ -544,7 +548,6 @@ plugin.quick_shop {
     $staticFiles  = 'EXT:quick_shop/static/,'
                   . 'EXT:caddy/static/,' 
                   . 'EXT:caddy/static/css/,' 
-                  . 'EXT:caddy/static/powermail/2x/,' 
                   . 'EXT:quick_shop/static/caddy/';
 
     return $staticFiles;
