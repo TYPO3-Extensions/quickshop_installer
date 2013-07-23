@@ -188,8 +188,8 @@
       <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
       <label index="plugin_powermail_subject_r1x">New Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_r2x">New Quick Shop order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="plugin_powermail_subject_s1x">Your Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_subject_s2x">Your Quick Shop order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_subject_s1x">[TEST] Your Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_s2x">[TEST] Your Quick Shop order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Thanks!</h1>
 <p>Thanks for your order.</p>
 <p>We sent a confirmation to your e-mail.</p>
@@ -500,8 +500,8 @@ Because of the price:
       <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
       <label index="plugin_powermail_subject_r1x">Neue Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="plugin_powermail_subject_s1x">Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_subject_s2x">Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_subject_s1x">[TEST] Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_s2x">[TEST] Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Danke!</h1>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
