@@ -84,7 +84,7 @@ class tx_quickshop_installer_extmanager
     //$confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['quickshop_installer']);
     // 120613, dwildt, 1+
     $confArr    = $_POST['data'];
-var_dump( $_POST['data'] );
+    //var_dump( $_POST['data'] );
     $llStatic   = $confArr['LLstatic'];
 
 

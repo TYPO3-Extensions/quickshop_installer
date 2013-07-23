@@ -151,6 +151,7 @@
       <label index="page_title_shipping">Shipping</label>
       <label index="page_title_terms">Terms</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
+      <label index="phrases_pm_fields_delivery_prependix2x">D-</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
       <label index="phrases_powermail_revocationAccepted1x"><![CDATA[I know the <link ###PID### _blank>right of revocation</link>.|Right of revocation: I know it]]></label>
       <label index="phrases_powermail_revocationAccepted2x"><![CDATA[I know the <a href="index.php/?id=###PID###" target="_blank">right of revocation</a>.|Right of revocation: I know it]]></label>
@@ -462,6 +463,7 @@ Because of the price:
       <label index="page_title_shipping">Versand</label>
       <label index="page_title_terms">AGB</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
+      <label index="phrases_pm_fields_delivery_prependix2x">L-</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
       <label index="phrases_powermail_revocationAccepted1x"><![CDATA[Ich habe die <link ###PID### _blank>Widerrufsbelehrung</link> gelesen.|Widerrufsbelehrung gelesen]]></label>
       <label index="phrases_powermail_revocationAccepted2x"><![CDATA[Ich habe die <a href="index.php/?id=###PID###" target="_blank">Widerrufsbelehrung</a> gelesen.|Widerrufsbelehrung gelesen]]></label>
