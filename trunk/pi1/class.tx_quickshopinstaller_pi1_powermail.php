@@ -26,56 +26,78 @@
  *
  *
  *
- *   92: class tx_quickshopinstaller_pi1_powermail
+ *  114: class tx_quickshopinstaller_pi1_powermail
  *
  *              SECTION: Main
- *  116:     public function main( )
+ *  147:     public function main( )
  *
  *              SECTION: Fields: billing address
- *  145:     private function fieldBillingaddressAddress( $uid, $sorting )
- *  175:     private function fieldBillingaddressCity( $uid, $sorting )
- *  205:     private function fieldBillingaddressCompany( $uid, $sorting )
- *  235:     private function fieldBillingaddressCountry( $uid, $sorting )
- *  265:     private function fieldBillingaddressFirstname( $uid, $sorting )
- *  309:     private function fieldBillingaddressLastname( $uid, $sorting )
- *  353:     private function fieldBillingaddressZip( $uid, $sorting )
+ *  179:     private function fieldBillingaddressAddress( $uid, $sorting )
+ *  210:     private function fieldBillingaddressCity( $uid, $sorting )
+ *  241:     private function fieldBillingaddressCompany( $uid, $sorting )
+ *  272:     private function fieldBillingaddressCountry( $uid, $sorting )
+ *  303:     private function fieldBillingaddressFirstname( $uid, $sorting )
+ *  366:     private function fieldBillingaddressLastname( $uid, $sorting )
+ *  428:     private function fieldBillingaddressZip( $uid, $sorting )
  *
  *              SECTION: Fields: contact data
- *  391:     private function fieldContactdataEmail( $uid, $sorting )
- *  438:     private function fieldContactdataFax( $uid, $sorting )
- *  468:     private function fieldContactdataPhone( $uid, $sorting )
+ *  467:     private function fieldContactdataEmail( $uid, $sorting )
+ *  534:     private function fieldContactdataFax( $uid, $sorting )
+ *  565:     private function fieldContactdataPhone( $uid, $sorting )
  *
  *              SECTION: Fields: delivery address
- *  506:     private function fieldDeliveryaddressAddress( $uid, $sorting )
- *  536:     private function fieldDeliveryaddressCity( $uid, $sorting )
- *  566:     private function fieldDeliveryaddressCompany( $uid, $sorting )
- *  596:     private function fieldDeliveryaddressCountry( $uid, $sorting )
- *  626:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
- *  656:     private function fieldDeliveryaddressLastname( $uid, $sorting )
- *  686:     private function fieldDeliveryaddressZip( $uid, $sorting )
+ *  604:     private function fieldDeliveryaddressAddress( $uid, $sorting )
+ *  635:     private function fieldDeliveryaddressCity( $uid, $sorting )
+ *  666:     private function fieldDeliveryaddressCompany( $uid, $sorting )
+ *  697:     private function fieldDeliveryaddressCountry( $uid, $sorting )
+ *  728:     private function fieldDeliveryaddressFirstname( $uid, $sorting )
+ *  759:     private function fieldDeliveryaddressLastname( $uid, $sorting )
+ *  790:     private function fieldDeliveryaddressZip( $uid, $sorting )
  *
  *              SECTION: Fields: order
- *  724:     private function fieldOrderNote( $uid, $sorting )
- *  772:     private function fieldOrderSubmit( $uid, $sorting )
- *  802:     private function fieldOrderTerms( $uid, $sorting )
+ *  829:     private function fieldOrderNote( $uid, $sorting )
+ *  894:     private function fieldOrderRevocation( $uid, $sorting )
+ *  991:     private function fieldOrderSubmit( $uid, $sorting )
+ * 1022:     private function fieldOrderTerms( $uid, $sorting )
  *
  *              SECTION: Controller
- *  860:     private function fields( )
+ * 1126:     private function fields( )
+ * 1229:     private function fieldsSetLabelsAndValuesByVersion( )
+ * 1265:     private function fieldsSetLabelsAndValuesByVersion1x( )
+ * 1281:     private function fieldsSetLabelsAndValuesByVersion2x( )
+ * 1299:     private function fieldsSetMarkerByVersion( $record, $method )
+ * 1340:     private function fieldsSetMarkerByVersion1x( $record, $method )
+ * 1358:     private function fieldsSetMarkerByVersion2x( $record, $method )
+ * 1376:     private function fieldsSetTitleDeliveryByVersion( $llLabel )
+ * 1416:     private function fieldsSetTitleDeliveryByVersion1x( $llLabel )
+ * 1433:     private function fieldsSetTitleDeliveryByVersion2x( $llLabel )
  *
  *              SECTION: Fieldsets
- *  966:     private function fieldsetBillingaddress( $uid, $sorting )
- *  996:     private function fieldsetContactdata( $uid, $sorting )
- * 1026:     private function fieldsetDeliveryaddress( $uid, $sorting )
- * 1056:     private function fieldsetOrder( $uid, $sorting )
- * 1084:     private function fieldsets( )
+ * 1466:     private function fieldsetBillingaddress( $uid, $sorting )
+ * 1496:     private function fieldsetContactdata( $uid, $sorting )
+ * 1526:     private function fieldsetDeliveryaddress( $uid, $sorting )
+ * 1556:     private function fieldsetOrder( $uid, $sorting )
+ * 1584:     private function fieldsets( )
+ * 1620:     private function fieldsetsSetLabelsByVersion( )
+ * 1656:     private function fieldsetsSetLabelsByVersion1x( )
+ * 1671:     private function fieldsetsSetLabelsByVersion2x( )
+ * 1686:     private function fieldsetsSetValuesByVersion( )
+ * 1722:     private function fieldsetsSetValuesByVersion1x( )
+ * 1735:     private function fieldsetsSetValuesByVersion2x( )
  *
  *              SECTION: Sql
- * 1126:     private function sqlInsert( $records, $table )
+ * 1758:     private function sqlInsert( $records, $table )
+ *
+ *              SECTION: forms
+ * 1811:     private function formCaddyOrder( $uid )
+ * 1837:     private function forms( )
+ * 1877:     private function forms1x( )
+ * 1892:     private function forms2x( )
  *
  *              SECTION: ZZ
- * 1162:     private function zz_counter( $uid )
+ * 1922:     private function zz_counter( $uid )
  *
- * TOTAL FUNCTIONS: 29
+ * TOTAL FUNCTIONS: 49
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -96,10 +118,10 @@ class tx_quickshopinstaller_pi1_powermail
   public  $extKey        = 'quickshop_installer';
 
   public  $pObj = null;
-  
+
   private $fieldsLabelTable = null;
   private $fieldsValueType  = null;
-  
+
   private $fieldsetsLabelForms  = null;
   private $fieldsetsLabelFields = null;
   private $fieldsetsLabelTable  = null;
@@ -874,7 +896,7 @@ class tx_quickshopinstaller_pi1_powermail
     $record = null;
 
     $int_revocation = $this->pObj->arr_pageUids[ 'page_title_revocation' ];
-    
+
       // phrases_powermail_revocationAccepted in dependence of Powermail 1.x or 2.x
     switch( true )
     {
@@ -1105,8 +1127,8 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $records  = array( );
 
-    $this->fieldsSetLabelsAndValuesByVersion( ); 
-               
+    $this->fieldsSetLabelsAndValuesByVersion( );
+
     $uid      = $this->pObj->zz_getMaxDbUid( $this->fieldsLabelTable );
 
       // field billing address company
@@ -1267,9 +1289,9 @@ class tx_quickshopinstaller_pi1_powermail
 /**
  * fieldsSetMarkerByVersion( )
  *
- * @param       array     $record : current record
- * @param       string    $method : calling method like tx_quickshopinstaller_pi1_powermail::fieldBillingaddressAddress
- * @return	array     $record : handled record
+ * @param	array		$record : current record
+ * @param	string		$method : calling method like tx_quickshopinstaller_pi1_powermail::fieldBillingaddressAddress
+ * @return	array		$record : handled record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
@@ -1300,7 +1322,7 @@ class tx_quickshopinstaller_pi1_powermail
         die( $prompt );
         break;
     }
-    
+
     return $record;
   }
 
@@ -1308,9 +1330,9 @@ class tx_quickshopinstaller_pi1_powermail
  * fieldsSetMarkerByVersion1x( )  : Does nothing. Powermail 1x doesn't know marker
  *                                  Returns the record
  *
- * @param       array     $record : current record
- * @param       string    $method : calling method like tx_quickshopinstaller_pi1_powermail::fieldBillingaddressAddress
- * @return	array     $record : current record
+ * @param	array		$record : current record
+ * @param	string		$method : calling method like tx_quickshopinstaller_pi1_powermail::fieldBillingaddressAddress
+ * @return	array		$record : current record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
@@ -1326,16 +1348,16 @@ class tx_quickshopinstaller_pi1_powermail
  * fieldsSetMarkerByVersion2x( )  : adds fields own_marker_select and marker to the given record.
  *                                  Returns the record
  *
- * @param       array     $record : current record
- * @param       string    $method : calling method like tx_quickshopinstaller_pi1_powermail::fieldBillingaddressAddress
- * @return	array     $record : the handled record
+ * @param	array		$record : current record
+ * @param	string		$method : calling method like tx_quickshopinstaller_pi1_powermail::fieldBillingaddressAddress
+ * @return	array		$record : the handled record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
   private function fieldsSetMarkerByVersion2x( $record, $method )
   {
-    list( $prefix, $marker ) = explode( '::field', $method ); 
+    list( $prefix, $marker ) = explode( '::field', $method );
     unset( $prefix );
     $record['own_marker_select']  = true;
     $record['marker']             = strtolower( $marker );
@@ -1345,15 +1367,15 @@ class tx_quickshopinstaller_pi1_powermail
 /**
  * fieldsSetTitleDeliveryByVersion( )
  *
- * @param       string      $$llLabel : the label in the locallang file
- * @return	string      $llValue  : the localised value
+ * @param	string		$$llLabel : the label in the locallang file
+ * @return	string		$llValue  : the localised value
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
   private function fieldsSetTitleDeliveryByVersion( $llLabel )
   {
-    $llValue = null; 
+    $llValue = null;
     switch( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
@@ -1378,15 +1400,15 @@ class tx_quickshopinstaller_pi1_powermail
         die( $prompt );
         break;
     }
-    
+
     return $llValue;
   }
 
 /**
- * fieldsSetTitleDeliveryByVersion1x( )  : 
+ * fieldsSetTitleDeliveryByVersion1x( )  :
  *
- * @param       string      $$llLabel : the label in the locallang file
- * @return	string      $llValue  : the localised value
+ * @param	string		$$llLabel : the label in the locallang file
+ * @return	string		$llValue  : the localised value
  * @access private
  * @version 3.0.0
  * @since   3.0.0
@@ -1394,23 +1416,23 @@ class tx_quickshopinstaller_pi1_powermail
   private function fieldsSetTitleDeliveryByVersion1x( $llLabel )
   {
     $llValue = $this->pObj->pi_getLL( $llLabel );
-    
+
     return $llValue;
   }
 
 
 /**
- * fieldsSetTitleDeliveryByVersion2x( )  : 
+ * fieldsSetTitleDeliveryByVersion2x( )  :
  *
- * @param       string      $$llLabel : the label in the locallang file
- * @return	string      $llValue  : the localised value
+ * @param	string		$$llLabel : the label in the locallang file
+ * @return	string		$llValue  : the localised value
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
   private function fieldsSetTitleDeliveryByVersion2x( $llLabel )
   {
-    
+
 //    $llAppendix2x = $this->pObj->pi_getLL( 'phrases_pm_fields_delivery_appendix2x' );
 //    $llValue      = $this->pObj->pi_getLL( $llLabel )
 //                  . $llAppendix2x
@@ -1419,7 +1441,7 @@ class tx_quickshopinstaller_pi1_powermail
     $llValue        = $llPrependix2x
                     . $this->pObj->pi_getLL( $llLabel )
                     ;
-    
+
     return $llValue;
   }
 
@@ -1562,10 +1584,10 @@ class tx_quickshopinstaller_pi1_powermail
   private function fieldsets( )
   {
     $records  = array( );
-    
-    $this->fieldsetsSetLabelsByVersion( ); 
+
+    $this->fieldsetsSetLabelsByVersion( );
     $this->fieldsetsSetValuesByVersion( );
-            
+
     $uid      = $this->pObj->zz_getMaxDbUid( $this->fieldsetsLabelTable );
 
       // fieldset billing address
@@ -1688,7 +1710,7 @@ class tx_quickshopinstaller_pi1_powermail
         break;
     }
   }
- 
+
 /**
  * fieldsetsSetValuesByVersion1x( )
  *
@@ -1714,7 +1736,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $this->fieldsetsValueForm = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
   }
- 
+
 
 
  /***********************************************
@@ -1739,8 +1761,8 @@ class tx_quickshopinstaller_pi1_powermail
     {
       //var_dump(__METHOD__, __LINE__, $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record ) );
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( $table, $record );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->INSERTquery( $table, $record );
@@ -1752,7 +1774,7 @@ class tx_quickshopinstaller_pi1_powermail
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
-      
+
         // prompt
       $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );
@@ -1870,13 +1892,13 @@ class tx_quickshopinstaller_pi1_powermail
   private function forms2x( )
   {
     $records  = array( );
-    
+
     $uid      = $this->pObj->zz_getMaxDbUid( 'tx_powermail_domain_model_forms' );
 
       // fieldset billing address
     $uid = $uid + 1;
     $records[$uid] = $this->formCaddyOrder( $uid );
-    
+
     return $records;
   }
 

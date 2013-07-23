@@ -41,10 +41,10 @@
  *   53: class tx_quickshop_installer_extmanager
  *   74:     function initialPage()
  *  252:     private function add_installerPage()
- *  281:     private function add_installerPlugin()
- *  313:     private function add_installerTS()
- *  360:     private function get_installerPages()
- *  395:     private function get_maxUid($from_table)
+ *  282:     private function add_installerPlugin()
+ *  315:     private function add_installerTS()
+ *  379:     private function get_installerPages()
+ *  414:     private function get_maxUid($from_table)
  *
  * TOTAL FUNCTIONS: 6
  * (This index is automatically created/updated by the extension "extdeveval")
@@ -343,9 +343,9 @@ page {
     10 {
       value (
         <style type="text/css">
-        body { 
+        body {
           background-image:url(typo3conf/ext/quickshop_installer/res/images/background.gif);
-          background-repeat:no-repeat; 
+          background-repeat:no-repeat;
           background-position:center center;
           background-attachment:fixed;
         }

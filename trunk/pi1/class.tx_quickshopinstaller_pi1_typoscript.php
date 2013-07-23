@@ -26,22 +26,28 @@
  *
  *
  *
- *   58: class tx_quickshopinstaller_pi1_typoscript
+ *   64: class tx_quickshopinstaller_pi1_typoscript
  *
  *              SECTION: Main
- *   82:     public function main( )
+ *   88:     public function main( )
  *
  *              SECTION: Records
- *  112:     private function recordCaddy( $uid )
- *  167:     private function recordRoot( $uid )
- *  197:     private function recordRootCaseAll( $uid )
- *  361:     private function recordRootCaseShopOnly( $uid )
- *  477:     private function records( )
+ *  118:     private function recordCaddy( $uid )
+ *  157:     private function recordCaddyStaticFiles( )
+ *  197:     private function recordCaddyStaticFilesPowermail1x( )
+ *  215:     private function recordCaddyStaticFilesPowermail2x( )
+ *  236:     private function recordRoot( $uid )
+ *  266:     private function recordRootCaseAll( $uid )
+ *  417:     private function recordRootCaseShopOnly( $uid )
+ *  494:     private function recordRootStaticFiles( )
+ *  534:     private function recordRootStaticFilesPowermail1x( )
+ *  552:     private function recordRootStaticFilesPowermail2x( )
+ *  570:     private function records( )
  *
  *              SECTION: Sql
- *  510:     private function sqlInsert( $records )
+ *  603:     private function sqlInsert( $records )
  *
- * TOTAL FUNCTIONS: 7
+ * TOTAL FUNCTIONS: 13
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -132,7 +138,7 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['cruser_id']            = $this->pObj->markerArray['###BE_USER###'];
     $record['include_static_file']  = $this->recordCaddyStaticFiles( );
     $record['constants']            = null;
-    
+
       // Will set by consolidate->pageCaddyTyposcript
     //$record['config']               = '';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
@@ -151,7 +157,7 @@ class tx_quickshopinstaller_pi1_typoscript
   private function recordCaddyStaticFiles( )
   {
     $staticFiles = null;
-    
+
     switch( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
@@ -176,7 +182,7 @@ class tx_quickshopinstaller_pi1_typoscript
         die( $prompt );
         break;
     }
-    
+
     return $staticFiles;
   }
 
@@ -190,9 +196,9 @@ class tx_quickshopinstaller_pi1_typoscript
  */
   private function recordCaddyStaticFilesPowermail1x( )
   {
-    $staticFiles  = 'EXT:powermail/static/pi1/,' 
+    $staticFiles  = 'EXT:powermail/static/pi1/,'
                   . 'EXT:powermail/static/css_fancy/,'
-                  . 'EXT:caddy/static/powermail/1x/' 
+                  . 'EXT:caddy/static/powermail/1x/'
                   ;
 
     return $staticFiles;
@@ -209,10 +215,10 @@ class tx_quickshopinstaller_pi1_typoscript
   private function recordCaddyStaticFilesPowermail2x( )
   {
       // 130721, dwildt: powermail 2.x without an ending slash!
-    $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main,' 
+    $staticFiles  = 'EXT:powermail/Configuration/TypoScript/Main,'
                   . 'EXT:powermail/Configuration/TypoScript/CssFancy,'
-                  . 'EXT:caddy/static/powermail/2x/,' 
-                  . 'EXT:caddy/static/powermail/2x/css/,' 
+                  . 'EXT:caddy/static/powermail/2x/,'
+                  . 'EXT:caddy/static/powermail/2x/css/,'
                   ;
 
     return $staticFiles;
@@ -280,9 +286,9 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['sitetitle']                  = $this->pObj->markerArray['###WEBSITE_TITLE###'];
     $record['root']                       = 1;
     $record['clear']                      = 3;  // Clear all
-    $record['include_static_file']        = 'EXT:css_styled_content/static/,' 
+    $record['include_static_file']        = 'EXT:css_styled_content/static/,'
                                           . 'EXT:browser/static/,'
-                                          . 'EXT:base_quickshop/static/,' 
+                                          . 'EXT:base_quickshop/static/,'
                                           . $this->recordRootStaticFiles( )
                                           ;
     $record['includeStaticAfterBasedOn'] = 1;
@@ -339,8 +345,8 @@ plugin.quick_shop {
 plugin.tx_powermail {
   settings {
     javascript {
-      powermailJQuery = 
-      powermailJQueryUi = 
+      powermailJQuery =
+      powermailJQueryUi =
     }
   }
 }
@@ -386,8 +392,8 @@ config {
 
 
   // TYPO3-Browser: ajax page object II
-  // In case of localisation: 
-  // * Configure the id of sys_language in the Constant Editor. 
+  // In case of localisation:
+  // * Configure the id of sys_language in the Constant Editor.
   // * Move in this line ...jQuery.default to ...jQuery.de (i.e.)
 browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']->lang . '
   // TYPO3-Browser: ajax page object II
@@ -430,7 +436,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
     $record['root']                       = 0;
     $record['clear']                      = 0;  // Clear nothing
-    $record['include_static_file']        = 'EXT:css_styled_content/static/,' 
+    $record['include_static_file']        = 'EXT:css_styled_content/static/,'
                                           . 'EXT:browser/static/,'
                                           . $this->recordRootStaticFiles( )
                                           ;
@@ -488,7 +494,7 @@ plugin.quick_shop {
   private function recordRootStaticFiles( )
   {
     $staticFiles = null;
-    
+
     switch( true )
     {
       case( $this->pObj->powermailVersionInt < 1000000 ):
@@ -513,7 +519,7 @@ plugin.quick_shop {
         die( $prompt );
         break;
     }
-    
+
     return $staticFiles;
   }
 
@@ -528,8 +534,8 @@ plugin.quick_shop {
   private function recordRootStaticFilesPowermail1x( )
   {
     $staticFiles  = 'EXT:quick_shop/static/,'
-                  . 'EXT:caddy/static/,' 
-                  . 'EXT:caddy/static/css/,' 
+                  . 'EXT:caddy/static/,'
+                  . 'EXT:caddy/static/css/,'
                   . 'EXT:quick_shop/static/caddy/';
 
     return $staticFiles;
@@ -546,8 +552,8 @@ plugin.quick_shop {
   private function recordRootStaticFilesPowermail2x( )
   {
     $staticFiles  = 'EXT:quick_shop/static/,'
-                  . 'EXT:caddy/static/,' 
-                  . 'EXT:caddy/static/css/,' 
+                  . 'EXT:caddy/static/,'
+                  . 'EXT:caddy/static/css/,'
                   . 'EXT:quick_shop/static/caddy/';
 
     return $staticFiles;
@@ -600,8 +606,8 @@ plugin.quick_shop {
     {
       //var_dump($GLOBALS['TYPO3_DB']->INSERTquery($table, $record, $no_quote_fields));
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'sys_template', $record );
-      $error = $GLOBALS['TYPO3_DB']->sql_error( );      
-      
+      $error = $GLOBALS['TYPO3_DB']->sql_error( );
+
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'sys_template', $record );
@@ -613,7 +619,7 @@ plugin.quick_shop {
                 __METHOD__ . ' (' . __LINE__ . ')';
         die( $prompt );
       }
-      
+
         // prompt
       $pageTitle = $this->pObj->arr_pageTitles[$record['pid']];
       $pageTitle = $this->pObj->pi_getLL( $pageTitle );

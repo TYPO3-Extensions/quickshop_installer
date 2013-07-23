@@ -26,53 +26,55 @@
  *
  *
  *
- *   92: class tx_quickshopinstaller_pi1 extends tslib_pibase
+ *   94: class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  *              SECTION: Main
- *  150:     public function main( $content, $conf)
+ *  155:     public function main( $content, $conf)
  *
  *              SECTION: Confirmation
- *  230:     private function confirmation()
+ *  235:     private function confirmation()
  *
  *              SECTION: Create
- *  305:     private function create( )
- *  329:     private function createBeGroup()
- *  438:     private function createContent( )
- *  452:     private function createFilesShop()
- *  509:     private function createPages( )
- *  526:     private function createPlugins( )
+ *  310:     private function create( )
+ *  334:     private function createBeGroup()
+ *  443:     private function createContent( )
+ *  457:     private function createFilesShop()
+ *  514:     private function createPages( )
+ *  531:     private function createPlugins( )
  *
  *              SECTION: Create records
- *  551:     private function createRecordsPowermail( )
- *  568:     private function createRecordsQuickshop( )
- *  585:     private function createTyposcript( )
+ *  556:     private function createRecordsPowermail( )
+ *  573:     private function createRecordsQuickshop( )
+ *  590:     private function createTyposcript( )
  *
  *              SECTION: Consolidate
- *  610:     private function consolidate( )
+ *  615:     private function consolidate( )
  *
  *              SECTION: Extensions
- *  636:     private function extensionCheck( )
- *  701:     private function extensionCheckCaseBaseTemplate( )
- *  740:     private function extensionCheckExtension( $key, $title )
+ *  641:     private function extensionCheck( )
+ *  713:     private function extensionCheckCaseBaseTemplate( )
+ *  752:     private function extensionCheckExtension( $key, $title )
  *
  *              SECTION: Html
- *  781:     private function htmlReport( )
+ *  793:     private function htmlReport( )
  *
  *              SECTION: Init
- *  838:     private function initBoolTopLevel( )
- *  879:     private function install( )
- *  916:     private function installNothing( )
+ *  850:     private function initBoolTopLevel( )
+ *  879:     private function initPowermailVersion( )
+ *  904:     private function install( )
+ *  943:     private function installNothing( )
  *
  *              SECTION: Prompt
- *  945:     private function promptCleanUp( )
+ *  972:     private function promptCleanUp( )
  *
  *              SECTION: ZZ
- *  986:     private function zz_getCHash($str_params)
- * 1000:     public function zz_getMaxDbUid( $table )
- * 1027:     private function zz_getPathToIcons()
- * 1041:     private function zz_getFlexValues()
+ * 1013:     private function zz_getCHash($str_params)
+ * 1027:     public function zz_getMaxDbUid( $table )
+ * 1054:     private function zz_getPathToIcons()
+ * 1075:     private function zz_getExtensionVersion( $_EXTKEY )
+ * 1107:     private function zz_getFlexValues()
  *
- * TOTAL FUNCTIONS: 24
+ * TOTAL FUNCTIONS: 26
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
@@ -134,7 +136,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
   public  $powermailVersionInt = null;
   public  $powermailVersionStr = null;
-  
+
 
 
  /***********************************************
@@ -870,11 +872,10 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   * initPowermailVersion( ) :
   *
   * @return	void
-  * @access     private
+  * @access private
   * @version    3.0.0
   * @since      3.0.0
   */
-
   private function initPowermailVersion( )
   {
     $arrResult = $this->zz_getExtensionVersion( 'powermail' );
@@ -920,7 +921,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     }
 
     $this->initBoolTopLevel();
-    
+
     $this->initPowermailVersion( );
 
     $this->create( );
@@ -1058,15 +1059,15 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->arr_icons['ok']    = '<img width="22" height="22" src="'.$pathToIcons.'dialog-ok-apply.png"> ';
     $this->arr_icons['info']  = '<img width="22" height="22" src="'.$pathToIcons.'dialog-information.png"> ';
   }
-  
+
  /**
   * extMgmVersion( ): Returns the version of an extension as an interger and a string.
   *                   I.e
   *                   * int: 4007007
   *                   * str: 4.7.7
   *
-  * @param    string        $_EXTKEY    : extension key
-  * @return    array        $arrReturn  : version as int (integer) and str (string)
+  * @param	string		$_EXTKEY    : extension key
+  * @return	array		$arrReturn  : version as int (integer) and str (string)
   * @access private
   * @version 2.0.0
   * @since 2.0.0
@@ -1074,7 +1075,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function zz_getExtensionVersion( $_EXTKEY )
   {
     $arrReturn = null;
-    
+
     if( ! t3lib_extMgm::isLoaded( $_EXTKEY ) )
     {
       $arrReturn['int'] = 0;
@@ -1092,12 +1093,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $intVersion = $intVersion + ( ( int ) $sub ) * 1000;
     $intVersion = $intVersion + ( ( int ) $bugfix ) * 1;
       // Set version as integer (sample: 4.7.7 -> 4007007)
-    
+
     $arrReturn['int'] = $intVersion;
     $arrReturn['str'] = $strVersion;
     return $arrReturn;
   }
-  
+
    /**
  * Shop will be installed - with or without template
  *
