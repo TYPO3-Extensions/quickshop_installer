@@ -321,8 +321,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->createRecordsPowermail( );
     $this->createRecordsQuickshop( );
-    $this->createFiles( );
     $this->createContent( );
+    $this->createFiles( );
   }
 
 /**
