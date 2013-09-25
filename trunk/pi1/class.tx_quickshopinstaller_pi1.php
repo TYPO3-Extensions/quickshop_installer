@@ -517,7 +517,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createFilesShop()
   {
-    $this->zz_copyFiles( 'res/images/products/', 'uploads/tx_quickshop/' );
+    $this->zz_copyFiles( 'res/files/tx_quickshop_products/', 'uploads/tx_quickshop/' );
   }
 
 /**
