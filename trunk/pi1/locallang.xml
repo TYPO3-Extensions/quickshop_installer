@@ -124,6 +124,9 @@
       <label index="content_pageQuickshopLibraryHeaderSlider05_header">[Die Netzmacher]</label>
       <label index="content_pageQuickshopLibraryHeaderSlider05_image">Die-Netzmacher_TYPO3-ohne-PHP_timestamp.png</label>
       <label index="content_pageQuickshopLibraryHeaderSlider05_image_link">http://die-netzmacher.de/typo3-entwicklung/ - - "TYPO3 Organiser - by die Netzmacher. The developers of of TYPO3 without PHP."</label>
+      <label index="content_pageQuickshopLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
+      <label index="content_pageQuickshopLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
       <label index="content_pageQuickshopRevocation_header">Power of Revocation</label>
       <label index="content_pageQuickshopRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>

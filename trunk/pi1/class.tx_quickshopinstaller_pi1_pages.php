@@ -503,7 +503,7 @@ TCEMAIN {
   {
     $pageTitle    = 'pageQuickshopLibraryMenubelow_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'pageQuickshopLibraryHeader_title';
+    $pidTitle     = 'pageQuickshopLibrary_title';
     $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
