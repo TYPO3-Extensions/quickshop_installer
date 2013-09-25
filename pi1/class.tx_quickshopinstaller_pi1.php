@@ -1040,20 +1040,21 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . $srceDir;
     $str_pathDest = $destDir;
     // General values
+var_dump( __METHOD__, __LINE__, $this->pObj->arr_fileUids );
 
     foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
     {
         // CONTINUE : srce is a directory only
       if( is_dir( $str_pathSrce . $str_fileSrce ) ) 
       {
-        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-        $str_file_prompt = '
-          <p>
-            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-          </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-        $this->arrReport[] = $str_file_prompt;
+//        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
+//        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
+//        $str_file_prompt = '
+//          <p>
+//            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
+//          </p>';
+//        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+//        $this->arrReport[] = $str_file_prompt;
         continue;
       }
         // CONTINUE : srce is a directory only
@@ -1061,14 +1062,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         // CONTINUE : file does not exist (this may be proper)
       if( ! file_exists( $str_pathSrce . $str_fileSrce ) ) 
       {
-        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-        $str_file_prompt = '
-          <p>
-            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-          </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-        $this->arrReport[] = $str_file_prompt;
+//        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
+//        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
+//        $str_file_prompt = '
+//          <p>
+//            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
+//          </p>';
+//        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+//        $this->arrReport[] = $str_file_prompt;
         continue;
       }
         // CONTINUE : file does not exist (this may be proper)
