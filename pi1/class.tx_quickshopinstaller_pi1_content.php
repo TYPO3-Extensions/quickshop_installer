@@ -639,9 +639,9 @@ class tx_quickshopinstaller_pi1_content
     $uid = $uid + 1;
     $records[$uid] = $this->pageQuickshopLegalinfo( $uid );
 
-      // content for page library header
-    $uid = $uid + 1;
-    $records[$uid] = $this->pageQuickshopLibraryHeader( $uid );
+//      // content for page library header
+//    $uid = $uid + 1;
+//    $records[$uid] = $this->pageQuickshopLibraryHeader( $uid );
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageQuickshopLibraryHeaderLogo( $uid );

@@ -394,7 +394,7 @@ TCEMAIN {
               'uid'           => $pageUid,
               'pid'           => $pid,
               'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
+              'dokType'       => 254,  // 254: sysfolder
               'crdate'        => time( ),
               'tstamp'        => time( ),
               'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
