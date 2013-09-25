@@ -32,21 +32,21 @@
  *   95:     public function main( )
  *
  *              SECTION: Create pages
- *  142:     private function pageCaddy( $pageUid, $sorting )
- *  180:     private function pageCaddyCaddymini( $pageUid, $sorting )
- *  220:     private function pageDelivery( $pageUid, $sorting )
- *  257:     private function pageLegalinfo( $pageUid, $sorting )
- *  294:     private function pageLibrary( $pageUid, $sorting )
- *  345:     private function pageLibraryFooter( $pageUid, $sorting )
- *  384:     private function pageLibraryHeader( $pageUid, $sorting )
- *  423:     private function pageProducts( $pageUid, $sorting )
- *  519:     private function pageRevocation( $pageUid, $sorting )
- *  557:     private function pageTerms( $pageUid, $sorting )
- *  593:     private function pagesLibrary( $pageUid )
- *  619:     private function pagesLibraryRecords( $pageUid )
- *  647:     private function pagesLibrarySqlInsert( $pages )
- *  674:     private function pagesRoot( $pageUid )
- *  695:     private function pagesRootRecords( $pageUid )
+ *  142:     private function pageQuickshopCaddy( $pageUid, $sorting )
+ *  180:     private function pageQuickshopCaddyCaddymini( $pageUid, $sorting )
+ *  220:     private function pageQuickshopDelivery( $pageUid, $sorting )
+ *  257:     private function pageQuickshopLegalinfo( $pageUid, $sorting )
+ *  294:     private function pageQuickshopLibrary( $pageUid, $sorting )
+ *  345:     private function pageQuickshopLibraryFooter( $pageUid, $sorting )
+ *  384:     private function pageQuickshopLibraryHeader( $pageUid, $sorting )
+ *  423:     private function pageQuickshopItems( $pageUid, $sorting )
+ *  519:     private function pageQuickshopRevocation( $pageUid, $sorting )
+ *  557:     private function pageQuickshopTerms( $pageUid, $sorting )
+ *  593:     private function pagesQuickshopLibrary( $pageUid )
+ *  619:     private function pagesQuickshopLibraryRecords( $pageUid )
+ *  647:     private function pagesQuickshopLibrarySqlInsert( $pages )
+ *  674:     private function pagesQuickshop( $pageUid )
+ *  695:     private function pagesQuickshopRecords( $pageUid )
  *
  *              SECTION: Sql
  *  752:     private function sqlInsert( $pages )
@@ -87,7 +87,7 @@ class tx_quickshopinstaller_pi1_pages
 /**
  * main( ) :
  *
- * @return	void
+ * @return    void
  * @access public
  * @version 3.0.0
  * @since 1.0.0
@@ -103,20 +103,21 @@ class tx_quickshopinstaller_pi1_pages
 
       // Set the global vars for the root page
     $pageUid      = $GLOBALS['TSFE']->id;
-    $pageTitle    = 'page_title_root';
-    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pageTitle    = 'pageQuickshop_title';
+      // 130723, dwildt, 1-
+    //$llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
     $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
     $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
       // Set the global vars for the root page
 
-      // Get the latest uid from the püages table
+      // Get the latest uid from the pages table
     $pageUid = $this->pObj->zz_getMaxDbUid( 'pages' );
 
       // Create pages on the root level
-    $pageUid = $this->pagesRoot( $pageUid );
+    $pageUid = $this->pagesQuickshop( $pageUid );
 
       // Create pages within page library
-    $pageUid = $this->pagesLibrary( $pageUid );
+    $pageUid = $this->pagesQuickshopLibrary( $pageUid );
 
     return;
   }
@@ -130,18 +131,18 @@ class tx_quickshopinstaller_pi1_pages
   **********************************************/
 
 /**
- * pageCaddy( ) :
+ * pageQuickshopCaddy( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageCaddy( $pageUid, $sorting )
+  private function pageQuickshopCaddy( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_caddy';
+    $pageTitle    = 'pageQuickshopCaddy_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -168,20 +169,20 @@ class tx_quickshopinstaller_pi1_pages
   }
 
 /**
- * pageCaddyCaddymini( ) :
+ * pageQuickshopCaddyCaddymini( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageCaddyCaddymini( $pageUid, $sorting )
+  private function pageQuickshopCaddyCaddymini( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_caddy_caddymini';
+    $pageTitle    = 'pageQuickshopCaddyCaddymini_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'page_title_caddy';
+    $pidTitle     = 'pageQuickshopCaddy_title';
     $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
@@ -208,18 +209,18 @@ class tx_quickshopinstaller_pi1_pages
   }
 
 /**
- * pageDelivery( ) :
+ * pageQuickshopDelivery( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageDelivery( $pageUid, $sorting )
+  private function pageQuickshopDelivery( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_shipping';
+    $pageTitle    = 'pageQuickshopShipping_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -245,18 +246,18 @@ class tx_quickshopinstaller_pi1_pages
   }
 
 /**
- * pageLegalinfo( ) :
+ * pageQuickshopLegalinfo( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageLegalinfo( $pageUid, $sorting )
+  private function pageQuickshopLegalinfo( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_legalinfo';
+    $pageTitle    = 'pageQuickshopLegalinfo_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -282,18 +283,18 @@ class tx_quickshopinstaller_pi1_pages
   }
 
 /**
- * pageLibrary( ) :
+ * pageQuickshopLibrary( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageLibrary( $pageUid, $sorting )
+  private function pageQuickshopLibrary( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_library';
+    $pageTitle    = 'pageQuickshopLibrary_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $dateHumanReadable  = date('Y-m-d G:i:s');
@@ -333,20 +334,20 @@ TCEMAIN {
   }
 
 /**
- * pageLibraryFooter( ) :
+ * pageQuickshopLibraryFooter( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageLibraryFooter( $pageUid, $sorting )
+  private function pageQuickshopLibraryFooter( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_library_footer';
+    $pageTitle    = 'pageQuickshopLibraryFooter_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'page_title_library';
+    $pidTitle     = 'pageQuickshopLibrary_title';
     $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
@@ -372,20 +373,20 @@ TCEMAIN {
   }
 
 /**
- * pageLibraryHeader( ) :
+ * pageQuickshopLibraryHeader( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageLibraryHeader( $pageUid, $sorting )
+  private function pageQuickshopLibraryHeader( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_library_header';
+    $pageTitle    = 'pageQuickshopLibraryHeader_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
-    $pidTitle     = 'page_title_library';
+    $pidTitle     = 'pageQuickshopLibrary_title';
     $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
 
     $page = array
@@ -411,18 +412,135 @@ TCEMAIN {
   }
 
 /**
- * pageProducts( ) :
+ * pageQuickshopLibraryHeaderLogo( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
+ * @access private
+ * @version 3.1.0
+ * @since 3.1.0
+ */
+  private function pageQuickshopLibraryHeaderLogo( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageQuickshopLibraryHeaderLogo_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageQuickshopLibraryHeader_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $pid,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
+
+    return $page;
+  }
+
+/**
+ * pageQuickshopLibraryHeaderSlider( ) :
+ *
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
+ * @access private
+ * @version 3.1.0
+ * @since 3.1.0
+ */
+  private function pageQuickshopLibraryHeaderSlider( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageQuickshopLibraryHeaderSlider_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageQuickshopLibraryHeader_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $pid,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
+
+    return $page;
+  }
+
+/**
+ * pageQuickshopLibraryMenubelow( ) :
+ *
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
+ * @access private
+ * @version 3.1.0
+ * @since 3.1.0
+ */
+  private function pageQuickshopLibraryMenubelow( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageQuickshopLibraryMenubelow_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageQuickshopLibraryHeader_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $pid,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
+
+    return $page;
+  }
+
+/**
+ * pageQuickshopItems( ) :
+ *
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageProducts( $pageUid, $sorting )
+  private function pageQuickshopItems( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_products';
+    $pageTitle    = 'pageQuickshopItems_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $dateHumanReadable  = date('Y-m-d G:i:s');
@@ -507,18 +625,18 @@ TCEMAIN {
   }
 
 /**
- * pageRevocation( ) :
+ * pageQuickshopRevocation( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageRevocation( $pageUid, $sorting )
+  private function pageQuickshopRevocation( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_revocation';
+    $pageTitle    = 'pageQuickshopRevocation_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -544,19 +662,19 @@ TCEMAIN {
   }
 
 /**
- * pageTerms( ) :
+ * pageQuickshopTerms( ) :
  *
- * @param	integer		$pageUid            : uid of the current page
- * @param	integer		$sorting            : sorting value
- * @param	string		$dateHumanReadable  : human readabel date
- * @return	array		$page               : current page record
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @param    string        $dateHumanReadable  : human readabel date
+ * @return    array        $page               : current page record
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pageTerms( $pageUid, $sorting )
+  private function pageQuickshopTerms( $pageUid, $sorting )
   {
-    $pageTitle    = 'page_title_terms';
+    $pageTitle    = 'pageQuickshopTerms_title';
     $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
 
     $page = array
@@ -582,49 +700,58 @@ TCEMAIN {
   }
 
 /**
- * pagesLibrary( ) :
+ * pagesQuickshopLibrary( ) :
  *
- * @param	integer		$pageUid: current page uid
- * @return	integer		$pageUid: latest page uid
+ * @param    integer        $pageUid: current page uid
+ * @return    integer        $pageUid: latest page uid
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pagesLibrary( $pageUid )
+  private function pagesQuickshopLibrary( $pageUid )
   {
     if( $this->pObj->markerArray['###INSTALL_CASE###'] != 'install_all' )
     {
       return $pageUid;
     }
 
-    $arrResult  = $this->pagesLibraryRecords( $pageUid );
+    $arrResult  = $this->pagesQuickshopLibraryRecords( $pageUid );
     $pages      = $arrResult['pages'];
     $pageUid    = $arrResult['pageUid'];
     unset( $arrResult );
 
-    $this->pagesLibrarySqlInsert( $pages );
+    $this->pagesQuickshopLibrarySqlInsert( $pages );
 
     return $pageUid;
   }
 
 /**
- * pagesLibraryRecords( ) :
+ * pagesQuickshopLibraryRecords( ) :
  *
- * @param	integer		$pageUid    : current page uid
- * @return	array		$arrReturn  : array with elements pages and pageUid
+ * @param    integer        $pageUid    : current page uid
+ * @return    array        $arrReturn  : array with elements pages and pageUid
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pagesLibraryRecords( $pageUid )
+  private function pagesQuickshopLibraryRecords( $pageUid )
   {
     $pages = array( );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageLibraryHeader( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopLibraryHeader( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageLibraryFooter( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopLibraryHeaderLogo( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageQuickshopLibraryHeaderSlider( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageQuickshopLibraryFooter( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageQuickshopLibraryMenubelow( $pageUid, $sorting );
 
     $arrReturn  = array
                   (
@@ -636,20 +763,20 @@ TCEMAIN {
   }
 
 /**
- * pagesLibrary( ) :
+ * pagesQuickshopLibrary( ) :
  *
- * @param	array		$pages: page records
- * @return	void
+ * @param    array        $pages: page records
+ * @return    void
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pagesLibrarySqlInsert( $pages )
+  private function pagesQuickshopLibrarySqlInsert( $pages )
   {
     foreach( $pages as $page )
     {
       $GLOBALS['TYPO3_DB']->exec_INSERTquery( 'pages', $page );
-      $marker['###TITLE###'] = $this->pObj->pi_getLL( 'page_title_library' ) . ' > ' . $page['title'];
+      $marker['###TITLE###'] = $this->pObj->pi_getLL( 'pageQuickshopLibrary_title' ) . ' > ' . $page['title'];
       $marker['###UID###']   = $page['uid'];
       $prompt = '
         <p>
@@ -663,17 +790,17 @@ TCEMAIN {
   }
 
 /**
- * pagesRoot( ) :
+ * pagesQuickshop( ) :
  *
- * @param	integer		$pageUid: current page uid
- * @return	integer		$pageUid: latest page uid
+ * @param    integer        $pageUid: current page uid
+ * @return    integer        $pageUid: latest page uid
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pagesRoot( $pageUid )
+  private function pagesQuickshop( $pageUid )
   {
-    $arrResult  = $this->pagesRootRecords( $pageUid );
+    $arrResult  = $this->pagesQuickshopRecords( $pageUid );
     $pages      = $arrResult['pages'];
     $pageUid    = $arrResult['pageUid'];
     unset( $arrResult );
@@ -684,44 +811,44 @@ TCEMAIN {
   }
 
 /**
- * pagesRootRecords( ) :
+ * pagesQuickshopRecords( ) :
  *
- * @param	integer		$pageUid    : current page uid
- * @return	array		$arrReturn  : array with elements pages and pageUid
+ * @param    integer        $pageUid    : current page uid
+ * @return    array        $arrReturn  : array with elements pages and pageUid
  * @access private
  * @version 3.0.0
  * @since 1.0.0
  */
-  private function pagesRootRecords( $pageUid )
+  private function pagesQuickshopRecords( $pageUid )
   {
     $pages = array( );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageCaddy( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopCaddy( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageCaddyCaddymini( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopCaddyCaddymini( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageDelivery( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopDelivery( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageRevocation( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopRevocation( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageTerms( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopTerms( $pageUid, $sorting );
 
     if( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' )
     {
       list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageLegalinfo( $pageUid, $sorting );
+      $pages[$pageUid] = $this->pageQuickshopLegalinfo( $pageUid, $sorting );
 
       list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-      $pages[$pageUid] = $this->pageLibrary( $pageUid, $sorting );
+      $pages[$pageUid] = $this->pageQuickshopLibrary( $pageUid, $sorting );
     }
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageProducts( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopItems( $pageUid, $sorting );
 
     $arrReturn  = array
                   (
@@ -741,10 +868,10 @@ TCEMAIN {
   **********************************************/
 
 /**
- * pagesRoot( ) :
+ * pagesQuickshop( ) :
  *
- * @param	array		$pages: page records
- * @return	void
+ * @param    array        $pages: page records
+ * @return    void
  * @access private
  * @version 3.0.0
  * @since 1.0.0
@@ -794,8 +921,8 @@ TCEMAIN {
 /**
  * zz_countPages( ) :
  *
- * @param	integer		$pageUid    : current page uid
- * @return	string		$csvResult  : pageUid, sorting
+ * @param    integer        $pageUid    : current page uid
+ * @return    string        $csvResult  : pageUid, sorting
  * @access private
  * @version 3.0.0
  * @since 1.0.0
