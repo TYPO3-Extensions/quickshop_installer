@@ -312,9 +312,9 @@ plugin.base_quickshop {
   pages {
     root = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
     root {
-      library {
+      libraries {
         footer = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryFooter_title' ] . '
-        header = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeader_title' ] . '
+        //header = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeader_title' ] . '
         header {
           logo = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderLogo_title' ] . '
           slider {
