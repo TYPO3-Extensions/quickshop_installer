@@ -251,7 +251,7 @@ class tx_quickshopinstaller_pi1_content
     $llImage  = $this->pObj->pi_getLL( $llLabel );
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
-var_dump( __METHOD__, __LINE__, $this->pObj->arr_fileUids );
+//var_dump( __METHOD__, __LINE__, $this->pObj->arr_fileUids );
 
     $record['uid']            = $uid;
     $record['pid']            = $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderLogo_title' ];

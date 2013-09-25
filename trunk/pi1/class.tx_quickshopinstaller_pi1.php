@@ -1040,7 +1040,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . $srceDir;
     $str_pathDest = $destDir;
     // General values
-var_dump( __METHOD__, __LINE__, $this->arr_fileUids );
+//var_dump( __METHOD__, __LINE__, $this->arr_fileUids );
 
     foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
     {
