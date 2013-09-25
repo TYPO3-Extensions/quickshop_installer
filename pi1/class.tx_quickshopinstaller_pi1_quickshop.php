@@ -185,7 +185,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -213,7 +213,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -240,7 +240,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -267,7 +267,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -294,7 +294,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -322,7 +322,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_recordUids[ $llLabel ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -363,7 +363,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -411,7 +411,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -459,7 +459,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -507,7 +507,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -557,7 +557,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -607,7 +607,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];

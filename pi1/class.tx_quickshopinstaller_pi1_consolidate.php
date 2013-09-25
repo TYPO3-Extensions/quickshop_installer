@@ -32,16 +32,16 @@
  *  104:     public function main( )
  *
  *              SECTION: pages
- *  131:     private function pageCaddy( )
- *  166:     private function pageCaddyContentJss( )
- *  219:     private function pageCaddyPluginCaddy( )
- *  392:     private function pageCaddyPluginCaddyMini( )
- *  435:     private function pageCaddyPluginPowermail( )
- *  475:     private function pageCaddyPluginPowermail1x( )
- *  504:     private function pageCaddyPluginPowermail2x( )
- *  594:     private function pageCaddyTyposcript( )
- *  627:     private function pageCaddyTyposcript1x( )
- *  695:     private function pageCaddyTyposcript2x( )
+ *  131:     private function pageQuickshopCaddy( )
+ *  166:     private function pageQuickshopCaddyContentJss( )
+ *  219:     private function pageQuickshopCaddyPluginCaddy( )
+ *  392:     private function pageQuickshopCaddyPluginCaddyMini( )
+ *  435:     private function pageQuickshopCaddyPluginPowermail( )
+ *  475:     private function pageQuickshopCaddyPluginPowermail1x( )
+ *  504:     private function pageQuickshopCaddyPluginPowermail2x( )
+ *  594:     private function pageQuickshopCaddyTyposcript( )
+ *  627:     private function pageQuickshopCaddyTyposcript1x( )
+ *  695:     private function pageQuickshopCaddyTyposcript2x( )
  *  751:     private function pageRoot( )
  *  782:     private function pageRootFileCopy( $timestamp )
  *  836:     private function pageRootPluginInstallHide( )
@@ -109,7 +109,7 @@ class tx_quickshopinstaller_pi1_consolidate
       </h2>';
 
     $this->pageRoot( );
-    $this->pageCaddy( );
+    $this->pageQuickshopCaddy( );
   }
 
 
@@ -121,49 +121,49 @@ class tx_quickshopinstaller_pi1_consolidate
   **********************************************/
 
 /**
- * pageCaddy( )
+ * pageQuickshopCaddy( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddy( )
+  private function pageQuickshopCaddy( )
   {
     $records    = array( );
-    $pageTitle  = $this->pObj->pi_getLL( 'page_title_caddy' );
+    $pageTitle  = $this->pObj->pi_getLL( 'pageQuickshopCaddy_title' );
 
       // Update the jss script
-    $records    = $this->pageCaddyContentJss( );
+    $records    = $this->pageQuickshopCaddyContentJss( );
     $this->sqlUpdateContent( $records, $pageTitle );
 
       // Update the powermail plugin
-    $records    = $this->pageCaddyPluginPowermail( );
+    $records    = $this->pageQuickshopCaddyPluginPowermail( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Update the caddy plugin
-    $records    = $this->pageCaddyPluginCaddy( );
+    $records    = $this->pageQuickshopCaddyPluginCaddy( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Update the caddy plugin
-    $records    = $this->pageCaddyPluginCaddyMini( );
+    $records    = $this->pageQuickshopCaddyPluginCaddyMini( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Update the TypoScript
-    $records    = $this->pageCaddyTyposcript( );
+    $records    = $this->pageQuickshopCaddyTyposcript( );
     $this->sqlUpdateTyposcript( $records, $pageTitle );
 
   }
 
 /**
- * pageCaddyContentJss( )
+ * pageQuickshopCaddyContentJss( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.4
  * @since   3.0.4
  */
-  private function pageCaddyContentJss( )
+  private function pageQuickshopCaddyContentJss( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_contentUids['content_caddy_header'];
@@ -209,14 +209,14 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginCaddy( )
+ * pageQuickshopCaddyPluginCaddy( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginCaddy( )
+  private function pageQuickshopCaddyPluginCaddy( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'plugin_caddy_header' ];
@@ -382,21 +382,21 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginCaddyMini( )
+ * pageQuickshopCaddyPluginCaddyMini( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginCaddyMini( )
+  private function pageQuickshopCaddyPluginCaddyMini( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'plugin_caddymini_header' ];
 
       // values
     $llHeader   = $this->pObj->pi_getLL( 'plugin_caddymini_header' );
-    $pidOfCaddy = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $pidOfCaddy = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
       // values
 
     $records[$uid]['header']      = $llHeader;
@@ -425,14 +425,14 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginPowermail( )
+ * pageQuickshopCaddyPluginPowermail( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginPowermail( )
+  private function pageQuickshopCaddyPluginPowermail( )
   {
     $records  = null;
 
@@ -446,10 +446,10 @@ class tx_quickshopinstaller_pi1_consolidate
         die( $prompt );
         break;
       case( $this->pObj->powermailVersionInt < 2000000 ):
-        $records = $this->pageCaddyPluginPowermail1x( );
+        $records = $this->pageQuickshopCaddyPluginPowermail1x( );
         break;
       case( $this->pObj->powermailVersionInt < 3000000 ):
-        $records = $this->pageCaddyPluginPowermail2x( );
+        $records = $this->pageQuickshopCaddyPluginPowermail2x( );
         break;
       case( $this->pObj->powermailVersionInt >= 3000000 ):
       default:
@@ -465,14 +465,14 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginPowermail1x( )
+ * pageQuickshopCaddyPluginPowermail1x( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginPowermail1x( )
+  private function pageQuickshopCaddyPluginPowermail1x( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
@@ -494,14 +494,14 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyPluginPowermail2x( )
+ * pageQuickshopCaddyPluginPowermail2x( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyPluginPowermail2x( )
+  private function pageQuickshopCaddyPluginPowermail2x( )
   {
     $records  = null;
     $uid      = $this->pObj->arr_pluginUids[ 'plugin_powermail_header' ];
@@ -584,14 +584,14 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyTyposcript( )
+ * pageQuickshopCaddyTyposcript( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyTyposcript( )
+  private function pageQuickshopCaddyTyposcript( )
   {
     $records = null;
 
@@ -599,10 +599,10 @@ class tx_quickshopinstaller_pi1_consolidate
     switch( true )
     {
       case( $pmX == '1x' ):
-        $records = $this->pageCaddyTyposcript1x( );
+        $records = $this->pageQuickshopCaddyTyposcript1x( );
         break;
       case( $pmX == '2x' ):
-        $records = $this->pageCaddyTyposcript2x( );
+        $records = $this->pageQuickshopCaddyTyposcript2x( );
         break;
       default:
         $prompt = 'ERROR: unexpected result<br />
@@ -617,18 +617,18 @@ class tx_quickshopinstaller_pi1_consolidate
   }
 
 /**
- * pageCaddyTyposcript1x( )
+ * pageQuickshopCaddyTyposcript1x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyTyposcript1x( )
+  private function pageQuickshopCaddyTyposcript1x( )
   {
     $records = null;
 
-    $title  = 'page_title_caddy';
+    $title  = 'pageQuickshopCaddy_title';
     $uid    = $this->pObj->arr_tsUids[ $title ];
 
     $strUid = sprintf( '%03d', $uid );
@@ -685,18 +685,18 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageCaddyTyposcript2x( )
+ * pageQuickshopCaddyTyposcript2x( )
  *
  * @return	array		$records    : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageCaddyTyposcript2x( )
+  private function pageQuickshopCaddyTyposcript2x( )
   {
     $records = null;
 
-    $title  = 'page_title_caddy';
+    $title  = 'pageQuickshopCaddy_title';
     $uid    = $this->pObj->arr_tsUids[ $title ];
 
     $strUid = sprintf( '%03d', $uid );
@@ -877,7 +877,7 @@ page.10.subparts.menue.20 >
     }
       // SWITCH : siteroot depends on toplevel
 
-    $records[$uid]['title']       = $this->pObj->pi_getLL( 'page_title_root' );
+    $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageQuickshop_title' );
     $records[$uid]['nav_hide']    = 1;
     $records[$uid]['is_siteroot'] = $is_siteroot;
     $records[$uid]['media']       = 'typo3_quickshop_' . $timestamp . '.jpg';

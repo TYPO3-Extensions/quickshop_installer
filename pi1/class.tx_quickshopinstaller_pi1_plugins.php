@@ -160,7 +160,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record['sorting']       = 128;
     $record['CType']         = 'list';
     $record['header']        = $llHeader;
-    $record['pages']         = $this->pObj->arr_pageUids[ 'page_title_products' ];
+    $record['pages']         = $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ];
     $record['header_layout'] = 100;  // hidden
     $record['list_type']     = 'browser_pi1';
     $record['sectionIndex']  = 1;
@@ -278,7 +278,7 @@ class tx_quickshopinstaller_pi1_plugins
     $this->pObj->arr_pluginUids['plugin_caddy_header'] = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -287,7 +287,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record['header']       = $llHeader;
     $record['list_type']    = 'caddy_pi1';
     $record['sectionIndex'] = 1;
-// Will updated by consolidate->pageCaddyPluginCaddy
+// Will updated by consolidate->pageQuickshopCaddyPluginCaddy
 //    $record['pi_flexform']  = '';
 
     return $record;
@@ -311,7 +311,7 @@ class tx_quickshopinstaller_pi1_plugins
     $this->pObj->arr_pluginUids['plugin_caddymini_header'] = $uid;
 
     $record['uid']          = $uid;
-    $record['pid']          = $this->pObj->arr_pageUids[ 'page_title_caddy_caddymini' ];
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshopCaddyCaddymini_title' ];
     $record['tstamp']       = time( );
     $record['crdate']       = time( );
     $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
@@ -321,7 +321,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record['header_layout']  = 100; // hidden
     $record['list_type']    = 'caddy_pi3';
     $record['sectionIndex'] = 1;
-// Will updated by consolidate->pageCaddyPluginCaddy
+// Will updated by consolidate->pageQuickshopCaddyPluginCaddy
 //    $record['pi_flexform']  = '';
 
     return $record;
@@ -388,7 +388,7 @@ class tx_quickshopinstaller_pi1_plugins
                     ;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
@@ -402,7 +402,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record['tx_powermail_recipient']     = $emailRecipient;
     $record['tx_powermail_subject_r']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_r1x' );
     $record['tx_powermail_subject_s']     = $this->pObj->pi_getLL( 'plugin_powermail_subject_s1x' );
-// Will updated by consolidate->pageCaddyPluginPowermail
+// Will updated by consolidate->pageQuickshopCaddyPluginPowermail
 //    $record['tx_powermail_sender']        = $str_sender;
 //    $record['tx_powermail_sendername']    = $str_sendername;
     $record['tx_powermail_confirm']       = 1;
@@ -439,7 +439,7 @@ class tx_quickshopinstaller_pi1_plugins
     $this->pObj->arr_pluginUids['plugin_powermail_header'] = $uid;
 
     $record['uid']                        = $uid;
-    $record['pid']                        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']                        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']                     = time( );
     $record['crdate']                     = time( );
     $record['cruser_id']                  = $this->pObj->markerArray['###BE_USER###'];
@@ -448,7 +448,7 @@ class tx_quickshopinstaller_pi1_plugins
     $record['header']                     = $llHeader;
     $record['header_layout']              = 100;  // hidden
     $record['list_type']                  = 'powermail_pi1';
-// Will updated by consolidate->pageCaddyPluginPowermail
+// Will updated by consolidate->pageQuickshopCaddyPluginPowermail
 //    $record['pi_flexform']              = null;
 
     return $record;

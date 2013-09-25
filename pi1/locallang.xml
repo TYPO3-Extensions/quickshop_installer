@@ -98,25 +98,43 @@
 ]]></label>
       <label index="content_create_header">Page content</label>
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
-      <label index="content_footer_header">[Footer]</label>
-      <label index="content_footer_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
-      <label index="content_header_header">[Header]</label>
-      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Home"&gt;Quick Shop&lt;/link&gt;</label>
-      <label index="content_legalinfo_header">Legal info</label>
-      <label index="content_legalinfo_bodytext"><![CDATA[<p>Your legal info</p>
+      <label index="content_pageQuickshopLegalinfo_header">Legal info</label>
+      <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
 <h2>Good to know</h2>
 <ul><li>If you provide a website without a legal info or an unproper legal info, you can get trouble with lawyers.</li><li>If you link to <a href="http://die-netzmacher.de/" title="Die Netzmacher - the developer of the Quick Shop" target="_blank">Die Netzmacher</a> - the developer of the Quick Shop -, we would be happy.</li></ul>]]></label>
-      <label index="content_revocation_header">Power of Revocation</label>
-      <label index="content_revocation_bodytext"><![CDATA[<p>Your right of revocation</p>
+      <label index="content_pageQuickshopLibraryFooter_header">[Footer]</label>
+      <label index="content_pageQuickshopLibraryFooter_bodytext">You can edit the footer here: Libraries > Footer. The header: Libraries > Header.</label>
+      <label index="content_pageQuickshopLibraryHeader_header">[Header]</label>
+      <label index="content_pageQuickshopLibraryHeader_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Home"&gt;Quick Shop&lt;/link&gt;</label>
+      <label index="content_pageQuickshopLibraryHeaderLogo_header">[Logo]</label>
+      <label index="content_pageQuickshopLibraryHeaderLogo_image">typo3_organiser_h102px_timestamp.gif</label>
+      <label index="content_pageQuickshopLibraryHeaderLogo_image_link">%pageQuickshop_title% - - "TYPO3 Organiser - TYPO3 for Lobby and Organisers"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider01_header">[TYPO3 Organiser]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider01_image">typo3-organiser_typo3-fuer-lobby-und-veranstalter_w770px_h130px_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider01_image_link">http://typo3-organiser.de/ - - "TYPO3 Organiser - TYPO3 for lobby and organisers"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider02_header">[With one mouse click]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider02_image">typo3-organiser_mit-einem_klick_w770px_h130px_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider02_image_link">http://typo3-organiser.de/en/one-click/ - - "TYPO3 Organiser - Install it with one mouse click!"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider03_header">[Donwload]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider03_image">typo3-organiser_kostenlos_typo3.org_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider03_image_link">http://typo3.org/extensions/repository/view/org - - "Download the TYPO3 Organiser! Now!"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider04_header">[With TYPO3 without PHP]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider04_image">typo3_organiser_mit-typo3-ohne-php_timestamp_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider04_image_link">http://typo3-browser.de/en/8-times-faster-without-php/ - - "TYPO3 Organiser - 8 times faster with TYPO3 without PHP"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider05_header">[Die Netzmacher]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider05_image">Die-Netzmacher_TYPO3-ohne-PHP_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider05_image_link">http://die-netzmacher.de/typo3-entwicklung/ - - "TYPO3 Organiser - by die Netzmacher. The developers of of TYPO3 without PHP."</label>
+      <label index="content_pageQuickshopRevocation_header">Power of Revocation</label>
+      <label index="content_pageQuickshopRevocation_bodytext"><![CDATA[<p>Your right of revocation</p>
 <h2>Good to know</h2>
 <ul><li>If you don't inform your customer about the power of revocation, you can get trouble with lawyers.</li></ul>
 <h2>Helpful links</h2>
 <ul><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">German right of revocation and right of return in distance contracts translated to English</a></li><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">German ebay template of a Widerrufsbelehrung</a></li></ul>]]></label>
-      <label index="content_shipping_header">Delivery</label>
-      <label index="content_shipping_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
+      <label index="content_pageQuickshopShipping_header">Delivery</label>
+      <label index="content_pageQuickshopShipping_bodytext"><![CDATA[<p>Please clarify your delivery conditions like</p>
 <ul><li>within your country</li><li>to islands of your country</li><li>within Europe</li><li>world wide</li></ul>]]></label>
-      <label index="content_terms_header">Terms and conditions</label>
-      <label index="content_terms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
+      <label index="content_pageQuickshopTerms_header">Terms and conditions</label>
+      <label index="content_pageQuickshopTerms_bodytext"><![CDATA[<p>We don't have any terms and conditions, because this is a shop for demonstration only.</p>
 <ul><li>The shop demonstrates the workflow of Quick Shop.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul><p>If you are satisfied by Quick Shop and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Quick Shop! »</a></li></ul><p>]]></label>
       <label index="end_button">Reload this page</label>
       <label index="end_deletePlugin_prompt">TYPO3 backend: Please delete the Quick Shop Installer, if you don't need it any longer.</label>
@@ -139,17 +157,20 @@
       <label index="grp_warn_prompt">Quick Shop Installer couldn't create the group "###GROUP_TITLE###". It doesn't matter.</label>
       <label index="page_create_header">Pages and Directories</label>
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
-      <label index="page_title_caddy">Caddy</label>
-      <label index="page_title_caddy_caddymini">Caddy mini</label>
-      <label index="page_title_legalinfo">Legal info</label>
-      <label index="page_title_library">Libraries</label>
-      <label index="page_title_library_header">Header</label>
-      <label index="page_title_library_footer">Footer</label>
-      <label index="page_title_products">Items</label>
-      <label index="page_title_revocation">Revocation</label>
-      <label index="page_title_root">Quick shop</label>
-      <label index="page_title_shipping">Shipping</label>
-      <label index="page_title_terms">Terms</label>
+      <label index="pageQuickshop_title">Quick shop</label>
+      <label index="pageQuickshopCaddy_title">Caddy</label>
+      <label index="pageQuickshopCaddyCaddymini_title">Caddy mini</label>
+      <label index="pageQuickshopItems_title">Items</label>
+      <label index="pageQuickshopLegalinfo_title">Legal info</label>
+      <label index="pageQuickshopLibrary_title">Libraries</label>
+      <label index="pageQuickshopLibraryFooter_title">Footer</label>
+      <label index="pageQuickshopLibraryHeader_title">Header</label>
+      <label index="pageQuickshopLibraryHeaderLogo_title">Logo</label>
+      <label index="pageQuickshopLibraryHeaderSlider_title">Slider</label>
+      <label index="pageQuickshopLibraryMenubelow_title">Below the menu</label>
+      <label index="pageQuickshopRevocation_title">Revocation</label>
+      <label index="pageQuickshopShipping_title">Shipping</label>
+      <label index="pageQuickshopTerms_title">Terms</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">D-</label>
       <label index="phrases_powermail_payment">Invoice|Invoice|*</label>
@@ -185,11 +206,11 @@
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
       <label index="plugin_powermail_body_s2x"><![CDATA[<p>Dear {billingaddressfirstname} {billingaddresslastname},<br />Thanks for your interest in the TYPO3 Quick Shop.<br /><br />You find all about your order in the attachments:</p><p></p><ul><li>terms & conditions</li><li>delivery order and</li><li>invoice</li></ul><p>This is a demo only!</p><ul><li>This shop demonstrates the features and the work flow of the TYPO3-Quick-Shop.</li><li>The ordered items aren't real.</li><li>You won't get any delivery.</li><li>Invoice and delivery order are for information only.</li><li>You don't have to pay any bill.</li></ul><p>If you are satisfied by Quick Shop and if you like to subsidise the project, please visit:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Subsidise Quick Shop! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="plugin_powermail_header">[Powermail for Quickshop]</label>
+      <label index="plugin_powermail_header">[Powermail for Caddy]</label>
       <label index="plugin_powermail_subject_r1x">New Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_r2x">New Quick Shop order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="plugin_powermail_subject_s1x">[TEST] Your Quick Shop order ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_subject_s2x">[TEST] Your Quick Shop order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_subject_s1x">[TEST] Your Quick Shop order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_s2x">[TEST] Your Quick Shop order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Thanks!</h1>
 <p>Thanks for your order.</p>
 <p>We sent a confirmation to your e-mail.</p>
@@ -406,25 +427,46 @@ Because of the price:
 ]]></label>
       <label index="content_create_header">Seiteninhalt</label>
       <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
-      <label index="content_footer_header">[Fußzeile]</label>
-      <label index="content_footer_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
-      <label index="content_header_header">[Kopfzeile]</label>
-      <label index="content_header_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Startseite"&gt;Quick Shop&lt;/link&gt;</label>
-      <label index="content_legalinfo_header">Impressum</label>
-      <label index="content_legalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
+      <label index="content_pageQuickshopLegalinfo_header">Impressum</label>
+      <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
 <h2>Gut zu wissen</h2>
 <ul><li>Eine Website ohne Impressum oder mit falschem Impressum kann abgemahnt werden.</li><li>Wenn Du die <a href="http://die-netzmacher.de/" title="Die Netzmacher - die Entwickler des Quick Shop" target="_blank">Netzmacher</a> als Entwickler des Quick Shop erw&auml;hnst, freuen wir uns.</li></ul>]]></label>
-      <label index="content_revocation_header">Widerrufsrecht</label>
-      <label index="content_revocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
+      <label index="content_pageQuickshopLibraryFooter_header">[Fußzeile]</label>
+      <label index="content_pageQuickshopLibraryFooter_bodytext">Die Fußzeile kannst Du hier bearbeiten: Bibliotheken > Fußzeile. Die Kopfzeile: Bibliotheken > Kopfzeile</label>
+      <label index="content_pageQuickshopLibraryHeader_header">[Kopfzeile]</label>
+      <label index="content_pageQuickshopLibraryHeader_bodytext">&lt;link ###PID### - internal-link "Quick Shop: Startseite"&gt;Quick Shop&lt;/link&gt;</label>
+      <label index="content_pageQuickshopLibraryHeaderLogo_header">[Logo]</label>
+      <label index="content_pageQuickshopLibraryHeaderLogo_image">typo3_organiser_h102px_timestamp.gif</label>
+      <label index="content_pageQuickshopLibraryHeaderLogo_image_link">%pageQuickshop_title% - - "TYPO3 Organiser - TYPO3 für Lobby und Veranstalter"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider01_header">[TYPO3 Organiser]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider01_image">typo3-organiser_typo3-fuer-lobby-und-veranstalter_w770px_h130px_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider01_image_link">http://typo3-organiser.de/ - - "TYPO3 Organiser - TYPO3 für Lobby und Veranstalter"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider02_header">[Mit einem Maus-Klick]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider02_image">typo3-organiser_mit-einem_klick_w770px_h130px_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider02_image_link">http://typo3-organiser.de/one-click/ - - "TYPO3 Organiser - Installation mit einem Klick"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider03_header">[Sofort herunterladen]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider03_image">typo3-organiser_kostenlos_typo3.org_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider03_image_link">http://typo3.org/extensions/repository/view/org - - "TYPO3 Organiser sofort kostenlos herunterladen!"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider04_header">[Mit TYPO3 ohne PHP]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider04_image">typo3_organiser_mit-typo3-ohne-php_timestamp_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider04_image_link">http://typo3-browser.de/8-mal-schneller-ohne-php/ - - "TYPO3 Organiser - 8 mal schneller mit TYPO3 ohne PHP"</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider05_header">[Die Netzmacher]</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider05_image">Die-Netzmacher_TYPO3-ohne-PHP_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryHeaderSlider05_image_link">http://die-netzmacher.de/typo3-entwicklung/ - - "TYPO3 Organiser - von den Netzmachern. Die Entwickler von TYPO3 ohne PHP."</label>
+      <label index="content_pageQuickshopLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
+      <label index="content_pageQuickshopLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
+      <label index="content_pageQuickshopLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
+      <label index="content_pageQuickshopRevocation_header">Widerrufsrecht</label>
+      <label index="content_pageQuickshopRevocation_bodytext"><![CDATA[<p>Hier solltest Du über das Widerrufsrecht informieren.</p>
 <h2>Gut zu wissen</h2>
 <ul><li>Ein Online-Verkauf von Artikeln ohne Widerrufsbelehrung kann abgemahnt werden.</li></ul>
 <h2>Hilfreiche Links</h2>
 <ul><li><a href="http://dejure.org/gesetze/BGB/312d.html" title="BGB: Widerrufsrecht nach §312d" target="_blank">BGB § 312d - Widerrufs- und Rückgaberecht bei Fernabsatzverträgen</a></li><li><a href="http://pages.ebay.de/rechtsportal/widerrufsbelehrung_neu.html" title="Widerrufsbelehrung ebay" target="_blank">Vorlage von ebay für eine Widerrufsbelehrung</a></li><li><a href="http://www.gesetze-im-internet.de/englisch_bgb/englisch_bgb.html#p1053" title="German right of revocation" target="_blank">BGB § 312d in englischer Sprache</a></li>]]></label>      
-      <label index="content_shipping_header">Versand</label>
-      <label index="content_shipping_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
+      <label index="content_pageQuickshopShipping_header">Versand</label>
+      <label index="content_pageQuickshopShipping_bodytext"><![CDATA[<p>Hier solltest Du Angaben zum Versand machen wie etwa</p>
 <ul><li>innerhalb Deutschlands</li><li>auf Deutsche Inseln</li><li>innerhalb Europas</li><li>weltweit</li></ul>]]></label>
-      <label index="content_terms_header">AGB - Allgemeine Geschäftsbedingungen</label>
-      <label index="content_terms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
+      <label index="content_pageQuickshopTerms_header">AGB - Allgemeine Geschäftsbedingungen</label>
+      <label index="content_pageQuickshopTerms_bodytext"><![CDATA[<p>Wir haben keine Gesch&auml;ftsbedingungen, denn dies ist nur ein Demo-Shop:</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration. </li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul><p>Wenn Dir Quick Shop gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Quick Shop! »</a></li></ul>]]></label>
       <label index="consolidate_header">Konsolidierung</label>
       <label index="consolidate_prompt_page">Seite ###TITLE_PID### (###FIELD###) ist aktualisiert.</label>
@@ -451,17 +493,20 @@ Because of the price:
       <label index="grp_warn_prompt">Der Quick Shop Installer konnte die Gruppe "###GROUP_TITLE###" nicht erstellen. Macht aber weiter nichts.</label>
       <label index="page_create_header">Seiten und Verzeichnisse</label>
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
-      <label index="page_title_root">Quick Shop</label>
-      <label index="page_title_caddy">Warenkorb</label>
-      <label index="page_title_caddy_caddymini">Mini-Warenkorb</label>
-      <label index="page_title_legalinfo">Impressum</label>
-      <label index="page_title_library">Bibliotheken</label>
-      <label index="page_title_library_header">Kopf</label>
-      <label index="page_title_library_footer">Fuß</label>
-      <label index="page_title_products">Artikel</label>
-      <label index="page_title_revocation">Widerrufsrecht</label>
-      <label index="page_title_shipping">Versand</label>
-      <label index="page_title_terms">AGB</label>
+      <label index="pageQuickshop_title">Quick Shop</label>
+      <label index="pageQuickshopCaddy_title">Warenkorb</label>
+      <label index="pageQuickshopCaddyCaddymini_title">Mini-Warenkorb</label>
+      <label index="pageQuickshopItems_title">Artikel</label>
+      <label index="pageQuickshopLegalinfo_title">Impressum</label>
+      <label index="pageQuickshopLibrary_title">Bibliotheken</label>
+      <label index="pageQuickshopLibraryFooter_title">Fuß</label>
+      <label index="pageQuickshopLibraryHeader_title">Kopf</label>
+      <label index="pageQuickshopLibraryHeaderLogo_title">Logo</label>
+      <label index="pageQuickshopLibraryHeaderSlider_title">Slider</label>
+      <label index="pageQuickshopLibraryMenubelow_title">Unter dem Menü</label>
+      <label index="pageQuickshopRevocation_title">Widerrufsrecht</label>
+      <label index="pageQuickshopShipping_title">Versand</label>
+      <label index="pageQuickshopTerms_title">AGB</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">L-</label>
       <label index="phrases_powermail_payment">Rechnung|Rechnung|*</label>
@@ -497,9 +542,9 @@ Because of the price:
 ###POWERMAIL_TYPOSCRIPT_CADDY###
 ###POWERMAIL_ALL###]]></label>
       <label index="plugin_powermail_body_s2x"><![CDATA[<p>Hallo {billingaddressfirstname} {billingaddresslastname},<br />herzlichen Dank dafür, dass Du Dich für TYPO3-Quick-Shop interessierst.<br /><br />Informationen zu Deiner Bestellung entnimmst Du bitte aus den angehängten Dokumenten:</p><p></p><ul><li>AGB</li><li>Lieferschein</li><li>Rechnung und</li><li>Widerrufsbelehrung</li></ul><p>Dies ist ein Demo-Shop</p><ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverständlich nicht beglichen werden.</li></ul><p>Wenn Dir Quick Shop gefällt und Du das Projekt unterstützen möchtest, hilft Dir dieser Link:</p><ul><li><a href="http://typo3-quick-shop.de/sponsoring/">Unterstütze Quick Shop! »</a></li></ul><p>{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddy')}</p>]]></label>
-      <label index="plugin_powermail_header">[Powermail für Quickshop]</label>
-      <label index="plugin_powermail_subject_r1x">Neue Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
-      <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
+      <label index="plugin_powermail_header">[Powermail für Caddy]</label>
+      <label index="plugin_powermail_subject_r1x">Neue Quick-Shop-Bestellung ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
+      <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_subject_s1x">[TEST] Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_s2x">[TEST] Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Danke!</h1>

@@ -121,7 +121,7 @@ class tx_quickshopinstaller_pi1_typoscript
 
     $strUid = sprintf( '%03d', $uid );
 
-    $title    = 'page_title_caddy';
+    $title    = 'pageQuickshopCaddy_title';
     $llTitle  = strtolower( $this->pObj->pi_getLL( $title ) );
     $llTitle  = str_replace( ' ', null, $llTitle );
     $llTitle  = '+page_' . $llTitle . '_' . $strUid;
@@ -131,7 +131,7 @@ class tx_quickshopinstaller_pi1_typoscript
 
     $record['title']                = $llTitle;
     $record['uid']                  = $uid;
-    $record['pid']                  = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']                  = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']               = time( );
     $record['sorting']              = 256;
     $record['crdate']               = time( );
@@ -139,7 +139,7 @@ class tx_quickshopinstaller_pi1_typoscript
     $record['include_static_file']  = $this->recordCaddyStaticFiles( );
     $record['constants']            = null;
 
-      // Will set by consolidate->pageCaddyTyposcript
+      // Will set by consolidate->pageQuickshopCaddyTyposcript
     //$record['config']               = '';
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
 
@@ -311,8 +311,17 @@ plugin.base_quickshop {
   }
   pages {
     library {
-      header = ' . $this->pObj->arr_pageUids[ 'page_title_library_header' ] . '
-      footer = ' . $this->pObj->arr_pageUids[ 'page_title_library_footer' ] . '
+      footer = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryFooter_title' ] . '
+      header = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeader_title' ] . '
+      header {
+        logo = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderLogo_title' ] . '
+        slider {
+          content = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderSlider_title' ] . '
+        }
+      }
+      menu {
+        bottom = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryMenubelow_title' ] . '
+      }
     }
   }
 }
@@ -321,11 +330,11 @@ plugin.base_quickshop {
   // caddy
 plugin.caddy {
   pages {
-    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    caddymini   = ' . $this->pObj->arr_pageUids[ 'page_title_caddy_caddymini' ] . '
-    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
-    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
-    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+    caddy       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ] . '
+    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddyCaddymini_title' ] . '
+    revocation  = ' . $this->pObj->arr_pageUids[ 'pageQuickshopRevocation_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopTerms_title' ] . '
   }
 }
   // caddy
@@ -333,9 +342,9 @@ plugin.caddy {
   // quick_shop
 plugin.quick_shop {
   pages {
-    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    shipping    = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
+    caddy       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ] . '
+    shipping    = ' . $this->pObj->arr_pageUids[ 'pageQuickshopShipping_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
   }
 }
   // quick_shop
@@ -453,11 +462,11 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS['TSFE']
   // caddy
 plugin.caddy {
   pages {
-    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    caddymini   = ' . $this->pObj->arr_pageUids[ 'page_title_caddy_caddymini' ] . '
-    revocation  = ' . $this->pObj->arr_pageUids[ 'page_title_revocation' ] . '
-    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
-    terms       = ' . $this->pObj->arr_pageUids[ 'page_title_terms' ] . '
+    caddy       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ] . '
+    caddymini   = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddyCaddymini_title' ] . '
+    revocation  = ' . $this->pObj->arr_pageUids[ 'pageQuickshopRevocation_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
+    terms       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopTerms_title' ] . '
   }
 }
   // caddy
@@ -465,9 +474,9 @@ plugin.caddy {
   // quick_shop
 plugin.quick_shop {
   pages {
-    caddy       = ' . $this->pObj->arr_pageUids[ 'page_title_caddy' ] . '
-    shipping    = ' . $this->pObj->arr_pageUids[ 'page_title_shipping' ] . '
-    shop        = ' . $this->pObj->arr_pageUids[ 'page_title_root' ] . '
+    caddy       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ] . '
+    shipping    = ' . $this->pObj->arr_pageUids[ 'pageQuickshopShipping_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
   }
 }
   // quick_shop

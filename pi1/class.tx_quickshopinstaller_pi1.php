@@ -321,7 +321,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->createRecordsPowermail( );
     $this->createRecordsQuickshop( );
-    $this->createFilesShop( );
+    $this->createFiles( );
     $this->createContent( );
   }
 
@@ -448,6 +448,67 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->content->main( );
   }
+  
+/**
+ * createFiles( ) : 
+ *
+ * @return	The		content that is displayed on the website
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFiles( )
+  {
+    $this->arrReport[ ] = '
+      <h2>
+       '.$this->pi_getLL('files_create_header').'
+      </h2>';
+
+    $this->createFilesLibraryHeaderLogo( );
+    $this->createFilesLibraryHeaderSlider( );
+    $this->createFilesLibraryMenubelow( );
+    $this->createFilesShop( );
+    
+  }
+  
+/**
+ * createFilesLibraryHeaderLogo( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesLibraryHeaderLogo( )
+  {
+    $this->zz_copyFiles( 'res/files/headerLogo/', 'uploads/pics/' );
+  }
+
+/**
+ * createFilesLibraryHeaderSlider( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesLibraryHeaderSlider( )
+  {
+    $this->zz_copyFiles( 'res/files/headerSlider/', 'uploads/pics/' );
+  }
+
+/**
+ * createFilesLibraryHeaderMenubelow( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function createFilesLibraryMenubelow( )
+  {
+    $this->zz_copyFiles( 'res/files/menubelow/', 'uploads/pics/' );
+  }
 
    /**
  * Shop will be installed - with or without template
@@ -456,51 +517,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function createFilesShop()
   {
-    $this->arrReport[ ] = '
-      <h2>
-       '.$this->pi_getLL('files_create_header').'
-      </h2>';
-
-
-
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Copy product images to upload folder
-
-    // General values
-    $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . 'res/images/products/';
-    $str_pathDest = 'uploads/tx_quickshop/';
-    // General values
-
-    foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
-    {
-      $bool_success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
-      if( $bool_success )
-      {
-        $this->markerArray['###DEST###'] = $str_fileDest;
-        $this->markerArray['###PATH###'] = $str_pathDest;
-        $str_file_prompt = '
-          <p>
-            '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
-          </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-        $this->arrReport[] = $str_file_prompt;
-      }
-      if (!$bool_success)
-      {
-        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
-        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
-        $str_file_prompt = '
-          <p>
-            '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
-          </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
-        $this->arrReport[] = $str_file_prompt;
-      }
-    }
-    // Copy product images to upload folder
-
-    return false;
+    $this->zz_copyFiles( 'res/images/products/', 'uploads/tx_quickshop/' );
   }
 
 /**
@@ -1003,6 +1020,73 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   * ZZ
   *
   **********************************************/
+
+/**
+ * createFilesStaff( ) : 
+ *
+ * @return	void
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function zz_copyFiles( $srceDir, $destDir='uploads/tx_org/' )
+  {
+
+    //////////////////////////////////////////////////////////////////////
+    //
+    // Copy product images to upload folder
+
+    // General values
+    $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . $srceDir;
+    $str_pathDest = $destDir;
+    // General values
+
+    foreach( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
+    {
+        // CONTINUE : srce is a directory only
+      if( is_dir( $str_pathSrce . $str_fileSrce ) ) 
+      {
+        continue;
+      }
+        // CONTINUE : srce is a directory only
+      
+        // CONTINUE : file does not exist (this may be proper)
+      if( ! file_exists( $str_pathSrce . $str_fileSrce ) ) 
+      {
+        continue;
+      }
+        // CONTINUE : file does not exist (this may be proper)
+      
+      $bool_success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
+        // CONTINUE : copy was succesful
+      if( $bool_success )
+      {
+        $this->markerArray['###DEST###'] = $str_fileDest;
+        $this->markerArray['###PATH###'] = $str_pathDest;
+        $str_file_prompt = '
+          <p>
+            '.$this->arr_icons['ok'].' '.$this->pi_getLL('files_create_prompt').'
+          </p>';
+        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+        $this->arrReport[] = $str_file_prompt;
+        
+        continue;
+      }
+        // CONTINUE : copy was succesful
+
+      $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
+      $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
+      $str_file_prompt = '
+        <p>
+          '.$this->arr_icons['warn'].' '.$this->pi_getLL('files_create_prompt_error').'
+        </p>';
+      $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+      $this->arrReport[] = $str_file_prompt;
+    }
+    // Copy product images to upload folder
+
+    return;
+  }
 
 /**
  * Calculate the cHash md5 value

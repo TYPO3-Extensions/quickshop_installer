@@ -184,7 +184,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_streetBilling' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -215,7 +215,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_locationBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -246,7 +246,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_companyBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -277,7 +277,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_countryBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -308,7 +308,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -371,7 +371,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -433,7 +433,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_zipBilling' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -472,7 +472,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_email' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -539,7 +539,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_fax' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -570,7 +570,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_phone' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -609,7 +609,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_streetDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -640,7 +640,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_locationDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -671,7 +671,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_companyDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -702,7 +702,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_countryDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -733,7 +733,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_firstnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -764,7 +764,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_surnameDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -795,7 +795,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_zipDelivery' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -834,7 +834,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_note' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -895,7 +895,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $int_revocation = $this->pObj->arr_pageUids[ 'page_title_revocation' ];
+    $int_revocation = $this->pObj->arr_pageUids[ 'pageQuickshopRevocation_title' ];
 
       // phrases_powermail_revocationAccepted in dependence of Powermail 1.x or 2.x
     switch( true )
@@ -930,7 +930,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_revocation' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -996,7 +996,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_submit' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -1023,7 +1023,7 @@ class tx_quickshopinstaller_pi1_powermail
   {
     $record = null;
 
-    $int_terms = $this->pObj->arr_pageUids[ 'page_title_terms' ];
+    $int_terms = $this->pObj->arr_pageUids[ 'pageQuickshopTerms_title' ];
 
       // phrases_powermail_termsAccepted in dependence of Powermail 1.x or 2.x
     switch( true )
@@ -1058,7 +1058,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_field_title_terms' ] = $uid;
 
     $record['uid']       = $uid;
-    $record['pid']       = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']       = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']    = time( );
     $record['crdate']    = time( );
     $record['cruser_id'] = $this->pObj->markerArray['###BE_USER###'];
@@ -1471,7 +1471,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_fSets_title_billingAddress' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1501,7 +1501,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_fSets_title_contactData' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1531,7 +1531,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_fSets_title_deliveryAddress' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1561,7 +1561,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_fSets_title_order' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
@@ -1816,7 +1816,7 @@ class tx_quickshopinstaller_pi1_powermail
     $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ] = $uid;
 
     $record['uid']        = $uid;
-    $record['pid']        = $this->pObj->arr_pageUids[ 'page_title_caddy' ];
+    $record['pid']        = $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ];
     $record['tstamp']     = time( );
     $record['crdate']     = time( );
     $record['cruser_id']  = $this->pObj->markerArray['###BE_USER###'];
