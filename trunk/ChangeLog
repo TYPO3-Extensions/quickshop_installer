@@ -1,19 +1,19 @@
 3.1.0
   2013-09-25
   bugfix
-  # *i0010: siteroot
+  * #i0010: siteroot
   Features
-  # *i0009: Consolidation, header slider
+  * #i0009: Consolidation, header slider
             
 3.0.6
   2013-07-20
   Features
-  # *i0008: no_cache = 1 -> //no_cache = 1
+  * #i0008: no_cache = 1 -> //no_cache = 1
             Effected files:
             * pi1
               * class.tx_quickshopinstaller_pi1_typoscript.php
   Bugfix
-  # *i0009: page caddy doesn't include static typoscript files
+  * #i0009: page caddy doesn't include static typoscript files
             Effected files:
             * pi1
               * class.tx_quickshopinstaller_pi1_typoscript.php
@@ -21,7 +21,7 @@
 3.0.5
   2013-06-29
   Features
-  # *i0007: * Mini Caddy
+  * #i0007: * Mini Caddy
               Effected files:
               * pi1
                 * class.tx_quickshopinstaller_pi1_consolidate.php
@@ -31,9 +31,9 @@
 3.0.4
   2013-06-28
   Features
-  # *i0006: * jQuery fade in for delivery address
+  * #i0006: * jQuery fade in for delivery address
   Improvements
-  # *i0005: * Update for Caddy 2.0.8 and Quick Shop 3.0.5
+  * #i0005: * Update for Caddy 2.0.8 and Quick Shop 3.0.5
             * New field revocation in powermail form
               * pi1
                 * class.tx_quickshopinstaller_pi1_powermail.php
@@ -48,8 +48,8 @@
 3.0.3
   2013-04-03
   Improvements
-  # *i0004: Improvements for Quick Shop 3.0.2 - nested categories
-  # *i0003: Improvements for caddy 3.0.3 - mini caddy among others
+  * #i0004: Improvements for Quick Shop 3.0.2 - nested categories
+  * #i0003: Improvements for caddy 3.0.3 - mini caddy among others
 
 3.0.2
   2013-03-22
