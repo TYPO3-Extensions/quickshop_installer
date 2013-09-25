@@ -42,11 +42,11 @@
  *  594:     private function pageQuickshopCaddyTyposcript( )
  *  627:     private function pageQuickshopCaddyTyposcript1x( )
  *  695:     private function pageQuickshopCaddyTyposcript2x( )
- *  751:     private function pageRoot( )
- *  782:     private function pageRootFileCopy( $timestamp )
- *  836:     private function pageRootPluginInstallHide( )
- *  858:     private function pageRootProperties( $timestamp )
- *  912:     private function pageRootTyposcriptOtherHide( )
+ *  751:     private function pageQuickshop( )
+ *  782:     private function pageQuickshopFileCopy( $timestamp )
+ *  836:     private function pageQuickshopPluginInstallHide( )
+ *  858:     private function pageQuickshopProperties( $timestamp )
+ *  912:     private function pageQuickshopTyposcriptOtherHide( )
  *
  *              SECTION: Sql
  *  935:     private function sqlUpdateContent( $records, $pageTitle )
@@ -108,7 +108,7 @@ class tx_quickshopinstaller_pi1_consolidate
        ' . $this->pObj->pi_getLL( 'consolidate_header' ) . '
       </h2>';
 
-    $this->pageRoot( );
+    $this->pageQuickshop( );
     $this->pageQuickshopCaddy( );
   }
 
@@ -741,37 +741,37 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageRoot( )
+ * pageQuickshop( )
  *
  * @return	void
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRoot( )
+  private function pageQuickshop( )
   {
     $records    = array( );
     $timestamp  = time();
     $pageTitle  = $GLOBALS['TSFE']->page['title'];
 
       // Update page properties
-    $records = $this->pageRootProperties( $timestamp );
+    $records = $this->pageQuickshopProperties( $timestamp );
     $this->sqlUpdatePages( $records, $pageTitle );
 
       // Copy header image
-    $this->pageRootFileCopy( $timestamp );
+    $this->pageQuickshopFileCopy( $timestamp );
 
       // Hide the installer plugin
-    $records    = $this->pageRootPluginInstallHide( );
+    $records    = $this->pageQuickshopPluginInstallHide( );
     $this->sqlUpdatePlugin( $records, $pageTitle );
 
       // Hide the TypoScript template
-    $this->pageRootTyposcriptOtherHide( );
+    $this->pageQuickshopTyposcriptOtherHide( );
     $this->sqlUpdateTyposcriptOtherHide( );
   }
 
 /**
- * pageRootFileCopy( )
+ * pageQuickshopFileCopy( )
  *
  * @param	integer		$timestamp  : current time
  * @return	void
@@ -779,7 +779,7 @@ page.10.subparts.menue.20 >
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootFileCopy( $timestamp )
+  private function pageQuickshopFileCopy( $timestamp )
   {
       // Files
     $str_fileSrce = 'quick_shop_header_image_210px.jpg';
@@ -826,14 +826,14 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageRootPluginInstallHide( )
+ * pageQuickshopPluginInstallHide( )
  *
  * @return	array		$records : the plugin record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootPluginInstallHide( )
+  private function pageQuickshopPluginInstallHide( )
   {
     $records = null;
 
@@ -847,7 +847,7 @@ page.10.subparts.menue.20 >
   }
 
 /**
- * pageRootProperties( )
+ * pageQuickshopProperties( )
  *
  * @param	integer		$timestamp  : current time
  * @return	array		$records    : the TypoScript record
@@ -855,7 +855,7 @@ page.10.subparts.menue.20 >
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootProperties( $timestamp )
+  private function pageQuickshopProperties( $timestamp )
   {
     $records = null;
 
@@ -864,18 +864,34 @@ page.10.subparts.menue.20 >
     $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
     $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
 
-      // SWITCH : siteroot depends on toplevel
-    switch( $this->pObj->bool_topLevel )
+      // #i0010, 130925, dwildt, 12- 
+//      // SWITCH : siteroot depends on toplevel
+//    switch( $this->pObj->bool_topLevel )
+//    {
+//      case( true ):
+//        $is_siteroot = 1;
+//        break;
+//      case( false ):
+//      default:
+//        $is_siteroot = 0;
+//        break;
+//    }
+//      // SWITCH : siteroot depends on toplevel
+      // #i0010, 130925, dwildt, 12- 
+
+      // #i0010, 130925, dwildt, 11+ 
+      // SWITCH : install case
+    switch( true )
     {
-      case( true ):
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
         $is_siteroot = 1;
         break;
-      case( false ):
-      default:
+      case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
         $is_siteroot = 0;
         break;
     }
-      // SWITCH : siteroot depends on toplevel
+      // SWITCH : install case
+      // #i0010, 130925, dwildt, 11+ 
 
     $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageQuickshop_title' );
     $records[$uid]['nav_hide']    = 1;
@@ -902,14 +918,14 @@ TCEMAIN {
   }
 
 /**
- * pageRootTyposcriptOtherHide( )
+ * pageQuickshopTyposcriptOtherHide( )
  *
  * @return	array		$record : the TypoScript record
  * @access private
  * @version 3.0.0
  * @since   3.0.0
  */
-  private function pageRootTyposcriptOtherHide( )
+  private function pageQuickshopTyposcriptOtherHide( )
   {
     // Do nothing
   }

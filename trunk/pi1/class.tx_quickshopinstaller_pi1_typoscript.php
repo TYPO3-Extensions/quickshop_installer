@@ -310,17 +310,20 @@ plugin.base_quickshop {
     host = ' . $this->pObj->markerArray['###HOST###'] . '/
   }
   pages {
-    library {
-      footer = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryFooter_title' ] . '
-      header = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeader_title' ] . '
-      header {
-        logo = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderLogo_title' ] . '
-        slider {
-          content = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderSlider_title' ] . '
+    root = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
+    root {
+      library {
+        footer = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryFooter_title' ] . '
+        header = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeader_title' ] . '
+        header {
+          logo = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderLogo_title' ] . '
+          slider {
+            content = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderSlider_title' ] . '
+          }
         }
-      }
-      menu {
-        bottom = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryMenubelow_title' ] . '
+        menu {
+          bottom = ' . $this->pObj->arr_pageUids[ 'pageQuickshopLibraryMenubelow_title' ] . '
+        }
       }
     }
   }
