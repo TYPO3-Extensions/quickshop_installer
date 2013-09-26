@@ -183,7 +183,7 @@
       <label index="phrases_powermail_termsAccepted1x"><![CDATA[I'm according with the <link ###PID### _blank>Terms and Conditions</link>.|Terms and Conditions accepted]]></label>
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[I'm according with the <a href="index.php/?id=###PID###" target="_blank">Terms and Conditions</a>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
-      <label index="plugin_browser_header">[Browser for Quickshop]</label>
+      <label index="plugin_browser_header">[Browser for Quick Shop]</label>
       <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
    * incompatibility of tree view filter and AJAX</label>
       <label index="plugin_caddy_header">Caddy</label>
@@ -519,7 +519,7 @@ Because of the price:
       <label index="phrases_powermail_termsAccepted1x"><![CDATA[Ich akzeptiere die <link ###PID### _blank>AGB</link>.|AGB akzeptiert]]></label>
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[Ich akzeptiere die <a href="index.php/?id=###PID###" target="_blank">AGB</a>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
-      <label index="plugin_browser_header">[Browser für Quickshop]</label>
+      <label index="plugin_browser_header">[Browser für Quick Shop]</label>
       <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
    * Unverträglichkeit von Baummenü-Filter (Tree View) und AJAX</label>
       <label index="plugin_caddy_header">Warenkorb</label>

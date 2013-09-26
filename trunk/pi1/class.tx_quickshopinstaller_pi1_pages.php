@@ -197,6 +197,7 @@ class tx_quickshopinstaller_pi1_pages
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'caddymini',
               'urlType'       => 1,
               'sorting'       => $sorting,
               'nav_hide'      => 1
