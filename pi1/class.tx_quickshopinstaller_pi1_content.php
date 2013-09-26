@@ -252,6 +252,10 @@ class tx_quickshopinstaller_pi1_content
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 //var_dump( __METHOD__, __LINE__, $this->pObj->arr_fileUids );
+    
+    $image_link = $this->pObj->pi_getLL( 'content_pageQuickshopLibraryHeaderLogo_image_link' );
+    $image_link = str_replace( '%pageQuickshop_title%', $this->pObj->arr_pageUids[ 'pageQuickshop_title' ], $image_link);
+
 
     $record['uid']            = $uid;
     $record['pid']            = $this->pObj->arr_pageUids[ 'pageQuickshopLibraryHeaderLogo_title' ];
@@ -263,8 +267,7 @@ class tx_quickshopinstaller_pi1_content
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-      // Will done by consolidation
-    //$record['image_link']     = null;
+    $record['image_link']     = $image_link;
     $record['imageorient']    = 1;
 
     return $record;
