@@ -505,7 +505,7 @@ class tx_quickshopinstaller_pi1_content
     $record['header']         = $llTitle;
     $record['header_layout']  = 100; // hidden
     $record['image']          = $llImageWiTimestamp;
-    $record['image_link']     = $this->pObj->arr_pageUids[ 'pageQuickshopLibraryMenubelow_image_link' ];
+    $record['image_link']     = $this->pObj->pi_getLL[ 'content_pageQuickshopLibraryMenubelow_image_link' ];
       // #i0002, 13-07-30, dwildt, 1+
     $record['image_zoom']     = 1;
     $record['imageorient']    = 2;  // 2: left
