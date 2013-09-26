@@ -1,6 +1,8 @@
 3.1.0
   2013-09-25
-  bugfix
+  Feature
+  * #i0011: Manual is updated
+  Bugfix
   * #i0010: siteroot
   Features
   * #i0009: Consolidation, header slider
@@ -53,7 +55,7 @@
 
 3.0.2
   2013-03-22
-  Improvemnet
+  Improvement
   * #i0002: localisation
             Effected files:
             * pi1
