@@ -372,6 +372,7 @@ plugin.tx_powermail {
   // INDEX
   //
   // config
+  // plugin.tx_browser_pi1
   // TYPO3-Browser: ajax page object I
   // TYPO3-Browser: ajax page object II
 
@@ -386,7 +387,12 @@ config {
 }
   // config
 
-
+  // plugin.tx_browser_pi1
+plugin.tx_browser_pi1 {
+    // Don\'t display any order box
+  displayList.selectBox_orderBy.display = 0
+}
+  // plugin.tx_browser_pi1
 
   // TYPO3-Browser: ajax page object I
 
@@ -400,8 +406,6 @@ config {
   page < plugin.tx_browser_pi1.javascript.ajax.page
 [global]
   // TYPO3-Browser: ajax page object I
-
-
 
   // TYPO3-Browser: ajax page object II
   // In case of localisation:
@@ -485,9 +489,27 @@ plugin.quick_shop {
   // quick_shop
 ';
     $record['config']                     = ''.
-'config {
+'
+  ////////////////////////////////////////////////////////
+  //
+  // INDEX
+  //
+  // config
+  // plugin.tx_browser_pi1
+
+  // config
+config {
   //no_cache = 1
 }
+  // config
+
+  // plugin.tx_browser_pi1
+plugin.tx_browser_pi1 {
+    // Don\'t display any order box
+  displayList.selectBox_orderBy.display = 0
+}
+  // plugin.tx_browser_pi1
+
 ';
 
     $record['description'] = '// Created by QUICK SHOP INSTALLER at ' . date( 'Y-m-d G:i:s' );
