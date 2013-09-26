@@ -547,6 +547,7 @@ plugin.quick_shop {
   {
     $staticFiles  = 'EXT:quick_shop/static/,'
                   . 'EXT:caddy/static/,'
+                  . 'EXT:caddy/static/properties/de/,'
                   . 'EXT:caddy/static/css/,'
                   . 'EXT:quick_shop/static/caddy/';
 
@@ -565,6 +566,7 @@ plugin.quick_shop {
   {
     $staticFiles  = 'EXT:quick_shop/static/,'
                   . 'EXT:caddy/static/,'
+                  . 'EXT:caddy/static/properties/de/,'
                   . 'EXT:caddy/static/css/,'
                   . 'EXT:quick_shop/static/caddy/';
 
