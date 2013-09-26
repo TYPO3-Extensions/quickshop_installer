@@ -160,7 +160,8 @@
       <label index="grp_warn_prompt">Quick Shop Installer couldn't create the group "###GROUP_TITLE###". It doesn't matter.</label>
       <label index="page_create_header">Pages and Directories</label>
       <label index="page_create_prompt">Page "###TITLE###" (uid ###UID###) is created.</label>
-      <label index="pageQuickshop_title">Quick shop</label>
+      <label index="pageQuickshop_title">Quick Shop</label>
+      <label index="pageQuickshop_titleNav">Home</label>
       <label index="pageQuickshopCaddy_title">Caddy</label>
       <label index="pageQuickshopCaddyCaddymini_title">Caddy mini</label>
       <label index="pageQuickshopItems_title">Items</label>
@@ -497,6 +498,7 @@ Because of the price:
       <label index="page_create_header">Seiten und Verzeichnisse</label>
       <label index="page_create_prompt">Die Seite "###TITLE###" (uid ###UID###) wurde erstellt.</label>
       <label index="pageQuickshop_title">Quick Shop</label>
+      <label index="pageQuickshop_titleNav">Home</label>
       <label index="pageQuickshopCaddy_title">Warenkorb</label>
       <label index="pageQuickshopCaddyCaddymini_title">Mini-Warenkorb</label>
       <label index="pageQuickshopItems_title">Artikel</label>

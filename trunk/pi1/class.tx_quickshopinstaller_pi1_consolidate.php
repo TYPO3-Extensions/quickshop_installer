@@ -672,7 +672,7 @@ plugin.tx_powermail_pi1 {
         $records[$uid]['config']  = $records[$uid]['config'] . '
 
   // Don\'t display the mini caddy
-page.10.subparts.menue.20 >
+page.10.subparts.menue.10 >
 ';
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
@@ -727,7 +727,7 @@ plugin.tx_powermail {
         $records[$uid]['config']  = $records[$uid]['config'] . '
 
   // Don\'t display the mini caddy
-page.10.subparts.menue.20 >
+page.10.subparts.menue.10 >
 ';
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
@@ -884,17 +884,19 @@ page.10.subparts.menue.20 >
     switch( true )
     {
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_all' ):
-        $is_siteroot = 1;
+        $is_siteroot                = 1;
+        $records[$uid]['nav_title'] = null;
         break;
       case( $this->pObj->markerArray['###INSTALL_CASE###'] == 'install_shop' ):
-        $is_siteroot = 0;
+        $is_siteroot                = 0;
+        $records[$uid]['nav_title'] = $this->pObj->pi_getLL( 'pageQuickshop_titleNav' );
         break;
     }
       // SWITCH : install case
       // #i0010, 130925, dwildt, 11+ 
 
     $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageQuickshop_title' );
-    $records[$uid]['nav_hide']    = 1;
+    $records[$uid]['nav_hide']    = 0;
     $records[$uid]['is_siteroot'] = $is_siteroot;
     $records[$uid]['media']       = 'typo3_quickshop_' . $timestamp . '.jpg';
     $records[$uid]['module']      = null;
