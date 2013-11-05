@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'The installer installs Quick Shop and Quick Shop Template. Installation is out of the box. It is a one click installation.',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '3.1.2',
+	'version' => '4.0.0',
 	'dependencies' => 'browser,caddy,powermail,quick_shop',
 	'conflicts' => '',
 	'priority' => '',
@@ -38,7 +38,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'caddy' => '',
 			'powermail' => '',
 			'quick_shop' => '3.0.8-3.1.99',
-			'typo3' => '4.5.0-4.7.99',
+			'typo3' => '4.5.0-6.1.99',
 		),
 		'conflicts' => array(
 		),
