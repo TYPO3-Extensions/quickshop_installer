@@ -81,6 +81,8 @@ class tx_quickshop_installer_extmanager
 //.message-warning
 //.message-error
 
+    $this->initTypo3version( );
+    
     $str_prompt = null;
 
       // #53358, 131106, dwildt
