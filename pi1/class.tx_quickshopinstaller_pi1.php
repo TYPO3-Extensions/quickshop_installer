@@ -713,8 +713,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       $success = false;
     }
 
-    $key    = 'quick_shop';
-    $title  = 'Quick Shop';
+      // #i0012, 131106, dwildt, +
+    $key    = 't3_tcpdf';
+    $title  = 'TCPDF for TYPO3';
     if( ! $this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
