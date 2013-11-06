@@ -1,6 +1,7 @@
 4.0.0
   2013-11-05
   Feature
+  * #i0012: Dependency t3_tcpdf
   * #53358: Fit it into TYPO3 6.x
 
 3.1.2
