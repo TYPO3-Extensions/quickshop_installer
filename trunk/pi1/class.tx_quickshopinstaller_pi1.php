@@ -166,6 +166,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->pi_loadLL();
 
+    $this->initTypo3version( );
+
       // Get values from the flexform
     $this->zz_getFlexValues();
 
@@ -1004,7 +1006,6 @@ echo __METHOD__ . ' (' . __LINE__ . '): ' . typo3Version . '<br />' . PHP_EOL;
       return $success;
     }
 
-    $this->initTypo3version( );
     $this->initBoolTopLevel( );
     $this->initPowermailVersion( );
 
