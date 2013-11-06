@@ -136,6 +136,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
   public  $powermailVersionInt = null;
   public  $powermailVersionStr = null;
+  
+    // [Integer] sample: 4.7.7 -> 4007007
+  public  $typo3Version   = null;
+    // [Boolean]
+  public  $bool_typo3_43  = null;
+  
 
 
 
@@ -900,6 +906,66 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->powermailVersionStr = $arrResult['str'];
   }
 
+/**
+ * init_typo3version( ): Get the current TYPO3 version, move it to an integer
+ *                      and set the global $bool_typo3_43
+ *                      This method is independent from
+ *                        * t3lib_div::int_from_ver (upto 4.7)
+ *                        * t3lib_utility_VersionNumber::convertVersionNumberToInteger (from 4.7)
+ *
+ * @return    void
+ * @version 4.0.0
+ * @since   4.0.0
+ * @internal #53358
+ */
+  private function init_typo3version( )
+  {
+      // RETURN : typo3Version is set
+    if( $this->typo3Version !== null )
+    {
+      return;
+    }
+      // RETURN : typo3Version is set
+    
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+    list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+    $version = ( ( int ) $main ) * 1000000;
+    $version = $version + ( ( int ) $sub ) * 1000;
+    $version = $version + ( ( int ) $bugfix ) * 1;
+    $this->typo3Version = $version;
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+
+    if( $this->typo3Version < 3000000 ) 
+    {
+      $prompt = '<h1>ERROR</h1>
+        <h2>Unproper TYPO3 version</h2>
+        <ul>
+          <li>
+            TYPO3 version is smaller than 3.0.0
+          </li>
+          <li>
+            constant TYPO3_version: ' . TYPO3_version . '
+          </li>
+          <li>
+            integer $this->typo3Version: ' . ( int ) $this->typo3Version . '
+          </li>
+        </ul>
+          ';
+      die ( $prompt );
+    }
+
+      // Set the global $bool_typo3_43
+    if( $this->typo3Version >= 4003000 )
+    {
+      $this->bool_typo3_43 = true;
+    }
+    if( $this->typo3Version < 4003000 )
+    {
+      $this->bool_typo3_43 = false;
+    }
+      // Set the global $bool_typo3_43
+  }
+
 
  /***********************************************
   *
@@ -1106,15 +1172,28 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   }
 
 /**
- * Calculate the cHash md5 value
+ * zz_getCHash( ) : Calculate the cHash md5 value
  *
  * @param	string		$str_params: URL parameter string like &tx_browser_pi1[showUid]=12&&tx_browser_pi1[cat]=1
  * @return	string		$cHash_md5: md5 value like d218cfedf9
+ * @version 4.0.0
+ * @since   2.0.0
+ * @internal #53358
  */
-  private function zz_getCHash($str_params)
+  private function zz_getCHash( $str_params )
   {
-    $cHash_array  = t3lib_div::cHashParams($str_params);
-    $cHash_md5    = t3lib_div::shortMD5(serialize($cHash_array));
+    switch( true )
+    {
+      case( $this->pObj->typo3Version < 6000000 ):
+        $cHash_array  = t3lib_div::cHashParams( $str_params );
+        break;
+      default:
+        $cacheHash    = t3lib_div::makeInstance( 't3lib_cacheHash' );
+        $cHash_array  = $cacheHash->getRelevantParameters( $str_params );
+        break;
+    }
+    
+    $cHash_md5 = t3lib_div::shortMD5(serialize($cHash_array));
 
     return $cHash_md5;
   }
