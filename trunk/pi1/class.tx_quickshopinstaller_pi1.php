@@ -918,7 +918,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  * @since   4.0.0
  * @internal #53358
  */
-  private function init_typo3version( )
+  private function initTypo3version( )
   {
       // RETURN : typo3Version is set
     if( $this->typo3Version !== null )
@@ -1003,8 +1003,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       return $success;
     }
 
-    $this->initBoolTopLevel();
-
+    $this->initTypo3version( );
+    $this->initBoolTopLevel( );
     $this->initPowermailVersion( );
 
     $this->create( );
