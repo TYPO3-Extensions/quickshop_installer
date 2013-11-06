@@ -934,6 +934,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $version = $version + ( ( int ) $bugfix ) * 1;
     $this->typo3Version = $version;
       // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+echo __METHOD__ . ' (' . __LINE__ . '): ' . typo3Version . '<br />' . PHP_EOL;
 
     if( $this->typo3Version < 3000000 ) 
     {
@@ -1182,6 +1183,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  */
   private function zz_getCHash( $str_params )
   {
+echo __METHOD__ . ' (' . __LINE__ . '): ' . typo3Version . '<br />' . PHP_EOL;
     switch( true )
     {
       case( $this->typo3Version < 6000000 ):
