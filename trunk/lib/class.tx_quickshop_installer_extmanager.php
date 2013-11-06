@@ -105,27 +105,27 @@ class tx_quickshop_installer_extmanager
 
 
 
-      /////////////////////////////////////////////////////////
-      //
-      // Default prompt
-
-      // #53358, 131106, dwildt
-    switch( true )
-    {
-      case( $this->typo3Version < 6000000 ):
-        // follow the workflow
-        break;
-      default:
-        $str_prompt = $str_prompt.'
-          <div class="typo3-message message-warning">
-            <div class="message-body">
-              ' . $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:promptSaveTwice'). '
-            </div>
-          </div>
-        ';
-        break;
-    }
-      // Default prompt
+//      /////////////////////////////////////////////////////////
+//      //
+//      // Default prompt
+//
+//      // #53358, 131106, dwildt
+//    switch( true )
+//    {
+//      case( $this->typo3Version < 6000000 ):
+//        // follow the workflow
+//        break;
+//      default:
+//        $str_prompt = $str_prompt.'
+//          <div class="typo3-message message-warning">
+//            <div class="message-body">
+//              ' . $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:promptSaveTwice'). '
+//            </div>
+//          </div>
+//        ';
+//        break;
+//    }
+//      // Default prompt
 
 
 
