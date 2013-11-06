@@ -81,9 +81,15 @@ class tx_quickshop_installer_extmanager
 
     $str_prompt = null;
     // 120613, dwildt, 1-
-    //$confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['quickshop_installer']);
+    $confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['quickshop_installer']);
     // 120613, dwildt, 1+
-    $confArr    = $_POST['data'];
+var_export( $confArr, false );
+var_export( $_POST, false );
+var_export( $_GET, false );
+$params = \TYPO3\CMS\Core\Utility\GeneralUtility::_POST();
+var_export( $params, false );
+
+//    $confArr    = $_POST['data'];
     
     //var_dump( $_POST['data'] );
     $llStatic   = $confArr['LLstatic'];

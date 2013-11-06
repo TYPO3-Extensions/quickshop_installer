@@ -37,7 +37,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'browser' => '',
 			'caddy' => '',
 			'powermail' => '',
-			'quick_shop' => '3.0.8-3.1.99',
+			'quick_shop' => '',
 			'typo3' => '4.5.0-6.1.99',
 		),
 		'conflicts' => array(
