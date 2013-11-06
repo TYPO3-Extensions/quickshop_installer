@@ -139,8 +139,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   
     // [Integer] sample: 4.7.7 -> 4007007
   public  $typo3Version   = null;
-    // [Boolean]
-  public  $bool_typo3_43  = null;
   
 
 
