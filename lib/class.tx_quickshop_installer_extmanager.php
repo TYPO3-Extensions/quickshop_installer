@@ -55,6 +55,8 @@ class tx_quickshop_installer_extmanager
   var $int_pageUid  = null;
   var $str_llStatic = 'en';
 
+    // [Integer] sample: 4.7.7 -> 4007007
+  public  $typo3Version   = null;
 
 
 
@@ -68,10 +70,10 @@ class tx_quickshop_installer_extmanager
  *                the installer page will be added in the database.
  *
  * @return	string		message wrapped in HTML
+ * @version 4.0.0
  * @since 1.0.0
- * @version 1.0.0
  */
-  function initialPage()
+  public function initialPage()
   {
 //.message-notice
 //.message-information
@@ -80,18 +82,23 @@ class tx_quickshop_installer_extmanager
 //.message-error
 
     $str_prompt = null;
-    // 120613, dwildt, 1-
-    $confArr    = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['quickshop_installer']);
-    // 120613, dwildt, 1+
-var_export( $confArr, false );
-var_export( $_POST, false );
-var_export( $_GET, false );
-$params = \TYPO3\CMS\Core\Utility\GeneralUtility::_POST();
-var_export( $params, false );
 
-//    $confArr    = $_POST['data'];
-    
-    //var_dump( $_POST['data'] );
+      // #53358, 131106, dwildt
+    switch( true )
+    {
+      case( $this->typo3Version < 6000000 ):
+        $confArr = $_POST['data'];
+        break;
+      default:
+        $confArr = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['quickshop_installer']);
+        break;
+    }
+//var_export( $confArr, false );
+//var_export( $_POST, false );
+//var_export( $_GET, false );
+//$params = \TYPO3\CMS\Core\Utility\GeneralUtility::_POST();
+//var_export( $params, false );
+
     $llStatic   = $confArr['LLstatic'];
 
 
@@ -100,15 +107,22 @@ var_export( $params, false );
       //
       // Default prompt
 
-      // 120613, dwildt-
-//    $str_prompt = $str_prompt.'
-//      <div class="typo3-message message-warning">
-//        <div class="message-body">
-//          ' . $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:promptSaveTwice'). '
-//        </div>
-//      </div>
-//    ';
-      // 120613, dwildt-
+      // #53358, 131106, dwildt
+    switch( true )
+    {
+      case( $this->typo3Version < 6000000 ):
+        // follow the workflow
+        break;
+      default:
+        $str_prompt = $str_prompt.'
+          <div class="typo3-message message-warning">
+            <div class="message-body">
+              ' . $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:promptSaveTwice'). '
+            </div>
+          </div>
+        ';
+        break;
+    }
       // Default prompt
 
 
@@ -241,11 +255,55 @@ var_export( $params, false );
       // RETURN with an error
   }
 
+/**
+ * init_typo3version( ):  Get the current TYPO3 version, move it to an integer
+ *                        and set the global $bool_typo3_43
+ *                        This method is independent from
+ *                        * t3lib_div::int_from_ver (upto 4.7)
+ *                        * t3lib_utility_VersionNumber::convertVersionNumberToInteger (from 4.7)
+ *
+ * @return    void
+ * @version 4.0.0
+ * @since   4.0.0
+ * @internal #53358
+ */
+  private function initTypo3version( )
+  {
+      // RETURN : typo3Version is set
+    if( $this->typo3Version !== null )
+    {
+      return;
+    }
+      // RETURN : typo3Version is set
+    
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+    list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+    $version = ( ( int ) $main ) * 1000000;
+    $version = $version + ( ( int ) $sub ) * 1000;
+    $version = $version + ( ( int ) $bugfix ) * 1;
+    $this->typo3Version = $version;
+      // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+//echo __METHOD__ . ' (' . __LINE__ . '): ' . typo3Version . '<br />' . PHP_EOL;
 
-
-
-
-
+    if( $this->typo3Version < 3000000 ) 
+    {
+      $prompt = '<h1>ERROR</h1>
+        <h2>Unproper TYPO3 version</h2>
+        <ul>
+          <li>
+            TYPO3 version is smaller than 3.0.0
+          </li>
+          <li>
+            constant TYPO3_version: ' . TYPO3_version . '
+          </li>
+          <li>
+            integer $this->typo3Version: ' . ( int ) $this->typo3Version . '
+          </li>
+        </ul>
+          ';
+      die ( $prompt );
+    }
+  }
 
 
 

@@ -909,9 +909,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   }
 
 /**
- * init_typo3version( ): Get the current TYPO3 version, move it to an integer
- *                      and set the global $bool_typo3_43
- *                      This method is independent from
+ * init_typo3version( ):  Get the current TYPO3 version, move it to an integer
+ *                        and set the global $bool_typo3_43
+ *                        This method is independent from
  *                        * t3lib_div::int_from_ver (upto 4.7)
  *                        * t3lib_utility_VersionNumber::convertVersionNumberToInteger (from 4.7)
  *
@@ -957,16 +957,6 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       die ( $prompt );
     }
 
-      // Set the global $bool_typo3_43
-    if( $this->typo3Version >= 4003000 )
-    {
-      $this->bool_typo3_43 = true;
-    }
-    if( $this->typo3Version < 4003000 )
-    {
-      $this->bool_typo3_43 = false;
-    }
-      // Set the global $bool_typo3_43
   }
 
 
