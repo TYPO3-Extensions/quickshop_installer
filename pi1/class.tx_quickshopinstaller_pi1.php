@@ -1184,7 +1184,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     switch( true )
     {
-      case( $this->pObj->typo3Version < 6000000 ):
+      case( $this->typo3Version < 6000000 ):
         $cHash_array  = t3lib_div::cHashParams( $str_params );
         break;
       default:
