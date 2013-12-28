@@ -149,6 +149,7 @@
       <label index="ext_header">Check extension dependencies</label>
       <label index="ext_help">Please install: </label>
       <label index="ext_ok">is loaded.</label>
+      <label index="ext_url">If you can\'t get a proper version from the TER, please download it from: </label>
       <label index="files_create_header">Files</label>
       <label index="files_create_prompt">File "###DEST###" is created at "###PATH###".</label>
       <label index="files_create_prompt_error">File "###SRCE###" couldn't copied to "###DEST###".</label>
@@ -489,6 +490,7 @@ Because of the price:
       <label index="ext_header">Abhängigkeiten von Erweiterungen</label>
       <label index="ext_help">Bitte installiere: </label>
       <label index="ext_ok">ist installiert.</label>
+      <label index="ext_url">Wenn Du keine korrekte Version im TER bekommst, lade die Erweiterung bitte hier herunter: </label>
       <label index="grp_create_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
       <label index="grp_create_prompt">Benutzergruppe "###GROUP_TITLE###" (uid ###GROUP_UID###) wurde erstellt. Wenn Du sie nicht brauchst, lösche sie.</label>
       <label index="grp_ok_header">Backend Benutzergruppe "###GROUP_TITLE###"</label>
