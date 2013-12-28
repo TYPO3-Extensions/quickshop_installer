@@ -88,7 +88,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 3.0.0
+ * @version 4.0.1
  * @since 1.0.0
  */
 class tx_quickshopinstaller_pi1 extends tslib_pibase
@@ -701,7 +701,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $key    = 'cps_tcatree';
     $title  = 'Record tree for TCA';
-    if( ! $this->extensionCheckExtension( $key, $title ) )
+    $url    = 'http://typo3-quick-shop.de/cps_tcatree_0.4.1_fix6x.zip';
+    if( ! $this->extensionCheckExtension( $key, $title, $url ) )
     {
       $success = false;
     }
@@ -768,12 +769,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
  *
  * @param	string		$key    : extension key
  * @param	string		$title  : extension title
+ * @param	string		$url    : url for download
  * @return	boolean
  * @access private
- * @version   3.0.0
+ * @internal  #i0013
+ * @version   4.0.1
  * @since     1.0.0
  */
-  private function extensionCheckExtension( $key, $title )
+  private function extensionCheckExtension( $key, $title, $url=null )
   {
     $boolInstalled  = null;
     $titleWiKey     = $key . ': "' . $title . '"';
@@ -791,11 +794,20 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       // RETURN : extension is installed
 
       // RETURN : extension isn't installed
-    $this->arrReport[ ] = '
+    $prompt = '
       <p>
         ' . $this->arr_icons['error'] . $this->pi_getLL( 'ext_error' ) . '<br />
         ' . $this->arr_icons['info']  . $this->pi_getLL( 'ext_help' )  . ' ' . $titleWiKey . '
+        %url%
       </p>';
+    
+    if( $url )
+    {
+      $url = '<a href="' . $url . '">' . $url . '</a>';
+      $url = '<br />' . PHP_EOL . $this->arr_icons['info'] . $this->pi_getLL( 'ext_help' ) . $url;
+    }
+    $prompt = str_replace( '%url%', $url, $prompt );
+    $this->arrReport[ ] = $prompt;
     $boolInstalled = false;
     return $boolInstalled;
       // RETURN : extension isn't installed
