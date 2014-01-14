@@ -281,12 +281,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       </p>
       <div style="text-align:right">
         <form name="form_confirm" method="POST">
+          <input type="hidden" name="tx_quickshopinstaller_pi1[confirm]"  value="1" />
+<!--          <input type="hidden" name="cHash"                               value="' . $cHash_calc . '" /> -->
           <fieldset id="fieldset_confirm" style="border:1px solid #F66800;padding:1em;">
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               '.$this->pi_getLL('confirm_header').'
             </legend>
-            <input type="hidden" name="tx_quickshopinstaller_pi1[confirm]" value="1" />
-            <input type="hidden" name="cHash"                              value="'.$cHash_calc.'" />
             <input type="submit" name="submit" value=" '.$this->pi_getLL('confirm_button').' " />
           </fieldset>
         </form>
@@ -1070,11 +1070,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       </p>
       <div style="text-align:right;">
         <form name="form_confirm" method="POST">
+<!--          <input type="hidden" name="cHash"  value="' . $cHash_calc . '" /> -->
           <fieldset id="fieldset_confirm" style="border:1px solid #F66800;padding:1em;">
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               ' . $this->pi_getLL('end_header') . '
             </legend>
-            <input type="hidden" name="cHash"  value="' . $cHash_calc . '" />
             <input type="submit" name="submit" value=" ' . $this->pi_getLL('end_button') . ' " />
           </fieldset>
         </form>
