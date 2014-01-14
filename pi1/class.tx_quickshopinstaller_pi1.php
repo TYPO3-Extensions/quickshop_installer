@@ -1196,9 +1196,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       default:
         $cacheHash    = t3lib_div::makeInstance( 't3lib_cacheHash' );
           // 140114, dwildt, 1-
-        //$cHash_array  = $cacheHash->getRelevantParameters( $str_params );
+        $cHash_array  = $cacheHash->getRelevantParameters( $str_params );
+var_dump( __METHOD__, __LINE__, $cHash_array );
+        $cHash_md5    = $cacheHash->calculateCacheHash( $cHash_array );
           // 140114, dwildt, 1+
-        $cHash_md5    = $cacheHash->generateForParameters( $str_params );
+        //$cHash_md5    = $cacheHash->generateForParameters( $str_params );
         break;
     }
     
