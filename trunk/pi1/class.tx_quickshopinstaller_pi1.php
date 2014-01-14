@@ -253,7 +253,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->zz_getCHash('&tx_quickshopinstaller_pi1[confirm]=1');
+    $cHash_calc = $this->zz_getCHash( '&tx_quickshopinstaller_pi1[confirm]=1&submit=' . $this->pi_getLL( 'confirm_button' ) );
 
     // Confirmation form
     $this->arrReport[] = '
@@ -287,7 +287,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               '.$this->pi_getLL('confirm_header').'
             </legend>
-            <input type="submit" name="submit" value=" '.$this->pi_getLL('confirm_button').' " />
+            <input type="submit" name="submit" value=" ' . $this->pi_getLL( 'confirm_button' ) . ' " />
           </fieldset>
         </form>
       </div>';
@@ -1075,7 +1075,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               ' . $this->pi_getLL('end_header') . '
             </legend>
-            <input type="submit" name="submit" value=" ' . $this->pi_getLL('end_button') . ' " />
+            <input type="submit" name="submit" value=" ' . $this->pi_getLL( 'end_button' ) . ' " />
           </fieldset>
         </form>
       </div>
