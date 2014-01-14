@@ -1190,14 +1190,20 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     {
       case( $this->typo3Version < 6000000 ):
         $cHash_array  = t3lib_div::cHashParams( $str_params );
+          // 140114, dwildt, 1+
+        $cHash_md5 = t3lib_div::shortMD5(serialize($cHash_array));
         break;
       default:
         $cacheHash    = t3lib_div::makeInstance( 't3lib_cacheHash' );
-        $cHash_array  = $cacheHash->getRelevantParameters( $str_params );
+          // 140114, dwildt, 1-
+        //$cHash_array  = $cacheHash->getRelevantParameters( $str_params );
+          // 140114, dwildt, 1+
+        $cHash_md5    = $cacheHash->generateForParameters( $str_params );
         break;
     }
     
-    $cHash_md5 = t3lib_div::shortMD5(serialize($cHash_array));
+      // 140114, dwildt, 1-
+    //$cHash_md5 = t3lib_div::shortMD5(serialize($cHash_array));
 
     return $cHash_md5;
   }
