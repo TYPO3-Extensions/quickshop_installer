@@ -253,7 +253,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->zz_getCHash( '&tx_quickshopinstaller_pi1[confirm]=1&submit=' . $this->pi_getLL( 'confirm_button' ) );
+    $cHash_calc = $this->zz_getCHash( 'tx_quickshopinstaller_pi1[confirm]=1&submit=' . $this->pi_getLL( 'confirm_button' ) );
 
     // Confirmation form
     $this->arrReport[] = '
@@ -282,8 +282,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       <div style="text-align:right">
         <form name="form_confirm" method="POST">
           <input type="hidden" name="tx_quickshopinstaller_pi1[confirm]"  value="1" />
-          <input type="hidden" name="cHash"                               value="' . $cHash_calc . '" />
-          <input type="hidden" name="cHash"                               value="e179989596708067c37e46f95a6a1e669ea1e625a2bffe315d31c62edff2f1dca44fba693a916c81bb018c281b856711" />
+          <!--<input type="hidden" name="cHash"                               value="' . $cHash_calc . '" />-->
+          <input type="hidden" name="cHash"                               value=' . $cHash_calc . ' />
           <fieldset id="fieldset_confirm" style="border:1px solid #F66800;padding:1em;">
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               '.$this->pi_getLL('confirm_header').'
@@ -1198,10 +1198,10 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         $cacheHash    = t3lib_div::makeInstance( 't3lib_cacheHash' );
           // 140114, dwildt, 1-
         $cHash_array  = $cacheHash->getRelevantParameters( $str_params );
+        $cHash_md5    = $cacheHash->generateForParameters( $str_params );
 var_dump( __METHOD__, __LINE__, $cHash_array );
         $cHash_md5    = $cacheHash->calculateCacheHash( $cHash_array );
           // 140114, dwildt, 1+
-        //$cHash_md5    = $cacheHash->generateForParameters( $str_params );
         break;
     }
     
