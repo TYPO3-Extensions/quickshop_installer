@@ -283,6 +283,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         <form name="form_confirm" method="POST">
           <input type="hidden" name="tx_quickshopinstaller_pi1[confirm]"  value="1" />
           <input type="hidden" name="cHash"                               value="' . $cHash_calc . '" />
+          <input type="hidden" name="cHash"                               value="e179989596708067c37e46f95a6a1e669ea1e625a2bffe315d31c62edff2f1dca44fba693a916c81bb018c281b856711" />
           <fieldset id="fieldset_confirm" style="border:1px solid #F66800;padding:1em;">
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
               '.$this->pi_getLL('confirm_header').'
