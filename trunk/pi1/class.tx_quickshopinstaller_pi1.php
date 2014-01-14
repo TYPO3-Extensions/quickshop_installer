@@ -1199,8 +1199,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
           // 140114, dwildt, 1-
         $cHash_array  = $cacheHash->getRelevantParameters( $str_params );
         $cHash_md5    = $cacheHash->generateForParameters( $str_params );
-var_dump( __METHOD__, __LINE__, $cHash_array );
         $cHash_md5    = $cacheHash->calculateCacheHash( $cHash_array );
+var_dump( __METHOD__, __LINE__, $cHash_array, $cHash_md5 );
           // 140114, dwildt, 1+
         break;
     }
