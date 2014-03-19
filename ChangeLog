@@ -1,3 +1,8 @@
+4.0.2
+  2014-03-18
+  Bugfix
+  *  #57037: Installation DBAL fatal error: No handler found ... `be_groups`
+
 4.0.1
   2013-12-28
   Feature
@@ -20,7 +25,7 @@
   2013-09-26
   Bugfix
   * #i0011: module page caddy mini
-            
+
 3.1.0
   2013-09-25
   Feature
@@ -29,7 +34,7 @@
   * #i0010: siteroot
   Features
   * #i0009: Consolidation, header slider
-            
+
 3.0.6
   2013-07-20
   Features
@@ -118,7 +123,7 @@
   * 00000: Missing recipient in powermail form
            ###MAIL_DEFAULT_SENDER### -> ###MAIL_DEFAULT_RECIPIENT###
   * 00000: New value SKU
-  
+
 2.1.0
   2012-05-30
   Improvement
@@ -127,12 +132,12 @@
            class.tx_quickshopinstaller_pi1.php
            * createPlugins
            * createTyposcript
-  
+
 2.0.0
   2011-02-07
   Improvement
   * Individual layout for each product
-  
+
 1.0.6
   2011-01-14
   Bugfixes
@@ -153,7 +158,7 @@
   Bugfixes
   * 11858: baseURL without an ending slash
   * 11756: Browser plugin/flexform is updated to Browser version 3.6.0
-  
+
 1.0.3
   2010-09-11
   Bugfixes
@@ -169,8 +174,8 @@
 1.0.1
   2010-06-30
   Publishing
-  
-0.0.1 
+
+0.0.1
   2010-06-24
   Initial release
   Dirk Wildt  http://wildt.at.die-netzmacher.de
