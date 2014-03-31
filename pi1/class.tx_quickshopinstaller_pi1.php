@@ -691,6 +691,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       $success = false;
     }
 
+    // #i0013, 140331, dwildt
+    $key = 'cps_devlib';
+    $title = 'Developer Library';
+    if (!$this->extensionCheckExtension($key, $title))
+    {
+      $success = false;
+    }
+
     $key = 'powermail';
     $title = 'Powermail';
     if (!$this->extensionCheckExtension($key, $title))
@@ -958,7 +966,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    *
    * @return	boolean     $success  : true
    * @access     private
-   * @version    3.0.0
+   * @version    4.0.3
    * @since      1.0.0
    */
   //http://forge.typo3.org/issues/9632
@@ -967,13 +975,21 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $success = true;
 
+    // #57390, 140327, dwildt, 7+
+    // RETURN if there is any problem with dependencies
+    if (!$this->typo3ConfigVarsCheck())
+    {
+      $success = false;
+      return $success;
+    }
+
     // RETURN if there is any problem with dependencies
     if (!$this->extensionCheck())
     {
       $success = false;
       return $success;
     }
-    // RETURN if there is any problem with dependencies
+
 
     $bool_confirm = $this->confirmation();
     if (!$bool_confirm)
@@ -1053,6 +1069,87 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         </form>
       </div>
       ';
+  }
+
+  /*   * *********************************************
+   *
+   * TYPO3 configa vars (global configuration
+   *
+   * ******************************************** */
+
+  /**
+   * typo3ConfigVarsCheck( ) :  Checks whether needed ...
+   *
+   * @return	boolean
+   * @access private
+   * @version   4.0.3
+   * @since     4.0.3
+   */
+  private function typo3ConfigVarsCheck()
+  {
+    $success = true;
+
+    // RETURN  if form is confirmed
+    if ($this->piVars['confirm'])
+    {
+      return $success;
+    }
+
+    // Header
+    $this->arrReport[] = '
+      <h2>
+       ' . $this->pi_getLL('typo3ConfigVars_header') . '
+      </h2>
+      ';
+
+
+    if (!$this->typo3ConfigVarsCheckFePageNotFoundOnCHashError())
+    {
+      $success = false;
+    }
+
+    return $success;
+  }
+
+  /**
+   * typo3ConfigVarsCheckFePageNotFoundOnCHashError( ) :  Checks whether needed ...
+   *
+   * @return	boolean
+   * @access private
+   * @version   4.0.3
+   * @since     4.0.3
+   */
+  private function typo3ConfigVarsCheckFePageNotFoundOnCHashError()
+  {
+    global $TYPO3_CONF_VARS;
+
+    $configIsOk = false;
+    $pageNotFoundOnCHashError = $TYPO3_CONF_VARS['FE']['pageNotFoundOnCHashError'];
+
+    // RETURN : configuration is proper
+    if ($pageNotFoundOnCHashError == false)
+    {
+      $this->arrReport[] = '
+        <p>
+        ' . $this->arr_icons['ok'] . ' $TYPO3_CONF_VARS[FE][pageNotFoundOnCHashError] ' . $this->pi_getLL('typo3ConfigVars_ok') . '
+        </p>';
+      $configIsOk = true;
+      return $configIsOk;
+    }
+
+    // RETURN : configuration is unproper
+    $prompt = '
+      <h3>
+        ' . $this->pi_getLL('typo3ConfigVars_pageNotFoundOnCHashError_header') . '
+      </h3>
+      <p>
+        ' . $this->arr_icons['error'] . $this->pi_getLL('typo3ConfigVars_pageNotFoundOnCHashError_error') . '<br />
+        ' . $this->arr_icons['info'] . $this->pi_getLL('typo3ConfigVars_pageNotFoundOnCHashError_help') . '
+      </p>';
+
+    $this->arrReport[] = $prompt;
+    $configIsOk = false;
+    return $configIsOk;
   }
 
   /*   * *********************************************
