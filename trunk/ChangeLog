@@ -1,7 +1,17 @@
+4.0.4
+  2014-03-31
+  Imrovement
+  * #i0013: Dependency for cps_devlib (is missing in cps_treeview 0.4.1)
+
+4.0.3
+  2014-03-27
+  Feature
+  * #57390: Workaround for &cHash comparison failed
+
 4.0.2
   2014-03-18
   Bugfix
-  *  #57037: Installation DBAL fatal error: No handler found ... `be_groups`
+  * #57037: Installation DBAL fatal error: No handler found ... `be_groups`
 
 4.0.1
   2013-12-28
