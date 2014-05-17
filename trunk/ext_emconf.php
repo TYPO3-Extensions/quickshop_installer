@@ -12,7 +12,11 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Quick Shop - Installer',
-	'description' => 'The installer installs Quick Shop and Quick Shop Template. Installation is out of the box. It is a one click installation.',
+	'description' => 'The installer installs Quick Shop and Quick Shop Template. '
+  . 'Installation is out of the box. '
+  . 'It is a one click installation. '
+  . 'See: http://typo3-quick-shop.de. '
+  . 'Manual: http://typo3-quick-shop.de/typo3conf/ext/quickshop_installer/doc/manual.pdf ',
 	'category' => 'plugin',
 	'shy' => 0,
 	'version' => '4.0.5',
