@@ -1,7 +1,9 @@
 4.0.5
   2014-05-17
-  Bugfix
+  Imrovement
+  * #i0016: in_stock -> stockquantity
   * #i0015: Corporate design: modified icon
+  Bugfix
   * #i0014: E-mail to shop owner was sent to the client
             Effected files:
             * pi1/class.tx_quickshopinstaller_pi1_consolidate.php
