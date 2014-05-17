@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -72,7 +72,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 3.0.0
+ * @version 4.0.5
  * @since 3.0.0
  */
 class tx_quickshopinstaller_pi1_consolidate
@@ -498,7 +498,7 @@ class tx_quickshopinstaller_pi1_consolidate
  *
  * @return	array		$records : the plugin record
  * @access private
- * @version 3.0.0
+ * @version 4.0.5
  * @since   3.0.0
  */
   private function pageQuickshopCaddyPluginPowermail2x( )
@@ -538,7 +538,7 @@ class tx_quickshopinstaller_pi1_consolidate
                     <value index="vDEF">{billingaddressfirstname} {billingaddresslastname}</value>
                 </field>
                 <field index="settings.flexform.receiver.email">
-                    <value index="vDEF">{contactdataemail}</value>
+                    <value index="vDEF">' . $senderEmail . '</value>
                 </field>
                 <field index="settings.flexform.receiver.subject">
                     <value index="vDEF">' . $receiverSubject . '</value>
@@ -776,14 +776,14 @@ page.10.subparts.menue.10 >
  * @param	integer		$timestamp  : current time
  * @return	void
  * @access private
- * @version 3.0.0
+ * @version 4.0.5
  * @since   3.0.0
  */
   private function pageQuickshopFileCopy( $timestamp )
   {
       // Files
-    $str_fileSrce = 'quick_shop_header_image_210px.jpg';
-    $str_fileDest = 'typo3_quickshop_' . $timestamp . '.jpg';
+    $str_fileSrce = 'quick_shop_header_image_190px.gif';
+    $str_fileDest = 'typo3_quickshop_' . $timestamp . '.gif';
 
       // Paths
     $str_pathSrceAbs  = t3lib_extMgm::extPath( 'quick_shop' ) . 'res/images/';
@@ -864,7 +864,7 @@ page.10.subparts.menue.10 >
     $groupUid     = $this->pObj->markerArray['###GROUP_UID###'];
     $groupTitle   = $this->pObj->markerArray['###GROUP_TITLE###'];
 
-      // #i0010, 130925, dwildt, 12- 
+      // #i0010, 130925, dwildt, 12-
 //      // SWITCH : siteroot depends on toplevel
 //    switch( $this->pObj->bool_topLevel )
 //    {
@@ -877,9 +877,9 @@ page.10.subparts.menue.10 >
 //        break;
 //    }
 //      // SWITCH : siteroot depends on toplevel
-      // #i0010, 130925, dwildt, 12- 
+      // #i0010, 130925, dwildt, 12-
 
-      // #i0010, 130925, dwildt, 11+ 
+      // #i0010, 130925, dwildt, 11+
       // SWITCH : install case
     switch( true )
     {
@@ -893,7 +893,7 @@ page.10.subparts.menue.10 >
         break;
     }
       // SWITCH : install case
-      // #i0010, 130925, dwildt, 11+ 
+      // #i0010, 130925, dwildt, 11+
 
     $records[$uid]['title']       = $this->pObj->pi_getLL( 'pageQuickshop_title' );
     $records[$uid]['nav_hide']    = 0;
