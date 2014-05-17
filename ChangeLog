@@ -1,6 +1,6 @@
 4.0.5
   2014-05-17
-  Imrovement
+  Improvement
   * #i0017: noreply@my-domain.de is removed (powermail 2.x)
   * #i0016: in_stock -> stockquantity
   * #i0015: Corporate design: modified icon
@@ -11,7 +11,7 @@
 
 4.0.4
   2014-03-31
-  Imrovement
+  Improvement
   * #i0013: Dependency for cps_devlib (is missing in cps_treeview 0.4.1)
 
 4.0.3
