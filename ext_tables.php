@@ -39,14 +39,14 @@ if (!defined ('TYPO3_MODE'))  die ('Access denied.');
 
 
     ////////////////////////////////////////////////////////////////////////////
-    // 
+    //
     // Add pagetree icons
 
-  $TCA['pages']['columns']['module']['config']['items'][] = 
-    array('Quick Shop: Installer', 'qs_inst', t3lib_extMgm::extRelPath($_EXTKEY).'ext_icons/ext_icon_blink.gif');
-  //$ICON_TYPES['org_inst'] = 
+  $TCA['pages']['columns']['module']['config']['items'][] =
+    array('Quick Shop: Installer', 'qs_inst', t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif');
+  //$ICON_TYPES['org_inst'] =
   //  array('icon' => t3lib_extMgm::extRelPath($_EXTKEY).'ext_icons/ext_icon_blink.gif');
-  t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-qs_inst', '../typo3conf/ext/quickshop_installer/ext_icons/ext_icon_blink.gif');
+  t3lib_SpriteManager::addTcaTypeIcon('pages', 'contains-qs_inst', '../typo3conf/ext/quickshop_installer/ext_icon.gif');
     // Add pagetree icons
 
 ?>
