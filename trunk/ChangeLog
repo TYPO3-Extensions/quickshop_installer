@@ -1,6 +1,7 @@
 4.0.5
   2014-05-17
   Imrovement
+  * #i0017: noreply@my-domain.de is removed
   * #i0016: in_stock -> stockquantity
   * #i0015: Corporate design: modified icon
   Bugfix
