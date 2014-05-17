@@ -374,7 +374,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['category']     = 1;
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capBlue');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capBlue');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capBlue');
+    $record['stockquantity']     = $this->pObj->pi_getLL('record_qs_prod_stockquantity_capBlue');
     $record['image']        = $llImageWiTimestamp;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capBlue');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capBlue');
@@ -422,7 +422,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['category']     = 1;
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capGreen');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capGreen');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capGreen');
+    $record['stockquantity']     = $this->pObj->pi_getLL('record_qs_prod_stockquantity_capGreen');
     $record['image']        = $llImageWiTimestamp;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capGreen');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capGreen');
@@ -470,7 +470,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['category']     = 1;
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_capRed');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_capRed');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_capRed');
+    $record['stockquantity']     = $this->pObj->pi_getLL('record_qs_prod_stockquantity_capRed');
     $record['image']        = $llImageWiTimestamp;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_capRed');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_capRed');
@@ -518,7 +518,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['category']     = 1;
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_book');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_book');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_book');
+    $record['stockquantity']     = $this->pObj->pi_getLL('record_qs_prod_stockquantity_book');
     $record['image']        = $llImageWiTimestamp;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_book');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_book');
@@ -568,7 +568,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['category']     = 1;
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_cup');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_cup');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_cup');
+    $record['stockquantity']     = $this->pObj->pi_getLL('record_qs_prod_stockquantity_cup');
     $record['image']        = $llImageWiTimestamp;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_cup');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_cup');
@@ -618,7 +618,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record['category']     = 1;
     $record['price']        = $this->pObj->pi_getLL('record_qs_prod_price_pullover');
     $record['tax']          = $this->pObj->pi_getLL('record_qs_prod_tax_pullover');
-    $record['in_stock']     = $this->pObj->pi_getLL('record_qs_prod_inStock_pullover');
+    $record['stockquantity']     = $this->pObj->pi_getLL('record_qs_prod_stockquantity_pullover');
     $record['image']        = $llImageWiTimestamp;
     $record['caption']      = $this->pObj->pi_getLL('record_qs_prod_caption_pullover');
     $record['imageseo']     = $this->pObj->pi_getLL('record_qs_prod_caption_pullover');
