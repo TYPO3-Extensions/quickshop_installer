@@ -510,9 +510,12 @@ class tx_quickshopinstaller_pi1_consolidate
     $uidForm          = $this->pObj->arr_recordUids[ 'record_pm_form_title_caddyorder' ];
     $receiverSubject  = $this->pObj->pi_getLL( 'plugin_powermail_subject_r2x' );
     $receiverBody     = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_powermail_body_r2x' ) );
-    list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
-    unset( $name );
-    $senderEmail      = 'noreply@' . $domain;
+    // #i0017, 140517, dwildt, 3-
+    //list( $name, $domain) = explode( '@', $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    //unset( $name );
+    //$senderEmail      = 'noreply@' . $domain;
+    // #i0017, 140517, dwildt, 1+
+    $senderEmail      = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
     $senderSubject    = $this->pObj->pi_getLL( 'plugin_powermail_subject_s2x' );
     $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_powermail_body_s2x' ) );
     $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('plugin_powermail_thanks2x') );
