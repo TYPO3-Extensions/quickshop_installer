@@ -515,7 +515,7 @@ class tx_quickshopinstaller_pi1_consolidate
     //unset( $name );
     //$senderEmail      = 'noreply@' . $domain;
     // #i0017, 140517, dwildt, 1+
-    $senderEmail      = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'] );
+    $senderEmail      = $this->pObj->markerArray['###MAIL_DEFAULT_RECIPIENT###'];
     $senderSubject    = $this->pObj->pi_getLL( 'plugin_powermail_subject_s2x' );
     $senderBody       = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_powermail_body_s2x' ) );
     $thxBody          = htmlspecialchars( $this->pObj->pi_getLL('plugin_powermail_thanks2x') );
