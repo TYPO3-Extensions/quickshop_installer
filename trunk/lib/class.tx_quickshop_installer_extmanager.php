@@ -82,7 +82,7 @@ class tx_quickshop_installer_extmanager
 //.message-error
 
     $this->initTypo3version( );
-    
+
     $str_prompt = null;
 
       // #53358, 131106, dwildt
@@ -102,31 +102,6 @@ class tx_quickshop_installer_extmanager
 //var_export( $params, false );
 
     $llStatic   = $confArr['LLstatic'];
-
-
-
-//      /////////////////////////////////////////////////////////
-//      //
-//      // Default prompt
-//
-//      // #53358, 131106, dwildt
-//    switch( true )
-//    {
-//      case( $this->typo3Version < 6000000 ):
-//        // follow the workflow
-//        break;
-//      default:
-//        $str_prompt = $str_prompt.'
-//          <div class="typo3-message message-warning">
-//            <div class="message-body">
-//              ' . $GLOBALS['LANG']->sL('LLL:EXT:quickshop_installer/lib/locallang.xml:promptSaveTwice'). '
-//            </div>
-//          </div>
-//        ';
-//        break;
-//    }
-//      // Default prompt
-
 
 
       /////////////////////////////////////////////////////////
@@ -277,7 +252,7 @@ class tx_quickshop_installer_extmanager
       return;
     }
       // RETURN : typo3Version is set
-    
+
       // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
     list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
     $version = ( ( int ) $main ) * 1000000;
@@ -287,7 +262,7 @@ class tx_quickshop_installer_extmanager
       // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
 //echo __METHOD__ . ' (' . __LINE__ . '): ' . typo3Version . '<br />' . PHP_EOL;
 
-    if( $this->typo3Version < 3000000 ) 
+    if( $this->typo3Version < 3000000 )
     {
       $prompt = '<h1>ERROR</h1>
         <h2>Unproper TYPO3 version</h2>

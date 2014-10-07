@@ -79,7 +79,19 @@
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
-require_once(PATH_tslib . 'class.tslib_pibase.php');
+// #62031, 141004, dwildt, 1-
+//require_once(PATH_tslib . 'class.tslib_pibase.php');
+// #62031, 141004, dwildt, +
+list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+$version = ( ( int ) $main ) * 1000000;
+$version = $version + ( ( int ) $sub ) * 1000;
+$version = $version + ( ( int ) $bugfix ) * 1;
+// Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+if ( $version < 6002000 )
+{
+  require_once(PATH_tslib . 'class.tslib_pibase.php');
+}
+// #62031, 141004, dwildt, +;
 
 /**
  * Plugin 'Quick Shop Inmstaller' for the 'quickshop_installer' extension.
@@ -87,7 +99,7 @@ require_once(PATH_tslib . 'class.tslib_pibase.php');
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 4.0.2
+ * @version 6.0.0
  * @since 1.0.0
  */
 class tx_quickshopinstaller_pi1 extends tslib_pibase
@@ -133,6 +145,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   public $powermailVersionStr = null;
   // [Integer] sample: 4.7.7 -> 4007007
   public $typo3Version = null;
+  private $LLstatic = 'English';
 
   /*   * *********************************************
    *
@@ -147,14 +160,23 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * @param	array		$conf: The TypoScript configuration array
    * @return	The		content that is displayed on the website
    */
-  public function main($content, $conf)
+  public function main( $content, $conf )
   {
-    unset($content);
+    unset( $content );
 
     $this->conf = $conf;
 
+    // #62087, 141007, dwildt, DEV, 1
+    //$this->LLkey = $GLOBALS[ 'TSFE' ]->lang;
     $this->pi_loadLL();
-
+    // #62087, 141007, dwildt, DEV, 7
+//    $this->LLkey = $GLOBALS[ 'TSFE' ]->lang;
+//    var_dump( __METHOD__, __LINE__, $this->LLkey,
+//            $this->pi_getLL( 'error_all_h1' ),
+//            Tx_Extbase_Utility_Localization::translate( 'error_all_h1', $this->extKey ),
+//            $GLOBALS[ 'LANG' ]->sL( 'LLL:EXT:quickshop_installer/pi1/locallang.xml:error_all_h1' )
+//    );
+//    die( ':(' );
     $this->initTypo3version();
 
     // Get values from the flexform
@@ -166,18 +188,18 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
     // SWITCH : What should installed?
-    switch ($this->markerArray['###INSTALL_CASE###'])
+    switch ( $this->markerArray[ '###INSTALL_CASE###' ] )
     {
       case( null ):
       case( 'disabled' ):
-        if (!$this->installNothing())
+        if ( !$this->installNothing() )
         {
           $this->bool_error = true;
         }
         break;
       case( 'install_shop' ):
       case( 'install_all' ):
-        if (!$this->install())
+        if ( !$this->install() )
         {
           $this->bool_error = true;
         }
@@ -186,19 +208,19 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
         $this->arrReport[] = '
           <p>
             switch in tx_quickshopinstaller_pi1::main has an undefined value: ' .
-                $this->markerArray['###INSTALL_CASE###'] . '
+                $this->markerArray[ '###INSTALL_CASE###' ] . '
           </p>';
         $this->bool_error = true;
     }
     // SWITCH : What should installed?
     // SWITCH : error case
-    switch ($this->bool_error)
+    switch ( $this->bool_error )
     {
       case( true ):
         $str_result = '
           <div style="border:4px solid red;padding:2em;">
             <h1>
-            ' . $this->pi_getLL('error_all_h1') . '
+            ' . $this->pi_getLL( 'error_all_h1' ) . '
             </h1>
             ' . $this->htmlReport() . '
           </div>';
@@ -210,7 +232,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     }
     // SWITCH : error case
 
-    return $this->pi_wrapInBaseClass($str_result);
+    return $this->pi_wrapInBaseClass( $str_result );
   }
 
   /*   * *********************************************
@@ -230,38 +252,38 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $boolConfirmation = false;
 
     // RETURN  if form is confirmed
-    if ($this->piVars['confirm'])
+    if ( $this->piVars[ 'confirm' ] )
     {
       $boolConfirmation = true;
       return $boolConfirmation;
     }
     // RETURN  if form is confirmed
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->zz_getCHash('tx_quickshopinstaller_pi1[confirm]=1&submit=' . $this->pi_getLL('confirm_button'));
+    $cHash_calc = $this->zz_getCHash( 'tx_quickshopinstaller_pi1[confirm]=1&submit=' . $this->pi_getLL( 'confirm_button' ) );
 
     // Confirmation form
     $this->arrReport[] = '
       <h2>
-       ' . $this->pi_getLL('confirm_header') . '
+       ' . $this->pi_getLL( 'confirm_header' ) . '
       </h2>
       <p>
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createBeGroup') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createPages') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createPlugins') . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createBeGroup' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createPages' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createPlugins' ) . '<br />
       ';
-    if ($this->markerArray['###INSTALL_CASE###'] == 'install_all')
+    if ( $this->markerArray[ '###INSTALL_CASE###' ] == 'install_all' )
     {
       $this->arrReport[] = '
-          ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createContent') . '<br />
+          ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createContent' ) . '<br />
         ';
     }
     $this->arrReport[] = '
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createTs') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createPowermail') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createProducts') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createFiles') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_createContent') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('confirm_prompt_consolidate') . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createTs' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createPowermail' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createProducts' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createFiles' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_createContent' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'confirm_prompt_consolidate' ) . '<br />
       </p>
       <div style="text-align:right">
         <form name="form_confirm" method="POST">
@@ -270,9 +292,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
           <input type="hidden" name="cHash"                               value=' . $cHash_calc . ' />
           <fieldset id="fieldset_confirm" style="border:1px solid #F66800;padding:1em;">
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
-              ' . $this->pi_getLL('confirm_header') . '
+              ' . $this->pi_getLL( 'confirm_header' ) . '
             </legend>
-            <input type="submit" name="submit" value=" ' . $this->pi_getLL('confirm_button') . ' " />
+            <input type="submit" name="submit" value=" ' . $this->pi_getLL( 'confirm_button' ) . ' " />
           </fieldset>
         </form>
       </div>';
@@ -305,7 +327,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->arrReport[] = '
       <h2>
-       ' . $this->pi_getLL('record_create_header') . '
+       ' . $this->pi_getLL( 'record_create_header' ) . '
       </h2>';
 
     $this->createRecordsPowermail();
@@ -326,7 +348,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function createBeGroup()
   {
 
-    $this->markerArray['###GROUP_TITLE###'] = 'quick_shop';
+    $this->markerArray[ '###GROUP_TITLE###' ] = 'quick_shop';
 
     //////////////////////////////////////////////////////////////////////
     //
@@ -344,26 +366,26 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $limit = '0,1';
     $uidIndexField = '';
 
-    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
-    if (is_array($rows) && count($rows) > 0)
+    $rows = $GLOBALS[ 'TYPO3_DB' ]->exec_SELECTgetRows( $select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField );
+    if ( is_array( $rows ) && count( $rows ) > 0 )
     {
-      $group_uid = $rows[0]['uid'];
-      $group_title = $rows[0]['title'];
+      $group_uid = $rows[ 0 ][ 'uid' ];
+      $group_title = $rows[ 0 ][ 'title' ];
     }
 
-    if ($group_uid)
+    if ( $group_uid )
     {
-      $this->markerArray['###GROUP_TITLE###'] = $group_title;
-      $this->markerArray['###GROUP_UID###'] = $group_uid;
+      $this->markerArray[ '###GROUP_TITLE###' ] = $group_title;
+      $this->markerArray[ '###GROUP_UID###' ] = $group_uid;
 
       $str_grp_prompt = '
         <h2>
-         ' . $this->pi_getLL('grp_ok_header') . '
+         ' . $this->pi_getLL( 'grp_ok_header' ) . '
         </h2>
         <p>
-          ' . $this->arr_icons['ok'] . ' ' . $this->pi_getLL('grp_ok_prompt') . '
+          ' . $this->arr_icons[ 'ok' ] . ' ' . $this->pi_getLL( 'grp_ok_prompt' ) . '
         </p>';
-      $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
+      $str_grp_prompt = $this->cObj->substituteMarkerArray( $str_grp_prompt, $this->markerArray );
       $this->arrReport[] = $str_grp_prompt;
       return false;
     }
@@ -379,53 +401,53 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // #57037, 140318, dwildt, 1+
     $table = 'be_groups';
     $fields_values = array();
-    $fields_values['uid'] = null;
-    $fields_values['pid'] = 0;
-    $fields_values['tstamp'] = $timestamp;
-    $fields_values['title'] = 'quick_shop';
-    $fields_values['crdate'] = $timestamp;
+    $fields_values[ 'uid' ] = null;
+    $fields_values[ 'pid' ] = 0;
+    $fields_values[ 'tstamp' ] = $timestamp;
+    $fields_values[ 'title' ] = 'quick_shop';
+    $fields_values[ 'crdate' ] = $timestamp;
     $no_quote_fields = false;
-    $GLOBALS['TYPO3_DB']->exec_INSERTquery($table, $fields_values, $no_quote_fields);
+    $GLOBALS[ 'TYPO3_DB' ]->exec_INSERTquery( $table, $fields_values, $no_quote_fields );
     // There isn't any group available
     // #57037, 140318, dwildt, 1-
 //    $where_clause  = '`hidden` = 0 AND `deleted` = 0 AND `title` = "quick_shop" AND `crdate` = '.$timestamp.' AND `tstamp` = '.$timestamp;
     // #57037, 140318, dwildt, 1+
     $where_clause = 'hidden = 0 AND deleted = 0 AND title = "quick_shop" AND crdate = ' . $timestamp . ' AND tstamp = ' . $timestamp;
 
-    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
-    if (is_array($rows) && count($rows) > 0)
+    $rows = $GLOBALS[ 'TYPO3_DB' ]->exec_SELECTgetRows( $select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField );
+    if ( is_array( $rows ) && count( $rows ) > 0 )
     {
-      $group_title = $rows[0]['title'];
-      $group_uid = $rows[0]['uid'];
+      $group_title = $rows[ 0 ][ 'title' ];
+      $group_uid = $rows[ 0 ][ 'uid' ];
     }
 
-    if ($group_uid)
+    if ( $group_uid )
     {
-      $this->markerArray['###GROUP_TITLE###'] = $group_title;
-      $this->markerArray['###GROUP_UID###'] = $group_uid;
+      $this->markerArray[ '###GROUP_TITLE###' ] = $group_title;
+      $this->markerArray[ '###GROUP_UID###' ] = $group_uid;
 
       $str_grp_prompt = '
         <h2>
-         ' . $this->pi_getLL('grp_create_header') . '
+         ' . $this->pi_getLL( 'grp_create_header' ) . '
         </h2>
         <p>
-          ' . $this->arr_icons['ok'] . ' ' . $this->pi_getLL('grp_create_prompt') . '
+          ' . $this->arr_icons[ 'ok' ] . ' ' . $this->pi_getLL( 'grp_create_prompt' ) . '
         </p>';
-      $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
+      $str_grp_prompt = $this->cObj->substituteMarkerArray( $str_grp_prompt, $this->markerArray );
       $this->arrReport[] = $str_grp_prompt;
       return false;
     }
 
-    $this->markerArray['###GROUP_UID###'] = false;
+    $this->markerArray[ '###GROUP_UID###' ] = false;
 
     $str_grp_prompt = '
       <h2>
-       ' . $this->pi_getLL('grp_warn_header') . '
+       ' . $this->pi_getLL( 'grp_warn_header' ) . '
       </h2>
       <p>
-        ' . $this->arr_icons['warn'] . ' ' . $this->pi_getLL('grp_warn_prompt') . '
+        ' . $this->arr_icons[ 'warn' ] . ' ' . $this->pi_getLL( 'grp_warn_prompt' ) . '
       </p>';
-    $str_grp_prompt = $this->cObj->substituteMarkerArray($str_grp_prompt, $this->markerArray);
+    $str_grp_prompt = $this->cObj->substituteMarkerArray( $str_grp_prompt, $this->markerArray );
     $this->arrReport[] = $str_grp_prompt;
     return false;
   }
@@ -441,7 +463,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function createContent()
   {
     require_once( 'class.tx_quickshopinstaller_pi1_content.php' );
-    $this->content = t3lib_div::makeInstance('tx_quickshopinstaller_pi1_content');
+    $this->content = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_content' );
     $this->content->pObj = $this;
 
     $this->content->main();
@@ -459,7 +481,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $this->arrReport[] = '
       <h2>
-       ' . $this->pi_getLL('files_create_header') . '
+       ' . $this->pi_getLL( 'files_create_header' ) . '
       </h2>';
 
     $this->createFilesLibraryHeaderLogo();
@@ -478,7 +500,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    */
   private function createFilesLibraryHeaderLogo()
   {
-    $this->zz_copyFiles('res/files/headerLogo/', 'uploads/pics/');
+    $this->zz_copyFiles( 'res/files/headerLogo/', 'uploads/pics/' );
   }
 
   /**
@@ -491,7 +513,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    */
   private function createFilesLibraryHeaderSlider()
   {
-    $this->zz_copyFiles('res/files/headerSlider/', 'uploads/pics/');
+    $this->zz_copyFiles( 'res/files/headerSlider/', 'uploads/pics/' );
   }
 
   /**
@@ -504,7 +526,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    */
   private function createFilesLibraryMenubelow()
   {
-    $this->zz_copyFiles('res/files/menubelow/', 'uploads/pics/');
+    $this->zz_copyFiles( 'res/files/menubelow/', 'uploads/pics/' );
   }
 
   /**
@@ -514,7 +536,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    */
   private function createFilesShop()
   {
-    $this->zz_copyFiles('res/files/tx_quickshop_products/', 'uploads/tx_quickshop/');
+    $this->zz_copyFiles( 'res/files/tx_quickshop_products/', 'uploads/tx_quickshop/' );
   }
 
   /**
@@ -528,7 +550,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function createPages()
   {
     require_once( 'class.tx_quickshopinstaller_pi1_pages.php' );
-    $this->pages = t3lib_div::makeInstance('tx_quickshopinstaller_pi1_pages');
+    $this->pages = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_pages' );
     $this->pages->pObj = $this;
 
     $this->pages->main();
@@ -545,7 +567,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function createPlugins()
   {
     require_once( 'class.tx_quickshopinstaller_pi1_plugins.php' );
-    $this->plugins = t3lib_div::makeInstance('tx_quickshopinstaller_pi1_plugins');
+    $this->plugins = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_plugins' );
     $this->plugins->pObj = $this;
 
     $this->plugins->main();
@@ -568,7 +590,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function createRecordsPowermail()
   {
     require_once( 'class.tx_quickshopinstaller_pi1_powermail.php' );
-    $this->powermail = t3lib_div::makeInstance('tx_quickshopinstaller_pi1_powermail');
+    $this->powermail = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_powermail' );
     $this->powermail->pObj = $this;
 
     $this->powermail->main();
@@ -585,7 +607,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function createRecordsQuickshop()
   {
     require_once( 'class.tx_quickshopinstaller_pi1_quickshop.php' );
-    $this->quickshop = t3lib_div::makeInstance('tx_quickshopinstaller_pi1_quickshop');
+    $this->quickshop = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_quickshop' );
     $this->quickshop->pObj = $this;
 
     $this->quickshop->main();
@@ -602,7 +624,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function createTyposcript()
   {
     require_once( 'class.tx_quickshopinstaller_pi1_typoscript.php' );
-    $this->typoscript = t3lib_div::makeInstance('tx_quickshopinstaller_pi1_typoscript');
+    $this->typoscript = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_typoscript' );
     $this->typoscript->pObj = $this;
 
     $this->typoscript->main();
@@ -625,7 +647,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function consolidate()
   {
     require_once( 'class.tx_quickshopinstaller_pi1_consolidate.php' );
-    $this->consolidate = t3lib_div::makeInstance('tx_quickshopinstaller_pi1_consolidate');
+    $this->consolidate = t3lib_div::makeInstance( 'tx_quickshopinstaller_pi1_consolidate' );
     $this->consolidate->pObj = $this;
 
     $this->consolidate->main();
@@ -651,7 +673,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $success = true;
 
     // RETURN  if form is confirmed
-    if ($this->piVars['confirm'])
+    if ( $this->piVars[ 'confirm' ] )
     {
       return $success;
     }
@@ -659,26 +681,26 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // Header
     $this->arrReport[] = '
       <h2>
-       ' . $this->pi_getLL('ext_header') . '
+       ' . $this->pi_getLL( 'ext_header' ) . '
       </h2>
       ';
     // Header
 
-    if (!$this->extensionCheckCaseBaseTemplate())
+    if ( !$this->extensionCheckCaseBaseTemplate() )
     {
       $success = false;
     }
 
     $key = 'browser';
     $title = 'Browser - TYPO3 without PHP';
-    if (!$this->extensionCheckExtension($key, $title))
+    if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
 
     $key = 'caddy';
     $title = 'Caddy - your shopping cart';
-    if (!$this->extensionCheckExtension($key, $title))
+    if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
@@ -686,7 +708,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $key = 'cps_tcatree';
     $title = 'Record tree for TCA';
     $url = 'http://typo3-quick-shop.de/cps_tcatree_0.4.1_fix6x.zip';
-    if (!$this->extensionCheckExtension($key, $title, $url))
+    if ( !$this->extensionCheckExtension( $key, $title, $url ) )
     {
       $success = false;
     }
@@ -694,14 +716,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // #i0013, 140331, dwildt
     $key = 'cps_devlib';
     $title = 'Developer Library';
-    if (!$this->extensionCheckExtension($key, $title))
+    if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
 
     $key = 'powermail';
     $title = 'Powermail';
-    if (!$this->extensionCheckExtension($key, $title))
+    if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
@@ -709,7 +731,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // #i0012, 131106, dwildt, +
     $key = 't3_tcpdf';
     $title = 'TCPDF for TYPO3';
-    if (!$this->extensionCheckExtension($key, $title))
+    if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
@@ -730,7 +752,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $success = true;
     // RETURN : base template should not installed
-    if ($this->markerArray['###INSTALL_CASE###'] != 'install_all')
+    if ( $this->markerArray[ '###INSTALL_CASE###' ] != 'install_all' )
     {
       return $success;
     }
@@ -738,14 +760,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $key = 'automaketemplate';
     $title = 'Template Auto-parser';
-    if (!$this->extensionCheckExtension($key, $title))
+    if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
 
     $key = 'base_quickshop';
     $title = 'Quick Shop - Template';
-    if (!$this->extensionCheckExtension($key, $title))
+    if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;
     }
@@ -767,17 +789,17 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * @version   4.0.1
    * @since     1.0.0
    */
-  private function extensionCheckExtension($key, $title, $url = null)
+  private function extensionCheckExtension( $key, $title, $url = null )
   {
     $boolInstalled = null;
     $titleWiKey = $key . ': "' . $title . '"';
 
     // RETURN : extension is installed
-    if (t3lib_extMgm::isLoaded($key))
+    if ( t3lib_extMgm::isLoaded( $key ) )
     {
       $this->arrReport[] = '
         <p>
-        ' . $this->arr_icons['ok'] . ' ' . $titleWiKey . ' ' . $this->pi_getLL('ext_ok') . '
+        ' . $this->arr_icons[ 'ok' ] . ' ' . $titleWiKey . ' ' . $this->pi_getLL( 'ext_ok' ) . '
         </p>';
       $boolInstalled = true;
       return $boolInstalled;
@@ -786,21 +808,87 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // RETURN : extension isn't installed
     $prompt = '
       <p>
-        ' . $this->arr_icons['error'] . $this->pi_getLL('ext_error') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('ext_help') . ' ' . $titleWiKey . '
+        ' . $this->arr_icons[ 'error' ] . $this->pi_getLL( 'ext_error' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'ext_help' ) . ' ' . $titleWiKey . '
         %url%
       </p>';
 
-    if ($url)
+    if ( $url )
     {
       $url = '<a href="' . $url . '">' . $url . '</a>';
-      $url = '<br />' . PHP_EOL . $this->arr_icons['info'] . $this->pi_getLL('ext_help') . $url;
+      $url = '<br />' . PHP_EOL . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'ext_help' ) . $url;
     }
-    $prompt = str_replace('%url%', $url, $prompt);
+    $prompt = str_replace( '%url%', $url, $prompt );
     $this->arrReport[] = $prompt;
     $boolInstalled = false;
     return $boolInstalled;
     // RETURN : extension isn't installed
+  }
+
+  /*   * *********************************************
+   *
+   * Get
+   *
+   * ******************************************** */
+
+  /**
+   * get_Llstatic( )
+   *
+   * @return	string
+   * @access public
+   * @internal #61779
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  public function get_Llstatic()
+  {
+    return $this->LLstatic;
+  }
+
+  /**
+   * get_typo3Version( ):
+   *
+   * @return  void
+   *
+   * @access  private
+   * @version 3.1.0
+   * @since 3.1.0
+   */
+  public function get_typo3Version()
+  {
+    if ( $this->typo3Version !== null )
+    {
+      return $this->typo3Version;
+    }
+    // RETURN : typo3Version is set
+    // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+    list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+    $version = ( ( int ) $main ) * 1000000;
+    $version = $version + ( ( int ) $sub ) * 1000;
+    $version = $version + ( ( int ) $bugfix ) * 1;
+    $this->typo3Version = $version;
+    // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
+
+    if ( $this->typo3Version < 4005000 )
+    {
+      $prompt = '<h1>ERROR</h1>
+        <h2>Unproper TYPO3 version</h2>
+        <ul>
+          <li>
+            TYPO3 version is smaller than 4.5.0
+          </li>
+          <li>
+            constant TYPO3_version: ' . TYPO3_version . '
+          </li>
+          <li>
+            integer $this->typo3Version: ' . ( int ) $this->typo3Version . '
+          </li>
+        </ul>
+          ';
+      die( $prompt );
+    }
+
+    return $this->typo3Version;
   }
 
   /*   * *********************************************
@@ -817,7 +905,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function htmlReport()
   {
     // RETURN : error, there isn't any report
-    if (!is_array($this->arrReport))
+    if ( !is_array( $this->arrReport ) )
     {
       $prompt = '
         <h1>
@@ -831,25 +919,25 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // RETURN : error, there isn't any report
 
     $arrPrompt = array();
-    if (!$this->bool_error)
+    if ( !$this->bool_error )
     {
-      if (!$this->piVars['confirm'])
+      if ( !$this->piVars[ 'confirm' ] )
       {
         $arrPrompt[] = '
           <h1>
-            ' . $this->pi_getLL('begin_h1') . '
+            ' . $this->pi_getLL( 'begin_h1' ) . '
           </h1>';
       }
-      if ($this->piVars['confirm'])
+      if ( $this->piVars[ 'confirm' ] )
       {
         $arrPrompt[] = '
           <h1>
-            ' . $this->pi_getLL('end_h1') . '
+            ' . $this->pi_getLL( 'end_h1' ) . '
           </h1>';
       }
     }
-    $arrPrompt = array_merge($arrPrompt, $this->arrReport);
-    $prompt = implode(null, $arrPrompt);
+    $arrPrompt = array_merge( $arrPrompt, $this->arrReport );
+    $prompt = implode( null, $arrPrompt );
 
     return $prompt;
   }
@@ -873,22 +961,37 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $select_fields = 'pid';
     $from_table = 'pages';
-    $where_clause = 'uid = ' . $GLOBALS['TSFE']->id;
+    $where_clause = 'uid = ' . $GLOBALS[ 'TSFE' ]->id;
     $groupBy = null;
     $orderBy = null;
     $limit = null;
     //var_dump(__METHOD__ . ' (' . __LINE__ . '): ' . $GLOBALS['TYPO3_DB']->SELECTquery($select_fields,$from_table,$where_clause,$groupBy,$orderBy,$limit));
-    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit);
-    $row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
+    $res = $GLOBALS[ 'TYPO3_DB' ]->exec_SELECTquery( $select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit );
+    $row = $GLOBALS[ 'TYPO3_DB' ]->sql_fetch_assoc( $res );
 
-    if ($row['pid'] < 1)
+    if ( $row[ 'pid' ] < 1 )
     {
       $this->bool_topLevel = true;
     }
-    if ($row['pid'] >= 1)
+    if ( $row[ 'pid' ] >= 1 )
     {
       $this->bool_topLevel = false;
     }
+  }
+
+  /**
+   * initLlstatic( )
+   *
+   * @return	void
+   * @access private
+   * @internal #61779
+   * @version 6.0.0
+   * @since 6.0.0
+   */
+  private function initLlstatic()
+  {
+    $confArr = unserialize( $GLOBALS[ 'TYPO3_CONF_VARS' ][ 'EXT' ][ 'extConf' ][ 'org_installer' ] );
+    $this->LLstatic = $confArr[ 'LLstatic' ];
   }
 
   /**
@@ -901,9 +1004,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    */
   private function initPowermailVersion()
   {
-    $arrResult = $this->zz_getExtensionVersion('powermail');
-    $this->powermailVersionInt = $arrResult['int'];
-    $this->powermailVersionStr = $arrResult['str'];
+    $arrResult = $this->zz_getExtensionVersion( 'powermail' );
+    $this->powermailVersionInt = $arrResult[ 'int' ];
+    $this->powermailVersionStr = $arrResult[ 'str' ];
   }
 
   /**
@@ -921,21 +1024,21 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function initTypo3version()
   {
     // RETURN : typo3Version is set
-    if ($this->typo3Version !== null)
+    if ( $this->typo3Version !== null )
     {
       return;
     }
     // RETURN : typo3Version is set
     // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
-    list( $main, $sub, $bugfix ) = explode('.', TYPO3_version);
-    $version = ( (int) $main ) * 1000000;
-    $version = $version + ( (int) $sub ) * 1000;
-    $version = $version + ( (int) $bugfix ) * 1;
+    list( $main, $sub, $bugfix ) = explode( '.', TYPO3_version );
+    $version = ( ( int ) $main ) * 1000000;
+    $version = $version + ( ( int ) $sub ) * 1000;
+    $version = $version + ( ( int ) $bugfix ) * 1;
     $this->typo3Version = $version;
     // Set TYPO3 version as integer (sample: 4.7.7 -> 4007007)
 //echo __METHOD__ . ' (' . __LINE__ . '): ' . typo3Version . '<br />' . PHP_EOL;
 
-    if ($this->typo3Version < 3000000)
+    if ( $this->typo3Version < 3000000 )
     {
       $prompt = '<h1>ERROR</h1>
         <h2>Unproper TYPO3 version</h2>
@@ -947,11 +1050,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
             constant TYPO3_version: ' . TYPO3_version . '
           </li>
           <li>
-            integer $this->typo3Version: ' . (int) $this->typo3Version . '
+            integer $this->typo3Version: ' . ( int ) $this->typo3Version . '
           </li>
         </ul>
           ';
-      die($prompt);
+      die( $prompt );
     }
   }
 
@@ -977,14 +1080,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     // #57390, 140327, dwildt, 7+
     // RETURN if there is any problem with dependencies
-    if (!$this->typo3ConfigVarsCheck())
+    if ( !$this->typo3ConfigVarsCheck() )
     {
       $success = false;
       return $success;
     }
 
     // RETURN if there is any problem with dependencies
-    if (!$this->extensionCheck())
+    if ( !$this->extensionCheck() )
     {
       $success = false;
       return $success;
@@ -992,7 +1095,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
 
     $bool_confirm = $this->confirmation();
-    if (!$bool_confirm)
+    if ( !$bool_confirm )
     {
       $success = true;
       return $success;
@@ -1023,8 +1126,8 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $this->arrReport[] = '
       <p>
-        ' . $this->arr_icons['warn'] . $this->pi_getLL('plugin_warn') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('plugin_help') . '
+        ' . $this->arr_icons[ 'warn' ] . $this->pi_getLL( 'plugin_warn' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'plugin_help' ) . '
       </p>';
 
     return $success;
@@ -1047,24 +1150,24 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   private function promptCleanUp()
   {
     // Get the cHash. Important in case of realUrl and no_cache=0
-    $cHash_calc = $this->zz_getCHash(false);
+    $cHash_calc = $this->zz_getCHash( false );
 
     $this->arrReport[] = '
       <h2>
-       ' . $this->pi_getLL('end_header') . '
+       ' . $this->pi_getLL( 'end_header' ) . '
       </h2>
       <p>
-       ' . $this->arr_icons['info'] . $this->pi_getLL('end_reloadBe_prompt') . '<br />
-       ' . $this->arr_icons['info'] . $this->pi_getLL('end_deletePlugin_prompt') . '
+       ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'end_reloadBe_prompt' ) . '<br />
+       ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'end_deletePlugin_prompt' ) . '
       </p>
       <div style="text-align:right;">
         <form name="form_confirm" method="POST">
           <input type="hidden" name="cHash"  value="' . $cHash_calc . '" />
           <fieldset id="fieldset_confirm" style="border:1px solid #F66800;padding:1em;">
             <legend style="color:#F66800;font-weight:bold;padding:0 1em;">
-              ' . $this->pi_getLL('end_header') . '
+              ' . $this->pi_getLL( 'end_header' ) . '
             </legend>
-            <input type="submit" name="submit" value=" ' . $this->pi_getLL('end_button') . ' " />
+            <input type="submit" name="submit" value=" ' . $this->pi_getLL( 'end_button' ) . ' " />
           </fieldset>
         </form>
       </div>
@@ -1090,7 +1193,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $success = true;
 
     // RETURN  if form is confirmed
-    if ($this->piVars['confirm'])
+    if ( $this->piVars[ 'confirm' ] )
     {
       return $success;
     }
@@ -1098,12 +1201,12 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // Header
     $this->arrReport[] = '
       <h2>
-       ' . $this->pi_getLL('typo3ConfigVars_header') . '
+       ' . $this->pi_getLL( 'typo3ConfigVars_header' ) . '
       </h2>
       ';
 
 
-    if (!$this->typo3ConfigVarsCheckFePageNotFoundOnCHashError())
+    if ( !$this->typo3ConfigVarsCheckFePageNotFoundOnCHashError() )
     {
       $success = false;
     }
@@ -1124,14 +1227,14 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     global $TYPO3_CONF_VARS;
 
     $configIsOk = false;
-    $pageNotFoundOnCHashError = $TYPO3_CONF_VARS['FE']['pageNotFoundOnCHashError'];
+    $pageNotFoundOnCHashError = $TYPO3_CONF_VARS[ 'FE' ][ 'pageNotFoundOnCHashError' ];
 
     // RETURN : configuration is proper
-    if ($pageNotFoundOnCHashError == false)
+    if ( $pageNotFoundOnCHashError == false )
     {
       $this->arrReport[] = '
         <p>
-        ' . $this->arr_icons['ok'] . ' $TYPO3_CONF_VARS[FE][pageNotFoundOnCHashError] ' . $this->pi_getLL('typo3ConfigVars_ok') . '
+        ' . $this->arr_icons[ 'ok' ] . ' $TYPO3_CONF_VARS[FE][pageNotFoundOnCHashError] ' . $this->pi_getLL( 'typo3ConfigVars_ok' ) . '
         </p>';
       $configIsOk = true;
       return $configIsOk;
@@ -1140,11 +1243,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // RETURN : configuration is unproper
     $prompt = '
       <h3>
-        ' . $this->pi_getLL('typo3ConfigVars_pageNotFoundOnCHashError_header') . '
+        ' . $this->pi_getLL( 'typo3ConfigVars_pageNotFoundOnCHashError_header' ) . '
       </h3>
       <p>
-        ' . $this->arr_icons['error'] . $this->pi_getLL('typo3ConfigVars_pageNotFoundOnCHashError_error') . '<br />
-        ' . $this->arr_icons['info'] . $this->pi_getLL('typo3ConfigVars_pageNotFoundOnCHashError_help') . '
+        ' . $this->arr_icons[ 'error' ] . $this->pi_getLL( 'typo3ConfigVars_pageNotFoundOnCHashError_error' ) . '<br />
+        ' . $this->arr_icons[ 'info' ] . $this->pi_getLL( 'typo3ConfigVars_pageNotFoundOnCHashError_help' ) . '
       </p>';
 
     $this->arrReport[] = $prompt;
@@ -1166,22 +1269,22 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * @version 3.0.0
    * @since 1.0.0
    */
-  private function zz_copyFiles($srceDir, $destDir = 'uploads/tx_org/')
+  private function zz_copyFiles( $srceDir, $destDir = 'uploads/tx_org/' )
   {
 
     //////////////////////////////////////////////////////////////////////
     //
     // Copy product images to upload folder
     // General values
-    $str_pathSrce = t3lib_extMgm::siteRelPath($this->extKey) . $srceDir;
+    $str_pathSrce = t3lib_extMgm::siteRelPath( $this->extKey ) . $srceDir;
     $str_pathDest = $destDir;
     // General values
 //var_dump( __METHOD__, __LINE__, $this->arr_fileUids );
 
-    foreach ($this->arr_fileUids as $str_fileSrce => $str_fileDest)
+    foreach ( $this->arr_fileUids as $str_fileSrce => $str_fileDest )
     {
       // CONTINUE : srce is a directory only
-      if (is_dir($str_pathSrce . $str_fileSrce))
+      if ( is_dir( $str_pathSrce . $str_fileSrce ) )
       {
 //        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
 //        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
@@ -1195,7 +1298,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       }
       // CONTINUE : srce is a directory only
       // CONTINUE : file does not exist (this may be proper)
-      if (!file_exists($str_pathSrce . $str_fileSrce))
+      if ( !file_exists( $str_pathSrce . $str_fileSrce ) )
       {
 //        $this->markerArray['###SRCE###'] = $str_pathSrce.$str_fileSrce;
 //        $this->markerArray['###DEST###'] = $str_pathDest.$str_fileDest;
@@ -1209,30 +1312,30 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
       }
       // CONTINUE : file does not exist (this may be proper)
 
-      $bool_success = copy($str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest);
+      $bool_success = copy( $str_pathSrce . $str_fileSrce, $str_pathDest . $str_fileDest );
       // CONTINUE : copy was succesful
-      if ($bool_success)
+      if ( $bool_success )
       {
-        $this->markerArray['###DEST###'] = $str_fileDest;
-        $this->markerArray['###PATH###'] = $str_pathDest;
+        $this->markerArray[ '###DEST###' ] = $str_fileDest;
+        $this->markerArray[ '###PATH###' ] = $str_pathDest;
         $str_file_prompt = '
           <p>
-            ' . $this->arr_icons['ok'] . ' ' . $this->pi_getLL('files_create_prompt') . '
+            ' . $this->arr_icons[ 'ok' ] . ' ' . $this->pi_getLL( 'files_create_prompt' ) . '
           </p>';
-        $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+        $str_file_prompt = $this->cObj->substituteMarkerArray( $str_file_prompt, $this->markerArray );
         $this->arrReport[] = $str_file_prompt;
 
         continue;
       }
       // CONTINUE : copy was succesful
 
-      $this->markerArray['###SRCE###'] = $str_pathSrce . $str_fileSrce;
-      $this->markerArray['###DEST###'] = $str_pathDest . $str_fileDest;
+      $this->markerArray[ '###SRCE###' ] = $str_pathSrce . $str_fileSrce;
+      $this->markerArray[ '###DEST###' ] = $str_pathDest . $str_fileDest;
       $str_file_prompt = '
         <p>
-          ' . $this->arr_icons['warn'] . ' ' . $this->pi_getLL('files_create_prompt_error') . '
+          ' . $this->arr_icons[ 'warn' ] . ' ' . $this->pi_getLL( 'files_create_prompt_error' ) . '
         </p>';
-      $str_file_prompt = $this->cObj->substituteMarkerArray($str_file_prompt, $this->markerArray);
+      $str_file_prompt = $this->cObj->substituteMarkerArray( $str_file_prompt, $this->markerArray );
       $this->arrReport[] = $str_file_prompt;
     }
     // Copy product images to upload folder
@@ -1249,22 +1352,22 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * @since   2.0.0
    * @internal #53358
    */
-  private function zz_getCHash($str_params)
+  private function zz_getCHash( $str_params )
   {
 //echo __METHOD__ . ' (' . __LINE__ . '): ' . typo3Version . '<br />' . PHP_EOL;
-    switch (true)
+    switch ( true )
     {
       case( $this->typo3Version < 6000000 ):
-        $cHash_array = t3lib_div::cHashParams($str_params);
+        $cHash_array = t3lib_div::cHashParams( $str_params );
         // 140114, dwildt, 1+
-        $cHash_md5 = t3lib_div::shortMD5(serialize($cHash_array));
+        $cHash_md5 = t3lib_div::shortMD5( serialize( $cHash_array ) );
         break;
       default:
-        $cacheHash = t3lib_div::makeInstance('t3lib_cacheHash');
+        $cacheHash = t3lib_div::makeInstance( 't3lib_cacheHash' );
         // 140114, dwildt, 1-
-        $cHash_array = $cacheHash->getRelevantParameters($str_params);
+        $cHash_array = $cacheHash->getRelevantParameters( $str_params );
         //$cHash_md5_2 = $cacheHash->calculateCacheHash($cHash_array);
-        $cHash_md5 = $cacheHash->generateForParameters($str_params);
+        $cHash_md5 = $cacheHash->generateForParameters( $str_params );
 //var_dump( __METHOD__, __LINE__, $cHash_array, $cHash_md5_2, $cHash_md5 );
         // 140114, dwildt, 1+
         break;
@@ -1282,7 +1385,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * @param	string		$table      : the table
    * @return	integer		$int_maxUid : max uid in given table
    */
-  public function zz_getMaxDbUid($table)
+  public function zz_getMaxDbUid( $table )
   {
     $int_maxUid = false;
 
@@ -1295,11 +1398,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $uidIndexField = '';
 
     //var_dump($GLOBALS['TYPO3_DB']->SELECTquery($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField));
-    $rows = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows($select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField);
+    $rows = $GLOBALS[ 'TYPO3_DB' ]->exec_SELECTgetRows( $select_fields, $from_table, $where_clause, $groupBy, $orderBy, $limit, $uidIndexField );
 
-    if (is_array($rows) && count($rows) > 0)
+    if ( is_array( $rows ) && count( $rows ) > 0 )
     {
-      $int_maxUid = $rows[0]['uid'];
+      $int_maxUid = $rows[ 0 ][ 'uid' ];
     }
     return $int_maxUid;
   }
@@ -1311,11 +1414,11 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    */
   private function zz_getPathToIcons()
   {
-    $pathToIcons = t3lib_extMgm::siteRelPath($this->extKey) . '/res/images/22x22/';
-    $this->arr_icons['error'] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-error.png"> ';
-    $this->arr_icons['warn'] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-warning.png"> ';
-    $this->arr_icons['ok'] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-ok-apply.png"> ';
-    $this->arr_icons['info'] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-information.png"> ';
+    $pathToIcons = t3lib_extMgm::siteRelPath( $this->extKey ) . '/res/images/22x22/';
+    $this->arr_icons[ 'error' ] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-error.png"> ';
+    $this->arr_icons[ 'warn' ] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-warning.png"> ';
+    $this->arr_icons[ 'ok' ] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-ok-apply.png"> ';
+    $this->arr_icons[ 'info' ] = '<img width="22" height="22" src="' . $pathToIcons . 'dialog-information.png"> ';
   }
 
   /**
@@ -1330,30 +1433,30 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * @version 2.0.0
    * @since 2.0.0
    */
-  private function zz_getExtensionVersion($_EXTKEY)
+  private function zz_getExtensionVersion( $_EXTKEY )
   {
     $arrReturn = null;
 
-    if (!t3lib_extMgm::isLoaded($_EXTKEY))
+    if ( !t3lib_extMgm::isLoaded( $_EXTKEY ) )
     {
-      $arrReturn['int'] = 0;
-      $arrReturn['str'] = 0;
+      $arrReturn[ 'int' ] = 0;
+      $arrReturn[ 'str' ] = 0;
       return $arrReturn;
     }
 
     // Do not use require_once!
-    require( t3lib_extMgm::extPath($_EXTKEY) . 'ext_emconf.php');
-    $strVersion = $EM_CONF[$_EXTKEY]['version'];
+    require( t3lib_extMgm::extPath( $_EXTKEY ) . 'ext_emconf.php');
+    $strVersion = $EM_CONF[ $_EXTKEY ][ 'version' ];
 
     // Set version as integer (sample: 4.7.7 -> 4007007)
-    list( $main, $sub, $bugfix ) = explode('.', $strVersion);
-    $intVersion = ( (int) $main ) * 1000000;
-    $intVersion = $intVersion + ( (int) $sub ) * 1000;
-    $intVersion = $intVersion + ( (int) $bugfix ) * 1;
+    list( $main, $sub, $bugfix ) = explode( '.', $strVersion );
+    $intVersion = ( ( int ) $main ) * 1000000;
+    $intVersion = $intVersion + ( ( int ) $sub ) * 1000;
+    $intVersion = $intVersion + ( ( int ) $bugfix ) * 1;
     // Set version as integer (sample: 4.7.7 -> 4007007)
 
-    $arrReturn['int'] = $intVersion;
-    $arrReturn['str'] = $strVersion;
+    $arrReturn[ 'int' ] = $intVersion;
+    $arrReturn[ 'str' ] = $strVersion;
     return $arrReturn;
   }
 
@@ -1361,45 +1464,50 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    * Shop will be installed - with or without template
    *
    * @return	The		content that is displayed on the website
+   * @access private
+   * @version 6.0.0
+   * @since 0.0.1
    */
   private function zz_getFlexValues()
   {
     // Set defaults
     // 120613, dwildt+
-    $this->markerArray['###WEBSITE_TITLE###'] = 'TYPO3 Quick Shop';
-    $this->markerArray['###MAIL_DEFAULT_RECIPIENT###'] = 'mail@my-domain.com';
+    $this->markerArray[ '###WEBSITE_TITLE###' ] = 'TYPO3 Quick Shop';
+    $this->markerArray[ '###MAIL_DEFAULT_RECIPIENT###' ] = 'mail@my-domain.com';
     // 120613, dwildt+
     // Set defaults
     // Init methods for pi_flexform
     $this->pi_initPIflexForm();
 
     // Get values from the flexform
-    $this->arr_piFlexform = $this->cObj->data['pi_flexform'];
+    $this->arr_piFlexform = $this->cObj->data[ 'pi_flexform' ];
 
-    if (is_array($this->arr_piFlexform))
+    if ( is_array( $this->arr_piFlexform ) )
     {
-      foreach ((array) $this->arr_piFlexform['data']['sDEF']['lDEF'] as $key => $arr_value)
+      foreach ( ( array ) $this->arr_piFlexform[ 'data' ][ 'sDEF' ][ 'lDEF' ] as $key => $arr_value )
       {
-        $this->markerArray['###' . strtoupper($key) . '###'] = $arr_value['vDEF'];
+        $this->markerArray[ '###' . strtoupper( $key ) . '###' ] = $arr_value[ 'vDEF' ];
       }
     }
 
+    // #i0019, 141004, dwildt, 1+
+    $this->markerArray[ '###BE_USER###' ] = $this->markerArray[ '###BACKEND_USER###' ];
 
     // Set the URL
-    if (!isset($this->markerArray['###URL###']))
+    if ( !isset( $this->markerArray[ '###URL###' ] ) )
     {
-      $this->markerArray['###HOST###'] = t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST');
+      $this->markerArray[ '###HOST###' ] = t3lib_div::getIndpEnv( 'TYPO3_REQUEST_HOST' );
     }
-    if (!$this->markerArray['###HOST###'])
+    if ( !$this->markerArray[ '###HOST###' ] )
     {
-      $this->markerArray['###HOST###'] = t3lib_div::getIndpEnv('TYPO3_REQUEST_HOST');
+      $this->markerArray[ '###HOST###' ] = t3lib_div::getIndpEnv( 'TYPO3_REQUEST_HOST' );
     }
     // Set the URL
   }
 
 }
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1.php'])
+if ( defined( 'TYPO3_MODE' ) && $TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1.php' ] )
 {
-  include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1.php']);
+  include_once($TYPO3_CONF_VARS[ TYPO3_MODE ][ 'XCLASS' ][ 'ext/quickshop_installer/pi1/class.tx_quickshopinstaller_pi1.php' ]);
 }

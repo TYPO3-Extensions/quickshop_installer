@@ -98,6 +98,141 @@
 ]]></label>
       <label index="content_create_header">Page content</label>
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
+      <label index="content_pageQuickshop_header">Quick Shop</label>
+      <label index="content_pageQuickshop_bodytext"><![CDATA[<div class="row">
+  <div class="large-12 columns">
+    <h1>Welcome to TYPO3 Quick Shop</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="panel">
+      <h3>The fastest Shop in the history of TYPO3</h3>
+      <div class="row">
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="http://typo3-quick-shop.de/en/one-click" target="_blank">One-Click-Installation</a><br />
+            You are welcome to install Quick Shop with one mouse click - ready-to-use.
+            You need: TYPO3, Quick Shop and a mouse.
+          </p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="index.php?id=%$pageQuickshopShop_title%">Responsive</a><br />
+            Quick Shop is optimised for PC, tablets and smartphones.
+            Go to the shop and vary the size of your browser window.
+          </p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="http://die-netzmacher.de/kontakt/" target="_blank">Professional service</a><br />
+            You don't like to adapt Quick Shop to your individual needs by yourself?
+            Take the professional service supported from the developers: Die Netzmacher.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns">
+    <h3>Quick Shop: e-commerce for small budget and small-scale enterprises</h3>
+    <p>
+      Quick Shop is easy: easy to use, easy to configure, easy to handle.
+      TYPO3 integrators can install Quick Shop with minimum costs.
+      Quick Shop is the solution for a small budget and for small-scale enterprises,
+      which make low demands on e-commerce.<br />
+      Quick Shop doesn't contend with high capacity online shops like oxyd or magento.
+      For example: Quick Shop doesn't support features like cross-seling or bonus management.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 columns">
+    <h3>Test it now!</h3>
+    <div class="row">
+      <div class="columns">
+        <p>
+          <a href="index.php?id=%$pageQuickshopShop_title%">Test an order. Here.</a><br />
+          Test Quick Shop! Order an item. Check the workflow. Taste it!
+          You don't need to pay nothing.
+        </p>
+      </div>
+    </div>
+    <h3>Install it!</h3>
+    <div class="row">
+      <div class="columns">
+        <p>
+          <a href="https://typo3.org/extensions/repository/view/quick_shop/" target="_blank">Available on typo3.org</a><br />
+          Quick Shop is 100% Open Source and free of charge. Download it on typo3.org!
+        </p>
+      </div>
+    </div>
+    <h3>Any question?</h3>
+    <div class="row">
+      <div class="columns">
+        <p>
+          <a href="http://typo3-quick-shop.de/en/" target="_blank">Visit our homepage</a><br />
+          Or <a href="http://die-netzmacher.de/kontakt/" target="_blank">send</a> us your request.
+          Or post your concern in the <a href="http://typo3-quick-shop.de/en/forum/" target="_blank">Quick Shop Forum</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <h3>Features</h3>
+    <!-- Grid Example -->
+    <ul>
+      <li>
+        E-payment
+      </li>
+      <li>
+        Image gallery by default
+      </li>
+      <li>
+        Localisation
+      </li>
+      <li>
+        Modular
+        <ul>
+          <li>
+            Formular management, spam protection: Powermail
+          </li>
+          <li>
+            Responsive framework: Foundation
+          </li>
+          <li>
+            Shopping cart: Caddy
+          </li>
+          <li>
+            TYPO3-frontend-engine: Browser - TYPO3 without PHP
+          </li>
+        </ul>
+      </li>
+      <li>
+        One-Click-Installation
+      </li>
+      <li>
+        Open Source
+      </li>
+      <li>
+        PDF attachments
+      </li>
+      <li>
+        Responsive
+      </li>
+      <li>
+        Stock management
+      </li>
+      <li>
+        Variants
+      </li>
+    </ul>
+  </div>
+</div>]]></label>
       <label index="content_pageQuickshopLegalinfo_header">Legal info</label>
       <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
 <h2>Good to know</h2>
@@ -124,6 +259,7 @@
       <label index="content_pageQuickshopLibraryHeaderSlider05_header">[Die Netzmacher]</label>
       <label index="content_pageQuickshopLibraryHeaderSlider05_image">typo3-die-netzmacher_timestamp.png</label>
       <label index="content_pageQuickshopLibraryHeaderSlider05_image_link">http://die-netzmacher.de/typo3-entwicklung/ - - "TYPO3 Quick Shop - von den Netzmachern. Die Entwickler von TYPO3 ohne PHP."</label>
+      <label index="content_pageQuickshopLibraryMenu_header">[Foundation top bar]</label>
       <label index="content_pageQuickshopLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
       <label index="content_pageQuickshopLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageQuickshopLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
@@ -172,9 +308,11 @@
       <label index="pageQuickshopLibraryHeader_title">Header</label>
       <label index="pageQuickshopLibraryHeaderLogo_title">Logo</label>
       <label index="pageQuickshopLibraryHeaderSlider_title">Slider</label>
+      <label index="pageQuickshopLibraryMenu_title">Menu</label>
       <label index="pageQuickshopLibraryMenubelow_title">Below the menu</label>
       <label index="pageQuickshopRevocation_title">Revocation</label>
       <label index="pageQuickshopShipping_title">Shipping</label>
+      <label index="pageQuickshopShop_title">Shop</label>
       <label index="pageQuickshopTerms_title">Terms</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (D)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">D-</label>
@@ -186,8 +324,25 @@
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[I'm according with the <a href="index.php/?id=###PID###" target="_blank">Terms and Conditions</a>.|Terms and Conditions accepted]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Homepage</label>
       <label index="plugin_browser_header">[Browser for Quick Shop]</label>
-      <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
-   * incompatibility of tree view filter and AJAX</label>
+      <label index="plugin_browser_mycomment"><![CDATA[
+* [Behaviour]
+  * Record Storage Page: Items
+  * Recursiv: Infinite
+* [Plugin]
+  * [List view]
+    * Display: Navigation [ ] Index Browser
+  * [Templating]
+    * HTML: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Don't embed it!]
+  * [jQuery & AJAX]
+    * jQuery library: [Don't embed it!]
+    * AJAX: [disabled]
+  * [Social Media]
+    * Social Bookmarks: [enabled (I'm using my own HTML template)]
+    * Bookmarks in single views
+      * table.field: tx_quickshop_products.title
+      * Bookmarks: Facebook, google.com, Hype, Live, Mister Wong, Technorati, Twitter, Yahoo
+]]></label>
       <label index="plugin_caddy_header">Caddy</label>
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
@@ -237,7 +392,7 @@
       <label index="record_qs_cat_title_books">books</label>
       <label index="record_qs_cat_title_blue">blue</label>
       <label index="record_qs_cat_title_clothes">clothes</label>
-      <label index="record_qs_cat_title_cups">cups</label>
+      <label index="record_qs_cat_title_cups">tableware</label>
       <label index="record_qs_cat_title_green">green</label>
       <label index="record_qs_cat_title_red">red</label>
       <label index="record_qs_prod_sku_book">1001</label>
@@ -252,16 +407,16 @@
       <label index="record_qs_prod_title_capBlue">Base cap (blue)</label>
       <label index="record_qs_prod_title_cup">Cup</label>
       <label index="record_qs_prod_title_pullover">Pullover</label>
-      <label index="record_qs_prod_short_book">Never seen: Images of the TYPO3 Vip. Because of the weight you can get maximum 3 books per order.</label>
+      <label index="record_qs_prod_short_book">Never seen: Images of the TYPO3 VIP. Because of the weight you can get maximum 3 books per order.</label>
       <label index="record_qs_prod_short_capGreen">Base cap in green and with TYPO3 logo</label>
       <label index="record_qs_prod_short_capRed">Base cap in red and with TYPO3 logo</label>
       <label index="record_qs_prod_short_capBlue">Base cap in blue and with TYPO3 logo</label>
-      <label index="record_qs_prod_short_cup">Cup with TYPO3 logo. The cup is cheap :) but you have to roder 2 cups per order at least.</label>
+      <label index="record_qs_prod_short_cup">Cup with TYPO3 logo. The cup is cheap :) but you have to order 2 cups per order at least.</label>
       <label index="record_qs_prod_short_pullover">Pullover with TYPO3 logo and an head on the top.</label>
       <label index="record_qs_prod_description_book"><![CDATA[Did you ever seen Kaspar with a base cap of this shop?
 You didn't.
 But now you can.
-This book is illustrated with 4.293 photos of the TYPO3 Vip. 3.923 photos have never been published. The book has 1.423 pages. The font size is 5 point. The weight is 8,74 kilogramm. The price is really, really cheap.
+This book is illustrated with 4.293 photos of the TYPO3 VIP. 3.923 photos have never been published. The book has 1.423 pages. The font size is 5 point. The weight is 8,74 kilogram. The price is really, really cheap.
 Because of the weight:
 <ul><li>3 books maximum per order!</li></ul>]]></label>
       <label index="record_qs_prod_description_capGreen">You are able to look like clever and smart - but with this base cap only.</label>
@@ -303,10 +458,22 @@ Because of the price:
       <label index="record_qs_prod_caption_capBlue">Base cap (blue)</label>
       <label index="record_qs_prod_caption_cup">Cup with TYPO3 skin inside</label>
       <label index="record_qs_prod_caption_pullover">Pullover with brain</label>
-      <label index="record_pm_fSets_title_billingAddress">billing address</label>
-      <label index="record_pm_fSets_title_order">order</label>
-      <label index="record_pm_fSets_title_contactData">contact data</label>
-      <label index="record_pm_fSets_title_deliveryAddress">delivery address</label>
+      <label index="record_qs_prod_teaser_title_book">TYPO3 VIP</label>
+      <label index="record_qs_prod_teaser_title_capGreen">Base cap</label>
+      <label index="record_qs_prod_teaser_title_capRed">Base cap</label>
+      <label index="record_qs_prod_teaser_title_capBlue">Base cap</label>
+      <label index="record_qs_prod_teaser_title_cup">Cup</label>
+      <label index="record_qs_prod_teaser_title_pullover">Pullover</label>
+      <label index="record_qs_prod_teaser_short_book">3.923 photos of the TYPO3 VIP. Never published.</label>
+      <label index="record_qs_prod_teaser_short_capGreen">Base cap in green and with TYPO3 logo</label>
+      <label index="record_qs_prod_teaser_short_capRed">Base cap in red and with TYPO3 logo</label>
+      <label index="record_qs_prod_teaser_short_capBlue">Base cap in blue and with TYPO3 logo</label>
+      <label index="record_qs_prod_teaser_short_cup">Cup with TYPO3 logo. You must order 2 cups at least.</label>
+      <label index="record_qs_prod_teaser_short_pullover">Pullover with a smart head on the top.</label>
+      <label index="record_pm_fSets_title_billingAddress">1. billing address</label>
+      <label index="record_pm_fSets_title_order">4. send</label>
+      <label index="record_pm_fSets_title_contactData">3. contact data</label>
+      <label index="record_pm_fSets_title_deliveryAddress">2. delivery address</label>
       <label index="record_pm_field_title_companyBilling">Company</label>
       <label index="record_pm_field_title_countryBilling">Country</label>
       <label index="record_pm_field_title_surnameBilling">surname</label>
@@ -442,6 +609,141 @@ Because of the price:
 ]]></label>
       <label index="content_create_header">Seiteninhalt</label>
       <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
+      <label index="content_pageQuickshop_header">Quick Shop</label>
+      <label index="content_pageQuickshop_bodytext"><![CDATA[<div class="row">
+  <div class="large-12 columns">
+    <h1>Willkommen im TYPO3 Quick Shop</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="panel">
+      <h3>Der schnellste Shop der TYPO3-Geschichte</h3>
+      <div class="row">
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="http://typo3-quick-shop.de/en/one-click" target="_blank">Ein-Klick-Installation</a><br />
+            Du kannst Quick Shop mit einem Maus-Klick installieren - schlüsselfertig.
+            Du brauchst: TYPO3, Quick Shop und eine Maus.
+          </p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="index.php?id=%$pageQuickshopShop_title%">Responsive</a><br />
+            Quick Shop ist optimiert für PC, Tablets und Smartphones.
+            Ruf den Shop auf und verändere die Größe Deines Browserfensters.
+          </p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p>
+            <a href="http://die-netzmacher.de/kontakt/" target="_blank">Professioneller Support</a><br />
+            Du willst Quick Shop nicht selbst an Deine Bedürfnisse anpassen?
+            Hol Dir professionelle Unterstützung von den Entwicklern: Die Netzmacher.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns">
+    <h3>Quick Shop: E-Commerce für kleine Budgets und kleine Unternehmen</h3>
+    <p>
+      Quick Shop ist einfach: einfach zu nutzen, einfach einzurichten, einfach zu pflegen.
+      TYPO3-Integratoren können Quick Shop mit einem Minimum an Aufwand installieren.
+      Quick Shop ist eine Lösung für kleine Budgets und kleine Unternehmen,
+      die geringe Anforderungen an E-Commerce haben.<br />
+      Quick Shop will nicht konkurrieren mit Hochleistungs-Online-Shops wie oxyd oder magento.
+      So unterstützt Quick Shop etwa kein Cross-Selling und keine Gutschein-Systeme.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 columns">
+    <h3>Probier es aus!</h3>
+    <div class="row">
+      <div class="columns">
+        <p>
+          <a href="index.php?id=%$pageQuickshopShop_title%">Mach' eine Testbestellung. Hier.</a><br />
+          Teste Quick Shop! Bestelle einen Artikel. Sieh Dir den Ablauf an. Mach eine Kostprobe!
+          Du brauchst für nichts zu bezahlen.
+        </p>
+      </div>
+    </div>
+    <h3>Installiere Quick Shop!</h3>
+    <div class="row">
+      <div class="columns">
+        <p>
+          <a href="https://typo3.org/extensions/repository/view/quick_shop/" target="_blank">Erhältlich auf typo3.org</a><br />
+          Quick Shop ist 100% Open-Source und komplett kostenlos. Lade es von typo3.org herunter.
+        </p>
+      </div>
+    </div>
+    <h3>Noch 'ne Frage?</h3>
+    <div class="row">
+      <div class="columns">
+        <p>
+          <a href="http://typo3-quick-shop.de/en/" target="_blank">Besuche unsere Homepage</a><br />
+          Oder <a href="http://die-netzmacher.de/kontakt/" target="_blank">sende</a> uns Dein Anliegen.
+          Oder veröffentliche Deine Frage im <a href="http://typo3-quick-shop.de/en/forum/" target="_blank">Quick-Shop-Forum</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="large-6 columns">
+    <h3>Features</h3>
+    <!-- Grid Example -->
+    <ul>
+      <li>
+        Bildergalerie
+      </li>
+      <li>
+        Ein-Klick-Installation
+      </li>
+      <li>
+        E-Payment
+      </li>
+      <li>
+        Lagerverwaltung
+      </li>
+      <li>
+        Mehrsprachig
+      </li>
+      <li>
+        Modular
+        <ul>
+          <li>
+            Formular-Management und Spam-Schutz: Powermail
+          </li>
+          <li>
+            Responsive Framework: Foundation
+          </li>
+          <li>
+            TYPO3-Frontend-Engine: Browser - TYPO3 ohne PHP
+          </li>
+          <li>
+            Warenkorb: Caddy
+          </li>
+        </ul>
+      </li>
+      <li>
+        Open Source
+      </li>
+      <li>
+        PDF-Anhänge
+      </li>
+      <li>
+        Responsive
+      </li>
+      <li>
+        Varianten
+      </li>
+    </ul>
+  </div>
+</div>]]></label>
       <label index="content_pageQuickshopLegalinfo_header">Impressum</label>
       <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
 <h2>Gut zu wissen</h2>
@@ -468,6 +770,7 @@ Because of the price:
       <label index="content_pageQuickshopLibraryHeaderSlider05_header">[Die Netzmacher]</label>
       <label index="content_pageQuickshopLibraryHeaderSlider05_image">typo3-die-netzmacher_timestamp.png</label>
       <label index="content_pageQuickshopLibraryHeaderSlider05_image_link">http://die-netzmacher.de/typo3-entwicklung/ - - "TYPO3 Quick Shop - von den Netzmachern. Die Entwickler von TYPO3 ohne PHP."</label>
+      <label index="content_pageQuickshopLibraryMenu_header">[Foundation Top Bar]</label>
       <label index="content_pageQuickshopLibraryMenubelow_header">[Die Netzmacher - TYPO3 Silver Member]</label>
       <label index="content_pageQuickshopLibraryMenubelow_image">netzmacher_typo3-silver-member_02_w190px_timestamp.png</label>
       <label index="content_pageQuickshopLibraryMenubelow_image_link">http://die-netzmacher.de/ - - "Powered by Die Netzmacher: TYPO3 Silver Member."</label>
@@ -520,9 +823,11 @@ Because of the price:
       <label index="pageQuickshopLibraryHeader_title">Kopf</label>
       <label index="pageQuickshopLibraryHeaderLogo_title">Logo</label>
       <label index="pageQuickshopLibraryHeaderSlider_title">Slider</label>
+      <label index="pageQuickshopLibraryMenu_title">Menü</label>
       <label index="pageQuickshopLibraryMenubelow_title">Unter dem Menü</label>
       <label index="pageQuickshopRevocation_title">Widerrufsrecht</label>
       <label index="pageQuickshopShipping_title">Versand</label>
+      <label index="pageQuickshopShop_title">Shop</label>
       <label index="pageQuickshopTerms_title">AGB</label>
       <label index="phrases_pm_fields_delivery_appendix2x"> (L)</label>
       <label index="phrases_pm_fields_delivery_prependix2x">L-</label>
@@ -534,8 +839,25 @@ Because of the price:
       <label index="phrases_powermail_termsAccepted2x"><![CDATA[Ich akzeptiere die <a href="index.php/?id=###PID###" target="_blank">AGB</a>.|AGB akzeptiert]]></label>
       <label index="phrases_ts_titleTag_quickshop_page">Quick Shop Startseite</label>
       <label index="plugin_browser_header">[Browser für Quick Shop]</label>
-      <label index="plugin_browser_mycomment">* [jQuery &amp; AJAX] &gt; AJAX [disabled]
-   * Unverträglichkeit von Baummenü-Filter (Tree View) und AJAX</label>
+      <label index="plugin_browser_mycomment"><![CDATA[
+* [Verhalten]
+  * Datensatzsammlung: Daten
+  * Rekursiv: unendlich
+* [Plugin]
+  * [Listenansicht]
+    * Display: Navigation [ ] Index Browser
+  * [Templating]
+    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * CSS jQuery UI (User Interface): [Nicht einbinden!]
+  * [jQuery & AJAX]
+    * jQuery Library: [Nicht einbinden!]
+    * AJAX: [deaktiviert]
+  * [Social Media]
+    * Social Bookmarks: [Aktiviert (ich verwende ein eigenes Template)]
+    * Bookmarks in der Detailansicht
+      * table.field: tx_quickshop_products.title
+      * Bookmarks: Facebook, google.com, Hype, Live, Mister Wong, Technorati, Twitter, Yahoo
+]]></label>
       <label index="plugin_caddy_header">Warenkorb</label>
       <label index="plugin_caddy_note_note_1x"></label>
       <label index="plugin_caddy_note_note_2x"><![CDATA[Inhalt
@@ -586,7 +908,7 @@ Because of the price:
       <label index="record_qs_cat_title_blue">Blau</label>
       <label index="record_qs_cat_title_books">Bücher</label>
       <label index="record_qs_cat_title_clothes">Kleidung</label>
-      <label index="record_qs_cat_title_cups">Tassen</label>
+      <label index="record_qs_cat_title_cups">Tischgeschirr</label>
       <label index="record_qs_cat_title_green">Grün</label>
       <label index="record_qs_cat_title_red">Rot</label>
       <label index="record_qs_prod_sku_book">1001</label>
@@ -652,10 +974,10 @@ Wegen des sagenhaft niedrigen Preises:
       <label index="record_qs_prod_caption_capBlue">Basecap (blau)</label>
       <label index="record_qs_prod_caption_cup">Tasse mit spezieller TYPO3-Innenbeschichtung</label>
       <label index="record_qs_prod_caption_pullover">Pullover mit Hirn</label>
-      <label index="record_pm_fSets_title_billingAddress">Rechnungsadresse</label>
-      <label index="record_pm_fSets_title_order">Bestellung</label>
-      <label index="record_pm_fSets_title_contactData">Kontaktdaten</label>
-      <label index="record_pm_fSets_title_deliveryAddress">Lieferadresse</label>
+      <label index="record_pm_fSets_title_billingAddress">1. Rechnungsadresse</label>
+      <label index="record_pm_fSets_title_order">4. Absenden</label>
+      <label index="record_pm_fSets_title_contactData">3. Kontaktdaten</label>
+      <label index="record_pm_fSets_title_deliveryAddress">2. Lieferadresse</label>
       <label index="record_pm_field_title_companyBilling">Firma</label>
       <label index="record_pm_field_title_countryBilling">Land</label>
       <label index="record_pm_field_title_surnameBilling">Nachname</label>

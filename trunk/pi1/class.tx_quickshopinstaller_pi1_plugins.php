@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -54,7 +54,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_quickshopinstaller_pi1_plugins
@@ -140,7 +140,7 @@ class tx_quickshopinstaller_pi1_plugins
  * @param	integer		$uid: uid of the current plugin
  * @return	array		$record : the plugin record
  * @access private
- * @version 3.0.0
+ * @version 6.0.0
  * @since   0.0.1
  */
   private function browser( $uid )
@@ -153,7 +153,7 @@ class tx_quickshopinstaller_pi1_plugins
     $myComment  = htmlspecialchars( $this->pObj->pi_getLL( 'plugin_browser_mycomment' ) );
 
     $record['uid']           = $uid;
-    $record['pid']           = $GLOBALS['TSFE']->id;
+    $record['pid']            = $this->pObj->arr_pageUids[ 'pageQuickshopShop_title' ];
     $record['tstamp']        = time( );
     $record['crdate']        = time( );
     $record['cruser_id']     = $this->pObj->markerArray['###BE_USER###'];
@@ -177,7 +177,7 @@ class tx_quickshopinstaller_pi1_plugins
                     <value index="vDEF">3</value>
                 </field>
                 <field index="navigation">
-                    <value index="vDEF">3</value>
+                    <value index="vDEF">2</value>
                 </field>
             </language>
         </sheet>
@@ -185,12 +185,6 @@ class tx_quickshopinstaller_pi1_plugins
             <language index="lDEF">
                 <field index="enabled">
                     <value index="vDEF">enabled_wi_individual_template</value>
-                </field>
-                <field index="tablefieldTitle_list">
-                    <value index="vDEF">tx_quickshop_products.title</value>
-                </field>
-                <field index="bookmarks_list">
-                    <value index="vDEF">facebook,hype,twitter</value>
                 </field>
                 <field index="tablefieldTitle_single">
                     <value index="vDEF">tx_quickshop_products.title</value>
@@ -209,7 +203,7 @@ class tx_quickshopinstaller_pi1_plugins
                     <value index="vDEF">1</value>
                 </field>
                 <field index="viewsList">
-                    <value index="vDEF">1</value>
+                    <value index="vDEF">62037</value>
                 </field>
                 <field index="myComment">
                     <value index="vDEF">' . $myComment . '</value>
@@ -219,32 +213,32 @@ class tx_quickshopinstaller_pi1_plugins
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:browser/res/html/main.tmpl</value>
+                    <value index="vDEF">EXT:browser/res/html/foundation/main_01.html</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>
                 </field>
                 <field index="css.jqui">
-                    <value index="vDEF">smoothness</value>
+                    <value index="vDEF">z_none</value>
                 </field>
             </language>
         </sheet>
         <sheet index="javascript">
             <language index="lDEF">
+                <field index="jquery_library">
+                    <value index="vDEF">none</value>
+                </field>
+                <field index="jquery_ui">
+                    <value index="vDEF">no</value>
+                </field>
+                <field index="jquery_plugins.t3browser">
+                    <value index="vDEF">ts</value>
+                </field>
+                <field index="browser_libraries">
+                    <value index="vDEF">typoscript</value>
+                </field>
                 <field index="mode">
                     <value index="vDEF">disabled</value>
-                </field>
-                <field index="ajaxChecklist">
-                    <value index="vDEF">1</value>
-                </field>
-                <field index="list_transition">
-                    <value index="vDEF">collapse</value>
-                </field>
-                <field index="single_transition">
-                    <value index="vDEF">collapse</value>
-                </field>
-                <field index="list_on_single">
-                    <value index="vDEF">single</value>
                 </field>
             </language>
         </sheet>
