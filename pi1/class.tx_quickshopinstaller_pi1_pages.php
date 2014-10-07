@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -65,7 +65,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_quickshopinstaller_pi1_pages
@@ -491,6 +491,45 @@ TCEMAIN {
   }
 
 /**
+ * pageQuickshopLibraryMenu( ) :
+ *
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @return    array        $page               : current page record
+ * @access private
+ * @version 3.0.0
+ * @since 1.0.0
+ */
+  private function pageQuickshopLibraryMenu( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageQuickshopLibraryMenu_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+    $pidTitle     = 'pageQuickshopLibrary_title';
+    $pid          = $this->pObj->arr_pageUids[ $pidTitle ];
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $pid,
+              'title'         => $llPageTitle,
+              'dokType'       => 254,  // 254: sysfolder
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
+
+    return $page;
+  }
+
+/**
  * pageQuickshopLibraryMenubelow( ) :
  *
  * @param    integer        $pageUid            : uid of the current page
@@ -663,6 +702,44 @@ TCEMAIN {
   }
 
 /**
+ * pageQuickshopShop( ) :
+ *
+ * @param    integer        $pageUid            : uid of the current page
+ * @param    integer        $sorting            : sorting value
+ * @param    string        $dateHumanReadable  : human readabel date
+ * @return    array        $page               : current page record
+ * @access private
+ * @version 6.0.0
+ * @since 6.0.0
+ */
+  private function pageQuickshopShop( $pageUid, $sorting )
+  {
+    $pageTitle    = 'pageQuickshopShop_title';
+    $llPageTitle  = $this->pObj->pi_getLL( $pageTitle );
+
+    $page = array
+            (
+              'uid'           => $pageUid,
+              'pid'           => $GLOBALS['TSFE']->id,
+              'title'         => $llPageTitle,
+              'dokType'       => 1,  // 1: page
+              'crdate'        => time( ),
+              'tstamp'        => time( ),
+              'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
+              'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
+              'perms_user'    => 31, // 31: Full access
+              'perms_group'   => 31, // 31: Full access
+              'urlType'       => 1,
+              'sorting'       => $sorting
+            );
+
+    $this->pObj->arr_pageUids[ $pageTitle ] = $pageUid;
+    $this->pObj->arr_pageTitles[ $pageUid ]   = $pageTitle;
+
+    return $page;
+  }
+
+/**
  * pageQuickshopTerms( ) :
  *
  * @param    integer        $pageUid            : uid of the current page
@@ -732,12 +809,15 @@ TCEMAIN {
  * @param    integer        $pageUid    : current page uid
  * @return    array        $arrReturn  : array with elements pages and pageUid
  * @access private
- * @version 3.0.0
+ * @version 6.0.0
  * @since 1.0.0
  */
   private function pagesQuickshopLibraryRecords( $pageUid )
   {
     $pages = array( );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageQuickshopLibraryFooter( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageQuickshopLibraryHeader( $pageUid, $sorting );
@@ -749,7 +829,7 @@ TCEMAIN {
     $pages[$pageUid] = $this->pageQuickshopLibraryHeaderSlider( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
-    $pages[$pageUid] = $this->pageQuickshopLibraryFooter( $pageUid, $sorting );
+    $pages[$pageUid] = $this->pageQuickshopLibraryMenu( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageQuickshopLibraryMenubelow( $pageUid, $sorting );
@@ -825,6 +905,9 @@ TCEMAIN {
     $pages = array( );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
+    $pages[$pageUid] = $this->pageQuickshopShop( $pageUid, $sorting );
+
+    list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
     $pages[$pageUid] = $this->pageQuickshopCaddy( $pageUid, $sorting );
 
     list( $pageUid, $sorting) = explode( ',', $this->zz_countPages( $pageUid ) );
@@ -874,7 +957,7 @@ TCEMAIN {
  * @param    array        $pages: page records
  * @return    void
  * @access private
- * @version 3.0.0
+ * @version 6.0.0
  * @since 1.0.0
  */
   private function sqlInsert( $pages )
@@ -887,12 +970,25 @@ TCEMAIN {
       if( $error )
       {
         $query  = $GLOBALS['TYPO3_DB']->INSERTquery( 'pages', $page );
-        $prompt = 'SQL-ERROR<br />' . PHP_EOL .
-                  'query: ' . $query . '.<br />' . PHP_EOL .
-                  'error: ' . $error . '.<br />' . PHP_EOL .
-                  'Sorry for the trouble.<br />' . PHP_EOL .
-                  'TYPO3-Quick-Shop Installer<br />' . PHP_EOL .
-                __METHOD__ . ' (' . __LINE__ . ')';
+        // #i0018, 141004, dwildt
+        $prompt = '<div style="border:1em solid red;margin:1em;padding:2em;">' . PHP_EOL
+                . 'SQL-ERROR<br />' . PHP_EOL
+                . 'query: ' . $query . '.<br />' . PHP_EOL
+                . 'error: ' . $error . '.<br />' . PHP_EOL
+                . 'Sorry for the trouble.<br />' . PHP_EOL
+                . 'TYPO3-Quick-Shop-Installer<br />' . PHP_EOL
+                . __METHOD__ . ' (' . __LINE__ . ')' . PHP_EOL
+                . '</div>' . PHP_EOL
+                . '<div style="border:1em solid blue;margin:1em;padding:2em;">' . PHP_EOL
+                . 'HELP<br />' . PHP_EOL
+                . '1. Please save the installer plugin again. Probably the SQL error is solved.<br />' . PHP_EOL
+                . '2. Reload this page.<br />' . PHP_EOL
+                . '3. If error occurs again, please update your database. <br />' . PHP_EOL
+                . '   See: System > Install > Import action > Database analyzer [Compare current databse with spezifications]<br />' . PHP_EOL
+                . '4. Remove installed pages.<br />' . PHP_EOL
+                . '5. Reload this page.' . PHP_EOL
+                . '</div>' . PHP_EOL
+        ;
         die( $prompt );
       }
 

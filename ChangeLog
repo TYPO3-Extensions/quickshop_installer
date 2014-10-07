@@ -1,3 +1,24 @@
+6.0.0
+  2014-10-04
+  Major Feature
+  * #62036: Manage all relations in one table
+            Will replaced
+            * tx_quickshop_products_category_mm
+            * tx_quickshop_products_dimension_mm
+            * tx_quickshop_products_material_mm
+            by
+            * tx_quickshop_mm
+  * #62030: Upgrade TYPO3 6.2
+            * Browser 6.0
+            * Foundation 5.4
+              * New page shop
+            * TYPO3 6.2
+              * #62031: require_once(PATH_tslib . 'class.tslib_pibase.php')
+            * Installation
+              * #i0018: qualified SQL-ERROR
+  Bugfix
+  * #i0019: ###BE_USER### wasn't allocated
+
 4.0.5
   2014-05-17
   Improvement

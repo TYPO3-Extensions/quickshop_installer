@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2013 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
+*  (c) 2013-2014 - Dirk Wildt <http://wildt.at.die-netzmacher.de>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -55,7 +55,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 3.0.0
+ * @version 6.0.0
  * @since 3.0.0
  */
 class tx_quickshopinstaller_pi1_content
@@ -102,6 +102,40 @@ class tx_quickshopinstaller_pi1_content
   * Records
   *
   **********************************************/
+
+/**
+ * pageQuickshop( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 6.0.0
+ * @since   6.0.0
+ */
+  private function pageQuickshop( $uid )
+  {
+    $record = null;
+
+    $llHeader = $this->pObj->pi_getLL( 'content_pageQuickshop_header' );
+    $this->pObj->arr_contentUids['content_pageQuickshop_header']  = $uid;
+
+    $bodytext     = $this->pObj->pi_getLL('content_pageQuickshop_bodytext');
+    $pageQuickshopShop_title = $this->pObj->arr_pageUids[ 'pageQuickshopShop_title' ];
+    $bodytext = str_replace( '%$pageQuickshopShop_title%', $pageQuickshopShop_title, $bodytext );
+
+    $record['uid']          = $uid;
+    $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshop_title' ];
+    $record['tstamp']       = time( );
+    $record['crdate']       = time( );
+    $record['cruser_id']    = $this->pObj->markerArray['###BE_USER###'];
+    $record['sorting']      = 256 * 1;
+    $record['CType']        = 'html';
+    $record['header']       = $llHeader;
+    $record['bodytext']     = $bodytext;
+    $record['sectionIndex'] = 1;
+
+    return $record;
+  }
 
 /**
  * pageQuickshopCaddy( )
@@ -252,7 +286,7 @@ class tx_quickshopinstaller_pi1_content
     $llImageWiTimestamp = str_replace( 'timestamp', time( ), $llImage );
     $this->pObj->arr_fileUids[ $llImage ] = $llImageWiTimestamp;
 //var_dump( __METHOD__, __LINE__, $this->pObj->arr_fileUids );
-    
+
     $image_link = $this->pObj->pi_getLL( 'content_pageQuickshopLibraryHeaderLogo_image_link' );
     $image_link = str_replace( '%pageQuickshop_title%', $this->pObj->arr_pageUids[ 'pageQuickshop_title' ], $image_link);
 
@@ -474,6 +508,37 @@ class tx_quickshopinstaller_pi1_content
   }
 
 /**
+ * pageQuickshopLibraryMenu( )
+ *
+ * @param	integer		$uid: uid of the current plugin
+ * @return	array		$record : the plugin record
+ * @access private
+ * @version 6.0.0
+ * @since   6.0.0
+ */
+  private function pageQuickshopLibraryMenu( $uid )
+  {
+    $record = null;
+
+    $llLabel  = 'content_pageQuickshopLibraryMenu_header';
+    $llTitle  = $this->pObj->pi_getLL( $llLabel );
+    $this->pObj->arr_contentUids[ $llLabel ] = $uid;
+
+    $record[ 'uid' ] = $uid;
+    $record[ 'pid' ] = $this->pObj->arr_pageUids[ 'pageQuickshopLibraryMenu_title' ];
+    $record[ 'tstamp' ] = time();
+    $record[ 'crdate' ] = time();
+    $record[ 'cruser_id' ] = $this->pObj->markerArray[ '###BE_USER###' ];
+    $record[ 'sorting' ] = 256 * 1;
+    $record[ 'CType' ] = 'menu';
+    $record[ 'header' ] = $llTitle;
+    $record[ 'header_layout' ] = 100; // hidden
+    $record[ 'menu_type' ] = 'browserFoundationTopNav';
+
+    return $record;
+  }
+
+/**
  * pageQuickshopLibraryMenubelow( )
  *
  * @param	integer		$uid: uid of the current plugin
@@ -617,7 +682,11 @@ class tx_quickshopinstaller_pi1_content
     $records  = array( );
     $uid      = $this->pObj->zz_getMaxDbUid( 'tt_content' );
 
-      // content for page delivery
+      // content for root page
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageQuickshop( $uid );
+
+      // content for page caddy
     $uid = $uid + 1;
     $records[$uid] = $this->pageQuickshopCaddy( $uid );
 
@@ -663,6 +732,9 @@ class tx_quickshopinstaller_pi1_content
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageQuickshopLibraryHeaderSlider05( $uid );
+
+    $uid = $uid + 1;
+    $records[$uid] = $this->pageQuickshopLibraryMenu( $uid );
 
     $uid = $uid + 1;
     $records[$uid] = $this->pageQuickshopLibraryMenubelow( $uid );

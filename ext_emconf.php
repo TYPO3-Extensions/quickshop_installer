@@ -19,7 +19,7 @@ $EM_CONF[$_EXTKEY] = array(
   . 'Manual: http://typo3-quick-shop.de/typo3conf/ext/quickshop_installer/doc/manual.pdf ',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '4.0.5',
+	'version' => '6.0.0',
 	'dependencies' => 'browser,caddy,powermail,quick_shop',
 	'conflicts' => '',
 	'priority' => '',
@@ -42,7 +42,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'caddy' => '',
 			'powermail' => '',
 			'quick_shop' => '',
-			'typo3' => '4.5.0-6.1.99',
+			'typo3' => '4.5.0-6.2.99',
 		),
 		'conflicts' => array(
 		),
