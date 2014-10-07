@@ -708,12 +708,10 @@ plugin.tx_powermail_pi1 {
 plugin.tx_powermail {
   _LOCAL_LANG {
     default {
-        // Next button will be empty in Powermail 2.x
-      //confirmation_next = Order without commitment
+      confirmation_next = Order without commitment
     }
     de {
-        // Next button will be empty in Powermail 2.x
-      //confirmation_next = Unverbindlich testen
+      confirmation_next = Unverbindlich testen
     }
   }
 }
