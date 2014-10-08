@@ -14,7 +14,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Quick Shop Installer – one-click-installation for Quick Shop',
 	'description' => ''
   . 'http://typo3-quick-shop.de/en/one-click/. '
-  . 'The installer installs Quick Shop – responsive, ready-to-use. '
+  . 'The installer installs Quick Shop – responsive and ready-to-use. '
   . 'Quick shop is optimised for desktops, tablets and smartphones. '
   . 'Quick Shop is e-commerce for small budget and small-scale enterprises. '
   . 'Manual: http://typo3-quick-shop.de/typo3conf/ext/quickshop_installer/doc/manual.pdf '
