@@ -121,7 +121,7 @@ class tx_quickshopinstaller_pi1_content
 
     $bodytext     = $this->pObj->pi_getLL('content_pageQuickshop_bodytext');
     $pageQuickshopShop_title = $this->pObj->arr_pageUids[ 'pageQuickshopShop_title' ];
-    $bodytext = str_replace( '%$pageQuickshopShop_title%', $pageQuickshopShop_title, $bodytext );
+    $bodytext = str_replace( '%pageQuickshopShop_title%', $pageQuickshopShop_title, $bodytext );
 
     $record['uid']          = $uid;
     $record['pid']          = $this->pObj->arr_pageUids[ 'pageQuickshop_title' ];

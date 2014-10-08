@@ -119,7 +119,7 @@
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="index.php?id=%$pageQuickshopShop_title%">Responsive</a><br />
+            <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
             Quick Shop is optimised for PC, tablets and smartphones.
             Go to the shop and vary the size of your browser window.
           </p>
@@ -143,9 +143,7 @@
       Quick Shop is easy: easy to use, easy to configure, easy to handle.
       TYPO3 integrators can install Quick Shop with minimum costs.
       Quick Shop is the solution for a small budget and for small-scale enterprises,
-      which make low demands on e-commerce.<br />
-      Quick Shop doesn't contend with high capacity online shops like oxyd or magento.
-      For example: Quick Shop doesn't support features like cross-seling or bonus management.
+      which make low demands on e-commerce.
     </p>
   </div>
 </div>
@@ -156,7 +154,7 @@
     <div class="row">
       <div class="columns">
         <p>
-          <a href="index.php?id=%$pageQuickshopShop_title%">Test an order. Here.</a><br />
+          <a href="index.php?id=%pageQuickshopShop_title%">Test an order. Here.</a><br />
           Test Quick Shop! Order an item. Check the workflow. Taste it!
           You don't need to pay nothing.
         </p>
@@ -219,20 +217,35 @@
         Open Source
       </li>
       <li>
+        Optimised for search Engines (SEO)
+      </li>
+      <li>
         PDF attachments
       </li>
       <li>
         Responsive
       </li>
       <li>
-        Stock management
+        Simplified variants
       </li>
       <li>
-        Variants
+        Stock management
       </li>
     </ul>
   </div>
-</div>]]></label>
+</div>
+
+<div class="row">
+  <div class="columns">
+    <h3>Quick Shop: no competition with complex shop solutions</h3>
+    <p>
+      Quick Shop doesn't contend with complex shop solutions like oxyd or magento.
+      For example: Quick Shop doesn't support features like cross-selling or bonus management.
+      The management of variants is unsimilar.
+    </p>
+  </div>
+</div>
+]]></label>
       <label index="content_pageQuickshopLegalinfo_header">Legal info</label>
       <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
 <h2>Good to know</h2>
@@ -630,7 +643,7 @@ Because of the price:
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="index.php?id=%$pageQuickshopShop_title%">Responsive</a><br />
+            <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
             Quick Shop ist optimiert für PC, Tablets und Smartphones.
             Ruf den Shop auf und verändere die Größe Deines Browserfensters.
           </p>
@@ -655,8 +668,6 @@ Because of the price:
       TYPO3-Integratoren können Quick Shop mit einem Minimum an Aufwand installieren.
       Quick Shop ist eine Lösung für kleine Budgets und kleine Unternehmen,
       die geringe Anforderungen an E-Commerce haben.<br />
-      Quick Shop will nicht konkurrieren mit Hochleistungs-Online-Shops wie oxyd oder magento.
-      So unterstützt Quick Shop etwa kein Cross-Selling und keine Gutschein-Systeme.
     </p>
   </div>
 </div>
@@ -667,7 +678,7 @@ Because of the price:
     <div class="row">
       <div class="columns">
         <p>
-          <a href="index.php?id=%$pageQuickshopShop_title%">Mach' eine Testbestellung. Hier.</a><br />
+          <a href="index.php?id=%pageQuickshopShop_title%">Mach' eine Testbestellung. Hier.</a><br />
           Teste Quick Shop! Bestelle einen Artikel. Sieh Dir den Ablauf an. Mach eine Kostprobe!
           Du brauchst für nichts zu bezahlen.
         </p>
@@ -733,17 +744,33 @@ Because of the price:
         Open Source
       </li>
       <li>
+        Optimiert für Suchmaschinen (SEO)
+      </li>
+      <li>
         PDF-Anhänge
       </li>
       <li>
         Responsive
       </li>
       <li>
-        Varianten
+        Vereinfachte Varianten
       </li>
     </ul>
   </div>
-</div>]]></label>
+</div>
+
+<div class="row">
+  <div class="columns">
+    <h3>Quick Shop: Keine Konkurrenz zu komplexen Shop-Lösungen</h3>
+    <p>
+      Quick Shop konkurriert nicht mit komplexen Shop-Lösungen wie Oxyd oder Magento.
+      So unterstützt Quick Shop etwa kein Cross-Selling und keine Gutschein-Systeme.
+      Die Möglichkeit, mit Varianten zu arbeiten, ist nicht vergleichbar.
+    </p>
+  </div>
+</div>
+
+]]></label>
       <label index="content_pageQuickshopLegalinfo_header">Impressum</label>
       <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
 <h2>Gut zu wissen</h2>
