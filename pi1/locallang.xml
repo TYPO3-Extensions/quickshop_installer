@@ -108,20 +108,20 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="panel">
-      <h3>The fastest Shop in the history of TYPO3</h3>
+      <h3>Responsive and ready-to-use. Installation with one mouse-click.</h3>
       <div class="row">
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="http://typo3-quick-shop.de/en/one-click" target="_blank">One-Click-Installation</a><br />
-            You are welcome to install Quick Shop with one mouse click - ready-to-use.
-            You need: TYPO3, Quick Shop and a mouse.
+            <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
+            Quick Shop is optimised for desktops, tablets and smartphones.
+            Test it: go to the shop and vary the size of your browser window.
           </p>
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
-            Quick Shop is optimised for PC, tablets and smartphones.
-            Go to the shop and vary the size of your browser window.
+            <a href="http://typo3-quick-shop.de/en/one-click" target="_blank">Ready-to-use</a><br />
+            You are welcome to install Quick Shop with one mouse-click &ndash; responsive and ready-to-use.
+            You need: TYPO3, Quick Shop and a mouse.
           </p>
         </div>
         <div class="large-4 medium-4 columns">
@@ -206,7 +206,7 @@
             Shopping cart: Caddy
           </li>
           <li>
-            TYPO3-frontend-engine: Browser - TYPO3 without PHP
+            TYPO3-frontend-engine: Browser &ndash; TYPO3 without PHP
           </li>
         </ul>
       </li>
@@ -244,8 +244,7 @@
       The management of variants is unsimilar.
     </p>
   </div>
-</div>
-]]></label>
+</div>]]></label>
       <label index="content_pageQuickshopLegalinfo_header">Legal info</label>
       <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Your legal info</p>
 <h2>Good to know</h2>
@@ -632,20 +631,20 @@ Because of the price:
 <div class="row">
   <div class="large-12 columns">
     <div class="panel">
-      <h3>Der schnellste Shop der TYPO3-Geschichte</h3>
+      <h3>Responsive und schlüsselfertig. Installation mit einem Maus-Klick.</h3>
       <div class="row">
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="http://typo3-quick-shop.de/en/one-click" target="_blank">Ein-Klick-Installation</a><br />
-            Du kannst Quick Shop mit einem Maus-Klick installieren - schlüsselfertig.
-            Du brauchst: TYPO3, Quick Shop und eine Maus.
+            <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
+            Quick Shop ist optimiert für Desktops, Tablets und Smartphones.
+            Probier es aus:  Geh zum Shop und verändere die Größe Deines Browserfensters.
           </p>
         </div>
         <div class="large-4 medium-4 columns">
           <p>
-            <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
-            Quick Shop ist optimiert für PC, Tablets und Smartphones.
-            Ruf den Shop auf und verändere die Größe Deines Browserfensters.
+            <a href="http://typo3-quick-shop.de/en/one-click" target="_blank">Schlüsselfertig</a><br />
+            Du kannst Quick Shop mit einem Maus-Klick installieren &ndash; responsive und schlüsselfertig.
+            Du brauchst: TYPO3, Quick Shop und eine Maus.
           </p>
         </div>
         <div class="large-4 medium-4 columns">
@@ -733,7 +732,7 @@ Because of the price:
             Responsive Framework: Foundation
           </li>
           <li>
-            TYPO3-Frontend-Engine: Browser - TYPO3 ohne PHP
+            TYPO3-Frontend-Engine: Browser &ndash; TYPO3 ohne PHP
           </li>
           <li>
             Warenkorb: Caddy
@@ -768,9 +767,7 @@ Because of the price:
       Die Möglichkeit, mit Varianten zu arbeiten, ist nicht vergleichbar.
     </p>
   </div>
-</div>
-
-]]></label>
+</div>]]></label>
       <label index="content_pageQuickshopLegalinfo_header">Impressum</label>
       <label index="content_pageQuickshopLegalinfo_bodytext"><![CDATA[<p>Hier solltest Du Dein Impressum angeben.</p>
 <h2>Gut zu wissen</h2>
