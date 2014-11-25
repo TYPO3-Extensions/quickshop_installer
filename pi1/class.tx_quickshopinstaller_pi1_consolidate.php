@@ -357,16 +357,16 @@ class tx_quickshopinstaller_pi1_consolidate
         <sheet index="paths">
             <language index="lDEF">
                 <field index="terms">
-                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop_for_caddy.pdf</value>
                 </field>
                 <field index="revocation">
-                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop_for_caddy.pdf</value>
                 </field>
                 <field index="invoice">
-                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop_for_caddy.pdf</value>
                 </field>
                 <field index="deliveryorder">
-                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop-draft.pdf</value>
+                    <value index="vDEF">typo3conf/ext/quick_shop/Ressources/Private/Pdf/typo3-quick-shop_for_caddy.pdf</value>
                 </field>
             </language>
         </sheet>

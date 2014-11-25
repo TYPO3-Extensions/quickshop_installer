@@ -185,6 +185,9 @@
     <!-- Grid Example -->
     <ul>
       <li>
+        ebay interface
+      </li>
+      <li>
         E-payment
       </li>
       <li>
@@ -212,9 +215,6 @@
       </li>
       <li>
         One-Click-Installation
-      </li>
-      <li>
-        Open Source
       </li>
       <li>
         Optimised for search Engines (SEO)
@@ -383,14 +383,14 @@
       <label index="plugin_powermail_subject_r2x">New Quick Shop order {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_subject_s1x">[TEST] Your Quick Shop order ####POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_s2x">[TEST] Your Quick Shop order #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Thanks!</h1>
+      <label index="plugin_powermail_thanks1x"><![CDATA[<h2>Thanks!</h2>
 <p>Thanks for your order.</p>
 <p>We sent a confirmation to your e-mail.</p>
 <h2>Good to know</h2>
 <p>This is a demo shop only.</p>
 <ul><li>The shop demonstrates the workflow of Quick Shop.</li><li>The ordered items aren't available.</li><li>Invoice and delivery order are for demonstration only.</li><li>You don't need to pay the invoice of course.</li></ul>
 <p>Thanks, that you are interested in TYPO3 Quick Shop! ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
-      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Thanks {billingaddressfirstname} {billingaddresslastname}!</h1>
+      <label index="plugin_powermail_thanks2x"><![CDATA[<h2>Thanks {billingaddressfirstname} {billingaddresslastname}!</h2>
 <p>Thanks for your order.</p>
 <p>You get a confirmation to your e-mail {contactdataemail}.</p>
 <h2>Good to know</h2>
@@ -666,7 +666,7 @@ Because of the price:
       Quick Shop ist einfach: einfach zu nutzen, einfach einzurichten, einfach zu pflegen.
       TYPO3-Integratoren können Quick Shop mit einem Minimum an Aufwand installieren.
       Quick Shop ist eine Lösung für kleine Budgets und kleine Unternehmen,
-      die geringe Anforderungen an E-Commerce haben.<br />
+      die geringe Anforderungen an E-Commerce haben.
     </p>
   </div>
 </div>
@@ -711,6 +711,9 @@ Because of the price:
         Bildergalerie
       </li>
       <li>
+        ebay-Interface
+      </li>
+      <li>
         Ein-Klick-Installation
       </li>
       <li>
@@ -738,9 +741,6 @@ Because of the price:
             Warenkorb: Caddy
           </li>
         </ul>
-      </li>
-      <li>
-        Open Source
       </li>
       <li>
         Optimiert für Suchmaschinen (SEO)
@@ -910,14 +910,14 @@ Because of the price:
       <label index="plugin_powermail_subject_r2x">Neue Quick-Shop-Bestellung #{f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
       <label index="plugin_powermail_subject_s1x">[TEST] Deine Quick-Shop-Bestellung ###POWERMAIL_TYPOSCRIPT_CADDYORDERNUMBER###</label>
       <label index="plugin_powermail_subject_s2x">[TEST] Deine Quick-Shop-Bestellung {f:cObject(typoscriptObjectPath:'plugin.tx_caddy_pi1.powermail.caddyordernumber')}</label>
-      <label index="plugin_powermail_thanks1x"><![CDATA[<h1>Danke!</h1>
+      <label index="plugin_powermail_thanks1x"><![CDATA[<h2>Danke!</h2>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erh&auml;ltst eine Best&auml;tigung an Deine E-Mail-Adresse.</p>
 <h2>Besondere Hinweise</h2>
 <p>Dies ist ein Demo-Shop</p>
 <ul><li>Der Shop zeigt, wie TYPO3-Quick-Shop funktioniert.</li><li>Die von Dir bestellten Artikel gibt es nicht.</li><li>Du bekommst die Artikel nicht geliefert.</li><li>Rechnung und Lieferschein an Deine Adresse dienen nur der Demonstration.</li><li>Die Rechnung muss selbstverst&auml;ndlich nicht beglichen werden.</li></ul>
 <p>Danke, dass Du Dich f&uuml;r TYPO3-Quick-Shop interessierst. ###POWERMAIL_TYPOSCRIPT_CLEARCADDYSESSION###</p>]]></label>
-      <label index="plugin_powermail_thanks2x"><![CDATA[<h1>Danke {billingaddressfirstname} {billingaddresslastname}!</h1>
+      <label index="plugin_powermail_thanks2x"><![CDATA[<h2>Danke {billingaddressfirstname} {billingaddresslastname}!</h2>
 <p>Herzlichen Dank für Deine Bestellung.</p>
 <p>Du erhältst eine Bestätigung an Deine E-Mail-Adresse {contactdataemail}.</p>
 <h2>Besondere Hinweise</h2>
