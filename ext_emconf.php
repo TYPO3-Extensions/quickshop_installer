@@ -21,7 +21,7 @@ $EM_CONF[$_EXTKEY] = array(
   ,
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '6.0.0',
+	'version' => '6.0.1',
 	'dependencies' => 'browser,caddy,powermail,quick_shop',
 	'conflicts' => '',
 	'priority' => '',
