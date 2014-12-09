@@ -531,6 +531,11 @@ Because of the price:
         * Look for pageNotFoundOnCHashError<br />
         You can change the value back to true after the installation.
       ]]></label>
+      <label index="typo3LanguagePrompt_header">Translation mismatch?</label>
+      <label index="typo3LanguagePrompt_prompt"><![CDATA[
+        If there isn't any proper translation, please remove<br />
+        %pathToFileFromTranslationServer%
+      ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
       <label index="back">Zurück</label>
@@ -998,6 +1003,18 @@ Wegen des sagenhaft niedrigen Preises:
       <label index="record_qs_prod_caption_capBlue">Basecap (blau)</label>
       <label index="record_qs_prod_caption_cup">Tasse mit spezieller TYPO3-Innenbeschichtung</label>
       <label index="record_qs_prod_caption_pullover">Pullover mit Hirn</label>
+      <label index="record_qs_prod_teaser_title_book">TYPO3 VIP</label>
+      <label index="record_qs_prod_teaser_title_capGreen">Basecap</label>
+      <label index="record_qs_prod_teaser_title_capRed">Basecap</label>
+      <label index="record_qs_prod_teaser_title_capBlue">Basecap</label>
+      <label index="record_qs_prod_teaser_title_cup">Tasse</label>
+      <label index="record_qs_prod_teaser_title_pullover">Pullover</label>
+      <label index="record_qs_prod_teaser_short_book">3.923 Fotos der TYPO3 VIP. Nirgends veröffentlicht.</label>
+      <label index="record_qs_prod_teaser_short_capGreen">Basecap in grün und mit TYPO3-Logo.</label>
+      <label index="record_qs_prod_teaser_short_capRed">Basecap in rot und mit TYPO3-Logo.</label>
+      <label index="record_qs_prod_teaser_short_capBlue">Basecap in blau und mit TYPO3-Logo.</label>
+      <label index="record_qs_prod_teaser_short_cup">Tasse mit TYPO3-Logo. Du musst mindestens 2 bestellen.</label>
+      <label index="record_qs_prod_teaser_short_pullover">Pullover mit schlauem Kopf drauf.</label>
       <label index="record_pm_fSets_title_billingAddress">1. Rechnungsadresse</label>
       <label index="record_pm_fSets_title_order">4. Absenden</label>
       <label index="record_pm_fSets_title_contactData">3. Kontaktdaten</label>
@@ -1046,6 +1063,11 @@ Wegen des sagenhaft niedrigen Preises:
         * Siehe Adminwerkzeug > Installation > All Configuration<br />
         * Suche nach pageNotFoundOnCHashError<br />
         Du kannst nach der Installation die Einstellung wieder auf true zurücksetzen.
+      ]]></label>
+      <label index="typo3LanguagePrompt_header">Übersetzungsprobleme?</label>
+      <label index="typo3LanguagePrompt_prompt"><![CDATA[
+        Falls Du keine korrekte Übersetzung siehst, lösche bitte<br />
+        %pathToFileFromTranslationServer%
       ]]></label>
     </languageKey>
   </data>
