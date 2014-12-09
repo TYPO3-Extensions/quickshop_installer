@@ -534,7 +534,8 @@ Because of the price:
       <label index="typo3LanguagePrompt_header">Translation mismatch?</label>
       <label index="typo3LanguagePrompt_prompt"><![CDATA[
         If there isn't any proper translation, please remove<br />
-        %pathToFileFromTranslationServer%
+        %pathToFileFromTranslationServer%<br />
+        And please empty your system cache.
       ]]></label>
     </languageKey>
     <languageKey index="de" type="array">
@@ -1067,7 +1068,8 @@ Wegen des sagenhaft niedrigen Preises:
       <label index="typo3LanguagePrompt_header">Übersetzungsprobleme?</label>
       <label index="typo3LanguagePrompt_prompt"><![CDATA[
         Falls Du keine korrekte Übersetzung siehst, lösche bitte<br />
-        %pathToFileFromTranslationServer%
+        %pathToFileFromTranslationServer%<br />
+        Und leere Deinen System-Cache.
       ]]></label>
     </languageKey>
   </data>
