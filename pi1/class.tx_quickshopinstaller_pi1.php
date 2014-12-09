@@ -169,14 +169,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     // #62087, 141007, dwildt, DEV, 1
     //$this->LLkey = $GLOBALS[ 'TSFE' ]->lang;
     $this->pi_loadLL();
-    // #62087, 141007, dwildt, DEV, 7
-//    $this->LLkey = $GLOBALS[ 'TSFE' ]->lang;
-//    var_dump( __METHOD__, __LINE__, $this->LLkey,
-//            $this->pi_getLL( 'error_all_h1' ),
-//            Tx_Extbase_Utility_Localization::translate( 'error_all_h1', $this->extKey ),
-//            $GLOBALS[ 'LANG' ]->sL( 'LLL:EXT:quickshop_installer/pi1/locallang.xml:error_all_h1' )
-//    );
-//    die( ':(' );
+
     $this->initTypo3version();
 
     // Get values from the flexform
@@ -1078,6 +1071,9 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
   {
     $success = true;
 
+    // #62087, 141210, dwildt, 1+
+    $this->typo3LanguagePrompt();
+
     // #57390, 140327, dwildt, 7+
     // RETURN if there is any problem with dependencies
     if ( !$this->typo3ConfigVarsCheck() )
@@ -1253,6 +1249,44 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
     $this->arrReport[] = $prompt;
     $configIsOk = false;
     return $configIsOk;
+  }
+
+  /**
+   * typo3LanguagePrompt( ) :
+   *
+   * @return	void
+   * @access private
+   * @version   6.0.2
+   * @since     6.0.2
+   * @internal #62087
+   */
+  private function typo3LanguagePrompt()
+  {
+    // #62087, 141007, dwildt, DEV, 7
+    $lang = $GLOBALS[ 'TSFE' ]->lang;
+    if ( $lang == "default" )
+    {
+      return;
+    }
+
+    $pathToFileFromTranslationServer = t3lib_div::getIndpEnv( 'TYPO3_DOCUMENT_ROOT' ) . '/typo3conf/l10n/' . $lang . '/' . $this->extKey;
+
+    // RETURN : file is missing
+    if ( !file_exists( $pathToFileFromTranslationServer ) )
+    {
+      return;
+    }
+
+    // Header
+    $prompt = $this->arr_icons[ 'warn' ] . $this->pi_getLL( 'typo3LanguagePrompt_prompt' );
+    $prompt = str_replace( '%pathToFileFromTranslationServer%', $pathToFileFromTranslationServer, $prompt );
+    $this->arrReport[] = '
+      <h2>
+       ' . $this->pi_getLL( 'typo3LanguagePrompt_header' ) . '
+      </h2>
+      <p>
+        ' . $prompt . '<br />
+      </p>';
   }
 
   /*   * *********************************************

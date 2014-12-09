@@ -1,3 +1,9 @@
+6.0.2
+  2014-12-10
+  Feature
+  * #62087: pi_loadLL failes in TYPO3 6.2
+            * Prompt: Remove LL cache in case of non default language
+
 6.0.1
   2014-11-29
   Feature
