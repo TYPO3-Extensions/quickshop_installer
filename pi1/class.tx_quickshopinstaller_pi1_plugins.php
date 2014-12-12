@@ -213,7 +213,7 @@ class tx_quickshopinstaller_pi1_plugins
         <sheet index="templating">
             <language index="lDEF">
                 <field index="template">
-                    <value index="vDEF">EXT:browser/res/html/foundation/main_01.html</value>
+                    <value index="vDEF">EXT:browser/Resources/Private/Templates/HTML/Foundation/main_01.html</value>
                 </field>
                 <field index="css.browser">
                     <value index="vDEF">ts</value>

@@ -973,7 +973,7 @@ class tx_quickshopinstaller_pi1_quickshop
                 . '1. Please save the installer plugin again. Probably the SQL error is solved.<br />' . PHP_EOL
                 . '2. Reload this page.<br />' . PHP_EOL
                 . '3. If error occurs again, please update your database. <br />' . PHP_EOL
-                . '   See: System > Install > Import action > Database analyzer [Compare current databse with spezifications]<br />' . PHP_EOL
+                . '   See: System > Install > Import action > Database analyzer [Compare current database with spezifications]<br />' . PHP_EOL
                 . '4. Remove installed pages.<br />' . PHP_EOL
                 . '5. Reload this page.' . PHP_EOL
                 . '</div>' . PHP_EOL

@@ -26,7 +26,7 @@
       <label index="consolidate_prompt_template">Former templates on the page ###TITLE_PID### are hidden.</label>
       <label index="content_caddy_header">[fade_deliveryorderaddress.jss]</label>
       <label index="content_caddy_bodytext"><![CDATA[
-<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="typo3conf/ext/browser/Resources/Public/JavaScript/jQuery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   /**
@@ -555,7 +555,7 @@ Because of the price:
       <label index="confirm_button">Installieren</label>
       <label index="content_caddy_header">[fade_Lieferadresse.jss]</label>
       <label index="content_caddy_bodytext"><![CDATA[
-<script src="typo3conf/ext/browser/res/js/jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="typo3conf/ext/browser/Resources/Public/JavaScript/jQuery/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
   /**
@@ -877,7 +877,7 @@ Because of the price:
   * [Listenansicht]
     * Display: Navigation [ ] Index Browser
   * [Templating]
-    * HTML-Vorlage: [Foundation - Main 2: Searchform / Title, Browser, Content (browser)]
+    * HTML-Vorlage: [Foundation with own HTML snippet - 2: Searchform | Title, Browser, Content]
     * CSS jQuery UI (User Interface): [Nicht einbinden!]
   * [jQuery & AJAX]
     * jQuery Library: [Nicht einbinden!]

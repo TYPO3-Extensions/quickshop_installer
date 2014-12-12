@@ -691,9 +691,9 @@ plugin.tx_browser_pi1 {
   private function recordRootStaticFilesPowermail2x()
   {
     $staticFiles = 'EXT:css_styled_content/static/'
-            . ',EXT:browser/static/Foundation/Framework/'
-            . ',EXT:browser/static/'
-            . ',EXT:browser/static/Foundation/Templating/'
+            . ',EXT:browser/Configuration/TypoScript/Foundation/Framework/'
+            . ',EXT:browser/Configuration/TypoScript/'
+            . ',EXT:browser/Configuration/TypoScript/Foundation/Templating/'
             . ',EXT:caddy/Configuration/TypoScript/Basis/'
             . ',EXT:caddy/Configuration/TypoScript/Css/orange/'
             . ',EXT:caddy/Configuration/TypoScript/Foundation/5x/'
