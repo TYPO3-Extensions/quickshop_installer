@@ -692,6 +692,7 @@ plugin.tx_browser_pi1 {
   {
     $staticFiles = 'EXT:css_styled_content/static/'
             . ',EXT:browser/Configuration/TypoScript/Foundation/Framework/'
+            . ',EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/modernizr/'
             . ',EXT:browser/Configuration/TypoScript/'
             . ',EXT:browser/Configuration/TypoScript/Foundation/Templating/'
             . ',EXT:caddy/Configuration/TypoScript/Basis/'
