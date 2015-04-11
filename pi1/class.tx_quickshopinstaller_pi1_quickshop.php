@@ -369,7 +369,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record[ 'sku' ] = $this->pObj->pi_getLL( 'record_qs_prod_sku_capBlue' );
     $record[ 'short' ] = $this->pObj->pi_getLL( 'record_qs_prod_short_capBlue' );
     $record[ 'description' ] = $this->pObj->pi_getLL( 'record_qs_prod_description_capBlue' );
-    $record[ 'category' ] = 1;
+    $record[ 'tx_quickshop_categories' ] = 1;
     $record[ 'price' ] = $this->pObj->pi_getLL( 'record_qs_prod_price_capBlue' );
     $record[ 'tax' ] = $this->pObj->pi_getLL( 'record_qs_prod_tax_capBlue' );
     $record[ 'stockquantity' ] = $this->pObj->pi_getLL( 'record_qs_prod_stockquantity_capBlue' );
@@ -419,7 +419,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record[ 'sku' ] = $this->pObj->pi_getLL( 'record_qs_prod_sku_capGreen' );
     $record[ 'short' ] = $this->pObj->pi_getLL( 'record_qs_prod_short_capGreen' );
     $record[ 'description' ] = $this->pObj->pi_getLL( 'record_qs_prod_description_capGreen' );
-    $record[ 'category' ] = 1;
+    $record[ 'tx_quickshop_categories' ] = 1;
     $record[ 'price' ] = $this->pObj->pi_getLL( 'record_qs_prod_price_capGreen' );
     $record[ 'tax' ] = $this->pObj->pi_getLL( 'record_qs_prod_tax_capGreen' );
     $record[ 'stockquantity' ] = $this->pObj->pi_getLL( 'record_qs_prod_stockquantity_capGreen' );
@@ -469,7 +469,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record[ 'sku' ] = $this->pObj->pi_getLL( 'record_qs_prod_sku_capRed' );
     $record[ 'short' ] = $this->pObj->pi_getLL( 'record_qs_prod_short_capRed' );
     $record[ 'description' ] = $this->pObj->pi_getLL( 'record_qs_prod_description_capRed' );
-    $record[ 'category' ] = 1;
+    $record[ 'tx_quickshop_categories' ] = 1;
     $record[ 'price' ] = $this->pObj->pi_getLL( 'record_qs_prod_price_capRed' );
     $record[ 'tax' ] = $this->pObj->pi_getLL( 'record_qs_prod_tax_capRed' );
     $record[ 'stockquantity' ] = $this->pObj->pi_getLL( 'record_qs_prod_stockquantity_capRed' );
@@ -519,7 +519,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record[ 'sku' ] = $this->pObj->pi_getLL( 'record_qs_prod_sku_book' );
     $record[ 'short' ] = $this->pObj->pi_getLL( 'record_qs_prod_short_book' );
     $record[ 'description' ] = $this->pObj->pi_getLL( 'record_qs_prod_description_book' );
-    $record[ 'category' ] = 1;
+    $record[ 'tx_quickshop_categories' ] = 1;
     $record[ 'price' ] = $this->pObj->pi_getLL( 'record_qs_prod_price_book' );
     $record[ 'tax' ] = $this->pObj->pi_getLL( 'record_qs_prod_tax_book' );
     $record[ 'stockquantity' ] = $this->pObj->pi_getLL( 'record_qs_prod_stockquantity_book' );
@@ -571,7 +571,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record[ 'sku' ] = $this->pObj->pi_getLL( 'record_qs_prod_sku_cup' );
     $record[ 'short' ] = $this->pObj->pi_getLL( 'record_qs_prod_short_cup' );
     $record[ 'description' ] = $this->pObj->pi_getLL( 'record_qs_prod_description_cup' );
-    $record[ 'category' ] = 1;
+    $record[ 'tx_quickshop_categories' ] = 1;
     $record[ 'price' ] = $this->pObj->pi_getLL( 'record_qs_prod_price_cup' );
     $record[ 'tax' ] = $this->pObj->pi_getLL( 'record_qs_prod_tax_cup' );
     $record[ 'stockquantity' ] = $this->pObj->pi_getLL( 'record_qs_prod_stockquantity_cup' );
@@ -623,7 +623,7 @@ class tx_quickshopinstaller_pi1_quickshop
     $record[ 'sku' ] = $this->pObj->pi_getLL( 'record_qs_prod_sku_pullover' );
     $record[ 'short' ] = $this->pObj->pi_getLL( 'record_qs_prod_short_pullover' );
     $record[ 'description' ] = $this->pObj->pi_getLL( 'record_qs_prod_description_pullover' );
-    $record[ 'category' ] = 1;
+    $record[ 'tx_quickshop_categories' ] = 1;
     $record[ 'price' ] = $this->pObj->pi_getLL( 'record_qs_prod_price_pullover' );
     $record[ 'tax' ] = $this->pObj->pi_getLL( 'record_qs_prod_tax_pullover' );
     $record[ 'stockquantity' ] = $this->pObj->pi_getLL( 'record_qs_prod_stockquantity_pullover' );
