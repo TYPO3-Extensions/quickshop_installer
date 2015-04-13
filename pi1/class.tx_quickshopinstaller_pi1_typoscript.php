@@ -256,7 +256,7 @@ class tx_quickshopinstaller_pi1_typoscript
    * @param	[type]		$$uid: ...
    * @return	array		$record : the TypoScript record
    * @access private
-   * @version 3.0.0
+   * @version 6.0.9
    * @since   3.0.0
    */
   private function recordRootCaseAll( $uid )
@@ -310,7 +310,7 @@ plugin.base_quickshop {
     // for baseURL
   host = ' . $this->pObj->markerArray[ '###HOST###' ] . '/
   pages {
-    root = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
+    root = ' . $this->pObj->arr_pageUids[ 'pageQuickshopShop_title' ] . '
     root {
       caddymini = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddyCaddymini_title' ] . '
       libraries {
@@ -496,7 +496,7 @@ browser_ajax < plugin.tx_browser_pi1.javascript.ajax.jQuery.' . $GLOBALS[ 'TSFE'
    * @param	[type]		$$uid: ...
    * @return	array		$record : the TypoScript record
    * @access private
-   * @version 6.0.0
+   * @version 6.0.9
    * @since   3.0.0
    */
   private function recordRootCaseShopOnly( $uid )
@@ -546,7 +546,7 @@ plugin.caddy {
     caddy       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ] . '
     caddymini   = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddyCaddymini_title' ] . '
     revocation  = ' . $this->pObj->arr_pageUids[ 'pageQuickshopRevocation_title' ] . '
-    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshopShop_title' ] . '
     terms       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopTerms_title' ] . '
   }
   url {
@@ -561,7 +561,7 @@ plugin.quick_shop {
     caddy       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopCaddy_title' ] . '
     items       = ' . $this->pObj->arr_pageUids[ 'pageQuickshopItems_title' ] . '
     shipping    = ' . $this->pObj->arr_pageUids[ 'pageQuickshopShipping_title' ] . '
-    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshop_title' ] . '
+    shop        = ' . $this->pObj->arr_pageUids[ 'pageQuickshopShop_title' ] . '
   }
 }
   // quick_shop

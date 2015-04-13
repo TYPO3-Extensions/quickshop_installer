@@ -1,7 +1,12 @@
+6.0.9
+  15-04-11
+  Bugfix
+  * #66402: Wrong Shop Uid
+
 6.0.8
   15-04-11
   Bugfix
-  #i0021: SQL error: Unknown column 'category' in 'field list'
+  * #i0021: SQL error: Unknown column 'category' in 'field list'
           tx_quickshop_products.category is moved to tx_quickshop_products.tx_quickshop_categories
 
 6.0.7
