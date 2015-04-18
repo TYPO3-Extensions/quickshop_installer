@@ -356,13 +356,14 @@ TCEMAIN {
               'uid'           => $pageUid,
               'pid'           => $pid,
               'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
+              'dokType'       => 254,  // 254: sysfolder
               'crdate'        => time( ),
               'tstamp'        => time( ),
               'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'library',
               'urlType'       => 1,
               'sorting'       => $sorting
             );
@@ -402,6 +403,7 @@ TCEMAIN {
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'library',
               'urlType'       => 1,
               'sorting'       => $sorting
             );
@@ -434,13 +436,14 @@ TCEMAIN {
               'uid'           => $pageUid,
               'pid'           => $pid,
               'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
+              'dokType'       => 254,  // 254: sysfolder
               'crdate'        => time( ),
               'tstamp'        => time( ),
               'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'quickshop',
               'urlType'       => 1,
               'sorting'       => $sorting
             );
@@ -473,13 +476,14 @@ TCEMAIN {
               'uid'           => $pageUid,
               'pid'           => $pid,
               'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
+              'dokType'       => 254,  // 254: sysfolder
               'crdate'        => time( ),
               'tstamp'        => time( ),
               'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'library',
               'urlType'       => 1,
               'sorting'       => $sorting
             );
@@ -519,6 +523,7 @@ TCEMAIN {
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'library',
               'urlType'       => 1,
               'sorting'       => $sorting
             );
@@ -551,13 +556,14 @@ TCEMAIN {
               'uid'           => $pageUid,
               'pid'           => $pid,
               'title'         => $llPageTitle,
-              'dokType'       => 1,  // 1: page
+              'dokType'       => 254,  // 254: sysfolder
               'crdate'        => time( ),
               'tstamp'        => time( ),
               'perms_userid'  => $this->pObj->markerArray['###BE_USER###'],
               'perms_groupid' => $this->pObj->markerArray['###GROUP_UID###'],
               'perms_user'    => 31, // 31: Full access
               'perms_group'   => 31, // 31: Full access
+              'module'        => 'library',
               'urlType'       => 1,
               'sorting'       => $sorting
             );

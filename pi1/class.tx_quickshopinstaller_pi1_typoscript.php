@@ -685,14 +685,16 @@ plugin.tx_browser_pi1 {
    *
    * @return	string		$staticFiles  : the list of static files
    * @access private
-   * @version 3.0.0
+   * @version 6.0.13
    * @since   3.0.0
    */
   private function recordRootStaticFilesPowermail2x()
   {
     $staticFiles = 'EXT:css_styled_content/static/'
             . ',EXT:browser/Configuration/TypoScript/Foundation/Framework/'
+            . ',EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/jQuery/'     // #i0024, 150418, dwildt, 1+
             . ',EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/modernizr/'
+            . ',EXT:browser/Configuration/TypoScript/Foundation/Framework/page/jss/fastclick/'  // #i0024, 150418, dwildt, 1+
             . ',EXT:browser/Configuration/TypoScript/'
             . ',EXT:browser/Configuration/TypoScript/Foundation/Templating/'
             . ',EXT:caddy/Configuration/TypoScript/Basis/'
