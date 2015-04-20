@@ -100,31 +100,31 @@
       <label index="content_create_prompt">Content "###HEADER###" is added to the page ###TITLE_PID###.</label>
       <label index="content_pageQuickshop_header">Quick Shop</label>
       <label index="content_pageQuickshop_bodytext"><![CDATA[<div class="row">
-  <div class="large-12 columns">
+  <div class="columns">
     <h1>Welcome to TYPO3 Quick Shop</h1>
   </div>
 </div>
 
 <div class="row">
-  <div class="large-12 columns">
+  <div class="columns">
     <div class="panel">
       <h3>Responsive and ready-to-use. Installation with one mouse-click.</h3>
       <div class="row">
-        <div class="large-4 medium-4 columns">
+        <div class="medium-4 columns">
           <p>
             <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
             Quick Shop is optimised for desktops, tablets and smartphones.
             Test it: go to the shop and vary the size of your browser window.
           </p>
         </div>
-        <div class="large-4 medium-4 columns">
+        <div class="medium-4 columns">
           <p>
             <a href="http://typo3-quick-shop.de/en/one-click" target="_blank">Ready-to-use</a><br />
             You are welcome to install Quick Shop with one mouse-click &ndash; responsive and ready-to-use.
             You need: TYPO3, Quick Shop and a mouse.
           </p>
         </div>
-        <div class="large-4 medium-4 columns">
+        <div class="medium-4 columns">
           <p>
             <a href="http://die-netzmacher.de/kontakt/" target="_blank">Professional service</a><br />
             You don't like to adapt Quick Shop to your individual needs by yourself?
@@ -149,7 +149,25 @@
 </div>
 
 <div class="row">
-  <div class="large-6 columns">
+  <div class="medium-9 columns">
+    <h3>E-commerce for small budget and small-scale enterprises</h3>
+    <p>
+      Quick Shop is easy: easy to use, easy to configure, easy to handle.<br />
+      TYPO3 integrators can install Quick Shop with minimum costs.<br />
+      Quick Shop is the solution for a small budget and for small-scale enterprises,
+      which make low demands on e-commerce.
+    </p>
+  </div>
+  <div class="medium-3 columns">
+    <h3>Installation</h3>
+    <div class="flex-video">
+      <iframe width="420" height="315" src="http://typo3-quick-shop.de/typo3conf/ext/quick_shop/Ressources/Public/HTML/Youtube/de/150420_typo3_quick_shop_installation.html" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-6 columns">
     <h3>Test it now!</h3>
     <div class="row">
       <div class="columns">
@@ -180,7 +198,7 @@
       </div>
     </div>
   </div>
-  <div class="large-6 columns">
+  <div class="medium-6 columns">
     <h3>Features</h3>
     <!-- Grid Example -->
     <ul>
@@ -629,31 +647,31 @@ Because of the price:
       <label index="content_create_prompt">Inhalt "###HEADER###" zur Seite ###TITLE_PID### zugefügt.</label>
       <label index="content_pageQuickshop_header">Quick Shop</label>
       <label index="content_pageQuickshop_bodytext"><![CDATA[<div class="row">
-  <div class="large-12 columns">
+  <div class="columns">
     <h1>Willkommen im TYPO3 Quick Shop</h1>
   </div>
 </div>
 
 <div class="row">
-  <div class="large-12 columns">
+  <div class="columns">
     <div class="panel">
       <h3>Responsive und schlüsselfertig. Installation mit einem Maus-Klick.</h3>
       <div class="row">
-        <div class="large-4 medium-4 columns">
+        <div class="medium-4 columns">
           <p>
             <a href="index.php?id=%pageQuickshopShop_title%">Responsive</a><br />
             Quick Shop ist optimiert für Desktops, Tablets und Smartphones.
             Probier es aus:  Geh zum Shop und verändere die Größe Deines Browserfensters.
           </p>
         </div>
-        <div class="large-4 medium-4 columns">
+        <div class="medium-4 columns">
           <p>
             <a href="http://typo3-quick-shop.de/ein-click" target="_blank">Schlüsselfertig</a><br />
             Du kannst Quick Shop mit einem Maus-Klick installieren &ndash; responsive und schlüsselfertig.
             Du brauchst: TYPO3, Quick Shop und eine Maus.
           </p>
         </div>
-        <div class="large-4 medium-4 columns">
+        <div class="medium-4 columns">
           <p>
             <a href="http://die-netzmacher.de/kontakt/" target="_blank">Professioneller Support</a><br />
             Du willst Quick Shop nicht selbst an Deine Bedürfnisse anpassen?
@@ -666,19 +684,25 @@ Because of the price:
 </div>
 
 <div class="row">
-  <div class="columns">
-    <h3>Quick Shop: E-Commerce für kleine Budgets und kleine Unternehmen</h3>
+  <div class="medium-9 columns">
+    <h3>E-Commerce für kleine Budgets und kleine Unternehmen</h3>
     <p>
-      Quick Shop ist einfach: einfach zu nutzen, einfach einzurichten, einfach zu pflegen.
-      TYPO3-Integratoren können Quick Shop mit einem Minimum an Aufwand installieren.
+      Quick Shop ist einfach: einfach zu nutzen, einfach einzurichten, einfach zu pflegen.<br />
+      TYPO3-Integratoren können Quick Shop mit einem Minimum an Aufwand installieren (siehe Video).<br />
       Quick Shop ist eine Lösung für kleine Budgets und kleine Unternehmen,
       die geringe Anforderungen an E-Commerce haben.
     </p>
   </div>
+  <div class="medium-3 columns">
+    <h3>Installation</h3>
+    <div class="flex-video">
+      <iframe width="420" height="315" src="http://typo3-quick-shop.de/typo3conf/ext/quick_shop/Ressources/Public/HTML/Youtube/de/150420_typo3_quick_shop_installation.html" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
 
 <div class="row">
-  <div class="large-6 columns">
+  <div class="medium-6 columns">
     <h3>Probier es aus!</h3>
     <div class="row">
       <div class="columns">
@@ -709,7 +733,7 @@ Because of the price:
       </div>
     </div>
   </div>
-  <div class="large-6 columns">
+  <div class="medium-6 columns">
     <h3>Features</h3>
     <!-- Grid Example -->
     <ul>
