@@ -738,7 +738,7 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
    *
    * @return	void
    * @access private
-   * @version   3.0.0
+   * @version   6.1.0
    * @since     1.0.0
    */
   private function extensionCheckCaseBaseTemplate()
@@ -760,6 +760,13 @@ class tx_quickshopinstaller_pi1 extends tslib_pibase
 
     $key = 'base_quickshop';
     $title = 'Quick Shop - Template';
+    if ( !$this->extensionCheckExtension( $key, $title ) )
+    {
+      $success = false;
+    }
+
+    $key = 'start';
+    $title = 'Starter Kit responsive';
     if ( !$this->extensionCheckExtension( $key, $title ) )
     {
       $success = false;

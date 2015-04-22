@@ -1,3 +1,9 @@
+6.1.0
+  15-04-22
+  * #i0027: Update for Caddy 6.1 (mini caddy)
+            Needed new extension: start
+            See caddy: #66534
+
 6.0.14
   15-04-20
   Improvement

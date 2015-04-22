@@ -256,7 +256,7 @@ class tx_quickshopinstaller_pi1_typoscript
    * @param	[type]		$$uid: ...
    * @return	array		$record : the TypoScript record
    * @access private
-   * @version 6.0.9
+   * @version 6.1.0
    * @since   3.0.0
    */
   private function recordRootCaseAll( $uid )
@@ -284,6 +284,7 @@ class tx_quickshopinstaller_pi1_typoscript
     $record[ 'clear' ] = 3;  // Clear all
     $record[ 'include_static_file' ] = ''
             . $this->recordRootStaticFiles()
+            . ',EXT:start/Configuration/TypoScript/FoundationIcons/'
             . ',EXT:base_quickshop/Configuration/TypoScript/'
             . ',EXT:quick_shop/Configuration/TypoScript/62037/'
             . ',EXT:quick_shop/Configuration/TypoScript/Caddy/'
@@ -685,7 +686,7 @@ plugin.tx_browser_pi1 {
    *
    * @return	string		$staticFiles  : the list of static files
    * @access private
-   * @version 6.0.13
+   * @version 6.1.0
    * @since   3.0.0
    */
   private function recordRootStaticFilesPowermail2x()
@@ -701,6 +702,7 @@ plugin.tx_browser_pi1 {
             . ',EXT:caddy/Configuration/TypoScript/Css/orange/'
             . ',EXT:caddy/Configuration/TypoScript/Foundation/5x/'
             . ',EXT:caddy/Configuration/TypoScript/Foundation/5x/Css/'
+            . ',EXT:caddy/Configuration/TypoScript/Foundation/5x/Mini/Reveal/'
             . ',EXT:caddy/Configuration/TypoScript/Properties/de/'
     ;
 
