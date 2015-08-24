@@ -65,7 +65,7 @@
  * @author    Dirk Wildt <http://wildt.at.die-netzmacher.de>
  * @package    TYPO3
  * @subpackage    tx_quickshopinstaller
- * @version 6.0.0
+ * @version 6.1.1
  * @since 3.0.0
  */
 class tx_quickshopinstaller_pi1_pages
@@ -581,7 +581,7 @@ TCEMAIN {
  * @param    integer        $sorting            : sorting value
  * @return    array        $page               : current page record
  * @access private
- * @version 3.0.0
+ * @version 6.1.1
  * @since 1.0.0
  */
   private function pageQuickshopItems( $pageUid, $sorting )
@@ -616,16 +616,27 @@ TCEMAIN {
   //
   // INDEX
   // =====
+  // mod.web_list.allowedNewTables
   // TCAdefaults
   // TCEMAIN
 
 
+  // mod.web_list.allowedNewTables (#i0035, 150823, dwildt, +)
+mod {
+  web_list {
+    allowedNewTables (
+      tx_quickshop_categories,
+      tx_quickshop_dimension,
+      tx_quickshop_material,
+      tx_quickshop_products,
+      tx_quickshop_shippingcosts
+    )
+  }
+}
+  // mod.web_list.allowedNewTables
 
-  ////////////////////////////////////////////////////////////////////////
-  //
-  // TCAdefaults
 
-  // Default values for new records
+  // TCAdefaults: Default values for new records
 TCAdefaults {
     // Default values for organiser calendar
   tx_quickshop_products {
@@ -643,19 +654,14 @@ TCAdefaults {
     tax           =   2
   }
 }
-  // Default values for new records
-  // TCAdefaults
+  // TCAdefaults: Default values for new records
 
 
-
-  ////////////////////////////////////////////////////////////////////////
-  //
   // TCEMAIN
-
 TCEMAIN {
   clearCacheCmd = pages
 }
-  // TCEMAIN
+// TCEMAIN
 
 
 

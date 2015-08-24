@@ -1,3 +1,10 @@
+6.1.1
+  15-08-23
+  Improvement
+  * #i0035: Page TSconf for items folder: allowedNewTables
+            Effected file:
+            * pi1/class.tx_quickshopinstaller_pi1_pages.php
+
 6.1.0
   15-04-22
   * #i0027: Update for Caddy 6.1 (mini caddy)
